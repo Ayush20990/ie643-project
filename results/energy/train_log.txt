@@ -1,0 +1,417 @@
+== Energy: Transformer station ETTh1 -> ETTh2  L=168 H=24 C=7
+windows source train/val/test 10261/3461/3461; target 10261/3461/3461
+LiteTCN params: 381,606
+[source s0] ep 01 train 0.8392 val_mse 0.3424
+[source s0] ep 02 train 0.6921 val_mse 0.3125
+[source s0] ep 03 train 0.6195 val_mse 0.3002
+[source s0] ep 04 train 0.5475 val_mse 0.2932
+[source s0] ep 05 train 0.4982 val_mse 0.2948
+[source s0] ep 06 train 0.4572 val_mse 0.2988
+[source s0] ep 07 train 0.4236 val_mse 0.3075
+[source s0] ep 08 train 0.3953 val_mse 0.3127
+[source s0] ep 09 train 0.3727 val_mse 0.3263
+[source s0] ep 10 train 0.3555 val_mse 0.3214
+[source s0] ep 11 train 0.3420 val_mse 0.3281
+[source s0] ep 12 train 0.3308 val_mse 0.3241
+[source s0] ep 13 train 0.3219 val_mse 0.3298
+[source s0] ep 14 train 0.3156 val_mse 0.3309
+[source s0] ep 15 train 0.3104 val_mse 0.3305
+[source s0] ep 16 train 0.3064 val_mse 0.3314
+[source s0] ep 17 train 0.3035 val_mse 0.3329
+[source s0] ep 18 train 0.3019 val_mse 0.3329
+[source s0] ep 19 train 0.3009 val_mse 0.3328
+[source s0] ep 20 train 0.3006 val_mse 0.3331
+[dann s0] ep 00 mmd_feat 0.3135 src_val_mse 0.2932 tgt_test_mse 0.1691
+[dann s0] ep 01 sup 0.2099 dann 0.0660 total 0.2760 mmd_feat 0.2340 src_val_mse 0.2906 tgt_test_mse 0.1709
+[dann s0] ep 02 sup 0.1957 dann 0.0673 total 0.2631 mmd_feat 0.1539 src_val_mse 0.2922 tgt_test_mse 0.1684
+[dann s0] ep 03 sup 0.1856 dann 0.0713 total 0.2569 mmd_feat 0.1677 src_val_mse 0.2972 tgt_test_mse 0.1749
+[dann s0] ep 04 sup 0.1772 dann 0.0683 total 0.2455 mmd_feat 0.1292 src_val_mse 0.3009 tgt_test_mse 0.1795
+[dann s0] ep 05 sup 0.1687 dann 0.0783 total 0.2470 mmd_feat 0.4445 src_val_mse 0.3120 tgt_test_mse 0.1950
+[dann s0] ep 06 sup 0.1608 dann 0.0673 total 0.2281 mmd_feat 0.2744 src_val_mse 0.3064 tgt_test_mse 0.1741
+[dann s0] ep 07 sup 0.1543 dann 0.0767 total 0.2310 mmd_feat 0.7189 src_val_mse 0.3186 tgt_test_mse 0.1891
+[dann s0] ep 08 sup 0.1662 dann 0.1092 total 0.2753 mmd_feat 2.0168 src_val_mse 0.3263 tgt_test_mse 0.1925
+[dann s0] ep 09 sup 0.1706 dann 0.0766 total 0.2473 mmd_feat 0.6910 src_val_mse 0.3185 tgt_test_mse 0.1856
+[dann s0] ep 10 sup 0.1514 dann 0.0894 total 0.2408 mmd_feat 2.0115 src_val_mse 0.3214 tgt_test_mse 0.2311
+[coral s0] ep 00 mmd_feat 0.3135 src_val_mse 0.2932 tgt_test_mse 0.1691
+[coral s0] ep 01 sup 0.2101 coral 0.0009 total 0.2110 mmd_feat 0.3382 src_val_mse 0.2898 tgt_test_mse 0.1708
+[coral s0] ep 02 sup 0.1952 coral 0.0007 total 0.1959 mmd_feat 0.2816 src_val_mse 0.2905 tgt_test_mse 0.1732
+[coral s0] ep 03 sup 0.1840 coral 0.0007 total 0.1846 mmd_feat 0.2274 src_val_mse 0.2941 tgt_test_mse 0.1745
+[coral s0] ep 04 sup 0.1745 coral 0.0006 total 0.1751 mmd_feat 0.1819 src_val_mse 0.2985 tgt_test_mse 0.1757
+[coral s0] ep 05 sup 0.1644 coral 0.0006 total 0.1650 mmd_feat 0.1608 src_val_mse 0.3042 tgt_test_mse 0.1798
+[coral s0] ep 06 sup 0.1550 coral 0.0005 total 0.1556 mmd_feat 0.1394 src_val_mse 0.3124 tgt_test_mse 0.1801
+[coral s0] ep 07 sup 0.1466 coral 0.0005 total 0.1472 mmd_feat 0.1287 src_val_mse 0.3117 tgt_test_mse 0.1814
+[coral s0] ep 08 sup 0.1390 coral 0.0005 total 0.1395 mmd_feat 0.1223 src_val_mse 0.3179 tgt_test_mse 0.1830
+[coral s0] ep 09 sup 0.1318 coral 0.0005 total 0.1322 mmd_feat 0.1214 src_val_mse 0.3213 tgt_test_mse 0.1829
+[coral s0] ep 10 sup 0.1257 coral 0.0005 total 0.1261 mmd_feat 0.1230 src_val_mse 0.3279 tgt_test_mse 0.1857
+[mmd s0] ep 00 mmd_feat 0.3135 src_val_mse 0.2932 tgt_test_mse 0.1691
+[mmd s0] ep 01 sup 0.2176 mmd 0.0602 total 0.2778 mmd_feat 0.1136 src_val_mse 0.2897 tgt_test_mse 0.1633
+[mmd s0] ep 02 sup 0.2091 mmd 0.0398 total 0.2489 mmd_feat 0.1034 src_val_mse 0.2847 tgt_test_mse 0.1616
+[mmd s0] ep 03 sup 0.2050 mmd 0.0386 total 0.2436 mmd_feat 0.1089 src_val_mse 0.2824 tgt_test_mse 0.1615
+[mmd s0] ep 04 sup 0.2020 mmd 0.0370 total 0.2390 mmd_feat 0.1031 src_val_mse 0.2804 tgt_test_mse 0.1621
+[mmd s0] ep 05 sup 0.1981 mmd 0.0358 total 0.2339 mmd_feat 0.0982 src_val_mse 0.2797 tgt_test_mse 0.1623
+[mmd s0] ep 06 sup 0.1935 mmd 0.0328 total 0.2263 mmd_feat 0.0991 src_val_mse 0.2804 tgt_test_mse 0.1627
+[mmd s0] ep 07 sup 0.1892 mmd 0.0349 total 0.2242 mmd_feat 0.0971 src_val_mse 0.2803 tgt_test_mse 0.1625
+[mmd s0] ep 08 sup 0.1854 mmd 0.0343 total 0.2197 mmd_feat 0.0982 src_val_mse 0.2799 tgt_test_mse 0.1622
+[mmd s0] ep 09 sup 0.1813 mmd 0.0355 total 0.2168 mmd_feat 0.0957 src_val_mse 0.2820 tgt_test_mse 0.1628
+[mmd s0] ep 10 sup 0.1758 mmd 0.0353 total 0.2111 mmd_feat 0.0910 src_val_mse 0.2824 tgt_test_mse 0.1622
+[care s0] ep 00 mmd_feat 0.3135 src_val_mse 0.2932 tgt_test_mse 0.1691
+[care s0] ep 01 sup 0.2172 mmd 0.0631 coral 0.0006 ssl 0.8139 anchor 0.0190 total 1.1139 mmd_feat 0.1276 src_val_mse 0.2897 tgt_test_mse 0.1646
+[care s0] ep 02 sup 0.2104 mmd 0.0452 coral 0.0004 ssl 0.7694 anchor 0.0366 total 1.0620 mmd_feat 0.1257 src_val_mse 0.2866 tgt_test_mse 0.1642
+[care s0] ep 03 sup 0.2092 mmd 0.0432 coral 0.0003 ssl 0.7599 anchor 0.0420 total 1.0545 mmd_feat 0.1229 src_val_mse 0.2852 tgt_test_mse 0.1637
+[care s0] ep 04 sup 0.2100 mmd 0.0423 coral 0.0003 ssl 0.7526 anchor 0.0457 total 1.0509 mmd_feat 0.1192 src_val_mse 0.2846 tgt_test_mse 0.1638
+[care s0] ep 05 sup 0.2079 mmd 0.0386 coral 0.0003 ssl 0.7462 anchor 0.0478 total 1.0408 mmd_feat 0.1160 src_val_mse 0.2840 tgt_test_mse 0.1634
+[care s0] ep 06 sup 0.2078 mmd 0.0375 coral 0.0003 ssl 0.7454 anchor 0.0488 total 1.0398 mmd_feat 0.1107 src_val_mse 0.2841 tgt_test_mse 0.1632
+[care s0] ep 07 sup 0.2069 mmd 0.0398 coral 0.0003 ssl 0.7404 anchor 0.0499 total 1.0373 mmd_feat 0.1137 src_val_mse 0.2825 tgt_test_mse 0.1630
+[care s0] ep 08 sup 0.2072 mmd 0.0392 coral 0.0003 ssl 0.7355 anchor 0.0511 total 1.0333 mmd_feat 0.1121 src_val_mse 0.2816 tgt_test_mse 0.1634
+[care s0] ep 09 sup 0.2067 mmd 0.0390 coral 0.0003 ssl 0.7321 anchor 0.0520 total 1.0300 mmd_feat 0.1051 src_val_mse 0.2820 tgt_test_mse 0.1630
+[care s0] ep 10 sup 0.2064 mmd 0.0374 coral 0.0003 ssl 0.7270 anchor 0.0529 total 1.0240 mmd_feat 0.1076 src_val_mse 0.2820 tgt_test_mse 0.1632
+[care_noalign s0] ep 00 mmd_feat 0.3135 src_val_mse 0.2932 tgt_test_mse 0.1691
+[care_noalign s0] ep 01 sup 0.2140 ssl 0.8042 anchor 0.0145 total 1.0326 mmd_feat 0.3134 src_val_mse 0.2898 tgt_test_mse 0.1682
+[care_noalign s0] ep 02 sup 0.2073 ssl 0.7505 anchor 0.0379 total 0.9957 mmd_feat 0.3478 src_val_mse 0.2880 tgt_test_mse 0.1691
+[care_noalign s0] ep 03 sup 0.2064 ssl 0.7341 anchor 0.0471 total 0.9876 mmd_feat 0.3963 src_val_mse 0.2883 tgt_test_mse 0.1690
+[care_noalign s0] ep 04 sup 0.2067 ssl 0.7239 anchor 0.0520 total 0.9827 mmd_feat 0.4321 src_val_mse 0.2890 tgt_test_mse 0.1697
+[care_noalign s0] ep 05 sup 0.2051 ssl 0.7158 anchor 0.0558 total 0.9767 mmd_feat 0.4653 src_val_mse 0.2896 tgt_test_mse 0.1704
+[care_noalign s0] ep 06 sup 0.2050 ssl 0.7160 anchor 0.0581 total 0.9791 mmd_feat 0.5075 src_val_mse 0.2888 tgt_test_mse 0.1703
+[care_noalign s0] ep 07 sup 0.2043 ssl 0.7122 anchor 0.0601 total 0.9766 mmd_feat 0.5209 src_val_mse 0.2875 tgt_test_mse 0.1701
+[care_noalign s0] ep 08 sup 0.2043 ssl 0.7088 anchor 0.0613 total 0.9744 mmd_feat 0.5546 src_val_mse 0.2864 tgt_test_mse 0.1715
+[care_noalign s0] ep 09 sup 0.2042 ssl 0.7065 anchor 0.0627 total 0.9734 mmd_feat 0.5686 src_val_mse 0.2861 tgt_test_mse 0.1707
+[care_noalign s0] ep 10 sup 0.2038 ssl 0.7045 anchor 0.0640 total 0.9723 mmd_feat 0.6022 src_val_mse 0.2861 tgt_test_mse 0.1718
+[care_nossl s0] ep 00 mmd_feat 0.3135 src_val_mse 0.2932 tgt_test_mse 0.1691
+[care_nossl s0] ep 01 sup 0.2172 mmd 0.0608 coral 0.0008 anchor 0.0079 total 0.2868 mmd_feat 0.1115 src_val_mse 0.2896 tgt_test_mse 0.1641
+[care_nossl s0] ep 02 sup 0.2110 mmd 0.0421 coral 0.0002 anchor 0.0097 total 0.2630 mmd_feat 0.1111 src_val_mse 0.2850 tgt_test_mse 0.1625
+[care_nossl s0] ep 03 sup 0.2111 mmd 0.0403 coral 0.0001 anchor 0.0111 total 0.2626 mmd_feat 0.1173 src_val_mse 0.2827 tgt_test_mse 0.1619
+[care_nossl s0] ep 04 sup 0.2127 mmd 0.0395 coral 0.0001 anchor 0.0126 total 0.2649 mmd_feat 0.1149 src_val_mse 0.2808 tgt_test_mse 0.1615
+[care_nossl s0] ep 05 sup 0.2126 mmd 0.0374 coral 0.0000 anchor 0.0137 total 0.2638 mmd_feat 0.1071 src_val_mse 0.2801 tgt_test_mse 0.1611
+[care_nossl s0] ep 06 sup 0.2126 mmd 0.0354 coral 0.0000 anchor 0.0141 total 0.2621 mmd_feat 0.1104 src_val_mse 0.2789 tgt_test_mse 0.1606
+[care_nossl s0] ep 07 sup 0.2125 mmd 0.0375 coral 0.0000 anchor 0.0146 total 0.2647 mmd_feat 0.1101 src_val_mse 0.2777 tgt_test_mse 0.1605
+[care_nossl s0] ep 08 sup 0.2134 mmd 0.0376 coral 0.0000 anchor 0.0153 total 0.2663 mmd_feat 0.1139 src_val_mse 0.2767 tgt_test_mse 0.1599
+[care_nossl s0] ep 09 sup 0.2125 mmd 0.0394 coral 0.0000 anchor 0.0160 total 0.2679 mmd_feat 0.1036 src_val_mse 0.2769 tgt_test_mse 0.1603
+[care_nossl s0] ep 10 sup 0.2117 mmd 0.0378 coral 0.0000 anchor 0.0162 total 0.2657 mmd_feat 0.1099 src_val_mse 0.2769 tgt_test_mse 0.1597
+[care_noanchor s0] ep 00 mmd_feat 0.3135 src_val_mse 0.2932 tgt_test_mse 0.1691
+[care_noanchor s0] ep 01 sup 0.2174 mmd 0.0627 coral 0.0006 ssl 0.8090 total 1.0897 mmd_feat 0.1301 src_val_mse 0.2908 tgt_test_mse 0.1642
+[care_noanchor s0] ep 02 sup 0.2088 mmd 0.0431 coral 0.0004 ssl 0.7310 total 0.9832 mmd_feat 0.1274 src_val_mse 0.2880 tgt_test_mse 0.1650
+[care_noanchor s0] ep 03 sup 0.2042 mmd 0.0396 coral 0.0004 ssl 0.6887 total 0.9328 mmd_feat 0.1189 src_val_mse 0.2865 tgt_test_mse 0.1650
+[care_noanchor s0] ep 04 sup 0.2012 mmd 0.0391 coral 0.0003 ssl 0.6633 total 0.9039 mmd_feat 0.1134 src_val_mse 0.2868 tgt_test_mse 0.1662
+[care_noanchor s0] ep 05 sup 0.1954 mmd 0.0357 coral 0.0003 ssl 0.6438 total 0.8752 mmd_feat 0.1057 src_val_mse 0.2874 tgt_test_mse 0.1667
+[care_noanchor s0] ep 06 sup 0.1911 mmd 0.0339 coral 0.0003 ssl 0.6336 total 0.8590 mmd_feat 0.1038 src_val_mse 0.2892 tgt_test_mse 0.1671
+[care_noanchor s0] ep 07 sup 0.1867 mmd 0.0362 coral 0.0003 ssl 0.6196 total 0.8428 mmd_feat 0.1012 src_val_mse 0.2870 tgt_test_mse 0.1674
+[care_noanchor s0] ep 08 sup 0.1822 mmd 0.0367 coral 0.0003 ssl 0.6077 total 0.8270 mmd_feat 0.0997 src_val_mse 0.2868 tgt_test_mse 0.1680
+[care_noanchor s0] ep 09 sup 0.1785 mmd 0.0361 coral 0.0003 ssl 0.5960 total 0.8109 mmd_feat 0.0963 src_val_mse 0.2891 tgt_test_mse 0.1682
+[care_noanchor s0] ep 10 sup 0.1739 mmd 0.0351 coral 0.0003 ssl 0.5854 total 0.7947 mmd_feat 0.0955 src_val_mse 0.2892 tgt_test_mse 0.1692
+[oracle s0] ep 01 train 0.6177 val_mse 0.1711
+[oracle s0] ep 02 train 0.5377 val_mse 0.1689
+[oracle s0] ep 03 train 0.5024 val_mse 0.1715
+[oracle s0] ep 04 train 0.4792 val_mse 0.1725
+[oracle s0] ep 05 train 0.4599 val_mse 0.1732
+[oracle s0] ep 06 train 0.4445 val_mse 0.1740
+[oracle s0] ep 07 train 0.4336 val_mse 0.1753
+[oracle s0] ep 08 train 0.4246 val_mse 0.1780
+[oracle s0] ep 09 train 0.4185 val_mse 0.1822
+[oracle s0] ep 10 train 0.4127 val_mse 0.1802
+[oracle s0] ep 11 train 0.4086 val_mse 0.1807
+[oracle s0] ep 12 train 0.4057 val_mse 0.1824
+[oracle s0] ep 13 train 0.4040 val_mse 0.1821
+[oracle s0] ep 14 train 0.4026 val_mse 0.1819
+[oracle s0] ep 15 train 0.4027 val_mse 0.1820
+[tgt-only s0] ep 01 train 0.7516 val_mse 0.1955
+[tgt-only s0] ep 02 train 0.5847 val_mse 0.1809
+[tgt-only s0] ep 03 train 0.5278 val_mse 0.1780
+[tgt-only s0] ep 04 train 0.4898 val_mse 0.1834
+[tgt-only s0] ep 05 train 0.4580 val_mse 0.1945
+[tgt-only s0] ep 06 train 0.4335 val_mse 0.1995
+[tgt-only s0] ep 07 train 0.4160 val_mse 0.1957
+[tgt-only s0] ep 08 train 0.4008 val_mse 0.2014
+[tgt-only s0] ep 09 train 0.3887 val_mse 0.1973
+[tgt-only s0] ep 10 train 0.3777 val_mse 0.2025
+[tgt-only s0] ep 11 train 0.3730 val_mse 0.2054
+[tgt-only s0] ep 12 train 0.3627 val_mse 0.2083
+[tgt-only s0] ep 13 train 0.3571 val_mse 0.2079
+[tgt-only s0] ep 14 train 0.3528 val_mse 0.2117
+[tgt-only s0] ep 15 train 0.3499 val_mse 0.2080
+[tgt-only s0] ep 16 train 0.3470 val_mse 0.2106
+[tgt-only s0] ep 17 train 0.3450 val_mse 0.2111
+[tgt-only s0] ep 18 train 0.3447 val_mse 0.2116
+[tgt-only s0] ep 19 train 0.3436 val_mse 0.2114
+[tgt-only s0] ep 20 train 0.3428 val_mse 0.2113
+seed 0 done in 985s
+[source s1] ep 01 train 0.8490 val_mse 0.3455
+[source s1] ep 02 train 0.6906 val_mse 0.3196
+[source s1] ep 03 train 0.6166 val_mse 0.3056
+[source s1] ep 04 train 0.5479 val_mse 0.2989
+[source s1] ep 05 train 0.4960 val_mse 0.3020
+[source s1] ep 06 train 0.4535 val_mse 0.3128
+[source s1] ep 07 train 0.4170 val_mse 0.3198
+[source s1] ep 08 train 0.3874 val_mse 0.3338
+[source s1] ep 09 train 0.3644 val_mse 0.3359
+[source s1] ep 10 train 0.3466 val_mse 0.3368
+[source s1] ep 11 train 0.3318 val_mse 0.3364
+[source s1] ep 12 train 0.3213 val_mse 0.3393
+[source s1] ep 13 train 0.3135 val_mse 0.3386
+[source s1] ep 14 train 0.3060 val_mse 0.3386
+[source s1] ep 15 train 0.3008 val_mse 0.3415
+[source s1] ep 16 train 0.2977 val_mse 0.3415
+[source s1] ep 17 train 0.2950 val_mse 0.3427
+[source s1] ep 18 train 0.2931 val_mse 0.3439
+[source s1] ep 19 train 0.2925 val_mse 0.3434
+[source s1] ep 20 train 0.2916 val_mse 0.3438
+[dann s1] ep 00 mmd_feat 0.2921 src_val_mse 0.2989 tgt_test_mse 0.1729
+[dann s1] ep 01 sup 0.2020 dann 0.0652 total 0.2672 mmd_feat 0.1983 src_val_mse 0.2998 tgt_test_mse 0.1735
+[dann s1] ep 02 sup 0.1882 dann 0.0665 total 0.2547 mmd_feat 0.1769 src_val_mse 0.3041 tgt_test_mse 0.1704
+[dann s1] ep 03 sup 0.1781 dann 0.0706 total 0.2486 mmd_feat 0.1653 src_val_mse 0.3063 tgt_test_mse 0.1751
+[dann s1] ep 04 sup 0.1679 dann 0.0685 total 0.2365 mmd_feat 0.1406 src_val_mse 0.3113 tgt_test_mse 0.1806
+[dann s1] ep 05 sup 0.1583 dann 0.0743 total 0.2326 mmd_feat 0.2955 src_val_mse 0.3225 tgt_test_mse 0.1905
+[dann s1] ep 06 sup 0.1512 dann 0.0708 total 0.2220 mmd_feat 0.2511 src_val_mse 0.3192 tgt_test_mse 0.1851
+[dann s1] ep 07 sup 0.1451 dann 0.0787 total 0.2238 mmd_feat 0.7212 src_val_mse 0.3309 tgt_test_mse 0.1933
+[dann s1] ep 08 sup 0.1450 dann 0.0833 total 0.2283 mmd_feat 1.0620 src_val_mse 0.3398 tgt_test_mse 0.2034
+[dann s1] ep 09 sup 0.1410 dann 0.0723 total 0.2133 mmd_feat 0.3525 src_val_mse 0.3481 tgt_test_mse 0.1999
+[dann s1] ep 10 sup 0.1569 dann 0.1075 total 0.2644 mmd_feat 2.0879 src_val_mse 0.3292 tgt_test_mse 0.2266
+[coral s1] ep 00 mmd_feat 0.2921 src_val_mse 0.2989 tgt_test_mse 0.1729
+[coral s1] ep 01 sup 0.2022 coral 0.0010 total 0.2032 mmd_feat 0.2582 src_val_mse 0.2981 tgt_test_mse 0.1731
+[coral s1] ep 02 sup 0.1874 coral 0.0008 total 0.1882 mmd_feat 0.2448 src_val_mse 0.3022 tgt_test_mse 0.1741
+[coral s1] ep 03 sup 0.1764 coral 0.0007 total 0.1772 mmd_feat 0.2255 src_val_mse 0.3042 tgt_test_mse 0.1770
+[coral s1] ep 04 sup 0.1651 coral 0.0007 total 0.1658 mmd_feat 0.2098 src_val_mse 0.3108 tgt_test_mse 0.1803
+[coral s1] ep 05 sup 0.1549 coral 0.0006 total 0.1555 mmd_feat 0.1939 src_val_mse 0.3175 tgt_test_mse 0.1838
+[coral s1] ep 06 sup 0.1455 coral 0.0006 total 0.1461 mmd_feat 0.1832 src_val_mse 0.3205 tgt_test_mse 0.1869
+[coral s1] ep 07 sup 0.1375 coral 0.0006 total 0.1381 mmd_feat 0.1758 src_val_mse 0.3234 tgt_test_mse 0.1915
+[coral s1] ep 08 sup 0.1306 coral 0.0005 total 0.1311 mmd_feat 0.1659 src_val_mse 0.3335 tgt_test_mse 0.1931
+[coral s1] ep 09 sup 0.1242 coral 0.0005 total 0.1247 mmd_feat 0.1508 src_val_mse 0.3339 tgt_test_mse 0.1945
+[coral s1] ep 10 sup 0.1188 coral 0.0005 total 0.1193 mmd_feat 0.1503 src_val_mse 0.3370 tgt_test_mse 0.1975
+[mmd s1] ep 00 mmd_feat 0.2921 src_val_mse 0.2989 tgt_test_mse 0.1729
+[mmd s1] ep 01 sup 0.2100 mmd 0.0628 total 0.2728 mmd_feat 0.1366 src_val_mse 0.2944 tgt_test_mse 0.1667
+[mmd s1] ep 02 sup 0.2034 mmd 0.0374 total 0.2408 mmd_feat 0.1198 src_val_mse 0.2911 tgt_test_mse 0.1632
+[mmd s1] ep 03 sup 0.1995 mmd 0.0366 total 0.2361 mmd_feat 0.1067 src_val_mse 0.2913 tgt_test_mse 0.1624
+[mmd s1] ep 04 sup 0.1941 mmd 0.0355 total 0.2296 mmd_feat 0.1026 src_val_mse 0.2907 tgt_test_mse 0.1616
+[mmd s1] ep 05 sup 0.1880 mmd 0.0337 total 0.2217 mmd_feat 0.1036 src_val_mse 0.2916 tgt_test_mse 0.1629
+[mmd s1] ep 06 sup 0.1821 mmd 0.0348 total 0.2168 mmd_feat 0.1052 src_val_mse 0.2912 tgt_test_mse 0.1624
+[mmd s1] ep 07 sup 0.1770 mmd 0.0340 total 0.2110 mmd_feat 0.1017 src_val_mse 0.2916 tgt_test_mse 0.1629
+[mmd s1] ep 08 sup 0.1722 mmd 0.0323 total 0.2045 mmd_feat 0.1030 src_val_mse 0.2939 tgt_test_mse 0.1627
+[mmd s1] ep 09 sup 0.1683 mmd 0.0343 total 0.2026 mmd_feat 0.1060 src_val_mse 0.2938 tgt_test_mse 0.1637
+[mmd s1] ep 10 sup 0.1638 mmd 0.0331 total 0.1970 mmd_feat 0.1065 src_val_mse 0.2954 tgt_test_mse 0.1643
+[care s1] ep 00 mmd_feat 0.2921 src_val_mse 0.2989 tgt_test_mse 0.1729
+[care s1] ep 01 sup 0.2095 mmd 0.0658 coral 0.0007 ssl 0.8032 anchor 0.0209 total 1.1001 mmd_feat 0.1343 src_val_mse 0.2964 tgt_test_mse 0.1681
+[care s1] ep 02 sup 0.2055 mmd 0.0419 coral 0.0004 ssl 0.7537 anchor 0.0401 total 1.0417 mmd_feat 0.1328 src_val_mse 0.2934 tgt_test_mse 0.1679
+[care s1] ep 03 sup 0.2047 mmd 0.0433 coral 0.0004 ssl 0.7433 anchor 0.0449 total 1.0366 mmd_feat 0.1228 src_val_mse 0.2923 tgt_test_mse 0.1676
+[care s1] ep 04 sup 0.2035 mmd 0.0408 coral 0.0004 ssl 0.7381 anchor 0.0476 total 1.0304 mmd_feat 0.1259 src_val_mse 0.2909 tgt_test_mse 0.1666
+[care s1] ep 05 sup 0.2016 mmd 0.0393 coral 0.0004 ssl 0.7318 anchor 0.0494 total 1.0224 mmd_feat 0.1266 src_val_mse 0.2911 tgt_test_mse 0.1671
+[care s1] ep 06 sup 0.2009 mmd 0.0378 coral 0.0004 ssl 0.7249 anchor 0.0507 total 1.0147 mmd_feat 0.1223 src_val_mse 0.2893 tgt_test_mse 0.1666
+[care s1] ep 07 sup 0.2008 mmd 0.0394 coral 0.0004 ssl 0.7201 anchor 0.0525 total 1.0131 mmd_feat 0.1222 src_val_mse 0.2891 tgt_test_mse 0.1668
+[care s1] ep 08 sup 0.2000 mmd 0.0381 coral 0.0004 ssl 0.7182 anchor 0.0530 total 1.0097 mmd_feat 0.1231 src_val_mse 0.2910 tgt_test_mse 0.1664
+[care s1] ep 09 sup 0.1995 mmd 0.0383 coral 0.0003 ssl 0.7108 anchor 0.0538 total 1.0026 mmd_feat 0.1252 src_val_mse 0.2876 tgt_test_mse 0.1661
+[care s1] ep 10 sup 0.2000 mmd 0.0378 coral 0.0004 ssl 0.7111 anchor 0.0541 total 1.0033 mmd_feat 0.1186 src_val_mse 0.2883 tgt_test_mse 0.1668
+[care_noalign s1] ep 00 mmd_feat 0.2921 src_val_mse 0.2989 tgt_test_mse 0.1729
+[care_noalign s1] ep 01 sup 0.2063 ssl 0.7907 anchor 0.0150 total 1.0121 mmd_feat 0.2592 src_val_mse 0.2957 tgt_test_mse 0.1740
+[care_noalign s1] ep 02 sup 0.2022 ssl 0.7326 anchor 0.0408 total 0.9756 mmd_feat 0.2920 src_val_mse 0.2963 tgt_test_mse 0.1764
+[care_noalign s1] ep 03 sup 0.2016 ssl 0.7160 anchor 0.0512 total 0.9687 mmd_feat 0.3284 src_val_mse 0.2957 tgt_test_mse 0.1775
+[care_noalign s1] ep 04 sup 0.2005 ssl 0.7084 anchor 0.0560 total 0.9650 mmd_feat 0.3617 src_val_mse 0.2961 tgt_test_mse 0.1780
+[care_noalign s1] ep 05 sup 0.1987 ssl 0.7022 anchor 0.0592 total 0.9601 mmd_feat 0.3955 src_val_mse 0.2950 tgt_test_mse 0.1790
+[care_noalign s1] ep 06 sup 0.1982 ssl 0.6971 anchor 0.0619 total 0.9573 mmd_feat 0.4271 src_val_mse 0.2942 tgt_test_mse 0.1797
+[care_noalign s1] ep 07 sup 0.1979 ssl 0.6941 anchor 0.0642 total 0.9562 mmd_feat 0.4530 src_val_mse 0.2941 tgt_test_mse 0.1805
+[care_noalign s1] ep 08 sup 0.1972 ssl 0.6947 anchor 0.0653 total 0.9572 mmd_feat 0.4794 src_val_mse 0.2965 tgt_test_mse 0.1810
+[care_noalign s1] ep 09 sup 0.1970 ssl 0.6897 anchor 0.0664 total 0.9531 mmd_feat 0.5062 src_val_mse 0.2923 tgt_test_mse 0.1805
+[care_noalign s1] ep 10 sup 0.1975 ssl 0.6929 anchor 0.0673 total 0.9577 mmd_feat 0.5089 src_val_mse 0.2935 tgt_test_mse 0.1808
+[care_nossl s1] ep 00 mmd_feat 0.2921 src_val_mse 0.2989 tgt_test_mse 0.1729
+[care_nossl s1] ep 01 sup 0.2097 mmd 0.0630 coral 0.0010 anchor 0.0092 total 0.2829 mmd_feat 0.1383 src_val_mse 0.2946 tgt_test_mse 0.1670
+[care_nossl s1] ep 02 sup 0.2056 mmd 0.0395 coral 0.0002 anchor 0.0108 total 0.2561 mmd_feat 0.1423 src_val_mse 0.2912 tgt_test_mse 0.1637
+[care_nossl s1] ep 03 sup 0.2071 mmd 0.0392 coral 0.0001 anchor 0.0122 total 0.2586 mmd_feat 0.1211 src_val_mse 0.2899 tgt_test_mse 0.1620
+[care_nossl s1] ep 04 sup 0.2068 mmd 0.0380 coral 0.0001 anchor 0.0134 total 0.2581 mmd_feat 0.1224 src_val_mse 0.2876 tgt_test_mse 0.1600
+[care_nossl s1] ep 05 sup 0.2060 mmd 0.0377 coral 0.0000 anchor 0.0142 total 0.2580 mmd_feat 0.1268 src_val_mse 0.2886 tgt_test_mse 0.1611
+[care_nossl s1] ep 06 sup 0.2054 mmd 0.0361 coral 0.0000 anchor 0.0146 total 0.2562 mmd_feat 0.1174 src_val_mse 0.2858 tgt_test_mse 0.1593
+[care_nossl s1] ep 07 sup 0.2060 mmd 0.0369 coral 0.0000 anchor 0.0152 total 0.2580 mmd_feat 0.1163 src_val_mse 0.2854 tgt_test_mse 0.1593
+[care_nossl s1] ep 08 sup 0.2054 mmd 0.0362 coral 0.0000 anchor 0.0158 total 0.2574 mmd_feat 0.1176 src_val_mse 0.2867 tgt_test_mse 0.1589
+[care_nossl s1] ep 09 sup 0.2058 mmd 0.0359 coral 0.0000 anchor 0.0160 total 0.2578 mmd_feat 0.1257 src_val_mse 0.2842 tgt_test_mse 0.1588
+[care_nossl s1] ep 10 sup 0.2065 mmd 0.0361 coral 0.0000 anchor 0.0162 total 0.2588 mmd_feat 0.1282 src_val_mse 0.2843 tgt_test_mse 0.1594
+[care_noanchor s1] ep 00 mmd_feat 0.2921 src_val_mse 0.2989 tgt_test_mse 0.1729
+[care_noanchor s1] ep 01 sup 0.2097 mmd 0.0657 coral 0.0007 ssl 0.7983 total 1.0744 mmd_feat 0.1319 src_val_mse 0.2973 tgt_test_mse 0.1683
+[care_noanchor s1] ep 02 sup 0.2037 mmd 0.0401 coral 0.0005 ssl 0.7146 total 0.9589 mmd_feat 0.1204 src_val_mse 0.2950 tgt_test_mse 0.1690
+[care_noanchor s1] ep 03 sup 0.1992 mmd 0.0410 coral 0.0004 ssl 0.6718 total 0.9124 mmd_feat 0.1092 src_val_mse 0.2945 tgt_test_mse 0.1690
+[care_noanchor s1] ep 04 sup 0.1938 mmd 0.0378 coral 0.0004 ssl 0.6489 total 0.8809 mmd_feat 0.1084 src_val_mse 0.2934 tgt_test_mse 0.1682
+[care_noanchor s1] ep 05 sup 0.1878 mmd 0.0361 coral 0.0004 ssl 0.6300 total 0.8542 mmd_feat 0.1075 src_val_mse 0.2952 tgt_test_mse 0.1694
+[care_noanchor s1] ep 06 sup 0.1823 mmd 0.0353 coral 0.0004 ssl 0.6144 total 0.8323 mmd_feat 0.1061 src_val_mse 0.2939 tgt_test_mse 0.1687
+[care_noanchor s1] ep 07 sup 0.1780 mmd 0.0360 coral 0.0004 ssl 0.6014 total 0.8158 mmd_feat 0.1025 src_val_mse 0.2947 tgt_test_mse 0.1693
+[care_noanchor s1] ep 08 sup 0.1729 mmd 0.0345 coral 0.0003 ssl 0.5914 total 0.7991 mmd_feat 0.0988 src_val_mse 0.2989 tgt_test_mse 0.1702
+[care_noanchor s1] ep 09 sup 0.1683 mmd 0.0352 coral 0.0003 ssl 0.5754 total 0.7792 mmd_feat 0.1012 src_val_mse 0.2987 tgt_test_mse 0.1710
+[care_noanchor s1] ep 10 sup 0.1647 mmd 0.0353 coral 0.0003 ssl 0.5673 total 0.7676 mmd_feat 0.1011 src_val_mse 0.2991 tgt_test_mse 0.1718
+[oracle s1] ep 01 train 0.6145 val_mse 0.1730
+[oracle s1] ep 02 train 0.5346 val_mse 0.1757
+[oracle s1] ep 03 train 0.5001 val_mse 0.1765
+[oracle s1] ep 04 train 0.4765 val_mse 0.1801
+[oracle s1] ep 05 train 0.4590 val_mse 0.1848
+[oracle s1] ep 06 train 0.4433 val_mse 0.1869
+[oracle s1] ep 07 train 0.4330 val_mse 0.1934
+[oracle s1] ep 08 train 0.4231 val_mse 0.1927
+[oracle s1] ep 09 train 0.4168 val_mse 0.1948
+[oracle s1] ep 10 train 0.4116 val_mse 0.1967
+[oracle s1] ep 11 train 0.4065 val_mse 0.1980
+[oracle s1] ep 12 train 0.4045 val_mse 0.1989
+[oracle s1] ep 13 train 0.4028 val_mse 0.1990
+[oracle s1] ep 14 train 0.4011 val_mse 0.1989
+[oracle s1] ep 15 train 0.4011 val_mse 0.1990
+[tgt-only s1] ep 01 train 0.7324 val_mse 0.1948
+[tgt-only s1] ep 02 train 0.5740 val_mse 0.1812
+[tgt-only s1] ep 03 train 0.5204 val_mse 0.1837
+[tgt-only s1] ep 04 train 0.4783 val_mse 0.1873
+[tgt-only s1] ep 05 train 0.4492 val_mse 0.1892
+[tgt-only s1] ep 06 train 0.4267 val_mse 0.1949
+[tgt-only s1] ep 07 train 0.4091 val_mse 0.1988
+[tgt-only s1] ep 08 train 0.3951 val_mse 0.2079
+[tgt-only s1] ep 09 train 0.3831 val_mse 0.2085
+[tgt-only s1] ep 10 train 0.3736 val_mse 0.2074
+[tgt-only s1] ep 11 train 0.3643 val_mse 0.2079
+[tgt-only s1] ep 12 train 0.3588 val_mse 0.2124
+[tgt-only s1] ep 13 train 0.3529 val_mse 0.2133
+[tgt-only s1] ep 14 train 0.3489 val_mse 0.2118
+[tgt-only s1] ep 15 train 0.3455 val_mse 0.2124
+[tgt-only s1] ep 16 train 0.3431 val_mse 0.2122
+[tgt-only s1] ep 17 train 0.3415 val_mse 0.2123
+[tgt-only s1] ep 18 train 0.3404 val_mse 0.2130
+[tgt-only s1] ep 19 train 0.3402 val_mse 0.2131
+[tgt-only s1] ep 20 train 0.3401 val_mse 0.2132
+seed 1 done in 1640s
+[source s2] ep 01 train 0.8671 val_mse 0.3541
+[source s2] ep 02 train 0.6890 val_mse 0.3233
+[source s2] ep 03 train 0.6179 val_mse 0.3084
+[source s2] ep 04 train 0.5532 val_mse 0.3039
+[source s2] ep 05 train 0.4995 val_mse 0.3033
+[source s2] ep 06 train 0.4556 val_mse 0.3104
+[source s2] ep 07 train 0.4208 val_mse 0.3282
+[source s2] ep 08 train 0.3931 val_mse 0.3274
+[source s2] ep 09 train 0.3706 val_mse 0.3300
+[source s2] ep 10 train 0.3540 val_mse 0.3401
+[source s2] ep 11 train 0.3399 val_mse 0.3339
+[source s2] ep 12 train 0.3291 val_mse 0.3347
+[source s2] ep 13 train 0.3208 val_mse 0.3390
+[source s2] ep 14 train 0.3145 val_mse 0.3374
+[source s2] ep 15 train 0.3096 val_mse 0.3438
+[source s2] ep 16 train 0.3059 val_mse 0.3405
+[source s2] ep 17 train 0.3042 val_mse 0.3410
+[source s2] ep 18 train 0.3027 val_mse 0.3434
+[source s2] ep 19 train 0.3007 val_mse 0.3408
+[source s2] ep 20 train 0.3008 val_mse 0.3415
+[dann s2] ep 00 mmd_feat 0.2166 src_val_mse 0.3033 tgt_test_mse 0.1764
+[dann s2] ep 01 sup 0.1786 dann 0.0678 total 0.2464 mmd_feat 0.1762 src_val_mse 0.3102 tgt_test_mse 0.1791
+[dann s2] ep 02 sup 0.1664 dann 0.0675 total 0.2339 mmd_feat 0.1981 src_val_mse 0.3182 tgt_test_mse 0.1778
+[dann s2] ep 03 sup 0.1568 dann 0.0691 total 0.2259 mmd_feat 0.1757 src_val_mse 0.3141 tgt_test_mse 0.1806
+[dann s2] ep 04 sup 0.1487 dann 0.0670 total 0.2158 mmd_feat 0.1263 src_val_mse 0.3172 tgt_test_mse 0.1845
+[dann s2] ep 05 sup 0.1418 dann 0.0741 total 0.2159 mmd_feat 0.1751 src_val_mse 0.3245 tgt_test_mse 0.1935
+[dann s2] ep 06 sup 0.1366 dann 0.0673 total 0.2039 mmd_feat 0.1733 src_val_mse 0.3191 tgt_test_mse 0.1857
+[dann s2] ep 07 sup 0.1316 dann 0.0764 total 0.2080 mmd_feat 0.4434 src_val_mse 0.3408 tgt_test_mse 0.2158
+[dann s2] ep 08 sup 0.1398 dann 0.0874 total 0.2271 mmd_feat 0.5755 src_val_mse 0.3236 tgt_test_mse 0.2026
+[dann s2] ep 09 sup 0.1327 dann 0.0754 total 0.2081 mmd_feat 0.2224 src_val_mse 0.3508 tgt_test_mse 0.2057
+[dann s2] ep 10 sup 0.1307 dann 0.0867 total 0.2174 mmd_feat 0.4539 src_val_mse 0.3259 tgt_test_mse 0.1937
+[coral s2] ep 00 mmd_feat 0.2166 src_val_mse 0.3033 tgt_test_mse 0.1764
+[coral s2] ep 01 sup 0.1788 coral 0.0011 total 0.1799 mmd_feat 0.1801 src_val_mse 0.3076 tgt_test_mse 0.1781
+[coral s2] ep 02 sup 0.1665 coral 0.0009 total 0.1674 mmd_feat 0.1633 src_val_mse 0.3155 tgt_test_mse 0.1823
+[coral s2] ep 03 sup 0.1555 coral 0.0009 total 0.1564 mmd_feat 0.1570 src_val_mse 0.3125 tgt_test_mse 0.1826
+[coral s2] ep 04 sup 0.1471 coral 0.0008 total 0.1479 mmd_feat 0.1538 src_val_mse 0.3182 tgt_test_mse 0.1857
+[coral s2] ep 05 sup 0.1391 coral 0.0007 total 0.1398 mmd_feat 0.1505 src_val_mse 0.3210 tgt_test_mse 0.1868
+[coral s2] ep 06 sup 0.1323 coral 0.0007 total 0.1330 mmd_feat 0.1475 src_val_mse 0.3204 tgt_test_mse 0.1881
+[coral s2] ep 07 sup 0.1259 coral 0.0007 total 0.1266 mmd_feat 0.1482 src_val_mse 0.3258 tgt_test_mse 0.1896
+[coral s2] ep 08 sup 0.1202 coral 0.0006 total 0.1208 mmd_feat 0.1517 src_val_mse 0.3300 tgt_test_mse 0.1911
+[coral s2] ep 09 sup 0.1153 coral 0.0006 total 0.1159 mmd_feat 0.1477 src_val_mse 0.3367 tgt_test_mse 0.1945
+[coral s2] ep 10 sup 0.1105 coral 0.0005 total 0.1111 mmd_feat 0.1475 src_val_mse 0.3342 tgt_test_mse 0.1943
+[mmd s2] ep 00 mmd_feat 0.2166 src_val_mse 0.3033 tgt_test_mse 0.1764
+[mmd s2] ep 01 sup 0.1853 mmd 0.0507 total 0.2360 mmd_feat 0.1187 src_val_mse 0.2984 tgt_test_mse 0.1673
+[mmd s2] ep 02 sup 0.1804 mmd 0.0377 total 0.2182 mmd_feat 0.1109 src_val_mse 0.2989 tgt_test_mse 0.1673
+[mmd s2] ep 03 sup 0.1727 mmd 0.0346 total 0.2072 mmd_feat 0.0977 src_val_mse 0.2959 tgt_test_mse 0.1671
+[mmd s2] ep 04 sup 0.1678 mmd 0.0336 total 0.2015 mmd_feat 0.1012 src_val_mse 0.2988 tgt_test_mse 0.1680
+[mmd s2] ep 05 sup 0.1625 mmd 0.0380 total 0.2004 mmd_feat 0.0958 src_val_mse 0.2952 tgt_test_mse 0.1679
+[mmd s2] ep 06 sup 0.1581 mmd 0.0334 total 0.1916 mmd_feat 0.1001 src_val_mse 0.2971 tgt_test_mse 0.1685
+[mmd s2] ep 07 sup 0.1538 mmd 0.0341 total 0.1878 mmd_feat 0.1022 src_val_mse 0.2988 tgt_test_mse 0.1686
+[mmd s2] ep 08 sup 0.1487 mmd 0.0350 total 0.1837 mmd_feat 0.1080 src_val_mse 0.3011 tgt_test_mse 0.1681
+[mmd s2] ep 09 sup 0.1453 mmd 0.0336 total 0.1789 mmd_feat 0.1094 src_val_mse 0.3016 tgt_test_mse 0.1692
+[mmd s2] ep 10 sup 0.1416 mmd 0.0339 total 0.1755 mmd_feat 0.1038 src_val_mse 0.3015 tgt_test_mse 0.1691
+[care s2] ep 00 mmd_feat 0.2166 src_val_mse 0.3033 tgt_test_mse 0.1764
+[care s2] ep 01 sup 0.1860 mmd 0.0556 coral 0.0007 ssl 0.7698 anchor 0.0172 total 1.0294 mmd_feat 0.1385 src_val_mse 0.3037 tgt_test_mse 0.1718
+[care s2] ep 02 sup 0.1830 mmd 0.0439 coral 0.0007 ssl 0.7249 anchor 0.0379 total 0.9903 mmd_feat 0.1328 src_val_mse 0.3041 tgt_test_mse 0.1721
+[care s2] ep 03 sup 0.1810 mmd 0.0420 coral 0.0007 ssl 0.7093 anchor 0.0440 total 0.9769 mmd_feat 0.1247 src_val_mse 0.3002 tgt_test_mse 0.1711
+[care s2] ep 04 sup 0.1808 mmd 0.0415 coral 0.0006 ssl 0.7035 anchor 0.0465 total 0.9729 mmd_feat 0.1207 src_val_mse 0.3009 tgt_test_mse 0.1707
+[care s2] ep 05 sup 0.1806 mmd 0.0475 coral 0.0006 ssl 0.6969 anchor 0.0487 total 0.9743 mmd_feat 0.1286 src_val_mse 0.2983 tgt_test_mse 0.1709
+[care s2] ep 06 sup 0.1796 mmd 0.0406 coral 0.0006 ssl 0.6927 anchor 0.0495 total 0.9629 mmd_feat 0.1210 src_val_mse 0.2959 tgt_test_mse 0.1710
+[care s2] ep 07 sup 0.1803 mmd 0.0410 coral 0.0006 ssl 0.6859 anchor 0.0505 total 0.9582 mmd_feat 0.1255 src_val_mse 0.2968 tgt_test_mse 0.1700
+[care s2] ep 08 sup 0.1786 mmd 0.0400 coral 0.0006 ssl 0.6828 anchor 0.0517 total 0.9537 mmd_feat 0.1232 src_val_mse 0.2977 tgt_test_mse 0.1708
+[care s2] ep 09 sup 0.1798 mmd 0.0400 coral 0.0006 ssl 0.6769 anchor 0.0520 total 0.9493 mmd_feat 0.1193 src_val_mse 0.2965 tgt_test_mse 0.1705
+[care s2] ep 10 sup 0.1786 mmd 0.0403 coral 0.0006 ssl 0.6739 anchor 0.0526 total 0.9459 mmd_feat 0.1176 src_val_mse 0.2977 tgt_test_mse 0.1713
+[care_noalign s2] ep 00 mmd_feat 0.2166 src_val_mse 0.3033 tgt_test_mse 0.1764
+[care_noalign s2] ep 01 sup 0.1841 ssl 0.7547 anchor 0.0159 total 0.9547 mmd_feat 0.2297 src_val_mse 0.3073 tgt_test_mse 0.1795
+[care_noalign s2] ep 02 sup 0.1815 ssl 0.6983 anchor 0.0412 total 0.9209 mmd_feat 0.2805 src_val_mse 0.3093 tgt_test_mse 0.1831
+[care_noalign s2] ep 03 sup 0.1793 ssl 0.6799 anchor 0.0500 total 0.9092 mmd_feat 0.3398 src_val_mse 0.3064 tgt_test_mse 0.1849
+[care_noalign s2] ep 04 sup 0.1787 ssl 0.6741 anchor 0.0529 total 0.9057 mmd_feat 0.3797 src_val_mse 0.3061 tgt_test_mse 0.1847
+[care_noalign s2] ep 05 sup 0.1786 ssl 0.6685 anchor 0.0555 total 0.9026 mmd_feat 0.4167 src_val_mse 0.3034 tgt_test_mse 0.1849
+[care_noalign s2] ep 06 sup 0.1779 ssl 0.6654 anchor 0.0569 total 0.9003 mmd_feat 0.4264 src_val_mse 0.3022 tgt_test_mse 0.1872
+[care_noalign s2] ep 07 sup 0.1780 ssl 0.6606 anchor 0.0577 total 0.8964 mmd_feat 0.4419 src_val_mse 0.3045 tgt_test_mse 0.1863
+[care_noalign s2] ep 08 sup 0.1761 ssl 0.6602 anchor 0.0587 total 0.8950 mmd_feat 0.4434 src_val_mse 0.3063 tgt_test_mse 0.1875
+[care_noalign s2] ep 09 sup 0.1777 ssl 0.6558 anchor 0.0590 total 0.8925 mmd_feat 0.4649 src_val_mse 0.3030 tgt_test_mse 0.1873
+[care_noalign s2] ep 10 sup 0.1766 ssl 0.6546 anchor 0.0602 total 0.8913 mmd_feat 0.4625 src_val_mse 0.3052 tgt_test_mse 0.1889
+[care_nossl s2] ep 00 mmd_feat 0.2166 src_val_mse 0.3033 tgt_test_mse 0.1764
+[care_nossl s2] ep 01 sup 0.1856 mmd 0.0512 coral 0.0006 anchor 0.0064 total 0.2438 mmd_feat 0.1235 src_val_mse 0.2979 tgt_test_mse 0.1674
+[care_nossl s2] ep 02 sup 0.1840 mmd 0.0398 coral 0.0002 anchor 0.0098 total 0.2338 mmd_feat 0.1191 src_val_mse 0.2969 tgt_test_mse 0.1668
+[care_nossl s2] ep 03 sup 0.1811 mmd 0.0376 coral 0.0001 anchor 0.0110 total 0.2297 mmd_feat 0.1076 src_val_mse 0.2935 tgt_test_mse 0.1661
+[care_nossl s2] ep 04 sup 0.1808 mmd 0.0366 coral 0.0001 anchor 0.0118 total 0.2293 mmd_feat 0.1069 src_val_mse 0.2942 tgt_test_mse 0.1662
+[care_nossl s2] ep 05 sup 0.1804 mmd 0.0407 coral 0.0001 anchor 0.0125 total 0.2338 mmd_feat 0.1095 src_val_mse 0.2918 tgt_test_mse 0.1659
+[care_nossl s2] ep 06 sup 0.1800 mmd 0.0370 coral 0.0001 anchor 0.0137 total 0.2308 mmd_feat 0.1087 src_val_mse 0.2907 tgt_test_mse 0.1657
+[care_nossl s2] ep 07 sup 0.1796 mmd 0.0376 coral 0.0001 anchor 0.0137 total 0.2310 mmd_feat 0.1172 src_val_mse 0.2899 tgt_test_mse 0.1654
+[care_nossl s2] ep 08 sup 0.1783 mmd 0.0380 coral 0.0001 anchor 0.0139 total 0.2302 mmd_feat 0.1124 src_val_mse 0.2909 tgt_test_mse 0.1655
+[care_nossl s2] ep 09 sup 0.1788 mmd 0.0361 coral 0.0001 anchor 0.0143 total 0.2293 mmd_feat 0.1144 src_val_mse 0.2901 tgt_test_mse 0.1653
+[care_nossl s2] ep 10 sup 0.1777 mmd 0.0369 coral 0.0001 anchor 0.0144 total 0.2291 mmd_feat 0.1086 src_val_mse 0.2900 tgt_test_mse 0.1660
+[care_noanchor s2] ep 00 mmd_feat 0.2166 src_val_mse 0.3033 tgt_test_mse 0.1764
+[care_noanchor s2] ep 01 sup 0.1861 mmd 0.0555 coral 0.0007 ssl 0.7635 total 1.0058 mmd_feat 0.1342 src_val_mse 0.3053 tgt_test_mse 0.1725
+[care_noanchor s2] ep 02 sup 0.1810 mmd 0.0418 coral 0.0007 ssl 0.6859 total 0.9094 mmd_feat 0.1204 src_val_mse 0.3061 tgt_test_mse 0.1734
+[care_noanchor s2] ep 03 sup 0.1756 mmd 0.0380 coral 0.0006 ssl 0.6441 total 0.8584 mmd_feat 0.1136 src_val_mse 0.3015 tgt_test_mse 0.1725
+[care_noanchor s2] ep 04 sup 0.1713 mmd 0.0371 coral 0.0005 ssl 0.6233 total 0.8322 mmd_feat 0.1058 src_val_mse 0.3034 tgt_test_mse 0.1732
+[care_noanchor s2] ep 05 sup 0.1666 mmd 0.0424 coral 0.0005 ssl 0.6068 total 0.8161 mmd_feat 0.1191 src_val_mse 0.3025 tgt_test_mse 0.1740
+[care_noanchor s2] ep 06 sup 0.1624 mmd 0.0356 coral 0.0004 ssl 0.5933 total 0.7917 mmd_feat 0.1066 src_val_mse 0.3005 tgt_test_mse 0.1747
+[care_noanchor s2] ep 07 sup 0.1587 mmd 0.0358 coral 0.0004 ssl 0.5789 total 0.7739 mmd_feat 0.1092 src_val_mse 0.3029 tgt_test_mse 0.1741
+[care_noanchor s2] ep 08 sup 0.1538 mmd 0.0352 coral 0.0004 ssl 0.5690 total 0.7584 mmd_feat 0.1222 src_val_mse 0.3038 tgt_test_mse 0.1763
+[care_noanchor s2] ep 09 sup 0.1515 mmd 0.0349 coral 0.0004 ssl 0.5551 total 0.7418 mmd_feat 0.1080 src_val_mse 0.3063 tgt_test_mse 0.1767
+[care_noanchor s2] ep 10 sup 0.1470 mmd 0.0365 coral 0.0003 ssl 0.5462 total 0.7300 mmd_feat 0.1077 src_val_mse 0.3066 tgt_test_mse 0.1769
+[oracle s2] ep 01 train 0.5974 val_mse 0.1811
+[oracle s2] ep 02 train 0.5136 val_mse 0.1783
+[oracle s2] ep 03 train 0.4811 val_mse 0.1781
+[oracle s2] ep 04 train 0.4618 val_mse 0.1809
+[oracle s2] ep 05 train 0.4461 val_mse 0.1816
+[oracle s2] ep 06 train 0.4321 val_mse 0.1846
+[oracle s2] ep 07 train 0.4217 val_mse 0.1866
+[oracle s2] ep 08 train 0.4135 val_mse 0.1870
+[oracle s2] ep 09 train 0.4069 val_mse 0.1886
+[oracle s2] ep 10 train 0.4032 val_mse 0.1908
+[oracle s2] ep 11 train 0.3986 val_mse 0.1914
+[oracle s2] ep 12 train 0.3962 val_mse 0.1919
+[oracle s2] ep 13 train 0.3955 val_mse 0.1926
+[oracle s2] ep 14 train 0.3925 val_mse 0.1928
+[oracle s2] ep 15 train 0.3922 val_mse 0.1926
+[tgt-only s2] ep 01 train 0.7788 val_mse 0.2093
+[tgt-only s2] ep 02 train 0.5833 val_mse 0.1925
+[tgt-only s2] ep 03 train 0.5195 val_mse 0.1941
+[tgt-only s2] ep 04 train 0.4778 val_mse 0.1937
+[tgt-only s2] ep 05 train 0.4470 val_mse 0.2006
+[tgt-only s2] ep 06 train 0.4236 val_mse 0.2048
+[tgt-only s2] ep 07 train 0.4058 val_mse 0.2102
+[tgt-only s2] ep 08 train 0.3917 val_mse 0.2145
+[tgt-only s2] ep 09 train 0.3783 val_mse 0.2163
+[tgt-only s2] ep 10 train 0.3692 val_mse 0.2192
+[tgt-only s2] ep 11 train 0.3598 val_mse 0.2210
+[tgt-only s2] ep 12 train 0.3536 val_mse 0.2202
+[tgt-only s2] ep 13 train 0.3492 val_mse 0.2173
+[tgt-only s2] ep 14 train 0.3431 val_mse 0.2203
+[tgt-only s2] ep 15 train 0.3398 val_mse 0.2202
+[tgt-only s2] ep 16 train 0.3381 val_mse 0.2193
+[tgt-only s2] ep 17 train 0.3363 val_mse 0.2216
+[tgt-only s2] ep 18 train 0.3341 val_mse 0.2224
+[tgt-only s2] ep 19 train 0.3341 val_mse 0.2222
+[tgt-only s2] ep 20 train 0.3343 val_mse 0.2224
+seed 2 done in 734s
+
+Target-domain test results (mean over seeds):
+                 MSE_mean  MAE_mean  MASE_mean  key_RMSE_mean  key_MAE_mean  feat_mmd_mean  GCR_MSE_mean  forgetting_%_mean
+method                                                                                                                     
+seasonal_naive     0.2246    0.3021     1.0247         4.7699        3.5203            NaN           NaN                NaN
+source_only        0.1728    0.2819     0.9577         4.6542        3.5997         0.1833        0.0000             0.0000
+dann               0.2171    0.3199     1.0838         5.6488        4.4266         1.4477      -26.5522            12.6485
+coral              0.1925    0.2979     1.0109         5.2325        4.0488         0.0854       -8.3166            12.5459
+mmd                0.1652    0.2744     0.9310         4.4881        3.4382         0.0400        3.3515            -2.9669
+care_noalign       0.1805    0.2899     0.9857         4.7850        3.7020         0.4999       -1.9727            -0.8324
+care_nossl         0.1617    0.2705     0.9169         4.3519        3.3162         0.0652        4.7100            -5.6354
+care_noanchor      0.1726    0.2816     0.9542         4.6952        3.6304         0.0455        0.0627             0.2148
+care               0.1671    0.2764     0.9375         4.5246        3.4772         0.0378        2.7334            -3.5666
+target_only        0.1774    0.2825     0.9570         4.5388        3.4240         0.1352       -1.4790            31.3250
+oracle_finetune    0.1676    0.2712     0.9180         4.2628        3.1667         0.1227        1.0000             6.0680

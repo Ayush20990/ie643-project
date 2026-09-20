@@ -1,0 +1,52 @@
+{
+  "title": "Finance: IT stocks -> Pharma stocks (NSE)",
+  "source": "it",
+  "target": "pharma",
+  "source_label": "NSE IT basket (TCS, INFY, WIPRO, HCLTECH, TECHM)",
+  "target_label": "NSE Pharma basket (SUNPHARMA, DRREDDY, CIPLA, DIVISLAB, LUPIN)",
+  "columns": [
+    "log_return",
+    "hl_range",
+    "gap",
+    "log_volume"
+  ],
+  "key": "hl_range",
+  "key_unit": "% (daily high-low range)",
+  "L": 60,
+  "H": 5,
+  "season": 1,
+  "split": [
+    0.7,
+    0.1,
+    0.2
+  ],
+  "train_stride": 1,
+  "source_scaler": {
+    "mean": [
+      0.08302268385887146,
+      2.444554090499878,
+      0.1055275946855545,
+      15.259337425231934
+    ],
+    "std": [
+      1.7445249557495117,
+      1.3661746978759766,
+      0.8957766890525818,
+      0.8420568704605103
+    ]
+  },
+  "target_scaler": {
+    "mean": [
+      0.060636281967163086,
+      2.7123379707336426,
+      0.18638411164283752,
+      14.22722053527832
+    ],
+    "std": [
+      1.8444571495056152,
+      1.562065601348877,
+      0.8437028527259827,
+      1.0315214395523071
+    ]
+  }
+}
