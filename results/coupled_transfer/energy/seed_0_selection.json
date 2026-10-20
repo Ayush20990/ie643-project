@@ -1,0 +1,157 @@
+{
+  "chosen": "input_round_8",
+  "proxy": 0.9976219121388477,
+  "history": [
+    {
+      "candidate": "zero_correction",
+      "source": {
+        "MSE": 0.26972840705709417,
+        "key_MSE": 0.04499696641869797,
+        "score": 0.15736268673789608
+      },
+      "target_input": {
+        "MSE": 0.15761217741444772,
+        "key_MSE": 0.07469974265441114,
+        "score": 0.11615596003442943
+      },
+      "proxy": 1.0,
+      "eligible": true
+    },
+    {
+      "candidate": "source_decoder",
+      "source": {
+        "MSE": 0.26926050511046457,
+        "key_MSE": 0.04172162283766273,
+        "score": 0.15549106397406365
+      },
+      "target_input": {
+        "MSE": 0.1584712339985477,
+        "key_MSE": 0.0807130912055655,
+        "score": 0.1195921626020566
+      },
+      "proxy": 1.0088444870633435,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_1",
+      "source": {
+        "MSE": 0.2697021864124269,
+        "key_MSE": 0.04481346317968146,
+        "score": 0.15725782479605416
+      },
+      "target_input": {
+        "MSE": 0.1576027689004902,
+        "key_MSE": 0.07463384042845161,
+        "score": 0.1161183046644709
+      },
+      "proxy": 0.9995047247630369,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_2",
+      "source": {
+        "MSE": 0.2696744063209846,
+        "key_MSE": 0.04461896299080193,
+        "score": 0.15714668465589327
+      },
+      "target_input": {
+        "MSE": 0.1575914008687666,
+        "key_MSE": 0.07455430539554682,
+        "score": 0.1160728531321567
+      },
+      "proxy": 0.9989559423177939,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_3",
+      "source": {
+        "MSE": 0.2696508876688734,
+        "key_MSE": 0.04445432721212295,
+        "score": 0.15705260744049818
+      },
+      "target_input": {
+        "MSE": 0.15758265692679324,
+        "key_MSE": 0.074493097218345,
+        "score": 0.11603787707256913
+      },
+      "proxy": 0.9985064674280877,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_4",
+      "source": {
+        "MSE": 0.26963218681490586,
+        "key_MSE": 0.04432344242308275,
+        "score": 0.1569778146189943
+      },
+      "target_input": {
+        "MSE": 0.15757340188058805,
+        "key_MSE": 0.07442829999679844,
+        "score": 0.11600085093869325
+      },
+      "proxy": 0.9981094415942335,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_5",
+      "source": {
+        "MSE": 0.2696204723408718,
+        "key_MSE": 0.044241332574146065,
+        "score": 0.15693090245750893
+      },
+      "target_input": {
+        "MSE": 0.15756856600386113,
+        "key_MSE": 0.07439443544715824,
+        "score": 0.11598150072550968
+      },
+      "proxy": 0.997877090040866,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_6",
+      "source": {
+        "MSE": 0.2696124827997838,
+        "key_MSE": 0.044185432055155106,
+        "score": 0.15689895742746945
+      },
+      "target_input": {
+        "MSE": 0.15756567192797508,
+        "key_MSE": 0.07437414439366546,
+        "score": 0.11596990816082027
+      },
+      "proxy": 0.9977256878948139,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_7",
+      "source": {
+        "MSE": 0.26960883139961206,
+        "key_MSE": 0.0441599624407443,
+        "score": 0.1568843969201782
+      },
+      "target_input": {
+        "MSE": 0.1575640218170417,
+        "key_MSE": 0.07436263653815949,
+        "score": 0.1159633291776006
+      },
+      "proxy": 0.997651104116589,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_8",
+      "source": {
+        "MSE": 0.2696074207190384,
+        "key_MSE": 0.04415003829053099,
+        "score": 0.1568787295047847
+      },
+      "target_input": {
+        "MSE": 0.15756337325702474,
+        "key_MSE": 0.07435808852056622,
+        "score": 0.11596073088879548
+      },
+      "proxy": 0.9976219121388477,
+      "eligible": true
+    }
+  ],
+  "target_future_labels_used_for_training_or_selection": false
+}

@@ -1,0 +1,29 @@
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.17}
+\begin{longtable}{@{}p{0.1092\textwidth}p{0.4550\textwidth}p{0.1729\textwidth}p{0.1729\textwidth}@{}}
+\caption{Matched source-training architecture sweep evaluated on the target, three seeds. No target Y is used to choose the source architecture.}\label{tab:depth_table}\\
+\toprule
+Dataset & Source-trained candidate & Target MSE & Target key RMSE \\
+\midrule\endfirsthead
+Dataset & Source-trained candidate & Target MSE & Target key RMSE \\
+\midrule\endhead
+\midrule\multicolumn{4}{r}{Continued on next page}\\\endfoot
+\bottomrule\endlastfoot
+climate & tcn3 & 0.2552 & 1.6372 \\
+climate & tcn5 & 0.2583 & 1.6168 \\
+climate & tcn7 & 0.2615 & 1.6783 \\
+climate & patch\_\allowbreak{}mlp & 0.2261 & 1.3490 \\
+climate & dlinear & 0.2288 & 1.3578 \\
+energy & tcn3 & 0.1751 & 4.6012 \\
+energy & tcn5 & 0.1747 & 4.6306 \\
+energy & tcn7 & 0.1758 & 4.6655 \\
+energy & patch\_\allowbreak{}mlp & 0.1594 & 4.2545 \\
+energy & dlinear & 0.1446 & 4.0982 \\
+finance & tcn3 & 0.5607 & 1.0824 \\
+finance & tcn5 & 0.5614 & 1.0824 \\
+finance & tcn7 & 0.5610 & 1.0817 \\
+finance & patch\_\allowbreak{}mlp & 0.5502 & 1.0735 \\
+finance & dlinear & 0.5498 & 1.0630 \\
+\end{longtable}
+}

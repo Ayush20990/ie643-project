@@ -1,0 +1,18 @@
+{
+  "members": [
+    {
+      "name": "Ayush Patel",
+      "roll": "23B0037"
+    },
+    {
+      "name": "Rishik Yadav",
+      "roll": "23B2103"
+    }
+  ],
+  "team_name": "DeepGen",
+  "individual_contributions": {
+    "Ayush Patel": ["Researching the relevant topics and methods", "Carrying out experiments", "Dashboard and application development"],
+    "Rishik Yadav": ["Researching the relevant topics and methods", "Carrying out experiments", "Report and presentation preparation"]
+  },
+  "contribution_source": "Team allocation supplied by the user on 20 October 2026"
+}

@@ -1,0 +1,3 @@
+# Experiment manifests hash the exact bytes of code, datasets and checkpoints.
+# Preserve those bytes across Windows/Linux clones instead of converting line endings.
+* -text

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>IE 643 — full deliverable walkthrough for the TA</title>
+<style>
+  :root { --ink:#1a1f1e; --muted:#5c6563; --teal:#0f6b63; --saffron:#c47a12; --rose:#b23a3a; --bg:#f6f4ef; --card:#fff; --line:#ddd8cc; }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: "Segoe UI", system-ui, sans-serif; color: var(--ink); background: var(--bg); line-height: 1.45; }
+  .wrap { max-width: 920px; margin: 0 auto; padding: 28px 20px 80px; }
+  h1 { font-size: 1.65rem; margin: 0 0 6px; }
+  h2 { font-size: 1.22rem; color: var(--teal); margin: 34px 0 10px; border-bottom: 2px solid var(--teal); padding-bottom: 4px; }
+  h3 { font-size: 1.05rem; margin: 18px 0 8px; }
+  p, li { font-size: 1.02rem; }
+  .sub { color: var(--muted); margin-top: 0; }
+  .pitch { background: #12332f; color: #f3efe6; padding: 16px 18px; border-radius: 12px; }
+  .box { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin: 10px 0; }
+  .warn { background: #fff4e5; border-color: #e8c48a; }
+  .good { background: #e8f5ec; border-color: #b7dcc0; }
+  .ask { background: #eef6f5; border-left: 4px solid var(--teal); padding: 8px 12px; margin: 8px 0; }
+  .dl { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin: 14px 0; }
+  .dl h3 { margin-top: 0; color: #12332f; }
+  .tag { display: inline-block; font-size: 0.78rem; font-weight: 700; padding: 2px 8px; border-radius: 999px; margin-right: 6px; }
+  .done { background: #c8ebd4; color: #145c2c; }
+  .wait { background: #ffe3b3; color: #7a4b00; }
+  table { width: 100%; border-collapse: collapse; background: #fff; font-size: 0.94rem; }
+  th, td { border: 1px solid var(--line); padding: 7px 8px; text-align: left; vertical-align: top; }
+  th { background: #12332f; color: #fff; }
+  .num { font-weight: 700; color: var(--teal); }
+  .worse { color: var(--rose); font-weight: 700; }
+  img { width: 100%; border-radius: 10px; border: 1px solid var(--line); background: #fff; margin: 8px 0 4px; }
+  .cap { color: var(--muted); font-size: 0.9rem; margin: 0 0 14px; }
+  code { background: #eee; padding: 1px 5px; border-radius: 4px; }
+  .sticky { position: sticky; top: 0; background: #12332f; color: #fff; padding: 10px 16px; z-index: 5; font-size: 0.95rem; }
+  .sticky a { color: #f2b45c; }
+  ol.demo li { margin: 8px 0; }
+</style>
+</head>
+<body>
+<div class="sticky">Walk the TA through <b>each official deliverable</b>. App: <code>streamlit run app/app.py</code> · Repo: <a href="https://github.com/Ayush20990/ie643-project">github.com/Ayush20990/ie643-project</a></div>
+<div class="wrap">
+
+<h1>Whole project, mapped to the course deliverable</h1>
+<p class="sub">The 20-slide PPT is already submitted. In this meeting you do <b>not</b> re-present the deck. You show that every item in the official brief exists, then you ask the TA to sign off / suggest changes.</p>
+
+<div class="pitch">
+<p><b>One sentence the course asked for:</b> take multivariate time-varying data from Domain 1, build a small forecaster, then make it work on Domain 2 <u>without Domain 2 answers</u>, and give the user an interface + metrics on both domains.</p>
+<p><b>What we built:</b> LiteTCN on Domain 1, CARE-DA adaptation to Domain 2, 3 dataset pairs, logs, a designed loss, metrics, and a Streamlit app that accepts a CSV from either domain.</p>
+</div>
+
+<h2>Results first — how we score a guess, then the numbers</h2>
+<div class="dl">
+<p>Lower is better for all four. These are <b>Domain 2</b> scores (the new place).</p>
+<table>
+  <tr><th>Score</th><th>What it means if you have never seen it</th></tr>
+  <tr><td><b>MSE</b></td><td>Mean Squared Error. Average of (guess − truth)² after we rescale every variable to the same size, so temperature and humidity both count. Big misses get punished extra because of the square. This is the main number in our tables.</td></tr>
+  <tr><td><b>MAE</b></td><td>Mean Absolute Error. Average of |guess − truth| on the same rescaled values. Easier to picture: “on average, how far off are we?”</td></tr>
+  <tr><td><b>MASE</b></td><td>Mean Absolute Scaled Error. We divide our MAE by the MAE of a dumb rule: repeat yesterday / last season. <b>Below 1 = we beat the dumb rule.</b> Above 1 = a copy-paste forecast is better than us. It has no units, so climate and stocks can be compared.</td></tr>
+  <tr><td><b>Key RMSE</b></td><td>Root Mean Squared Error on the one variable a user cares about, in real units. Climate = temperature in °C. Energy = oil temperature in °C. Finance = daily high–low range in %. “Our Delhi temperature guess is off by about 1.4 degrees.”</td></tr>
+</table>
+
+<p><b>Climate</b> (Shimla model → Delhi). 3-seed average, except v2 = seed 0 only. Key RMSE = Delhi temperature °C.</p>
+<table>
+  <tr><th>Recipe</th><th>MSE</th><th>MAE</th><th>MASE</th><th>Temp RMSE °C</th></tr>
+  <tr><td>Seasonal naive (no net)</td><td>0.351</td><td>0.322</td><td>1.03</td><td>1.55</td></tr>
+  <tr><td>Source-only (do nothing)</td><td>0.254</td><td>0.316</td><td>1.03</td><td>1.77</td></tr>
+  <tr><td>DANN</td><td>0.268</td><td>0.325</td><td>1.06</td><td>1.72</td></tr>
+  <tr><td>Deep CORAL</td><td>0.272</td><td>0.323</td><td>1.05</td><td>1.69</td></tr>
+  <tr><td><b>MMD — best 3-seed no-label</b></td><td><b>0.234</b></td><td><b>0.286</b></td><td><b>0.92</b></td><td><b>1.39</b></td></tr>
+  <tr><td>CARE-DA v1 (our full design)</td><td>0.245</td><td>0.306</td><td>0.99</td><td>1.65</td></tr>
+  <tr><td>CARE − SSL (v1 minus homework)</td><td>0.234</td><td>0.289</td><td>0.93</td><td>1.42</td></tr>
+  <tr><td>CARE-DA v2 (1 seed)</td><td>0.236</td><td>0.294</td><td>0.95</td><td>1.47</td></tr>
+  <tr><td>Oracle* (uses Delhi answers)</td><td>0.232</td><td>0.289</td><td>0.93</td><td>1.41</td></tr>
+</table>
+
+<p><b>Energy</b> (transformer 1 → transformer 2). Key RMSE = oil temperature °C.</p>
+<table>
+  <tr><th>Recipe</th><th>MSE</th><th>MAE</th><th>MASE</th><th>Oil RMSE °C</th></tr>
+  <tr><td>Seasonal naive</td><td>0.225</td><td>0.302</td><td>1.02</td><td>4.77</td></tr>
+  <tr><td>Source-only</td><td>0.173</td><td>0.282</td><td>0.96</td><td>4.65</td></tr>
+  <tr><td>DANN</td><td>0.217</td><td>0.320</td><td>1.08</td><td>5.65</td></tr>
+  <tr><td>Deep CORAL</td><td>0.192</td><td>0.298</td><td>1.01</td><td>5.23</td></tr>
+  <tr><td>MMD</td><td>0.165</td><td>0.274</td><td>0.93</td><td>4.49</td></tr>
+  <tr><td>CARE-DA v1</td><td>0.167</td><td>0.276</td><td>0.94</td><td>4.52</td></tr>
+  <tr><td><b>CARE − SSL — best 3-seed no-label</b></td><td><b>0.162</b></td><td><b>0.270</b></td><td><b>0.92</b></td><td><b>4.35</b></td></tr>
+  <tr><td>CARE-DA v2 (1 seed)</td><td>0.156</td><td>0.263</td><td>0.89</td><td>4.18</td></tr>
+  <tr><td>Oracle*</td><td>0.168</td><td>0.271</td><td>0.92</td><td>4.26</td></tr>
+</table>
+
+<p><b>Finance</b> (IT → pharma). Key RMSE = daily high–low range %.</p>
+<table>
+  <tr><th>Recipe</th><th>MSE</th><th>MAE</th><th>MASE</th><th>Range RMSE %</th></tr>
+  <tr><td>Seasonal naive</td><td>1.024</td><td>0.671</td><td>1.06</td><td>1.40</td></tr>
+  <tr><td>Source-only</td><td>0.561</td><td>0.496</td><td>0.79</td><td>1.08</td></tr>
+  <tr><td>DANN / CORAL</td><td>0.572</td><td>0.503</td><td>0.80</td><td>1.10</td></tr>
+  <tr><td>MMD</td><td>0.558</td><td>0.493</td><td>0.78</td><td>1.08</td></tr>
+  <tr><td>CARE-DA v1</td><td>0.562</td><td>0.496</td><td>0.79</td><td>1.08</td></tr>
+  <tr><td><b>CARE − SSL — best 3-seed no-label</b></td><td><b>0.558</b></td><td><b>0.494</b></td><td><b>0.78</b></td><td><b>1.08</b></td></tr>
+  <tr><td>CARE-DA v2 (1 seed)</td><td>0.552</td><td>0.490</td><td>0.78</td><td>1.07</td></tr>
+  <tr><td>Oracle*</td><td>0.548</td><td>0.487</td><td>0.77</td><td>1.07</td></tr>
+</table>
+<p class="cap">* Oracle uses Domain-2 answers. It is a ceiling, not a method we are allowed to ship. v2 is one seed, so do not treat those rows as the official average. MASE below 1 means we beat “repeat last season.” On finance even the oracle barely moves — there was little to win.</p>
+</div>
+
+<h2>0. Official checklist (say this first)</h2>
+<table>
+  <tr><th>#</th><th>What the brief asked</th><th>What we have</th><th>Show them</th></tr>
+  <tr><td>1</td><td>Understand the problem (Domain 1 → Domain 2, no target labels)</td><td>Written in README, slides, report draft</td><td>Mouth + this page</td></tr>
+  <tr><td>2</td><td>Background of forecasting + domain-adaptation methods</td><td>DLinear, TCN, RevIN, Ben-David, CoDATS, DAF, CLUDA, RAINCOAT</td><td>Mouth (30 sec)</td></tr>
+  <tr><td>3</td><td>≥ 3 time-series datasets, two distinct domains each, <b>TA must verify</b></td><td>Climate, finance, energy</td><td>Table below. <b>Ask them to approve.</b></td></tr>
+  <tr><td>4</td><td>Extract and curate the data (no leakage)</td><td><code>src/data_download.py</code>, <code>data/processed/</code></td><td>Folder + one CSV</td></tr>
+  <tr><td>5</td><td>Lightweight Domain-1 forecasting model</td><td>LiteTCN, ~0.38M weights, <code>models/*/source_model.pt</code></td><td>App Domain 1</td></tr>
+  <tr><td>6</td><td>Adaptation strategy for Domain 2</td><td>CARE-DA v1 (3 seeds) + v2 (1 seed, shipped in app)</td><td>App Domain 2 overlay</td></tr>
+  <tr><td>7</td><td>Implement it and <b>record how it adapts</b> (logs / plots)</td><td><code>results/*/histories.json</code>, <code>train_log.txt</code>, figures</td><td>Pictures below</td></tr>
+  <tr><td>8</td><td>Design a loss for adaptation</td><td>L_CARE written and used</td><td>Mouth + formula</td></tr>
+  <tr><td>9</td><td>Explore forecast metrics (goodness of forecast)</td><td>MSE, MAE, MASE, key RMSE, GCR, forgetting</td><td>App + table</td></tr>
+  <tr><td>10</td><td>Interface: upload Domain 1 time-varying data → plot + metrics</td><td>Streamlit, Domain 1 radio</td><td><b>Live click</b></td></tr>
+  <tr><td>11</td><td>Interface: upload Domain 2 time-varying data → plot + metrics</td><td>Streamlit, Domain 2 radio + source overlay</td><td><b>Live click</b></td></tr>
+  <tr><td>12</td><td>Stage-wise report</td><td>Builder exists; draft, not the final Word file</td><td>Say status honestly</td></tr>
+  <tr><td>13</td><td>Prep presentation</td><td>20-slide PPT <b>already submitted</b></td><td>Do not replay it</td></tr>
+</table>
+
+<h2>Baby dictionary — say these words only after you can explain them</h2>
+<div class="dl">
+<p>If the TA uses a jargon word, translate it to this. All of these appear in our project.</p>
+<table>
+  <tr><th>Word</th><th>Plain meaning</th></tr>
+  <tr><td><b>Time series</b></td><td>Numbers that come in order over time (hourly weather, daily stock, hourly transformer).</td></tr>
+  <tr><td><b>Multivariate</b></td><td>Several numbers at once. Weather is 7 variables (temp, humidity, pressure…). Not just temperature alone.</td></tr>
+  <tr><td><b>Look-back L / horizon H</b></td><td>L = how much past we show the model. H = how far ahead we ask it to guess. Climate/energy: 168 hours in, 24 hours out. Finance: 60 days in, 5 days out.</td></tr>
+  <tr><td><b>Window</b></td><td>One cut of the series: those L past rows, plus the H future rows we want to guess.</td></tr>
+  <tr><td><b>Domain</b></td><td>A place / setting. Domain 1 = source (old place). Domain 2 = target (new place).</td></tr>
+  <tr><td><b>Label / answer</b></td><td>The true future. In Domain 1 we have it. In Domain 2, for training, we pretend we do not.</td></tr>
+  <tr><td><b>Unsupervised domain adaptation (UDA)</b></td><td>Teach the old model the new place using only the new place’s <i>past</i>, never its future.</td></tr>
+  <tr><td><b>Domain shift</b></td><td>The two places do not behave the same. Delhi is hotter; pharma stocks move differently from IT.</td></tr>
+  <tr><td><b>Alignment</b></td><td>Make the model’s internal notes (the 128-number summary) look similar in both places, so the “guess tomorrow” head can work in both.</td></tr>
+  <tr><td><b>Latent / z / summary</b></td><td>Those 128 numbers the encoder squeezes the past into. This is what we align.</td></tr>
+  <tr><td><b>Checkpoint</b></td><td>A saved snapshot of the weights. “Picking a checkpoint” = choosing which snapshot to keep as the final model.</td></tr>
+  <tr><td><b>Seed</b></td><td>A starting number for all the randomness (weight start, batch order). Seed 0, seed 1, seed 2 are three independent reruns of the <i>same</i> recipe. If a method is good, it should win on more than one seed. We report the <b>mean</b> and the <b>spread (std)</b> over 3 seeds. CARE-DA v2 so far has only seed 0 — that is why we call it a probe, not a locked result.</td></tr>
+  <tr><td><b>Epoch</b></td><td>One full pass through the training data. Source model: 20 epochs. Adaptation: 10 epochs. Oracle (with labels): 15 epochs.</td></tr>
+  <tr><td><b>Batch</b></td><td>A small group of windows updated together (256 from Domain 1 + 256 from Domain 2 in one adaptation step).</td></tr>
+  <tr><td><b>Learning rate</b></td><td>How big a step the weights take. Source 1e-3 (bigger). Adaptation 3e-4 (smaller, so we do not smash the old model).</td></tr>
+  <tr><td><b>Baseline</b></td><td>A simple or classic method we compare against, so we can say “did we beat the obvious thing?”</td></tr>
+  <tr><td><b>Ablation</b></td><td>Take our method and turn <i>one piece off</i>. If turning a piece off makes things worse, that piece was useful. If turning it off makes things better, that piece was hurting.</td></tr>
+  <tr><td><b>SSL / pretext / homework</b></td><td>A fake task we can score without answers (hide-and-rebuild the past). We hoped it would help. It did not.</td></tr>
+  <tr><td><b>Negative transfer</b></td><td>Adaptation made Domain 2 <i>worse</i> than doing nothing. DANN and CORAL-alone did this.</td></tr>
+  <tr><td><b>Oracle</b></td><td>A cheat we are not allowed to use in the real product: start from Domain 1, then fine-tune with Domain 2 answers. It is the ceiling: “how well could we do if someone labelled the new place?”</td></tr>
+  <tr><td><b>Target-only</b></td><td>Another cheat: train a new model from scratch using only Domain 2 answers. Also not UDA. Used only as a reference.</td></tr>
+  <tr><td><b>Source-only</b></td><td>Do nothing. Take the Domain 1 model and run it on Domain 2. This is the floor we must beat.</td></tr>
+  <tr><td><b>Seasonal naive</b></td><td>Even simpler: “tomorrow = same time yesterday / last season.” No learning. If we cannot beat this, the model is useless.</td></tr>
+</table>
+</div>
+
+<h2>The car story — one car, many ways of driving it</h2>
+<div class="dl">
+<p><b>LiteTCN is the car.</b> It is the only neural network we built. Same engine, same seats, same 128-number “dashboard summary” of the last week. We did <i>not</i> build a DANN network, an MMD network, and a CARE network. We built <b>one</b> car, then tried different <b>driving lessons</b> after it had already learned Shimla.</p>
+<p>First we teach the car Shimla for 20 epochs. That parked car is the <b>source model</b>. Then we take a <b>copy</b> of that parked car and give it a new lesson on Delhi. Each name in the table is a different lesson. After the lesson we ask: “how wrong is Delhi tomorrow?”</p>
+<p>We repeat every lesson 3 times (seeds 0, 1, 2) except CARE-DA v2, which we only did once so far.</p>
+
+<h3>Lesson 0 — not even a car</h3>
+<p><b>Seasonal naive.</b> No LiteTCN. “Tomorrow at 3 pm = yesterday at 3 pm.” We keep this so we can say the car is at least smarter than copy-paste. MASE uses this as the divisor.</p>
+
+<h3>Lesson 1 — park the car and do nothing</h3>
+<p><b>Source-only.</b> Drive the Shimla-trained LiteTCN straight into Delhi. No extra lesson. This is “what happens if we skip the whole project.” Every −3.6% later means “this lesson beat source-only by 3.6%.”</p>
+
+<h3>Lessons 2–4 — classic driving schools (one trick each)</h3>
+<p>These three start from the <b>same</b> parked Shimla car. They only see Delhi’s <b>past</b>, never Delhi’s tomorrow.</p>
+<p><b>DANN (adversarial).</b> We hire a cop who looks at the car’s dashboard summary and tries to guess: “are you in Shimla or Delhi?” We train the car to make the cop fail. Idea: if the cop cannot tell the two cities apart, the dashboard must look the same, so the “guess tomorrow” part might work in Delhi. <b>In our runs the cop fight went badly.</b> The dashboard became messy and Delhi forecasts got worse, especially energy (+26%).</p>
+<p><b>Deep CORAL.</b> Ignore the cop. Only make the <i>correlations</i> on the dashboard match: if temperature and humidity move together in Shimla, make them move together the same way in Delhi. <b>That alone was not enough.</b> Worse than doing nothing on all three datasets.</p>
+<p><b>MMD.</b> Look at a bag of Shimla dashboard-summaries and a bag of Delhi ones. MMD is a ruler that says “how different are these two bags?” We push that number down. No cop, no extra homework. <b>This simple lesson was the best 3-seed result on climate</b> (MSE 0.254 → 0.234, temp 1.77 °C → 1.39 °C).</p>
+
+<h3>Lesson 5 — our own driving school (CARE-DA v1)</h3>
+<p>Still the same car. We combine four rules in one lesson, because the theory said we needed all of them:</p>
+<ol>
+  <li><b>Keep passing the Shimla test</b> — still guess Shimla’s tomorrow, so we do not forget the old city.</li>
+  <li><b>Match the dashboards</b> — MMD + CORAL together (the two alignment tricks).</li>
+  <li><b>Homework with no answer sheet</b> — hide 30% of Delhi’s past and ask the car to rebuild it. We thought this would keep the dashboard useful. This is SSL.</li>
+  <li><b>Spring / anchor</b> — do not wander too far from the parked Shimla weights. Like a bungee so the car cannot throw away everything it knew.</li>
+</ol>
+<p>This is the method we <b>designed</b> and reported as ours. It helps (climate MSE 0.245, energy 0.167) but it is <b>not</b> the best, because rule 3 (homework) pulled the car toward “rebuild the past” instead of “guess the future.”</p>
+
+<h3>Lessons 6–8 — take our school and pull one rule out (ablations)</h3>
+<p>An ablation is not a new car. It is the same CARE lesson with one rule unplugged, so we can see which rule mattered.</p>
+<p><b>CARE − align.</b> Unplug MMD and CORAL. Keep homework + spring. <b>Crashes.</b> So matching dashboards was the useful part.</p>
+<p><b>CARE − SSL.</b> Unplug the hide-and-rebuild homework. Keep alignment + spring. <b>This is the best 3-seed no-label driver overall.</b> Climate almost ties MMD. Energy even beats the labelled oracle.</p>
+<p><b>CARE − anchor.</b> Unplug the spring. Fine on climate, almost useless on energy. So the spring matters when the two cities are very different.</p>
+
+<h3>Lesson 9 — new school, same car (CARE-DA v2)</h3>
+<p>We heard the ablation: homework was the bad rule. So v2 still uses LiteTCN, still starts from the Shimla car, still uses no Delhi answers, but:</p>
+<ul>
+  <li>throws away hide-and-rebuild</li>
+  <li>adds a homework that is closer to forecasting (guess a nearer future from Delhi’s past)</li>
+  <li>matches dashboards at two scales, and also matches frequency (how “wiggly” the series is)</li>
+</ul>
+<p>We only drove this lesson once (seed 0). It looks better. The app’s Domain-2 button uses this car. We have not proven it over 3 seeds yet.</p>
+
+<h3>Lessons 10–11 — cheating, only so we know the ceiling</h3>
+<p>These <b>use Delhi’s tomorrow</b>. The brief does not allow this in the product. We still ran them so we can say “how much is left on the table?”</p>
+<p><b>Target-only.</b> Buy a brand-new LiteTCN. Teach it only Delhi, with answers. Sometimes worse than adapting the old car (energy), which means Shimla knowledge was useful.</p>
+<p><b>Fine-tune oracle.</b> Take the Shimla car and keep driving it on Delhi <i>with</i> the answer sheet. Best possible if labels existed. Climate can still improve a bit more (MSE 0.232). Finance barely moves (0.548 vs source 0.561). The oracle also forgets Shimla (climate Domain-1 error +14%). Our no-label lessons do not forget.</p>
+
+<p class="ask"><b>Say this to the TA:</b> “LiteTCN is the model. DANN, MMD, CORAL, CARE are not other models. They are different adaptation lessons on copies of the same Domain-1 LiteTCN. Ablations are CARE with one lesson-rule removed. The oracle is a labelled upper bound, not a competitor we claim to beat in the product.”</p>
+</div>
+
+<h2>1. Problem (deliverable: understand Domain 1 vs Domain 2)</h2>
+<div class="dl">
+<p><span class="tag done">DONE</span> Say it in baby words:</p>
+<div class="ask">
+Domain 1 = the old place, we have the answer sheet (past <b>and</b> future). We train a model: look at last week, guess tomorrow.<br>
+Domain 2 = the new place. We can see the past. We are <b>not</b> allowed to use the future while we train or while we pick the model. That is unsupervised domain adaptation for forecasting.
+</div>
+<p>Course examples: hills → plains weather, IT stock → pharma stock. We did both, plus two electricity transformers.</p>
+<img src="results/figures/climate_domain_shift.png" alt="Shimla vs Delhi" />
+<p class="cap">Shimla mean temp ≈ 11.4 °C, Delhi ≈ 24.6 °C. The two places barely overlap. Copying the old model is not enough.</p>
+</div>
+
+<h2>2. Background (deliverable: study existing methods)</h2>
+<div class="dl">
+<p><span class="tag done">DONE</span> Four forecasting ideas we used: <b>DLinear</b> (a straight line can be strong), <b>TCN</b> (cheap long memory), <b>PatchTST</b> (strong but heavy, later), <b>RevIN</b> (remove this window’s own average so “Delhi is hotter” is less of a problem).</p>
+<p>Theory in one line (Ben-David): new-place error ≤ old-place error + how different the two places look inside the model + a leftover we cannot measure without answers. So we keep old skill, make the insides look alike (<b>alignment</b>), and do not smash useful features.</p>
+<p>Time-series papers: CoDATS (adversary), SASA (variable links), DAF (forecasting but needs some labels), CLUDA (compare similar windows), RAINCOAT (frequency). Gap we picked: <b>forecasting + no labels + small model</b>.</p>
+</div>
+
+<h2>3. Datasets (deliverable: ≥ 3 pairs — TA must verify this)</h2>
+<div class="dl">
+<p><span class="tag wait">NEEDS TA YES</span> This is the most important ask in the meeting. The brief says collect at least three time-series datasets with two distinct domains. Ours:</p>
+<table>
+  <tr><th>Benchmark</th><th>Domain 1</th><th>Domain 2</th><th>What we predict</th><th>Window</th></tr>
+  <tr><td><b>Climate</b> (Open-Meteo ERA5)</td><td>Shimla ~2200 m</td><td>Delhi ~215 m</td><td>7 hourly weather vars, key = temperature °C</td><td>168 h → 24 h</td></tr>
+  <tr><td><b>Finance</b> (Yahoo / NSE)</td><td>5 IT stocks</td><td>5 pharma stocks</td><td>return, high-low range, gap, volume</td><td>60 d → 5 d</td></tr>
+  <tr><td><b>Energy</b> (ETT public)</td><td>Transformer ETTh1</td><td>Transformer ETTh2</td><td>6 loads + oil temp °C</td><td>168 h → 24 h</td></tr>
+</table>
+<p>~35k hourly rows per climate city (2021–2024). ~3,300 trading days per stock. ~17k hours per transformer. All public, one command: <code>python -m src.data_download</code>.</p>
+<div class="ask"><b>Ask the TA:</b> “Are these three source→target pairs acceptable for the project, or should we change any before we freeze more runs?”</div>
+</div>
+
+<h2>4. Data curation (deliverable: extract, clean, no cheating)</h2>
+<div class="dl">
+<p><span class="tag done">DONE</span> Six steps: download → fill small gaps → build features → split <b>by date</b> → rescale each domain → cut windows.</p>
+<ul>
+  <li>Stocks: we do <b>not</b> predict raw price. We predict returns / range / volume (prices wander).</li>
+  <li>Never shuffle time.</li>
+  <li>Domain 2 future is <b>never</b> used to train or to pick a checkpoint.</li>
+  <li>Files: <code>data/raw/</code> and <code>data/processed/&lt;benchmark&gt;/</code>.</li>
+</ul>
+</div>
+
+<h2>5. Lightweight Domain-1 model (deliverable: small forecaster)</h2>
+<div class="dl">
+<p><span class="tag done">DONE</span> Name: <b>LiteTCN-Forecaster</b>. File: <code>src/model.py</code>. Weights: <code>models/climate/source_model.pt</code> (same for energy, finance).</p>
+<div class="ask">
+A window goes in → RevIN takes off its average → 3 convolution layers squeeze it to 128 numbers (the <b>summary z</b>) → a linear head guesses the future → we put the average back. A second straight-line path (DLinear) sits beside it so it stays stable. About 380,000 weights. One epoch &lt; 1 minute on a laptop.
+</div>
+<p>The summary z is later where we compare Shimla vs Delhi. That is why the model is built for adaptation, not only for forecasting.</p>
+<p><b>How training works (if they ask):</b> Domain 1 is trained 20 epochs with AdamW, learning rate 0.001, batch 256. We keep the snapshot with the best Domain-1 validation error. Adaptation is 10 epochs, smaller learning rate 0.0003, 256 Domain-1 windows + 256 Domain-2 windows each step. v1 keeps the last epoch. v2 picks the snapshot with the smallest (Domain-1 val error + how different the two summaries still are) — still no Domain-2 answers.</p>
+</div>
+
+<h2>6. Adaptation strategy (deliverable: how Domain 2 is taught)</h2>
+<div class="dl">
+<p><span class="tag done">DONE (v1 full)</span> <span class="tag wait">v2 one seed</span></p>
+<p>Name: <b>CARE-DA</b> = Correlation-Aligned, Reconstruction-regularised, Elastic-anchored Domain Adaptation.</p>
+<div class="ask">
+One training step: Shimla batch <b>with</b> answers + Delhi batch <b>without</b> answers, same network.<br>
+1. Keep Shimla forecasts good.<br>
+2. Make the two summaries look alike (MMD + CORAL).<br>
+3. Do a no-answers homework on Delhi.<br>
+4. Stay close to the starting weights (spring / anchor) so we do not forget Domain 1.
+</div>
+<p><b>v1 homework</b> = hide 30% of Delhi’s past and rebuild it. We ran this on 3 seeds. It <b>hurt</b>.</p>
+<p><b>v2 homework</b> = a forecast-like task on Delhi (still no answers) + extra alignment. The app’s <code>adapted_model.pt</code> is v2, seed 0 only. v1 is kept as <code>adapted_model_v1.pt</code> so we can overlay both.</p>
+<img src="results/figures/climate_forecast_example.png" alt="Delhi forecast example" />
+<p class="cap">This is the Domain-2 deliverable in a picture: grey = input, black = real future, orange dashed = Domain-1 model reused, blue = adapted model.</p>
+</div>
+
+<h2>7. Adaptation logs (deliverable: record how the model adapts)</h2>
+<div class="dl">
+<p><span class="tag done">DONE</span> The brief asks us to implement the strategy <b>and record adaptation behaviour</b>. We saved per-epoch logs in <code>results/&lt;ds&gt;/histories.json</code> and <code>train_log.txt</code>, then plotted them.</p>
+<img src="results/figures/climate_adaptation_curves.png" alt="Adaptation logs" />
+<p class="cap">Left: Domain-2 error while adapting (we <b>watch</b> it; we do <b>not</b> pick the model from it). Middle: are the two summaries getting closer? Right: did Domain 1 get worse? Alignment happens. Domain 1 does not get worse. Smallest gap ≠ best forecast.</p>
+</div>
+
+<h2>8. Loss function (deliverable: design the adaptation loss)</h2>
+<div class="dl">
+<p><span class="tag done">DONE</span> This is a required designed object, not just “we trained something”.</p>
+<p><b>v1 (the designed loss we evaluated fully):</b></p>
+<p><code>L = forecast_error(Shimla) + MMD(z_s, z_t) + CORAL(z_s, z_t) + mask_rebuild(Delhi) + 0.01 × distance_to_old_weights</code></p>
+<ul>
+  <li><b>MMD</b> = a ruler that asks “are these two clouds of points the same?”</li>
+  <li><b>CORAL</b> = match how variables move together.</li>
+  <li>Same weights on all 3 datasets on purpose (fair vs baselines).</li>
+</ul>
+<p>Ablation: turn off alignment → everything gets worse. Turn off mask-rebuild → everything gets better. So the designed full v1 is honest, but not the best row.</p>
+<img src="results/figures/sensitivity.png" alt="Sensitivity of reconstruction weight" />
+<p class="cap">Turning up the rebuild-input weight makes error worse on every dataset. That is a real negative result, and it is why v2 exists.</p>
+</div>
+
+<h2>9. Metrics (deliverable: goodness of forecast)</h2>
+<div class="dl">
+<p><span class="tag done">DONE</span> The brief asks for performance / goodness-of-forecast metrics. We show them in the app and in the tables.</p>
+<ul>
+  <li><b>MSE / MAE</b> — average miss, after rescaling so every variable counts.</li>
+  <li><b>MASE</b> — are we better than “repeat yesterday / last season”? Below 1 = yes.</li>
+  <li><b>Key RMSE</b> — real units a user understands (°C temperature, % range, °C oil).</li>
+  <li><b>GCR (gap-closure)</b> — of the gain you would get by collecting Domain-2 answers, how much did we get for free? 1 = as good as using answers. Below 0 = we made it worse (negative transfer).</li>
+  <li><b>Forgetting %</b> — did Domain 1 break after adaptation?</li>
+</ul>
+<p>Negative % below = error went <b>down</b> vs just reusing Domain 1.</p>
+<table>
+  <tr><th>Dataset</th><th>CARE-DA v1 (3 seeds)</th><th>Best no-label, 3 seeds</th><th>Oracle (uses Domain-2 answers)</th><th>v2 (1 seed)</th></tr>
+  <tr><td>Climate</td><td>−3.6%</td><td>MMD −7.9% / −SSL −7.8%</td><td>−8.5%</td><td>−6.2%</td></tr>
+  <tr><td>Energy</td><td>−3.3%</td><td>−SSL −6.4% (beats oracle)</td><td>−3.0%</td><td>−7.8%</td></tr>
+  <tr><td>Finance</td><td>+0.1%</td><td>−SSL −0.6%</td><td>only −2.4%</td><td>−1.8%</td></tr>
+</table>
+<p>Delhi temperature RMSE, seed 0: 1.76 °C → <span class="num">1.47 °C</span> with v2. Oil temp: 4.61 °C → <span class="num">4.18 °C</span>.</p>
+<p>DANN on energy: <span class="worse">+26% worse</span>. CORAL alone worse on all three. Say the word: <b>negative transfer</b>.</p>
+<img src="results/figures/climate_method_bars.png" alt="Climate bars" />
+<img src="results/figures/gap_closure_all.png" alt="Gap closure" />
+<p class="cap">These two pictures are the metrics deliverable. Alignment helps. Full v1 is not the best. Finance has almost no room even with answers.</p>
+<img src="results/figures/care_v2_compare.png" alt="v1 vs v2" />
+<p class="cap">v2 vs v1, one seed. Looks better. Do not call it the locked official method until the TA agrees we should run 3 seeds.</p>
+</div>
+
+<h2>10–11. Interface (deliverable: Domain 1 and Domain 2 upload)</h2>
+<div class="dl">
+<p><span class="tag done">WORKING</span> This is the product the brief names: a user gives multivariate time-varying data from Domain 1 or Domain 2 and sees input, actual, forecast, and goodness metrics.</p>
+<p>Command: <code>streamlit run app/app.py</code> → http://localhost:8501</p>
+<ul>
+  <li>Sidebar: pick benchmark + <b>Domain 1</b> or <b>Domain 2</b>.</li>
+  <li>Upload a CSV, or use the bundled sample in <code>sample_inputs/</code> (you do not need a file).</li>
+  <li>Plot: grey input, black actual, blue our forecast. Domain 2 can overlay orange = unadapted Domain-1 model, and dotted = CARE-DA v1.</li>
+  <li>Metrics under the plot: MSE, MAE, MASE, key RMSE, plus whole-file evaluation.</li>
+  <li>Finance also accepts raw <code>Date, Open, High, Low, Close, Volume</code>.</li>
+  <li>Second tab: full benchmark table and figures.</li>
+</ul>
+<div class="ask"><b>On Domain 1 say:</b> “This is the lightweight model trained where we have answers.”<br>
+<b>On Domain 2 say:</b> “Same interface, adapted model, no Domain-2 answers were used to train it. Orange is what we would have got if we had done nothing.”</div>
+</div>
+
+<h2>12. Report + PPT (deliverable: stage-wise writeup and prep talk)</h2>
+<div class="dl">
+<p><span class="tag done">PPT submitted</span> <span class="tag wait">Report is a draft builder</span></p>
+<ul>
+  <li>20-slide prep PPT: already submitted. Do not walk it slide-by-slide today.</li>
+  <li>Stage-wise report: <code>report/build_report.js</code> can build a Word file. It is a draft. Final report is still to lock after the TA’s advice.</li>
+  <li>Code + results: public repo https://github.com/Ayush20990/ie643-project</li>
+</ul>
+</div>
+
+<h2>How to run the laptop (deliverable order, ~10 min)</h2>
+<ol class="demo">
+  <li><b>Mouth (1 min).</b> Read the dark-green pitch. Then: “We already submitted the 20-slide prep deck. Today we will show each deliverable on the machine and we need your yes/no on the three datasets.”</li>
+  <li><b>Datasets (1 min).</b> Point at the table in section 3. Ask them to approve or change.</li>
+  <li><b>Domain 1 interface (2 min).</b> Streamlit → Climate → Domain 1 → leave sample. Slider + metrics. “Lightweight Domain-1 model, CSV in, forecast + goodness metrics out.”</li>
+  <li><b>Domain 2 interface (3 min).</b> Switch to Domain 2. Tick overlay. Same story with orange vs blue. This is the main product.</li>
+  <li><b>Logs + metrics (2 min).</b> Benchmark tab, or the pictures in this file. Three sentences: alignment helps; rebuild-input hurt; finance has little to win.</li>
+  <li><b>Code only if they ask (1 min).</b> <code>src/model.py</code>, <code>src/train.py</code>, <code>src/adapt_v2.py</code>, <code>models/climate/</code>, <code>results/climate/summary_target.csv</code>.</li>
+  <li><b>Ask section 14.</b> Write answers down.</li>
+</ol>
+<div class="box warn">If Streamlit is down, this HTML still has the required pictures. Then rerun <code>streamlit run app/app.py</code>.</div>
+
+<h2>13. If the TA quizzes you</h2>
+<div class="box"><b>What is a seed? Why 3?</b> A seed is the starting number for randomness. We rerun the same recipe three times (0, 1, 2) and report the average so one lucky run cannot fool us. v2 has only seed 0 so far.</div>
+<div class="box"><b>How many models did you try?</b> One network (LiteTCN). Eleven recipes: seasonal naive, source-only, DANN, CORAL, MMD, CARE v1, three ablations, CARE v2, plus two labelled references (oracle, target-only). 3 datasets × 3 seeds for the first campaign.</div>
+<div class="box"><b>What worked best?</b> Among fair 3-seed no-label methods: MMD on climate (−7.9%), CARE without SSL on energy (−6.4%) and finance (−0.6%). Full designed CARE v1 is good but not best. v2 looks better on 1 seed.</div>
+<div class="box"><b>What failed?</b> DANN, CORAL-alone, and CARE with alignment removed. Also the rebuild-input homework inside v1.</div>
+<div class="box"><b>Did you use Domain-2 labels?</b> No. Not for training, not for picking the checkpoint. v2 picks min(source-val MSE + feature MMD).</div>
+<div class="box"><b>Why three datasets?</b> Brief asks ≥ 3. Hills/plains and IT/pharma are the brief’s own examples. ETT is a standard public pair so we are not only on our weather data.</div>
+<div class="box"><b>Why small model?</b> Brief asks lightweight. Adaptation is repeated per new place. Laptop CPU.</div>
+<div class="box"><b>What is MMD / CORAL / DANN?</b> MMD = match the whole cloud of summaries. CORAL = match correlations. DANN = a guesser tries to tell which domain a summary came from; we try to fool it. DANN failed for us.</div>
+<div class="box"><b>Is your designed method the best?</b> Honest: full CARE-DA v1 is not the best row. Alignment is. The extra rebuild task hurt. v2 is the fix, one seed only.</div>
+<div class="box"><b>Why is finance weak?</b> Even the oracle that uses pharma answers only gains 2.4%. Next-day returns are noisy. We report it as a real negative result, not a hidden failure.</div>
+<div class="box"><b>Did Domain 1 get worse?</b> No. CARE-DA / MMD slightly improve Domain 1. Using Domain-2 answers instead makes Domain 1 about 14% worse on climate.</div>
+<div class="box"><b>Where are the models?</b> <code>models/&lt;dataset&gt;/source_model.pt</code> (Domain 1) and <code>adapted_model.pt</code> (Domain 2, v2). v1 kept as <code>adapted_model_v1.pt</code>.</div>
+<div class="box"><b>Team / rolls still placeholders?</b> Say you will fill them. Do not invent names.</div>
+
+<h2>14. Questions to ask the TA (tied to the brief)</h2>
+<ol>
+  <li><b>Dataset sign-off (required by the brief):</b> Are Shimla→Delhi, IT→Pharma, and ETTh1→ETTh2 acceptable? If not, what should replace them?</li>
+  <li><b>Unsupervised rule:</b> Is “no Domain-2 future for training or checkpointing” the rule you want us to keep until the end?</li>
+  <li><b>Designed loss vs best ablation:</b> The brief asks us to design a loss. Full v1 is that design. SSL hurt. Should the official method become v2 (forecast-like pretext, 3 seeds), or stay v1 and report the ablation honestly?</li>
+  <li><b>Finance:</b> Keep it as the “little headroom” dataset the brief suggested (IT→pharma), or replace it?</li>
+  <li><b>Interface:</b> Does the current Streamlit (CSV upload, both domains, plots + MSE/MAE/MASE/RMSE) satisfy the Domain-1 and Domain-2 interface deliverable, or do you want extra (batch upload, uncertainty bands)?</li>
+  <li><b>Logs:</b> Are the adaptation curves + <code>histories.json</code> enough for “record how the model adapts”?</li>
+  <li><b>Stage-wise report:</b> Draft now, or only the final report after we lock the method?</li>
+  <li><b>Intensive assessment:</b> Live app + these three datasets, or do you also want another domain / few-shot labels?</li>
+  <li><b>Missed baseline / paper:</b> Any method we must add before the final?</li>
+</ol>
+
+<div class="box good">
+<b>Close the meeting with:</b> “Every deliverable in the brief has a first complete version: data, Domain-1 model, Domain-2 adaptation, logs, designed loss, metrics, and both interfaces. The 20-slide PPT is already in. What we need from you is approval of the three datasets and a decision on whether to lock CARE-DA v2 for the final method.”
+</div>
+
+</div>
+</body>
+</html>

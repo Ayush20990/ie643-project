@@ -1,0 +1,29 @@
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.17}
+\begin{longtable}{@{}p{0.5278\textwidth}p{0.1911\textwidth}p{0.1911\textwidth}@{}}
+\caption{Energy, single-origin H=24: target development results. Key RMSE is oil-temperature degrees Celsius.}\label{tab:long_energy}\\
+\toprule
+Model / policy & Standardized MSE & Key-variable RMSE \\
+\midrule\endfirsthead
+Model / policy & Standardized MSE & Key-variable RMSE \\
+\midrule\endhead
+\midrule\multicolumn{3}{r}{Continued on next page}\\\endfoot
+\bottomrule\endlastfoot
+Original CARE-DA v2, fixed seed 0 & 0.1559 & 4.1827 \\
+First validation-selected adapted model & 0.1532 & 4.2142 \\
+DLinear source-only (all seeds) & 0.1446 & 4.0982 \\
+Guarded DLinear family policy & 0.1448 & 4.0749 \\
+Strict input-only ensemble & 0.1456 & 3.9762 \\
+Shorter-context strict ensemble & 0.1456 & 3.9995 \\
+LiteTCN v3 adapted & 0.1678 & 4.1789 \\
+LiteTCN v3 + observed residual calibration & 0.1642 & 4.1912 \\
+LiteTCN-R adapted & 0.1462 & 4.0991 \\
+Gradual-unfreezing follow-up & 0.1468 & 4.0773 \\
+Retained TCN + predicted-driver decoder & 0.1461 & 4.0835 \\
+Retained TCN + geometry-aware boosting & 0.1456 & 4.0168 \\
+seasonal\_\allowbreak{}naive & 0.2246 & 4.7699 \\
+persistence & 0.2572 & 6.4598 \\
+input\_\allowbreak{}mean & 0.2522 & 6.7445 \\
+\end{longtable}
+}

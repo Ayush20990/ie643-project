@@ -1,0 +1,48 @@
+{
+  "dataset": "energy",
+  "args": {
+    "datasets": [
+      "climate",
+      "energy"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "rounds": 8,
+    "max_windows": 4096
+  },
+  "model_spec": {
+    "base_kind": "residual",
+    "base_spec": {},
+    "control": "temperature_only"
+  },
+  "backbone": "retained input-adapted LiteTCN v3 (climate) / R (energy)",
+  "selection": "equal relative source validation / target input proxy, 10% source MSE guard relative to zero correction",
+  "target_future_labels_used_for_training_or_selection": false,
+  "test_status": "reused development; October previously inspected",
+  "code_sha256": {
+    "coupled_transfer.py": "2867c009e9551cb39b88eb9015fde009b59db1046eb6153fddb2dbd7a368ee74",
+    "coupled_tcn.py": "97c0bf563aee64600c549bc3cbbb8f3d0b2c7bbec77358e3e8aea2d8c326cf7f",
+    "coupled_train.py": "f933ca0329ded741139639109a851f2b1d989d72d6be594c2e76c375b1469bdf",
+    "peak_model.py": "71457bb44b6c891cd818df723510631b149b46acbba8c3028a96ff7b2e74dbba",
+    "peak_data.py": "7c74bfe0d50b71f99ca9ad34794aa9ce71db36565399733689561be135329b0c",
+    "progressive_tcn.py": "2011c82bd3c61bcb985aad8f6e02b52e8ee20a3649832957f53d3cb2443be405",
+    "model.py": "102f22b17091b21d0e719b382dc54beb51fbeb8bc3197968022fc2ecd9f938ed",
+    "residual_tcn.py": "6271680428e662cd6690473b12726b814406f2e2deb86bd90dec28898bd3b290",
+    "data.py": "5f4840aaf72e54fa57862de21441e5c333b8bae4b8c81280be90b1f96d81cea5"
+  },
+  "data_sha256": {
+    "etth1.csv": "e6b024ca0e1423726f0a1e562c94c1babdb1a3a4fa1269a4fb1cbe3f57e6df44",
+    "etth2.csv": "dc09bac2ca501733e3d647552ee9d25e5d72bf2714453ea984a58f4c289cfc61"
+  },
+  "initial_checkpoint_sha256": {
+    "coupled_litetcn\\energy\\seed_0\\source_model.pt": "c1e8aece062778d2a1ccaaf20dc883886e83dd4766f6988d1e8d19b8903cfc86",
+    "residual_litetcn\\energy\\seed_0\\adapted_model.pt": "f4cc3df195d5dfd065232b95124e70cd8fe7f6535a9675c8087239bc714ec8e4",
+    "coupled_litetcn\\energy\\seed_1\\source_model.pt": "84f3ad70aaa40eb210e40d49d3dae60b83a5f4ef18fc84add7e1d12317d6fb95",
+    "residual_litetcn\\energy\\seed_1\\adapted_model.pt": "ac0d686fce4d0ab47b1b338cfd804db7c144cb74f9010ce544162226b023f528",
+    "coupled_litetcn\\energy\\seed_2\\source_model.pt": "9c60f76a4f831ce2a0141400f73e14fa4b6e96ac031986a2fe69928085e696c2",
+    "residual_litetcn\\energy\\seed_2\\adapted_model.pt": "6f5dc9d1593f446cb3a75dc378027a09b13fc2112941bd018bbe2798aad9e060"
+  }
+}

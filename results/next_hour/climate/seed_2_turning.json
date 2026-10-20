@@ -1,0 +1,266 @@
+{
+  "selected_round": 14,
+  "score": 0.05527305696159601,
+  "history": [
+    {
+      "round": 0,
+      "MSE": 0.14441858232021332,
+      "key_MSE": 0.05550207570195198,
+      "turning_weighted_key_MSE": 0.0516943633556366,
+      "score": 0.0990084009245038,
+      "eligible": true
+    },
+    {
+      "round": 1,
+      "train_loss": 0.08640023460611701,
+      "MSE": 0.12519609928131104,
+      "key_MSE": 0.042107533663511276,
+      "turning_weighted_key_MSE": 0.043199531733989716,
+      "score": 0.08392481599003077,
+      "eligible": true
+    },
+    {
+      "round": 2,
+      "train_loss": 0.07039429433643818,
+      "MSE": 0.11164113879203796,
+      "key_MSE": 0.031185466796159744,
+      "turning_weighted_key_MSE": 0.03590719774365425,
+      "score": 0.07259373553097248,
+      "eligible": true
+    },
+    {
+      "round": 3,
+      "train_loss": 0.06436571292579174,
+      "MSE": 0.10755403339862823,
+      "key_MSE": 0.03169243037700653,
+      "turning_weighted_key_MSE": 0.03468206524848938,
+      "score": 0.0703706406056881,
+      "eligible": true
+    },
+    {
+      "round": 4,
+      "train_loss": 0.060420742025598884,
+      "MSE": 0.10370854288339615,
+      "key_MSE": 0.0308634415268898,
+      "turning_weighted_key_MSE": 0.03290489688515663,
+      "score": 0.06779635604470968,
+      "eligible": true
+    },
+    {
+      "round": 5,
+      "train_loss": 0.05898121162317693,
+      "MSE": 0.10175810754299164,
+      "key_MSE": 0.03169039264321327,
+      "turning_weighted_key_MSE": 0.03342892974615097,
+      "score": 0.06715888436883688,
+      "eligible": true
+    },
+    {
+      "round": 6,
+      "train_loss": 0.05748022045008838,
+      "MSE": 0.10183311253786087,
+      "key_MSE": 0.03236355632543564,
+      "turning_weighted_key_MSE": 0.033725813031196594,
+      "score": 0.0674388986080885,
+      "eligible": true
+    },
+    {
+      "round": 7,
+      "train_loss": 0.055549066979438066,
+      "MSE": 0.09710600972175598,
+      "key_MSE": 0.029362648725509644,
+      "turning_weighted_key_MSE": 0.029490889981389046,
+      "score": 0.06326638953760266,
+      "eligible": true
+    },
+    {
+      "round": 8,
+      "train_loss": 0.05552794900722802,
+      "MSE": 0.09583490341901779,
+      "key_MSE": 0.027237696573138237,
+      "turning_weighted_key_MSE": 0.027350550517439842,
+      "score": 0.061564513482153416,
+      "eligible": true
+    },
+    {
+      "round": 9,
+      "train_loss": 0.05315400683321059,
+      "MSE": 0.09463029354810715,
+      "key_MSE": 0.027482634410262108,
+      "turning_weighted_key_MSE": 0.027348963543772697,
+      "score": 0.061023046262562275,
+      "eligible": true
+    },
+    {
+      "round": 10,
+      "train_loss": 0.05352674191817641,
+      "MSE": 0.09116891026496887,
+      "key_MSE": 0.02489558234810829,
+      "turning_weighted_key_MSE": 0.02508639544248581,
+      "score": 0.05807994958013296,
+      "eligible": true
+    },
+    {
+      "round": 11,
+      "train_loss": 0.052477819146588445,
+      "MSE": 0.09209062904119492,
+      "key_MSE": 0.025018973276019096,
+      "turning_weighted_key_MSE": 0.024767844006419182,
+      "score": 0.05849201884120703,
+      "eligible": true
+    },
+    {
+      "round": 12,
+      "train_loss": 0.05328412586823106,
+      "MSE": 0.09006781876087189,
+      "key_MSE": 0.02466520294547081,
+      "turning_weighted_key_MSE": 0.024409739300608635,
+      "score": 0.057302644941955805,
+      "eligible": true
+    },
+    {
+      "round": 13,
+      "train_loss": 0.05143024167045951,
+      "MSE": 0.09016775339841843,
+      "key_MSE": 0.024119514971971512,
+      "turning_weighted_key_MSE": 0.02380160056054592,
+      "score": 0.05706415558233857,
+      "eligible": true
+    },
+    {
+      "round": 14,
+      "train_loss": 0.04872326133772731,
+      "MSE": 0.0883931815624237,
+      "key_MSE": 0.02208145707845688,
+      "turning_weighted_key_MSE": 0.022224407643079758,
+      "score": 0.05527305696159601,
+      "eligible": true
+    },
+    {
+      "round": 15,
+      "train_loss": 0.05030356487259269,
+      "MSE": 0.08884165436029434,
+      "key_MSE": 0.02222714014351368,
+      "turning_weighted_key_MSE": 0.023014288395643234,
+      "score": 0.0557311843149364,
+      "eligible": true
+    },
+    {
+      "round": 16,
+      "train_loss": 0.05148645956069231,
+      "MSE": 0.0893833264708519,
+      "key_MSE": 0.023799246177077293,
+      "turning_weighted_key_MSE": 0.02412901632487774,
+      "score": 0.05667372886091471,
+      "eligible": true
+    },
+    {
+      "round": 17,
+      "train_loss": 0.05024443008005619,
+      "MSE": 0.09019778668880463,
+      "key_MSE": 0.025187836959958076,
+      "turning_weighted_key_MSE": 0.02536589652299881,
+      "score": 0.057737326715141535,
+      "eligible": true
+    },
+    {
+      "round": 18,
+      "train_loss": 0.05033311410807073,
+      "MSE": 0.08919387310743332,
+      "key_MSE": 0.02406780794262886,
+      "turning_weighted_key_MSE": 0.024646837264299393,
+      "score": 0.05677559785544872,
+      "eligible": true
+    },
+    {
+      "round": 19,
+      "train_loss": 0.04851535288617015,
+      "MSE": 0.0890393778681755,
+      "key_MSE": 0.023775219917297363,
+      "turning_weighted_key_MSE": 0.02440963126718998,
+      "score": 0.05656590173020959,
+      "eligible": true
+    },
+    {
+      "round": 20,
+      "train_loss": 0.04899857612326741,
+      "MSE": 0.08851064741611481,
+      "key_MSE": 0.02235233411192894,
+      "turning_weighted_key_MSE": 0.022998623549938202,
+      "score": 0.05559306312352419,
+      "eligible": true
+    },
+    {
+      "round": 21,
+      "train_loss": 0.04880230291746557,
+      "MSE": 0.08896102756261826,
+      "key_MSE": 0.022897597402334213,
+      "turning_weighted_key_MSE": 0.02348230592906475,
+      "score": 0.05607548961415887,
+      "eligible": true
+    },
+    {
+      "round": 22,
+      "train_loss": 0.047433868050575256,
+      "MSE": 0.08869822323322296,
+      "key_MSE": 0.022810742259025574,
+      "turning_weighted_key_MSE": 0.02339554950594902,
+      "score": 0.05590068455785513,
+      "eligible": true
+    },
+    {
+      "round": 23,
+      "train_loss": 0.04821144649758935,
+      "MSE": 0.08903325349092484,
+      "key_MSE": 0.02361059933900833,
+      "turning_weighted_key_MSE": 0.02429649606347084,
+      "score": 0.05649340059608221,
+      "eligible": true
+    },
+    {
+      "round": 24,
+      "train_loss": 0.049514370737597346,
+      "MSE": 0.08853726834058762,
+      "key_MSE": 0.023088708519935608,
+      "turning_weighted_key_MSE": 0.023708801716566086,
+      "score": 0.05596801172941923,
+      "eligible": true
+    },
+    {
+      "round": 25,
+      "train_loss": 0.04926140862517059,
+      "MSE": 0.08863767981529236,
+      "key_MSE": 0.023095538839697838,
+      "turning_weighted_key_MSE": 0.023791570216417313,
+      "score": 0.05604061717167497,
+      "eligible": true
+    },
+    {
+      "round": 26,
+      "train_loss": 0.04840583447366953,
+      "MSE": 0.08867177367210388,
+      "key_MSE": 0.023034172132611275,
+      "turning_weighted_key_MSE": 0.023781826719641685,
+      "score": 0.05603988654911518,
+      "eligible": true
+    },
+    {
+      "round": 27,
+      "train_loss": 0.04921272280625999,
+      "MSE": 0.08850271254777908,
+      "key_MSE": 0.022806460037827492,
+      "turning_weighted_key_MSE": 0.023545987904071808,
+      "score": 0.05583946825936437,
+      "eligible": true
+    },
+    {
+      "round": 28,
+      "train_loss": 0.047881579492241144,
+      "MSE": 0.08846815675497055,
+      "key_MSE": 0.022739283740520477,
+      "turning_weighted_key_MSE": 0.02350771054625511,
+      "score": 0.05579582694917917,
+      "eligible": true
+    }
+  ]
+}

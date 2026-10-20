@@ -18,3 +18,8 @@ desktop.ini
 
 graphify-out/
 presentation/_deck_qa.md
+
+# Local previews and duplicate handoff bundles. The complete ZIP is a release asset.
+/tmp/
+/submission/*
+!/submission/README.md

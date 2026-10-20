@@ -1,0 +1,14 @@
+{
+  "timestamp_utc": "2026-10-19T15:56:43.742759+00:00",
+  "test_evaluated_at_freeze": false,
+  "checkpoint_sha256": {
+    "adapted_model.pt": "e3be9ff556cb2537b752aba6ae770ad10fa38ee148a69dea3f616e2f988a6224",
+    "seed_0\\adapted_model.pt": "e3be9ff556cb2537b752aba6ae770ad10fa38ee148a69dea3f616e2f988a6224",
+    "seed_0\\source_model.pt": "2f200cc9f2e0878661898b44150b9d865c3e7e8d60ffe1e8fac4739e42f37ebc",
+    "seed_1\\adapted_model.pt": "9b2a01f76b1f2e72353079c9a563b64eba87a76f68bb84f57e4e4bcbccd616d1",
+    "seed_1\\source_model.pt": "6acfd09d0fe3be8970a5ff4780bf3a5d6e196e0e308f1fa0b8c749f00e8d31c8",
+    "seed_2\\adapted_model.pt": "8b0bae300be00f295364ca8e67ee11e6ae006667703e3326191e98dca6488459",
+    "seed_2\\source_model.pt": "2c9160aa1cbcbe79a16a23c9b473955df6a4599fd47f9bff88028c510491dc65",
+    "source_model.pt": "2f200cc9f2e0878661898b44150b9d865c3e7e8d60ffe1e8fac4739e42f37ebc"
+  }
+}

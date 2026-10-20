@@ -1,0 +1,22 @@
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.17}
+\begin{longtable}{@{}p{0.1092\textwidth}p{0.1820\textwidth}p{0.1729\textwidth}p{0.1820\textwidth}p{0.1319\textwidth}p{0.1319\textwidth}@{}}
+\caption{Deployment CPU efficiency. KB includes active native trees; neural counts exclude native tree leaves and coefficient buffers.}\label{tab:efficiency}\\
+\toprule
+Dataset & Family & Neural parameters & Stored tensor values & Deployed KB & CPU ms / single forecast \\
+\midrule\endfirsthead
+Dataset & Family & Neural parameters & Stored tensor values & Deployed KB & CPU ms / single forecast \\
+\midrule\endhead
+\midrule\multicolumn{6}{r}{Continued on next page}\\\endfoot
+\bottomrule\endlastfoot
+climate & next\_\allowbreak{}hour & 8903 & 8903 & 44.5078 & 2.4648 \\
+climate & next\_\allowbreak{}hour\_\allowbreak{}hybrid & 17806 & 19339 & 97.8545 & 4.7463 \\
+climate & event\_\allowbreak{}boost & 44399 & 44399 & 2575.9395 & 5.7487 \\
+climate & peak\_\allowbreak{}next\_\allowbreak{}hour & 110840 & 171901 & 711.8262 & 9.4504 \\
+energy & next\_\allowbreak{}hour & 8903 & 8903 & 44.5078 & 2.1180 \\
+energy & next\_\allowbreak{}hour\_\allowbreak{}hybrid & 17806 & 19339 & 97.8545 & 6.7387 \\
+energy & event\_\allowbreak{}boost & 229902 & 229902 & 2412.3496 & 3.4754 \\
+energy & peak\_\allowbreak{}next\_\allowbreak{}hour & 110840 & 179965 & 743.3262 & 11.7343 \\
+\end{longtable}
+}

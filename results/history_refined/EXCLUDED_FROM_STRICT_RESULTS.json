@@ -1,0 +1,9 @@
+{
+  "excluded_from_strict_results": true,
+  "reason": "Broader-history forecasting pairs reconstructed across target input windows; superseded by user requirement for strictly label-free input-window-only adaptation.",
+  "strict_runners": [
+    "src.strict_refinement",
+    "src.strict_context"
+  ],
+  "not_used_in_final_interface_or_headline": true
+}

@@ -1,0 +1,13 @@
+dataset,family,single_window_median_ms,stored_float_coefficients,cpu_threads,warmups,repeats
+climate,strict_refined,4.732849998617894,160290,1,5,30
+climate,legacy,1.062449999153614,381606,1,5,30
+finance,strict_refined,4.660900000089896,30120,1,5,30
+finance,legacy,1.0165499988943338,131037,1,5,30
+energy,strict_refined,6.131750000349712,160290,1,5,30
+energy,legacy,0.992599998426158,381606,1,5,30
+climate,strict_context,4.6300499998324085,152226,1,5,30
+climate,legacy,1.0553500014793826,381606,1,5,30
+finance,strict_context,5.199150000407826,29920,1,5,30
+finance,legacy,0.9589999990566866,131037,1,5,30
+energy,strict_context,5.95805000011751,152226,1,5,30
+energy,legacy,0.9572500002832385,381606,1,5,30

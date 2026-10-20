@@ -1,0 +1,348 @@
+% To familiarize yourself with this template, the body contains
+% some examples of its use.  Look them over.  Then you can
+% run LaTeX on this file.  After you have LaTeXed this file then
+% you can look over the result either by printing it out with
+% dvips or using xdvi.
+%
+
+\documentclass[twoside,english]{article}
+\setlength{\oddsidemargin}{0.25 in}
+\setlength{\evensidemargin}{-0.25 in}
+\setlength{\topmargin}{-0.6 in}
+\setlength{\textwidth}{6.5 in}
+\setlength{\textheight}{8.5 in}
+\setlength{\headsep}{0.75 in}
+\setlength{\parindent}{0 in}
+\setlength{\parskip}{0.1 in}
+
+%
+% ADD PACKAGES here:
+%
+
+\usepackage{amsmath,amsfonts,graphicx,algorithm,caption}
+\usepackage[noend]{algpseudocode}
+\usepackage{hyperref}
+\usepackage{natbib}
+\usepackage[document]{ragged2e}
+\usepackage{graphicx} %package to manage images
+\usepackage{amsmath}
+\usepackage{mathtools}
+\usepackage{xcolor}
+
+% The following commands set up the lecnum (lecture number)
+% counter and make various numbering schemes work relative
+% to the lecture number.
+%
+\newcounter{lecnum}
+\renewcommand{\thepage}{\arabic{page}}
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\theequation}{\arabic{equation}}
+\renewcommand{\thefigure}{\arabic{figure}}
+\renewcommand{\thetable}{\arabic{table}}
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+%
+% The following macro is used to generate the header.
+%
+\newcommand{\lecture}[3]{
+   \pagestyle{myheadings}
+   \thispagestyle{plain}
+   \newpage
+   %\setcounter{lecnum}{#1}
+   \setcounter{page}{1}
+   \noindent
+   \begin{center}
+   \framebox{
+      \vbox{\vspace{2mm}
+    \hbox to 6.28in { {\bf IE 643: Deep Learning - Theory and Practice
+		\hfill July-Dec 2026} }
+       \vspace{4mm}
+       \hbox to 6.28in { {\Large \hfill Project Report: #1  \hfill} }
+       \vspace{2mm}
+       \vspace{2mm}
+       \hbox to 6.28in { {\it Team Name: #2 \hfill Team Members: #3} }
+       %\vspace{2mm}}
+       %\hbox to 6.28in { {\it Due Date: 01-August-2018} }
+      \vspace{2mm}}
+   }
+   \end{center}
+%   \markboth{Assignment #1: #2}{Assignment #1: #2}
+
+   %{\bf Note}: {\it LaTeX template courtesy of UC Berkeley EECS dept.}
+
+   %{\bf Disclaimer}: {\it These notes have not been subjected to the
+   %usual scrutiny reserved for formal publications.  They may be distributed
+   %outside this class only with the permission of the Instructor.}
+   \vspace*{4mm}
+}
+%
+% Convention for citations is authors' initials followed by the year.
+% For example, to cite a paper by Leighton and Maggs you would type
+% \cite{LM89}, and to cite a paper by Strassen you would type \cite{S69}.
+% (To avoid bibliography problems, for now we redefine the \cite command.)
+% Also commands that create a suitable format for the reference list.
+% Teaching citation stub removed; natbib supplies actual citations.
+\def\beginrefs{\begin{list}%
+        {[\arabic{equation}]}{\usecounter{equation}
+         \setlength{\leftmargin}{2.0truecm}\setlength{\labelsep}{0.4truecm}%
+         \setlength{\labelwidth}{1.6truecm}}}
+\def\endrefs{\end{list}}
+\def\bibentry#1{\item[\hbox{[#1]}]}
+
+%Use this command for a figure; it puts a figure in wherever you want it.
+%usage: \fig{NUMBER}{SPACE-IN-INCHES}{CAPTION}
+\newcommand{\fig}[3]{
+			\vspace{#2}
+			\begin{center}
+			Figure #1:~#3
+			\end{center}
+	}
+% Use these for theorems, lemmas, proofs, etc.
+\newtheorem{theorem}{Theorem}[lecnum]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{definition}[theorem]{Definition}
+\newenvironment{proof}{{\bf Proof:}}{\hfill\rule{2mm}{2mm}}
+
+% **** IF YOU WANT TO DEFINE ADDITIONAL MACROS FOR YOURSELF, PUT THEM HERE:
+\newcommand{\R}{\mathbb{R}}
+
+
+\usepackage{booktabs,longtable,array,placeins}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\setlength{\emergencystretch}{2em}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,pdftitle={DeepGen - IE643 Intensive Assessment Report},pdfauthor={Ayush Patel; Rishik Yadav}}
+\newcommand{\evidencefigure}[3]{\begin{figure}[htbp]\centering\includegraphics[width=#3\linewidth]{../../results/forecast_horizons/figures/#1}\caption{#2}\end{figure}}
+
+\begin{document}
+\lecture{Time-Series Domain Adaptation}{DeepGen}{23B0037, 23B2103}
+\begin{center}
+{\large\bfseries Lightweight multivariate forecasting with strictly observed-input adaptation}\\[2mm]
+Ayush Patel (23B0037) \quad Rishik Yadav (23B2103)\\
+Intensive assessment technical report \quad 20 October 2026
+\end{center}
+
+\begin{abstract}
+This project studies forecasting under domain shift using three source--target pairs: hourly Shimla--Delhi weather, NSE IT--pharma financial features, and ETTh1--ETTh2 transformer measurements. The initial LiteTCN combines reversible normalization, temporal convolutions and a linear forecasting path. Its alignment/reconstruction adaptation is compared with MMD, CORAL, adversarial adaptation and labeled diagnostic references. Subsequent experiments test depth, linear and patch-based alternatives, strictly within-input self-supervision, source-guarded ensembles and several retained-TCN revisions. The original 24-hour weather/energy and five-trading-day finance tasks remain in the evaluation. A separate rolling next-hour task, added with explicit observation-refresh semantics, uses a small causal TCN, source-anchored local dynamics and a regime-dependent expert mixture calibrated on observed daily episodes. No original target forecasting labels are used in the strict adaptation or selection procedures. Final target temperature RMSE at one hour is 0.6530 degrees Celsius for climate and 0.9151 for energy, versus persistence 1.2692 and 1.3334. The corresponding source-only-to-adapted improvements are 3.84\% and 27.68\%; these must not be confused with changing forecast horizon. The strict finance ensemble improves standardized MSE approximately 1.60\% over input mean. Energy trough error and day-ahead peaks remain limitations. Saved models, stage-wise controls, plots, a CSV test interface and reproducibility checks accompany the report. The repeatedly inspected test periods are development evidence, not untouched confirmation.
+\end{abstract}
+
+\section{Introduction}
+Forecasting functions learned in one location, sector or installation need not transfer unchanged to another. Differences include levels and variances, temporal dynamics, relationships between variables and the conditional distribution of future outcomes. The goal is to train a lightweight multivariate forecaster on a labeled source domain and adapt it using target histories while excluding the original target future labels.
+
+Let $X\in\mathbb R^{L\times C}$ be an observed input and $Y\in\mathbb R^{H\times C}$ its original future. Source training has access to $(X_s,Y_s)$; strict target adaptation has access only to $X_t$. It may withhold a suffix \emph{inside that same input} for self-supervised prediction, but cannot use $Y_t$ or reconstruct it from neighboring windows. Evaluation uses actual target futures only after the relevant model choices are fixed.
+
+The project pursues accuracy, adaptation benefit, retained source performance and computational cost. It also examines an important distinction between single-origin 24-hour forecasts and rolling next-hour forecasts. The latter receives new observations at every origin and is an additional operational task, not a new label for a day-ahead forecast. The course statement does not fix a horizon; the project retained the original benchmark while adding the shorter-horizon analysis.
+
+This report follows the supplied course-template structure. Workflow and literature precede the methods, data and experiments. Results include negative controls and matched-horizon comparisons. Interface methodology, remaining limits and the novelty-assessment plan are included. Team contributions are based on the allocation supplied by the team: both members researched methods and carried out experiments; Ayush developed the dashboard/application, while Rishik prepared the report and presentation.
+
+\section{Project Workflow}
+\begin{itemize}
+\item Acquire and preserve weather, financial and transformer data with distinct source/target domains; define variables and chronological splits.
+\item Train source LiteTCN; compare alignment, reconstruction and anchoring adaptations against source-only and explicit labeled references.
+\item Test additional TCN layers and simpler forecasters; use source validation and target-input pretexts rather than target futures for strict selection.
+\item Develop channel-specific source-anchored predictors, guarded convex mixtures and a consistent shorter-context pretext.
+\item Diagnose peak, trough, range and timing errors; retain LiteTCN through seasonal-folded, original-encoder residual, gradual-unfreezing and predicted-driver variants.
+\item Test geometry-aware boosting for the original 24-hour task; add genuine one-hour TCN/dynamics models and observed-episode event calibration.
+\item Freeze model choices, record metrics/plots and artifact hashes, then provide source/target CSV inference, comparison and downloads in a local interface.
+\end{itemize}
+The before-review baseline is the LiteTCN/CARE campaign documented in the prep assets. The later architecture, strict-pretext and peak-focused stages are distinguished below. The team should align that boundary with the exact prep presentation it delivered rather than infer individual authorship from file timestamps.
+
+\section{Literature Survey}\label{sec:litsurvey}
+Temporal convolutional sequence models motivate using dilation and parallel convolutional computation instead of a heavy recurrent architecture \citep{Bai18}. The project implements its own compact network; the initial strided encoder and the new causal one-hour encoder are different architectures. The original encoder can process the entire observed window without being a streaming-causal network inside that window.
+
+RevIN removes and subsequently restores instance-level statistics to address distribution changes \citep{Kim22}. This inspires the original window normalization, but cannot by itself eliminate shifts in conditional forecasting dynamics. Domain-level training-period standardization and per-window reversible normalization are separate operations in the pipeline.
+
+The linear forecasting study by Zeng et al. motivates comparing small decomposition/linear predictors seriously \citep{Zeng23}. The repository's DLinear-inspired implementation explicitly adds RevIN, so its numbers should not be presented as an exact paper reproduction. Its strong energy performance demonstrates why complexity must be justified empirically.
+
+Deep CORAL aligns activation covariance \citep{Sun16}; domain-adversarial learning uses a domain discriminator with gradient reversal \citep{Ganin16}. These provide adaptation baselines rather than guarantees of forecasting improvement. In the saved campaign they can cause negative transfer. Kernel MMD measures a feature-distribution difference; even a lower discrepancy need not preserve the variable-specific information needed to forecast. The project's contribution is the integration and measured evaluation of these ideas with strict observed-input adaptation, guards and event calibration, not invention of the constituent TCN, normalization, ridge or boosting methods.
+
+\section{Proposed Approach or Approaches}\label{sec:our_proj}
+\subsection{Work before prep-presentation review: LiteTCN and CARE-DA}
+The original hourly configuration has lookback 168, horizon 24 and seven channels. RevIN-normalized observations enter three strided Conv1d stages with GELU activations, followed by a latent projection and a direct horizon-by-channel head. A shared linear history-to-horizon path is added before reversing normalization. An auxiliary head reconstructs masked input observations. The stored hourly class has 381,606 parameters including reconstruction; the forecasting path without that auxiliary head has 229,902.
+
+Source training minimizes forecast MSE plus optional masked reconstruction. The project-specific CARE-DA v1 recipe is
+\begin{align}
+L_{\mathrm{v1}}=L_{s}+L_{\mathrm{MMD}}+L_{\mathrm{CORAL}}+L_{\mathrm{recon},t}+0.01L_{\mathrm{anchor}}.
+\end{align}
+The source anchor penalizes movement from the source solution. DANN, CORAL-only, MMD-only and removal of alignment, self-supervision or anchoring are compared separately. Source labels remain permitted during adaptation.
+
+CARE-DA v2 replaces reconstruction emphasis with forecast-consistent within-input prediction, noisy-view consistency and spectral feature alignment:
+\begin{align}
+L_{\mathrm{v2}}={}&L_s+L_{\mathrm{MMD},z}+0.5L_{\mathrm{MMD},h}+0.5L_{\mathrm{inner}}\nonumber\\
+&+0.3L_{\mathrm{consistency}}+0.3L_{\mathrm{spectral}}+0.01L_{\mathrm{anchor}}.
+\end{align}
+Here $z$ denotes latent and $h$ pooled temporal features. The original three-seed campaign and the separately saved seed-0 v2 checkpoint are different artifacts. The original runner can calculate target-test error in diagnostic epoch snapshots; those values do not enter gradients or its fixed-budget checkpoint rule, but make the period visible during development.
+
+\subsection{Work after prep-presentation review: capacity and forecasting-aligned adaptation}
+Matched source-training controls test LiteTCN depths 3, 5 and 7, a custom patch/channel-mixing MLP, and a DLinear-inspired model. Extra layers do not consistently improve results. Source validation selects Patch MLP in each recorded seed/dataset of this sweep; target energy results nonetheless expose DLinear as a strong competitor. The custom MLP is not PatchTST.
+
+A within-input forecasting task better matches deployment than masked reconstruction. For $L=168,H=24$, the predictor uses observed hours 1--144 and the self-supervised labels are hours 145--168. The original task's hours 169--192 remain excluded. A fixed-length network can left-pad from its own first prefix observation. A later shorter-context ridge branch instead uses a consistent 144-real-hour function, removing the padding mismatch for that branch.
+
+Channel-specific ridge fits allow different normalizations and regularization per variable. Target fits combine within-input errors, labeled source replay and a coefficient anchor. A convex mixture retains source/adapted ridge, neural, DLinear and mean experts. Selection balances relative source-validation and target-input errors, constrains source degradation and includes the unchanged source solution as fallback. Broader exploratory history-reconstruction runs are retained as historical artifacts but excluded from the strict headline results.
+
+\subsection{Retaining LiteTCN and investigating extremes}
+LiteTCN v3 preserves hourly positions by seasonal folding, uses width-32 depthwise/pointwise dilated residual blocks, deterministic calendar features, a channel-specific seasonal skip and an attention-based direct decoder. Calendar/no-calendar and ordinary/shape-loss controls are recorded. It improves climate over the original saved model but is weaker for energy. A correction from observed recent residuals gives only small or mixed changes.
+
+LiteTCN-R preserves the original source-trained encoder, initializes a linear skip from DLinear and fits a regularized residual head with source anchoring and zero-residual fallback. Gradual-unfreezing controls do not reliably beat the retained policy. A small coupled decoder then uses past history, clocks and \emph{predicted} future weather/load variables; actual future drivers are never supplied. Its retained-backbone composition yields effectively unchanged climate and a very small energy gain. These negative results are included rather than presenting the architecture as a universal improvement.
+
+The 24-hour geometry-aware alternative uses CatBoost multi-output trees \citep{CatBoost}. Controls predict either the 24 temperature points directly or 16 DCT coefficients plus separately weighted maximum/minimum and circular peak/trough phase. Source/target-input validation chooses reconstruction/range/phase calibration and a 0/0.5/1 mixture with retained LiteTCN. Target adaptation adds trees using real prefixes and observed target tails, with source replay; source trees remain in the ensemble. Non-temperature variables remain exactly the backbone predictions.
+
+\subsection{New next-hour source model and adaptation}
+The new causal TCN has 8,903 parameters. From the last 48 observed rows it builds last-value-centered/scaled levels, differences and six clock features. Width-32 depthwise/pointwise residual blocks use dilations 1,2,4. A small head predicts a multivariate increment:
+\begin{equation}
+\widehat y_{t+1}=x_t+s(X)g_\theta(X),
+\end{equation}
+with a zero-initialized final layer, hence exact persistence at initialization. Future calendar features are analytically known, not future observations. The source loss combines global and key-temperature MSE; a turning control gives threefold key weight to genuine observed direction reversals.
+
+Adaptation withholds the final observed hour of each target X, replays source examples and anchors relative layer weights:
+\begin{equation}
+L_{\mathrm{adapt}}=L_{\mathrm{inner},t}+0.5L_{s,\mathrm{replay}}+0.001L_{\mathrm{relative\ anchor}}.
+\end{equation}
+The local-dynamics branch fits next-hour changes from normalized trajectories, past multivariate statistics and clocks. Target normal equations include source replay and a coefficient anchor. A guarded first-stage mixture combines neural, dynamics and persistence experts.
+
+\subsection{Final event-aligned regime calibration}
+The final system contains five outer experts: source/adapted versions of the new one-hour hybrid, source/adapted first-hour outputs of the earlier strict hybrid, and persistence. For variable $c$ and an observed regime $r$, weights satisfy $w_{crj}\geq0$ and $\sum_jw_{crj}=1$. Source-only routes cannot use adapted experts.
+
+Four causal regimes are defined from the last three observations and past 48-hour scale: ordinary motion, approaching a peak, approaching a trough and flat/observed reversal. If $d_t=x_t-x_{t-1}$ and $a_t=d_t-d_{t-1}$, the heuristic estimated turning time is $-d_t/a_t$, subject to slope/acceleration signs and a three-step interval. Actual future extrema never enter this regime rule.
+
+Calibration constructs successive one-hour forecasts over 24 steps entirely inside a validation X. At each inner origin, only the preceding prefix is visible. Let $e_i=\widehat y_i-y_i$, and let $i_+,i_-$ be the actual observed maximum/minimum indices in that calibration episode. The per-variable event loss is
+\begin{align}
+L_{\mathrm{event}}={}&\frac1{24}\sum_i e_i^2+2\frac{e_{i_+}^2+e_{i_-}^2}{2}\nonumber\\
+&+0.1\frac1{23}\sum_{i=1}^{23}\big[(\widehat y_{i+1}-\widehat y_i)-(y_{i+1}-y_i)\big]^2.
+\end{align}
+Actual extrema define \emph{loss weights on observed calibration labels}, not inference features. The target calibration objective is
+\begin{align}
+J(w)={}&\tfrac12\frac{L_{\mathrm{event},s}(w)}{L_{\mathrm{event},s}(w_s)}+
+\tfrac12\frac{L_{\mathrm{event},tX}(w)}{L_{\mathrm{event},tX}(w_s)}+0.001\|w-w_s\|_2^2.
+\end{align}
+Frozen-expert weights are fitted by constrained SLSQP. Source point error may increase by at most 10\% over the source-calibrated reference, target-input point error by at most 5\%, and regimes need at least 64 source/target examples before adapting. Failed/ineligible solutions revert to the source mixture. Source outer calibration itself has a 5\% point guard against its feasible initial source expert. These are measured calibration constraints, not bounds on every future event.
+
+\section{Data set Details}\label{sec:data}
+\begin{longtable}{@{}p{.12\textwidth}p{.23\textwidth}p{.17\textwidth}p{.18\textwidth}p{.195\textwidth}@{}}
+\caption{Configured benchmark pairs. Splits are chronological train/validation/test.}\\\toprule
+Benchmark&Source to target&Rows per domain&Variables / cadence&Lookback / horizon / split\\\midrule\endhead
+Climate&Shimla to Delhi&35,064&7 / hourly&168 / 24; 70/10/20\%\\
+Finance&Five IT to five pharma stocks&16,610 (3,322 per stock)&4 / trading day&60 / 5; 70/10/20\%\\
+Energy&ETTh1 to ETTh2&17,420&7 / hourly&168 / 24; 60/20/20\%\\\bottomrule
+\end{longtable}
+Weather covers 1 January 2021 through 31 December 2024, downloaded from the Open-Meteo archive with Asia/Kolkata timestamps \citep{OpenMeteo}. Variables are temperature, relative humidity, dew point, surface pressure, wind speed, cloud cover and shortwave radiation. Coordinates are Shimla (31.1048,77.1734) and Delhi (28.6139,77.2090). The request does not pin one archive model; these should not be presented as direct station measurements or a uniquely pinned ERA5 product.
+
+ETT covers 1 July 2016 through 26 June 2018 19:00 \citep{ETT}. The columns HUFL, HULL, MUFL, MULL, LUFL, LULL and OT are forecast. OT is transformer \emph{oil} temperature, not ambient weather temperature or total electricity consumption. Future actual load variables are not forecasting inputs.
+
+Financial downloads use adjusted OHLCV via yfinance \citep{Finance}. Source stocks are TCS, INFY, WIPRO, HCLTECH and TECHM; target stocks are SUNPHARMA, DRREDDY, CIPLA, DIVISLAB and LUPIN. Processed dates span 3 January 2012--27 June 2025. Features are $100\log(C_t/C_{t-1})$, $100\log(H_t/L_t)$, $100\log(O_t/C_{t-1})$ and $\log(1+V_t)$. The primary finance metric is the log high--low range, not closing-price or index RMSE. Separate stocks remain separate series; windows never cross company boundaries.
+
+Each domain uses statistics from its raw training period; finance pools its five training series. The cached convention includes final training-period rows not appearing in a complete training X, but excludes validation/test rows. Validation/test segments receive preceding historical context. Training stride is two for climate and one otherwise; evaluated origins advance one step in the original benchmark. The weather downloader interpolates missing values in both directions before saving; this is offline preparation, not an online causal imputation guarantee. Processed feature columns contain no missing values. Exact data hashes accompany the runs.
+
+The H=1 benchmark scores only the first future value at the same original test origins: 6,990 climate and 3,461 energy. It does not add the final 23 possible H=1 origins. Nearby windows/forecasts are correlated; their count must not be treated as an independent sample size.
+
+\section{Experiments}\label{sec:exp}
+The original source budget is 20 epochs with AdamW learning rate 0.001, batch 256 and cosine decay; original adaptation uses a fixed ten-epoch campaign. The later architecture sweep uses 15 source and up to eight adaptation epochs. LiteTCN v3 uses 36 sampled rounds and ten adaptation rounds, at most 4,096 sampled windows per round. The new one-hour TCN uses 28 sampled source rounds, AdamW 0.001, weight decay 0.0001, batch 256 and cosine decay; its adapter uses 12 sampled rounds at 0.0002. A sampled round is not a full-dataset epoch.
+
+The tree controls use up to 400 source trees at 0.06 and up to 400 added target-input trees at 0.04, depth 4, 32 histogram borders and leaf L2 10. Stage counts, geometry decoding and mixture strength are selected on source/target-X proxies with a 5\% source key-MSE guard. An added-tree removal control retains the selected backbone/postprocessing/mixture while removing the new target stages.
+
+For the final observed-episode calibration, the first $L$ validation origins are purged and episode windows sampled every 25 origins so their 24-hour label tails do not overlap. Prefix padding uses only that prefix's first observation. Source and target datasets and seeds 0,1,2 are fitted before the recorded test inference for each latest experiment. The app deploys seed 0; table means are not a three-seed deployment ensemble.
+
+Experiments ran on CPU PyTorch 2.6.0, Python 3.13.2, AMD Ryzen 5 5600H (6 physical cores, 12 logical processors). Latest neural training uses two threads. The numerical environment is recorded in \texttt{requirements-experiments.txt}; CatBoost is 1.2.10. Hash audits identify code, initial experts, data and frozen checkpoints. Earlier test periods and additional climate periods were already inspected, so no untouched confirmation is claimed. Within-run freezing does not erase project-level development reuse.
+
+\subsection{Metrics and baseline contract}
+Standardized multivariate MSE/MAE average over variables and horizon steps. Key-variable RMSE is inverse-transformed to degrees Celsius for climate/energy and log high--low range units for finance. MSE is not accuracy in percent and is not comparable across different datasets as a common physical quantity. Persistence repeats the last observation; seasonal naive repeats the recent season (24 for hourly tasks, 1 for finance); input mean repeats the input average.
+
+The original window-scaled MAE denominator is computed inside each input; later \texttt{MASE\_train} uses fixed per-variable training-period seasonal differences. The two columns are not interchangeable. H=1 still uses the configured training seasonal scale. Peak/trough MAE is measured at the \emph{actual} extrema's time index, distinct from max/min-value bias. Timing compares argmax indices; ramp error compares first differences. H=1 event metrics group successive forecasts into non-overlapping 24-hour episodes and omit the final incomplete episode. Main point metrics retain the full original-origin cohort.
+
+\subsection{Negative controls and excluded interpretations}
+Deeper TCNs, reconstruction-heavy alignment, source-backbone coupled decoders and late unfreezing are not consistently successful. Broader cross-window history pilots are excluded from strict headline results. Target-only and supervised fine-tuned fits are labeled references, not eligible label-free deployments or mathematical upper bounds. The source-subset fitting sanity check is a training diagnostic: on 64 climate source windows the new TCN fitting RMSE falls from 1.7603 to 0.5035 after 128 updates, but that is not held-out accuracy. A source-only climate ridge comparison improves validation RMSE 1.7734 to 1.7243 when past weather is added; it does not establish causal effects or target transfer.
+
+\section{Results}\label{sec:results}
+\subsection{Original adaptation and depth experiments}
+\input{original_table.tex}
+\input{v2_table.tex}
+\input{depth_table.tex}
+The original CARE result is mixed, especially finance; MMD alone can outperform full CARE. Extra TCN layers do not consistently improve forecasting. The full original ablation and labeled references are provided in the appendix rather than selecting only favorable comparisons.
+
+\subsection{Original-horizon strict policies and retained-TCN follow-ups}
+\input{long_climate.tex}
+\input{long_energy.tex}
+\input{long_finance.tex}
+The shorter-context climate ensemble remains a strong H=24 policy at MSE 0.2160 and temperature RMSE 1.2836. Energy raw source DLinear MSE 0.1446 is slightly better on the development test than its guarded family policy 0.1448; that test observation does not authorize a retrospectively reselected deployment policy. The strict energy mixture has lower oil-temperature RMSE 3.9762 despite slightly higher global MSE, and the ridge-only adapted control reaches approximately 3.9539. Consequently no universal best model is claimed.
+
+The geometry boost improves retained-TCN temperature RMSE from 1.3284 to 1.3136 (climate) and 4.0991 to 4.0168 (energy), only 1.11\% and 2.01\%. It does not surpass all earlier references. The retained-TCN coupled decoder's changes are still smaller and mixed. Finance strict MSE 0.5373 versus input mean 0.5460 is a 1.60\% reduction; its gain over the strong strict source-only ensemble MSE approximately 0.5380 is only 0.14\%. Neither number establishes a profitable trading strategy.
+\evidencefigure{climate_single_origin_24h.png}{Climate: fixed first/middle/last single-origin 24-hour examples. The forecasts do not receive actual observations inside the horizon.}{.98}
+\evidencefigure{energy_single_origin_24h.png}{Energy oil temperature: the same single-origin comparison. Day-ahead amplitude and timing errors remain visible.}{.98}
+\FloatBarrier
+
+\subsection{Rolling next-hour results and source retention}
+\input{rolling_headline.tex}
+\input{rolling_comparison.tex}
+\input{source_retention.tex}
+At fixed H=1, adaptation reduces final source-only temperature RMSE by 3.84\% climate and 27.68\% energy. Reductions versus persistence are 48.55\% and 31.37\%, including source learning, expert choices and adaptation. Lower H=1 errors versus H=24 are partly caused by a different information/task setting and cannot be presented as adaptation-only gains.
+
+The earlier climate first-hour hybrid already has RMSE 0.6540, nearly the final 0.6530. The first new next-hour energy hybrid has lower temperature RMSE 0.8970 than the final peak calibration 0.9151, while the earlier energy reference has lower global MSE. These tradeoffs are retained rather than imposing a test-selected winner policy. Source-domain test errors are also reported; source-validation guards do not guarantee every source test score improves.
+\evidencefigure{rolling_next_hour_overview.png}{Rolling H=1 overview, deployment seed 0. Every point is predicted from preceding observations, with model weights frozen. First 96 origins, not error-selected examples.}{.98}
+\evidencefigure{climate_rolling_next_hour.png}{Climate rolling forecasts at fixed first, middle and last 96-hour segments, with the same observation-refresh rule for every compared model.}{.98}
+\evidencefigure{energy_rolling_next_hour.png}{Energy rolling forecasts at fixed first, middle and last 96-hour segments. New observations reveal events as they occur; this is not a day-ahead curve.}{.98}
+\FloatBarrier
+
+\subsection{Peak/trough behavior, adaptation curves and ablations}
+\input{peak_table.tex}
+Compared with the first new next-hour hybrid, final calibration reduces climate peak/trough MAE from 0.4472/0.6545 to 0.2810/0.5514 and energy from 0.8588/0.7342 to 0.8477/0.6650. Energy peak gain is small. Persistence still has lower energy trough MAE 0.4761, and final adaptation worsens trough MAE relative to its source-only calibration even while improving overall RMSE. This is a specific remaining negative-transfer result.
+
+Under squared loss the optimal point predictor is a conditional mean; uncertainty in peak time can flatten that mean. Unknown future weather/load changes, transfer mismatch and pretext/architecture mismatch also contribute. The controls do not isolate a unique cause. Sharpening an inaccurate or mistimed curve is not sufficient evidence of improvement.
+\evidencefigure{climate_next_hour_adaptation.png}{Climate neural adaptation: source-validation, withheld target-input error and selection proxy. These are not target-test selection curves or final-hybrid learning curves.}{.95}
+\evidencefigure{energy_next_hour_adaptation.png}{Energy neural adaptation, with the same source/observed-input selection semantics.}{.95}
+\evidencefigure{climate_peak_calibration.png}{Final climate seed-0 calibration on episodes entirely inside observed histories. Source retention is a bounded tradeoff, not guaranteed improvement.}{.95}
+\evidencefigure{energy_peak_calibration.png}{Final energy observed-episode calibration. The original target forecasting Y tensors do not enter this fit.}{.95}
+\input{boost_ablation.tex}
+Removing new target trees isolates their contribution for the chosen H=24 configuration, but the retained backbone may already be adapted. Final event calibration versus the first hybrid is a whole-system comparison: experts and regime structure also change, so it is not a clean event-loss-only ablation. Identical-expert point/event and regime/no-regime controls remain future work.
+\FloatBarrier
+
+\subsection{Efficiency and verification}
+\input{efficiency.tex}
+The new standalone TCN is approximately 44.5 KB. The final hybrid has 110,840 neural parameters and approximately 712/743 KB serialized tensors for climate/energy, including coefficient buffers. Single-forecast CPU latency is approximately 9.45/11.73 ms on this machine. The benchmark uses batch 1, five warmups, 30 repeats and one PyTorch thread; active native tree prediction uses two threads. These are measurements for this configuration, not claims against every competing model.
+
+The complete current suite passes 46 tests, covering 76 archived research-interface combinations and all 36 submission-interface combinations. The model-experiment stage alone previously recorded 40 tests. The new assessment-interface/backend tests additionally check future-row isolation, exact exported actuals, duplicate headers, hourly gaps, input-only forecasting, horizon mismatch and all 36 submitted dataset/domain/horizon/model combinations (ten primary dataset/domain/horizon settings). The latest complete verification log accompanies the package and is the source for its final check count. Artifact audits cover eight latest family/dataset combinations, validate hashes and selection arithmetic, and recompute complete deployment seed-0 source/target MSE. These checks establish implementation properties, not statistical optimality. Three-seed RMSE SD is approximately 0.0038/0.0140 degrees Celsius for the final climate/energy model; it is not uncertainty over future years.
+
+\subsection{Interface design and use}
+The assessment interface is a local Streamlit application with a forecast studio, benchmark dashboard and method/downloads page. Dataset, horizon and model are explicit choices. Source versus target selects the corresponding saved scaler and checkpoint; this is not automatic unknown-domain recognition. It offers only strict supported workflows, while the earlier experiment explorer is preserved separately.
+
+The user uploads one chronological multivariate CSV or uses bundled source/target examples. Header and value checks reject duplicates, missing/nonfinite variables, multiple series and invalid dates; hourly models require consecutive timestamps. Financial OHLCV can be converted to the configured features. At least L usable rows are needed for forecasting, and L+H for a complete actual future. The plotted input stops at the chosen origin; actual future data is used only for scoring. Models remain frozen during upload inference and historical evaluation.
+
+Window metrics are labeled separately from saved benchmark means and file-wide evaluation. Historical evaluation starts longer forecasts every H rows without internal updates and refreshes H=1 inputs hourly. The user chooses the maximum latest origins, which are stated in the output. Source/adapted, persistence, seasonal and input-mean errors share the same truth and horizon. Forecasts, evaluated actuals and metrics can be downloaded. With input-only data the app forecasts after the last row and shows no fabricated error score. Finance displayed future dates follow weekdays rather than an exchange-holiday calendar.
+
+A separate HTML dashboard embeds its charts and Plotly for offline use, with explicit dataset and horizon filters. It reports both source and target evidence and event metrics. It is a results viewer, not a replacement for the CSV inference app. Run the latter with \texttt{python -m streamlit run app/app.py}; the preserved research explorer is \texttt{app/research.py}.
+\begin{figure}[htbp]\centering\includegraphics[width=.98\linewidth]{figures/app_studio.png}\caption{Assessment interface with dataset, horizon, source/target setup, historical observations, actual future and frozen forecast overlays. The displayed window score is separate from benchmark averages.}\end{figure}
+\begin{figure}[htbp]\centering\includegraphics[width=.98\linewidth]{figures/offline_dashboard.png}\caption{Offline dashboard with explicit dataset and task filters. Embedded charts and source/target tables do not require a running server.}\end{figure}
+\FloatBarrier
+
+\section{Plan for Novelty Assessment}\label{sec:Plan for Novelty Assessment}
+A useful next stage first locks an untouched chronological period. With identical expert outputs and data, compare point-only versus event loss, then regime-dependent versus constant calibration. Use time-block uncertainty rather than treating overlapping origins as independent. Investigate energy trough failure cases and robust/probabilistic objectives. Test external driver forecasts only when they are actually available at the forecast origin. Finally evaluate distillation/compression of the hybrid into a smaller standalone TCN. These are proposed experiments, not completed outcomes or publication-level novelty claims.
+
+\section{Conclusion}\label{sec:conclusion}
+The project implements source and adapted forecasting across three domain pairs, retains lightweight TCN models through multiple controlled revisions, and improves on strong baselines using strictly observed-input adaptation. Deeper layers alone do not solve the original errors. Source-guarded forecasting pretexts and hybrid predictors are stronger in these experiments; event calibration improves specific rolling peak/trough metrics with measurable ordinary-error tradeoffs. The final H=1 temperature RMSE is 0.6530/0.9151, but energy troughs, original H=24 extremes and reused-test generalization remain limitations. All claims specify dataset, horizon, metric and comparison basis. Code, saved models, data/selection provenance, result plots and reviewer-facing inference accompany the report. The configured GitHub remote is listed in the references \citep{Code}; local package inclusion does not imply that all changes have been pushed remotely.
+
+\clearpage
+\bibliographystyle{plainnat}
+\bibliography{references}
+\clearpage
+\appendix
+\section{Complete recorded control tables}
+The following tables preserve original ablations and the subsequent recorded methods, including failures. Target-only and fine-tuned references explicitly use target labels and are excluded from strict deployment claims. Original-screen rows can have one seed while selected policies use three; consult the associated selection/manifest files rather than interpreting every row as a new independent trial.
+\input{original_complete.tex}
+\input{additional_controls.tex}
+
+\section{Artifacts and reproducibility}
+The source code covers collection/preprocessing (\texttt{config.py}, \texttt{data\_download.py}, \texttt{data.py}), original models/losses (\texttt{model.py}, \texttt{train.py}, \texttt{losses.py}), strict/shorter-context ensembles, TCN revisions, 24-hour boosting and the final \texttt{nowcast\_tcn.py}, \texttt{nowcast\_hybrid.py}, \texttt{peak\_nowcast.py} training modules. Inference and assessment evaluation are in \texttt{inference.py}, \texttt{submission.py} and \texttt{app/submission\_app.py}. The final source/adapted checkpoints reside under \texttt{models/peak\_next\_hour/}; finance remains under \texttt{models/strict\_refined/finance/}. Original-horizon strict and TCN/boost artifacts are retained.
+
+Exact numerical evidence is in \texttt{results/forecast\_horizons/}, per-family CSVs, calibration JSONs and selection-freeze manifests. \texttt{numerical\_sources.json} records hashes used for report table production. \texttt{template\_provenance.json} identifies the supplied template and minimal technical changes. Earlier reports and PPTs are preserved rather than overwritten. A staged package manifest identifies included files; source raw API download files are distinguished from processed data. Reproduction of the latest stages requires the earlier expert checkpoints named by their manifests, not only the most recent training command.
+
+\begin{verbatim}
+pip install -r requirements-experiments.txt
+python -m unittest discover -s tests -v
+python -m src.check_horizon_models
+python -m streamlit run app/app.py
+\end{verbatim}
+The offline dashboard and study guide require no running server. Documentation/report builders are separate from model fitting; regenerating a report does not train or change a model. Team dataset approval, final narrative review, video recording, remote synchronization and actual submission access are administrative tasks separate from model correctness. The final report should be reviewed and explained by both authors in accordance with the course's authorship instructions.
+\end{document}

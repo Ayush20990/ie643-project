@@ -1,0 +1,3 @@
+dataset,parameters,updated_decoder_parameters,batch_1_CPU_ms,threads,warmups,repeats
+climate,47088,2689,3.8921799999419213,1,5,30
+energy,232591,2689,2.040033333347916,1,5,30

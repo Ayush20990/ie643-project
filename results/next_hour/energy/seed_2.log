@@ -1,0 +1,68 @@
+energy seed=2 uniform r=1 source_val=0.160820 key=0.007684 selected=1
+energy seed=2 uniform r=2 source_val=0.132778 key=0.007679 selected=2
+energy seed=2 uniform r=3 source_val=0.130031 key=0.007693 selected=3
+energy seed=2 uniform r=4 source_val=0.124155 key=0.007751 selected=4
+energy seed=2 uniform r=5 source_val=0.120347 key=0.007737 selected=5
+energy seed=2 uniform r=6 source_val=0.121681 key=0.007830 selected=5
+energy seed=2 uniform r=7 source_val=0.119804 key=0.007706 selected=7
+energy seed=2 uniform r=8 source_val=0.119131 key=0.007740 selected=8
+energy seed=2 uniform r=9 source_val=0.118231 key=0.007795 selected=9
+energy seed=2 uniform r=10 source_val=0.117802 key=0.007780 selected=10
+energy seed=2 uniform r=11 source_val=0.118403 key=0.007811 selected=10
+energy seed=2 uniform r=12 source_val=0.113625 key=0.007744 selected=12
+energy seed=2 uniform r=13 source_val=0.112801 key=0.007832 selected=13
+energy seed=2 uniform r=14 source_val=0.111611 key=0.007796 selected=14
+energy seed=2 uniform r=15 source_val=0.112379 key=0.007746 selected=14
+energy seed=2 uniform r=16 source_val=0.111123 key=0.007774 selected=16
+energy seed=2 uniform r=17 source_val=0.110878 key=0.007840 selected=17
+energy seed=2 uniform r=18 source_val=0.110011 key=0.007797 selected=18
+energy seed=2 uniform r=19 source_val=0.109204 key=0.007871 selected=19
+energy seed=2 uniform r=20 source_val=0.109400 key=0.007776 selected=19
+energy seed=2 uniform r=21 source_val=0.110362 key=0.007813 selected=19
+energy seed=2 uniform r=22 source_val=0.109119 key=0.007805 selected=22
+energy seed=2 uniform r=23 source_val=0.109122 key=0.007794 selected=23
+energy seed=2 uniform r=24 source_val=0.108991 key=0.007786 selected=24
+energy seed=2 uniform r=25 source_val=0.109157 key=0.007775 selected=24
+energy seed=2 uniform r=26 source_val=0.108757 key=0.007778 selected=26
+energy seed=2 uniform r=27 source_val=0.108577 key=0.007784 selected=27
+energy seed=2 uniform r=28 source_val=0.108442 key=0.007782 selected=28
+energy seed=2 turning r=1 source_val=0.161354 key=0.007741 selected=1
+energy seed=2 turning r=2 source_val=0.133185 key=0.007717 selected=2
+energy seed=2 turning r=3 source_val=0.130844 key=0.007724 selected=3
+energy seed=2 turning r=4 source_val=0.124883 key=0.007686 selected=4
+energy seed=2 turning r=5 source_val=0.121630 key=0.007706 selected=5
+energy seed=2 turning r=6 source_val=0.122657 key=0.007842 selected=5
+energy seed=2 turning r=7 source_val=0.120983 key=0.007783 selected=7
+energy seed=2 turning r=8 source_val=0.120471 key=0.007868 selected=8
+energy seed=2 turning r=9 source_val=0.119684 key=0.007933 selected=9
+energy seed=2 turning r=10 source_val=0.118942 key=0.007913 selected=10
+energy seed=2 turning r=11 source_val=0.119528 key=0.007906 selected=10
+energy seed=2 turning r=12 source_val=0.114922 key=0.007869 selected=12
+energy seed=2 turning r=13 source_val=0.113605 key=0.007931 selected=13
+energy seed=2 turning r=14 source_val=0.112533 key=0.007999 selected=14
+energy seed=2 turning r=15 source_val=0.113323 key=0.007901 selected=14
+energy seed=2 turning r=16 source_val=0.112273 key=0.007919 selected=16
+energy seed=2 turning r=17 source_val=0.112248 key=0.007873 selected=17
+energy seed=2 turning r=18 source_val=0.111480 key=0.007915 selected=18
+energy seed=2 turning r=19 source_val=0.110408 key=0.007981 selected=19
+energy seed=2 turning r=20 source_val=0.110853 key=0.007933 selected=19
+energy seed=2 turning r=21 source_val=0.111743 key=0.008007 selected=19
+energy seed=2 turning r=22 source_val=0.110576 key=0.007979 selected=19
+energy seed=2 turning r=23 source_val=0.110570 key=0.007968 selected=19
+energy seed=2 turning r=24 source_val=0.110258 key=0.007962 selected=24
+energy seed=2 turning r=25 source_val=0.110478 key=0.007956 selected=24
+energy seed=2 turning r=26 source_val=0.110026 key=0.007961 selected=26
+energy seed=2 turning r=27 source_val=0.109847 key=0.007965 selected=27
+energy seed=2 turning r=28 source_val=0.109693 key=0.007965 selected=28
+energy seed=2 adapt r=1 source_val=0.111289 input=0.073563 proxy=0.985868 selected=1
+energy seed=2 adapt r=2 source_val=0.112721 input=0.071154 proxy=0.975572 selected=2
+energy seed=2 adapt r=3 source_val=0.113271 input=0.071535 proxy=0.978713 selected=2
+energy seed=2 adapt r=4 source_val=0.113275 input=0.070240 proxy=0.969976 selected=4
+energy seed=2 adapt r=5 source_val=0.113936 input=0.069948 proxy=0.970210 selected=4
+energy seed=2 adapt r=6 source_val=0.114535 input=0.069746 proxy=0.971017 selected=4
+energy seed=2 adapt r=7 source_val=0.115117 input=0.070338 proxy=0.976770 selected=4
+energy seed=2 adapt r=8 source_val=0.114855 input=0.070307 proxy=0.975149 selected=4
+energy seed=2 adapt r=9 source_val=0.114444 input=0.070026 proxy=0.971470 selected=4
+energy seed=2 adapt r=10 source_val=0.114279 input=0.069983 proxy=0.970389 selected=4
+energy seed=2 adapt r=11 source_val=0.114459 input=0.070081 proxy=0.971667 selected=4
+energy seed=2 adapt r=12 source_val=0.114554 input=0.070039 proxy=0.971763 selected=4

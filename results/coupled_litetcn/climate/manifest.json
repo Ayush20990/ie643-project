@@ -1,0 +1,49 @@
+{
+  "dataset": "climate",
+  "args": {
+    "datasets": [
+      "climate",
+      "energy"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "rounds": 16,
+    "adapt_rounds": 6,
+    "max_windows": 4096
+  },
+  "base_kind": "peak",
+  "base_spec": {
+    "calendar": true
+  },
+  "controls": [
+    "temperature_only",
+    "coupled"
+  ],
+  "source_selection": "minimum source validation 0.5global+0.5key MSE, global MSE guard +3%, zero correction fallback",
+  "adaptation_selection": "equal relative source validation / within-target-input proxy, source MSE guard +10%, source fallback",
+  "future_driver_inputs": "LiteTCN forecasts only, never actual future values",
+  "target_future_labels_used_for_training_or_selection": false,
+  "test_status": "reused development data; October 2026 was already inspected before this experiment",
+  "code_sha256": {
+    "coupled_tcn.py": "97c0bf563aee64600c549bc3cbbb8f3d0b2c7bbec77358e3e8aea2d8c326cf7f",
+    "coupled_train.py": "f933ca0329ded741139639109a851f2b1d989d72d6be594c2e76c375b1469bdf",
+    "progressive_tcn.py": "2011c82bd3c61bcb985aad8f6e02b52e8ee20a3649832957f53d3cb2443be405",
+    "peak_model.py": "71457bb44b6c891cd818df723510631b149b46acbba8c3028a96ff7b2e74dbba",
+    "peak_data.py": "7c74bfe0d50b71f99ca9ad34794aa9ce71db36565399733689561be135329b0c",
+    "residual_tcn.py": "6271680428e662cd6690473b12726b814406f2e2deb86bd90dec28898bd3b290",
+    "model.py": "102f22b17091b21d0e719b382dc54beb51fbeb8bc3197968022fc2ecd9f938ed",
+    "data.py": "5f4840aaf72e54fa57862de21441e5c333b8bae4b8c81280be90b1f96d81cea5"
+  },
+  "data_sha256": {
+    "delhi.csv": "49707c4ed587ea164dc1da4e6757725b6f6de2a3463b6e6a0b985dc450b972a2",
+    "shimla.csv": "6af08ea35183bd23a9c0d8f88c2703c4b6fb9ed9387a534db2c3496b5053e4d3"
+  },
+  "base_sha256": {
+    "peak_litetcn\\climate\\seed_0\\source_model.pt": "5ceb72cbc693cb5c1d5aed990c1d527ac75dc60896e9c4ab4638c9cad4acef10",
+    "peak_litetcn\\climate\\seed_1\\source_model.pt": "9fd56e17ed776fae1cb31d21e306a2c4274e6dfa49097fcd30085689da0fc92a",
+    "peak_litetcn\\climate\\seed_2\\source_model.pt": "b13f020ac0c9f2b017602204e0e30af41b10cb53080935404bbb1da4a823d32f"
+  }
+}

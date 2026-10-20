@@ -1,0 +1,11 @@
+{
+  "seed": 1,
+  "source_control": "coupled",
+  "source_scores": {
+    "temperature_only": 0.16075974920963446,
+    "coupled": 0.16016984418735986
+  },
+  "adaptation_round": 6,
+  "adaptation_proxy": 0.9979966388845268,
+  "target_future_labels_used_for_training_or_selection": false
+}

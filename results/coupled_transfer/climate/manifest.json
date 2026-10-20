@@ -1,0 +1,50 @@
+{
+  "dataset": "climate",
+  "args": {
+    "datasets": [
+      "climate",
+      "energy"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "rounds": 8,
+    "max_windows": 4096
+  },
+  "model_spec": {
+    "base_kind": "peak",
+    "base_spec": {
+      "calendar": true
+    },
+    "control": "coupled"
+  },
+  "backbone": "retained input-adapted LiteTCN v3 (climate) / R (energy)",
+  "selection": "equal relative source validation / target input proxy, 10% source MSE guard relative to zero correction",
+  "target_future_labels_used_for_training_or_selection": false,
+  "test_status": "reused development; October previously inspected",
+  "code_sha256": {
+    "coupled_transfer.py": "2867c009e9551cb39b88eb9015fde009b59db1046eb6153fddb2dbd7a368ee74",
+    "coupled_tcn.py": "97c0bf563aee64600c549bc3cbbb8f3d0b2c7bbec77358e3e8aea2d8c326cf7f",
+    "coupled_train.py": "f933ca0329ded741139639109a851f2b1d989d72d6be594c2e76c375b1469bdf",
+    "peak_model.py": "71457bb44b6c891cd818df723510631b149b46acbba8c3028a96ff7b2e74dbba",
+    "peak_data.py": "7c74bfe0d50b71f99ca9ad34794aa9ce71db36565399733689561be135329b0c",
+    "progressive_tcn.py": "2011c82bd3c61bcb985aad8f6e02b52e8ee20a3649832957f53d3cb2443be405",
+    "model.py": "102f22b17091b21d0e719b382dc54beb51fbeb8bc3197968022fc2ecd9f938ed",
+    "residual_tcn.py": "6271680428e662cd6690473b12726b814406f2e2deb86bd90dec28898bd3b290",
+    "data.py": "5f4840aaf72e54fa57862de21441e5c333b8bae4b8c81280be90b1f96d81cea5"
+  },
+  "data_sha256": {
+    "delhi.csv": "49707c4ed587ea164dc1da4e6757725b6f6de2a3463b6e6a0b985dc450b972a2",
+    "shimla.csv": "6af08ea35183bd23a9c0d8f88c2703c4b6fb9ed9387a534db2c3496b5053e4d3"
+  },
+  "initial_checkpoint_sha256": {
+    "coupled_litetcn\\climate\\seed_0\\source_model.pt": "cad9d55cde8d7e3f2d32bd2b72517b63dd20d97c3f63edb82dff319a0688e9b7",
+    "peak_litetcn\\climate\\seed_0\\adapted_model.pt": "d086eb4ba9b7fbe53efe9d4fd50c446f247c7559cb7fb288440b22e6230576a9",
+    "coupled_litetcn\\climate\\seed_1\\source_model.pt": "86cee8a2c8fb771d960d91dafa4a16cee86035c1bbe7a602f652da25436b3504",
+    "peak_litetcn\\climate\\seed_1\\adapted_model.pt": "536235a863e667980a71c8d2ced1ab9720eb967e8ffd95a261843f8d96f581c6",
+    "coupled_litetcn\\climate\\seed_2\\source_model.pt": "bda76212e2a6765989e74dae19c5f66a5dada4adfb57ca878d81e35e5d7b5c35",
+    "peak_litetcn\\climate\\seed_2\\adapted_model.pt": "aaea9a0abf929951cb7477f45dbed0f873533f1d8ec8f6b23299af58ac2f192d"
+  }
+}

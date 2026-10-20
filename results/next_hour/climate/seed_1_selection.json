@@ -1,0 +1,12 @@
+{
+  "seed": 1,
+  "source_control": "turning",
+  "source_scores": {
+    "uniform": 0.05751944473013282,
+    "turning": 0.056266834028065205
+  },
+  "adaptation_round": 12,
+  "adaptation_proxy": 0.8944909677749109,
+  "target_future_labels_used_for_training_or_selection": false,
+  "seconds_this_invocation": 137.94493650000004
+}

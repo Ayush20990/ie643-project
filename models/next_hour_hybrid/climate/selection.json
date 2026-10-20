@@ -1,0 +1,160 @@
+{
+  "seed": 0,
+  "calibration": [
+    {
+      "channel": 0,
+      "source_weights": [
+        0.6191154181987942,
+        0.0,
+        0.38088458180120577,
+        0.0,
+        1.0842021724855044e-19
+      ],
+      "adapted_weights": [
+        0.07838495461156365,
+        0.4846717083081701,
+        2.4178131962900376e-17,
+        0.4369433370802662,
+        0.0
+      ],
+      "proxy": 0.9126951600719865,
+      "accepted": true,
+      "source_reference_MSE": 0.021772379734468217,
+      "adapted_source_MSE": 0.022135638392455137,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 1,
+      "source_weights": [
+        0.563859940842281,
+        0.0,
+        0.3397080461940834,
+        0.0,
+        0.09643201296363559
+      ],
+      "adapted_weights": [
+        6.2502767225006116e-18,
+        0.3762534752970506,
+        0.07061947592117879,
+        0.5060836112723005,
+        0.04704343750947015
+      ],
+      "proxy": 0.9157275507878273,
+      "accepted": true,
+      "source_reference_MSE": 0.06966597982674871,
+      "adapted_source_MSE": 0.07280058997465078,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 2,
+      "source_weights": [
+        0.472407131856786,
+        0.0,
+        0.513849030772286,
+        0.0,
+        0.013743837370928018
+      ],
+      "adapted_weights": [
+        0.10823521668143675,
+        0.20564621845929226,
+        4.40812886410083e-17,
+        0.686118564859271,
+        0.0
+      ],
+      "proxy": 0.9437441230054768,
+      "accepted": true,
+      "source_reference_MSE": 0.017077078260056666,
+      "adapted_source_MSE": 0.01736537738227062,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 3,
+      "source_weights": [
+        0.4675482964680753,
+        0.0,
+        0.5324517035319247,
+        0.0,
+        5.204170427930421e-18
+      ],
+      "adapted_weights": [
+        2.789987733198829e-17,
+        0.10527462118733377,
+        1.790107525172183e-16,
+        0.8947253788126661,
+        1.996126168734377e-17
+      ],
+      "proxy": 0.7486216002710253,
+      "accepted": true,
+      "source_reference_MSE": 0.04953588605394654,
+      "adapted_source_MSE": 0.052376831516751654,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 4,
+      "source_weights": [
+        0.8455675076241145,
+        0.0,
+        0.15443249237588563,
+        0.0,
+        1.3877787807814457e-17
+      ],
+      "adapted_weights": [
+        2.3706276287628384e-16,
+        0.5478604085302275,
+        0.45213959146977223,
+        1.0013218680028229e-16,
+        7.167963002402781e-17
+      ],
+      "proxy": 0.9206857173208632,
+      "accepted": true,
+      "source_reference_MSE": 0.18066486928171466,
+      "adapted_source_MSE": 0.18327464386438197,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 5,
+      "source_weights": [
+        0.9999999999999998,
+        0.0,
+        1.6653345369377346e-16,
+        0.0,
+        2.7755575615628907e-17
+      ],
+      "adapted_weights": [
+        0.0,
+        0.7229402657166518,
+        0.0,
+        1.743231048433394e-18,
+        0.2770597342833482
+      ],
+      "proxy": 0.970066557115075,
+      "accepted": true,
+      "source_reference_MSE": 0.26188034171665886,
+      "adapted_source_MSE": 0.26418119207894397,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 6,
+      "source_weights": [
+        0.9367760931468585,
+        0.0,
+        0.06322390685314153,
+        0.0,
+        3.0357660829594124e-18
+      ],
+      "adapted_weights": [
+        1.3850658471900144e-16,
+        0.7776572545805004,
+        2.555382058569576e-18,
+        0.2223427454194994,
+        0.0
+      ],
+      "proxy": 0.8335989463618461,
+      "accepted": true,
+      "source_reference_MSE": 0.018278386713464045,
+      "adapted_source_MSE": 0.018468354348070815,
+      "solver": "Optimization terminated successfully"
+    }
+  ],
+  "target_future_labels_used_for_training_or_selection": false
+}

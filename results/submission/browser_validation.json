@@ -1,0 +1,29 @@
+{
+  "offline_views": [
+    [
+      "climate",
+      1
+    ],
+    [
+      "climate",
+      24
+    ],
+    [
+      "energy",
+      1
+    ],
+    [
+      "energy",
+      24
+    ],
+    [
+      "finance",
+      5
+    ]
+  ],
+  "offline_external_network_requests": 0,
+  "actual_browser_csv_upload": true,
+  "evaluation_csv_download": true,
+  "second_download_survives_rerun": true,
+  "page_errors": []
+}

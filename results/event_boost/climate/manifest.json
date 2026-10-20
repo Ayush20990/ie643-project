@@ -1,0 +1,73 @@
+{
+  "dataset": "climate",
+  "args": {
+    "datasets": [
+      "climate",
+      "energy"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "source_trees": 400,
+    "adapt_trees": 400,
+    "max_windows": 8000,
+    "threads": 4
+  },
+  "catboost": "1.2.10",
+  "base_kind": "peak",
+  "base_spec": {
+    "calendar": true
+  },
+  "variants": [
+    "trajectory",
+    "geometry"
+  ],
+  "weights": [
+    0.0,
+    0.5,
+    1.0
+  ],
+  "source_trees": [
+    100,
+    200,
+    400
+  ],
+  "adaptation_trees": [
+    0,
+    100,
+    200,
+    400
+  ],
+  "depth": 4,
+  "border_count": 32,
+  "source_objective": "MultiRMSE trajectory; geometry DCT16 + extrema2 + circular peak/trough phase4, high-span window weights",
+  "adaptation_objective": "continued source trees, target within-input geometry/trajectory loss + 0.25 source replay, L2 leaf regularization 10",
+  "selection": "event quality = point MSE + .5 error at actual extrema + .25 max/min value error + .1 ramp MSE; equal source/target-input relative scores; source key MSE guard +5%",
+  "validation": "source validation stride25; target validation first L origins purged then stride25, non-overlapping tail labels",
+  "target_future_labels_used_for_training_or_selection": false,
+  "cross_window_target_label_reconstruction": false,
+  "test_status": "previously inspected development data; no independent confirmation",
+  "code_sha256": {
+    "event_boost.py": "c74ccafa2cbfd549ec8ceb94801b0442ddcecf944fd1d4e94008410f28cb9fbd",
+    "event_boost_train.py": "7242e9613c54b6507b54e787cc84eb5d6b9d24b7f8758c4d48c067ade560dfde",
+    "peak_model.py": "71457bb44b6c891cd818df723510631b149b46acbba8c3028a96ff7b2e74dbba",
+    "peak_data.py": "7c74bfe0d50b71f99ca9ad34794aa9ce71db36565399733689561be135329b0c",
+    "model.py": "102f22b17091b21d0e719b382dc54beb51fbeb8bc3197968022fc2ecd9f938ed",
+    "residual_tcn.py": "6271680428e662cd6690473b12726b814406f2e2deb86bd90dec28898bd3b290",
+    "data.py": "5f4840aaf72e54fa57862de21441e5c333b8bae4b8c81280be90b1f96d81cea5"
+  },
+  "data_sha256": {
+    "delhi.csv": "49707c4ed587ea164dc1da4e6757725b6f6de2a3463b6e6a0b985dc450b972a2",
+    "shimla.csv": "6af08ea35183bd23a9c0d8f88c2703c4b6fb9ed9387a534db2c3496b5053e4d3"
+  },
+  "base_sha256": {
+    "peak_litetcn\\climate\\seed_0\\source_model.pt": "5ceb72cbc693cb5c1d5aed990c1d527ac75dc60896e9c4ab4638c9cad4acef10",
+    "peak_litetcn\\climate\\seed_0\\adapted_model.pt": "d086eb4ba9b7fbe53efe9d4fd50c446f247c7559cb7fb288440b22e6230576a9",
+    "peak_litetcn\\climate\\seed_1\\source_model.pt": "9fd56e17ed776fae1cb31d21e306a2c4274e6dfa49097fcd30085689da0fc92a",
+    "peak_litetcn\\climate\\seed_1\\adapted_model.pt": "536235a863e667980a71c8d2ced1ab9720eb967e8ffd95a261843f8d96f581c6",
+    "peak_litetcn\\climate\\seed_2\\source_model.pt": "b13f020ac0c9f2b017602204e0e30af41b10cb53080935404bbb1da4a823d32f",
+    "peak_litetcn\\climate\\seed_2\\adapted_model.pt": "aaea9a0abf929951cb7477f45dbed0f873533f1d8ec8f6b23299af58ac2f192d"
+  }
+}

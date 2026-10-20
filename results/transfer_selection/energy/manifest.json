@@ -1,0 +1,80 @@
+{
+  "dataset": "energy",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "adapt_rounds": 8,
+  "recipes": {
+    "replay_inner": {
+      "inner": 0.5,
+      "anchor": 0.001
+    },
+    "replay_inner_mmd": {
+      "inner": 0.5,
+      "mmd": 0.05,
+      "anchor": 0.001
+    }
+  },
+  "code_sha256": "0e4f0406bc97559bcec19647523d78ce968adf3be7cd93681a28ab13fd157854",
+  "source_manifest": {
+    "dataset": "energy",
+    "args": {
+      "datasets": [
+        "climate",
+        "energy",
+        "finance"
+      ],
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "epochs": 15,
+      "adapt_epochs": 8,
+      "threads": 4
+    },
+    "torch": "2.6.0+cpu",
+    "python": "3.13.2",
+    "candidate_specs": {
+      "tcn3": {
+        "architecture": "litetcn",
+        "depth": 3
+      },
+      "tcn5": {
+        "architecture": "litetcn",
+        "depth": 5
+      },
+      "tcn7": {
+        "architecture": "litetcn",
+        "depth": 7
+      },
+      "patch_mlp": {
+        "architecture": "patch_mlp"
+      },
+      "dlinear": {
+        "architecture": "dlinear"
+      }
+    },
+    "recipes": {
+      "replay_inner": {
+        "inner": 0.5,
+        "anchor": 0.001
+      },
+      "replay_inner_mmd": {
+        "inner": 0.5,
+        "mmd": 0.05,
+        "anchor": 0.001
+      }
+    },
+    "source_ssl_weight": 0,
+    "selection": "source validation MSE; adaptation input-only proxy with epoch-zero fallback",
+    "data_sha256": {
+      "etth1.csv": "e6b024ca0e1423726f0a1e562c94c1babdb1a3a4fa1269a4fb1cbe3f57e6df44",
+      "etth2.csv": "dc09bac2ca501733e3d647552ee9d25e5d72bf2714453ea984a58f4c289cfc61"
+    }
+  },
+  "selection": "mean(source_val / legacy_source_val, target_input_pretext / legacy_input_pretext); source guard 1.1 * legacy_source_val",
+  "status": "exploratory extension after viewing the initial development test results"
+}

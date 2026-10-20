@@ -1,0 +1,113 @@
+training tcn3, parameters=381,606
+[tcn3] ep 01 train 0.3826 val_mse 0.3413
+[tcn3] ep 02 train 0.2821 val_mse 0.3049
+[tcn3] ep 03 train 0.2418 val_mse 0.2973
+[tcn3] ep 04 train 0.2095 val_mse 0.2959
+[tcn3] ep 05 train 0.1777 val_mse 0.3021
+[tcn3] ep 06 train 0.1513 val_mse 0.3164
+[tcn3] ep 07 train 0.1310 val_mse 0.3178
+[tcn3] ep 08 train 0.1175 val_mse 0.3198
+[tcn3] ep 09 train 0.1086 val_mse 0.3311
+[tcn3] ep 10 train 0.1022 val_mse 0.3279
+[tcn3] ep 11 train 0.0978 val_mse 0.3280
+[tcn3] ep 12 train 0.0947 val_mse 0.3307
+[tcn3] ep 13 train 0.0931 val_mse 0.3284
+[tcn3] ep 14 train 0.0920 val_mse 0.3292
+[tcn3] ep 15 train 0.0915 val_mse 0.3294
+training tcn5, parameters=406,310
+[tcn5] ep 01 train 0.4041 val_mse 0.3476
+[tcn5] ep 02 train 0.2900 val_mse 0.3155
+[tcn5] ep 03 train 0.2513 val_mse 0.3020
+[tcn5] ep 04 train 0.2188 val_mse 0.3073
+[tcn5] ep 05 train 0.1890 val_mse 0.3121
+[tcn5] ep 06 train 0.1628 val_mse 0.3241
+[tcn5] ep 07 train 0.1402 val_mse 0.3458
+[tcn5] ep 08 train 0.1257 val_mse 0.3500
+[tcn5] ep 09 train 0.1149 val_mse 0.3561
+[tcn5] ep 10 train 0.1075 val_mse 0.3566
+[tcn5] ep 11 train 0.1024 val_mse 0.3598
+[tcn5] ep 12 train 0.0992 val_mse 0.3593
+[tcn5] ep 13 train 0.0970 val_mse 0.3611
+[tcn5] ep 14 train 0.0957 val_mse 0.3597
+[tcn5] ep 15 train 0.0954 val_mse 0.3605
+training tcn7, parameters=431,014
+[tcn7] ep 01 train 0.4017 val_mse 0.3480
+[tcn7] ep 02 train 0.2799 val_mse 0.3074
+[tcn7] ep 03 train 0.2401 val_mse 0.3026
+[tcn7] ep 04 train 0.2127 val_mse 0.3083
+[tcn7] ep 05 train 0.1851 val_mse 0.3097
+[tcn7] ep 06 train 0.1621 val_mse 0.3184
+[tcn7] ep 07 train 0.1415 val_mse 0.3334
+[tcn7] ep 08 train 0.1265 val_mse 0.3335
+[tcn7] ep 09 train 0.1161 val_mse 0.3433
+[tcn7] ep 10 train 0.1084 val_mse 0.3435
+[tcn7] ep 11 train 0.1033 val_mse 0.3480
+[tcn7] ep 12 train 0.0997 val_mse 0.3462
+[tcn7] ep 13 train 0.0977 val_mse 0.3493
+[tcn7] ep 14 train 0.0964 val_mse 0.3492
+[tcn7] ep 15 train 0.0957 val_mse 0.3493
+training patch_mlp, parameters=38,391
+[patch_mlp] ep 01 train 0.3709 val_mse 0.3271
+[patch_mlp] ep 02 train 0.2721 val_mse 0.2912
+[patch_mlp] ep 03 train 0.2520 val_mse 0.2788
+[patch_mlp] ep 04 train 0.2420 val_mse 0.2746
+[patch_mlp] ep 05 train 0.2354 val_mse 0.2706
+[patch_mlp] ep 06 train 0.2315 val_mse 0.2670
+[patch_mlp] ep 07 train 0.2276 val_mse 0.2682
+[patch_mlp] ep 08 train 0.2251 val_mse 0.2649
+[patch_mlp] ep 09 train 0.2227 val_mse 0.2649
+[patch_mlp] ep 10 train 0.2210 val_mse 0.2631
+[patch_mlp] ep 11 train 0.2195 val_mse 0.2632
+[patch_mlp] ep 12 train 0.2189 val_mse 0.2630
+[patch_mlp] ep 13 train 0.2178 val_mse 0.2626
+[patch_mlp] ep 14 train 0.2173 val_mse 0.2624
+[patch_mlp] ep 15 train 0.2172 val_mse 0.2624
+training dlinear, parameters=8,126
+[dlinear] ep 01 train 0.3203 val_mse 0.3025
+[dlinear] ep 02 train 0.2636 val_mse 0.2847
+[dlinear] ep 03 train 0.2547 val_mse 0.2785
+[dlinear] ep 04 train 0.2508 val_mse 0.2774
+[dlinear] ep 05 train 0.2490 val_mse 0.2761
+[dlinear] ep 06 train 0.2480 val_mse 0.2755
+[dlinear] ep 07 train 0.2472 val_mse 0.2751
+[dlinear] ep 08 train 0.2468 val_mse 0.2742
+[dlinear] ep 09 train 0.2464 val_mse 0.2739
+[dlinear] ep 10 train 0.2463 val_mse 0.2736
+[dlinear] ep 11 train 0.2459 val_mse 0.2735
+[dlinear] ep 12 train 0.2458 val_mse 0.2733
+[dlinear] ep 13 train 0.2457 val_mse 0.2732
+[dlinear] ep 14 train 0.2456 val_mse 0.2731
+[dlinear] ep 15 train 0.2455 val_mse 0.2731
+source-validation architecture choice: patch_mlp (0.26240)
+replay_inner adapt ep=1 source_val=0.26350 input_pretext=0.14643 proxy=0.99037
+replay_inner adapt ep=2 source_val=0.26267 input_pretext=0.14521 proxy=0.98473
+replay_inner adapt ep=3 source_val=0.26330 input_pretext=0.14574 proxy=0.98768
+replay_inner adapt ep=4 source_val=0.26257 input_pretext=0.14480 proxy=0.98319
+replay_inner adapt ep=5 source_val=0.26286 input_pretext=0.14405 proxy=0.98122
+replay_inner adapt ep=6 source_val=0.26399 input_pretext=0.14473 proxy=0.98566
+replay_inner adapt ep=7 source_val=0.26257 input_pretext=0.14427 proxy=0.98141
+replay_inner adapt ep=8 source_val=0.26402 input_pretext=0.14376 proxy=0.98246
+replay_inner_mmd adapt ep=1 source_val=0.26313 input_pretext=0.14665 proxy=0.99043
+replay_inner_mmd adapt ep=2 source_val=0.26279 input_pretext=0.14513 proxy=0.98469
+replay_inner_mmd adapt ep=3 source_val=0.26317 input_pretext=0.14574 proxy=0.98747
+replay_inner_mmd adapt ep=4 source_val=0.26265 input_pretext=0.14479 proxy=0.98332
+replay_inner_mmd adapt ep=5 source_val=0.26254 input_pretext=0.14386 proxy=0.97997
+replay_inner_mmd adapt ep=6 source_val=0.26388 input_pretext=0.14455 proxy=0.98485
+replay_inner_mmd adapt ep=7 source_val=0.26230 input_pretext=0.14432 proxy=0.98106
+replay_inner_mmd adapt ep=8 source_val=0.26414 input_pretext=0.14371 proxy=0.98254
+[supervised_reference] ep 01 train 0.2294 val_mse 0.1561
+[supervised_reference] ep 02 train 0.2143 val_mse 0.1550
+[supervised_reference] ep 03 train 0.2081 val_mse 0.1555
+[supervised_reference] ep 04 train 0.2041 val_mse 0.1562
+[supervised_reference] ep 05 train 0.2007 val_mse 0.1558
+[supervised_reference] ep 06 train 0.1972 val_mse 0.1553
+[supervised_reference] ep 07 train 0.1949 val_mse 0.1553
+[supervised_reference] ep 08 train 0.1931 val_mse 0.1550
+[supervised_reference] ep 09 train 0.1910 val_mse 0.1556
+[supervised_reference] ep 10 train 0.1893 val_mse 0.1554
+[supervised_reference] ep 11 train 0.1881 val_mse 0.1555
+[supervised_reference] ep 12 train 0.1876 val_mse 0.1556
+[supervised_reference] ep 13 train 0.1869 val_mse 0.1556
+[supervised_reference] ep 14 train 0.1869 val_mse 0.1556
+[supervised_reference] ep 15 train 0.1866 val_mse 0.1556
+completed in 366.4s; selected patch_mlp/replay_inner_mmd

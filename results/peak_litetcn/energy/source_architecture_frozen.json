@@ -1,0 +1,14 @@
+{
+  "chosen": "clock_mse",
+  "source_scores": {
+    "no_clock_mse": 0.18028302490711212,
+    "clock_mse": 0.17998509109020233,
+    "clock_shape": 0.18263165652751923
+  },
+  "target_test_evaluated": false,
+  "model_spec": {
+    "architecture": "peak_litetcn",
+    "calendar": true,
+    "shape_loss": false
+  }
+}

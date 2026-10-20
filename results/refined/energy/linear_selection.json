@@ -1,0 +1,98 @@
+{
+  "source": [
+    {
+      "column": "HUFL",
+      "normalization": "last",
+      "penalty": 0.01,
+      "validation_MSE": 0.4780220687389374
+    },
+    {
+      "column": "HULL",
+      "normalization": "mean",
+      "penalty": 0.01,
+      "validation_MSE": 0.2130051851272583
+    },
+    {
+      "column": "MUFL",
+      "normalization": "last",
+      "penalty": 0.01,
+      "validation_MSE": 0.49762606620788574
+    },
+    {
+      "column": "MULL",
+      "normalization": "last",
+      "penalty": 0.01,
+      "validation_MSE": 0.19088084995746613
+    },
+    {
+      "column": "LUFL",
+      "normalization": "revin",
+      "penalty": 0.1,
+      "validation_MSE": 0.2539028823375702
+    },
+    {
+      "column": "LULL",
+      "normalization": "mean",
+      "penalty": 0.01,
+      "validation_MSE": 0.1452009677886963
+    },
+    {
+      "column": "OT",
+      "normalization": "last",
+      "penalty": 0.1,
+      "validation_MSE": 0.03926502913236618
+    }
+  ],
+  "adapted": [
+    {
+      "column": "HUFL",
+      "recipe": "anchored_history",
+      "normalization": "last",
+      "source_replay": 0.25,
+      "anchor": 0.1,
+      "validation_MSE": 0.23307175934314728
+    },
+    {
+      "column": "HULL",
+      "recipe": "source_fallback",
+      "validation_MSE": 0.21771281957626343
+    },
+    {
+      "column": "MUFL",
+      "recipe": "anchored_history",
+      "normalization": "last",
+      "source_replay": 0.0,
+      "anchor": 0.001,
+      "validation_MSE": 0.08761224150657654
+    },
+    {
+      "column": "MULL",
+      "recipe": "source_fallback",
+      "validation_MSE": 0.40842118859291077
+    },
+    {
+      "column": "LUFL",
+      "recipe": "anchored_history",
+      "normalization": "revin",
+      "source_replay": 0.0,
+      "anchor": 0.01,
+      "validation_MSE": 0.07887575030326843
+    },
+    {
+      "column": "LULL",
+      "recipe": "anchored_history",
+      "normalization": "mean",
+      "source_replay": 0.25,
+      "anchor": 0.01,
+      "validation_MSE": 0.010333620943129063
+    },
+    {
+      "column": "OT",
+      "recipe": "anchored_history",
+      "normalization": "last",
+      "source_replay": 0.0,
+      "anchor": 0.0001,
+      "validation_MSE": 0.06562899053096771
+    }
+  ]
+}

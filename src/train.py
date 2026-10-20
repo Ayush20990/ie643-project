@@ -8,7 +8,7 @@ import torch.nn.functional as F
 
 from .data import batches, infinite
 from .losses import DomainDiscriminator, coral, l2_sp, mmd_rbf, spectral_align
-from .model import LiteTCNForecaster
+from .model import make_forecaster
 
 torch.set_num_threads(max(1, torch.get_num_threads()))
 
@@ -49,7 +49,7 @@ def eval_mse(model, X, Y):
 
 
 def build_model(cfg):
-    return LiteTCNForecaster(cfg["L"], cfg["H"], len(cfg["columns"]))
+    return make_forecaster(cfg, cfg.get("model_spec"))
 
 
 def train_supervised(model, train, val, epochs=20, lr=1e-3, ssl=0.5, bs=256, seed=0, log=None, tag="source"):
@@ -150,7 +150,10 @@ def adapt(src_model, src, tgt, recipe, epochs=15, lr=5e-4, bs=256, seed=0, log=N
             if recipe.get("consist"):
                 terms["consist"] = recipe["consist"] * model.forecast_consistency_loss(xt)
             if recipe.get("spectral"):
-                terms["spectral"] = recipe["spectral"] * spectral_align(xs, xt)
+                # Align learned temporal features. Raw xs/xt have no parameter gradient.
+                fs = model.enc(model.revin.norm(xs)[0].transpose(1, 2)).transpose(1, 2)
+                ft = model.enc(model.revin.norm(xt)[0].transpose(1, 2)).transpose(1, 2)
+                terms["spectral"] = recipe["spectral"] * spectral_align(fs, ft)
             if recipe.get("anchor"):
                 terms["anchor"] = recipe["anchor"] * l2_sp(model, ref)
             loss = sum(terms.values())

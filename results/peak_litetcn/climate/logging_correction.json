@@ -1,0 +1,7 @@
+{
+  "reason": "Undefined wall-clock timer in final logging, after all climate weights and metrics had been saved. No model/loss/selection changes. Resume from saved checkpoints; preserve original freeze timestamp.",
+  "before_sha256": "2ad0365e47297ba5a145fc754f3a7b8a43b6d6aa0ac31a5d04cedd0fd1ac3b87",
+  "after_sha256": "e4ea8dc392cc0e26eac244615d4699621c447e291750d9b8a62439ecbfeb85ab",
+  "original_code_snapshot": "peak_train_before_logging_fix.py",
+  "original_manifest": "manifest_before_logging_fix.json"
+}

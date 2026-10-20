@@ -1,0 +1,8 @@
+energy seed=1 r=1 source=0.272474 input=0.154027 proxy=0.999571 selected=input_round_1
+energy seed=1 r=2 source=0.272454 input=0.154021 proxy=0.999206 selected=input_round_2
+energy seed=1 r=3 source=0.272435 input=0.154014 proxy=0.998851 selected=input_round_3
+energy seed=1 r=4 source=0.272421 input=0.154007 proxy=0.998556 selected=input_round_4
+energy seed=1 r=5 source=0.272410 input=0.154001 proxy=0.998318 selected=input_round_5
+energy seed=1 r=6 source=0.272405 input=0.153999 proxy=0.998202 selected=input_round_6
+energy seed=1 r=7 source=0.272403 input=0.153998 proxy=0.998153 selected=input_round_7
+energy seed=1 r=8 source=0.272402 input=0.153997 proxy=0.998133 selected=input_round_8

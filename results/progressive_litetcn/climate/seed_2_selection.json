@@ -1,0 +1,11 @@
+{
+  "seed": 2,
+  "source_control": "head_only",
+  "source_scores": {
+    "head_only": 0.16004184260964394,
+    "progressive": 0.16004184260964394
+  },
+  "adaptation_round": 8,
+  "adaptation_proxy": 0.9845840863738798,
+  "target_future_labels_used_for_training_or_selection": false
+}

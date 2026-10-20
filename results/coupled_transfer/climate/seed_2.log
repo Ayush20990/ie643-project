@@ -1,0 +1,8 @@
+climate seed=2 r=1 source=0.253478 input=0.226877 proxy=0.997657 selected=input_round_1
+climate seed=2 r=2 source=0.253467 input=0.226879 proxy=0.997550 selected=input_round_2
+climate seed=2 r=3 source=0.253458 input=0.226880 proxy=0.997458 selected=input_round_3
+climate seed=2 r=4 source=0.253452 input=0.226881 proxy=0.997384 selected=input_round_4
+climate seed=2 r=5 source=0.253447 input=0.226882 proxy=0.997348 selected=input_round_5
+climate seed=2 r=6 source=0.253445 input=0.226883 proxy=0.997328 selected=input_round_6
+climate seed=2 r=7 source=0.253443 input=0.226883 proxy=0.997319 selected=input_round_7
+climate seed=2 r=8 source=0.253443 input=0.226883 proxy=0.997315 selected=input_round_8

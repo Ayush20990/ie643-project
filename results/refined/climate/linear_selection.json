@@ -1,0 +1,104 @@
+{
+  "source": [
+    {
+      "column": "temperature_2m",
+      "normalization": "none",
+      "penalty": 0.0001,
+      "validation_MSE": 0.0614330880343914
+    },
+    {
+      "column": "relative_humidity_2m",
+      "normalization": "none",
+      "penalty": 0.01,
+      "validation_MSE": 0.2533254027366638
+    },
+    {
+      "column": "dew_point_2m",
+      "normalization": "none",
+      "penalty": 0.001,
+      "validation_MSE": 0.07088693231344223
+    },
+    {
+      "column": "surface_pressure",
+      "normalization": "last",
+      "penalty": 0.01,
+      "validation_MSE": 0.15964993834495544
+    },
+    {
+      "column": "wind_speed_10m",
+      "normalization": "last",
+      "penalty": 0.001,
+      "validation_MSE": 0.43063345551490784
+    },
+    {
+      "column": "cloud_cover",
+      "normalization": "none",
+      "penalty": 0.1,
+      "validation_MSE": 0.6916201710700989
+    },
+    {
+      "column": "shortwave_radiation",
+      "normalization": "none",
+      "penalty": 0.01,
+      "validation_MSE": 0.04025651514530182
+    }
+  ],
+  "adapted": [
+    {
+      "column": "temperature_2m",
+      "recipe": "anchored_history",
+      "normalization": "none",
+      "source_replay": 0.0,
+      "anchor": 0.01,
+      "validation_MSE": 0.0286930613219738
+    },
+    {
+      "column": "relative_humidity_2m",
+      "recipe": "anchored_history",
+      "normalization": "none",
+      "source_replay": 0.0,
+      "anchor": 0.1,
+      "validation_MSE": 0.09489943832159042
+    },
+    {
+      "column": "dew_point_2m",
+      "recipe": "anchored_history",
+      "normalization": "none",
+      "source_replay": 0.0,
+      "anchor": 1.0,
+      "validation_MSE": 0.04650421440601349
+    },
+    {
+      "column": "surface_pressure",
+      "recipe": "anchored_history",
+      "normalization": "last",
+      "source_replay": 0.0,
+      "anchor": 0.001,
+      "validation_MSE": 0.028190672397613525
+    },
+    {
+      "column": "wind_speed_10m",
+      "recipe": "anchored_history",
+      "normalization": "last",
+      "source_replay": 1.0,
+      "anchor": 0.001,
+      "validation_MSE": 0.479741632938385
+    },
+    {
+      "column": "cloud_cover",
+      "recipe": "anchored_history",
+      "normalization": "none",
+      "source_replay": 1.0,
+      "anchor": 0.0001,
+      "validation_MSE": 0.8425728678703308
+    },
+    {
+      "column": "shortwave_radiation",
+      "recipe": "anchored_history",
+      "normalization": "none",
+      "source_replay": 0.0,
+      "anchor": 0.01,
+      "validation_MSE": 0.019416945055127144
+    }
+  ]
+}

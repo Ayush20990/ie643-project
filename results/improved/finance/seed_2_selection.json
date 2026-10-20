@@ -1,0 +1,25 @@
+{
+  "seed": 2,
+  "architecture": "patch_mlp",
+  "model_spec": {
+    "architecture": "patch_mlp"
+  },
+  "source_val_mse": {
+    "tcn3": 0.7123588919639587,
+    "tcn5": 0.7150882482528687,
+    "tcn7": 0.7135985493659973,
+    "patch_mlp": 0.7050489187240601,
+    "dlinear": 0.7085421681404114
+  },
+  "adaptation": "replay_inner_mmd",
+  "adaptation_proxy": {
+    "source_only": 1.0,
+    "replay_inner": 0.9961805385182314,
+    "replay_inner_mmd": 0.9961789208150174
+  },
+  "epochs_selected": {
+    "source_only": 0,
+    "replay_inner": 7,
+    "replay_inner_mmd": 7
+  }
+}

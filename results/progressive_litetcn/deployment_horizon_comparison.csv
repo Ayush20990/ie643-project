@@ -1,0 +1,46 @@
+dataset,model,horizon_hours,key_RMSE
+climate,Original LiteTCN,1,1.0089480876922607
+climate,Original LiteTCN,3,1.1349760293960571
+climate,Original LiteTCN,6,1.2494004964828491
+climate,Original LiteTCN,12,1.3500633239746094
+climate,Original LiteTCN,24,1.473909854888916
+climate,Previous LiteTCN,1,0.8882414698600769
+climate,Previous LiteTCN,3,1.0126450061798096
+climate,Previous LiteTCN,6,1.1225221157073975
+climate,Previous LiteTCN,12,1.231456995010376
+climate,Previous LiteTCN,24,1.3232080936431885
+climate,Previous hybrid,1,0.6543929576873779
+climate,Previous hybrid,3,0.8680853843688965
+climate,Previous hybrid,6,1.0338736772537231
+climate,Previous hybrid,12,1.1741890907287598
+climate,Previous hybrid,24,1.2831213474273682
+climate,New input-adapted LiteTCN-R,1,0.6944141387939453
+climate,New input-adapted LiteTCN-R,3,0.9146463871002197
+climate,New input-adapted LiteTCN-R,6,1.0924321413040161
+climate,New input-adapted LiteTCN-R,12,1.2509685754776
+climate,New input-adapted LiteTCN-R,24,1.3785990476608276
+energy,Original LiteTCN,1,2.093791961669922
+energy,Original LiteTCN,3,2.559338331222534
+energy,Original LiteTCN,6,3.0972673892974854
+energy,Original LiteTCN,12,3.7028932571411133
+energy,Original LiteTCN,24,4.182663917541504
+energy,Previous LiteTCN,1,1.1935665607452393
+energy,Previous LiteTCN,3,1.9221268892288208
+energy,Previous LiteTCN,6,2.7066152095794678
+energy,Previous LiteTCN,12,3.5130631923675537
+energy,Previous LiteTCN,24,4.078793048858643
+energy,Previous DLinear,1,1.1532539129257202
+energy,Previous DLinear,3,1.8804510831832886
+energy,Previous DLinear,6,2.6672022342681885
+energy,Previous DLinear,12,3.4903697967529297
+energy,Previous DLinear,24,4.065864086151123
+energy,New input-adapted LiteTCN-R,1,1.1894499063491821
+energy,New input-adapted LiteTCN-R,3,1.9186594486236572
+energy,New input-adapted LiteTCN-R,6,2.7048838138580322
+energy,New input-adapted LiteTCN-R,12,3.5137693881988525
+energy,New input-adapted LiteTCN-R,24,4.081323623657227
+energy,Existing strict ensemble,1,0.9820813536643982
+energy,Existing strict ensemble,3,1.6766853332519531
+energy,Existing strict ensemble,6,2.4746248722076416
+energy,Existing strict ensemble,12,3.3563826084136963
+energy,Existing strict ensemble,24,3.975229024887085

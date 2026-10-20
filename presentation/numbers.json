@@ -415,7 +415,8 @@
     "rel_change": -0.06178318001630445,
     "gcr_means": null,
     "_seeds": 1
-   }
+   },
+   "_v2_source_mse": 0.2512214183807373
   },
   "finance": {
    "seasonal_naive": {
@@ -650,7 +651,8 @@
     "rel_change": -0.0180850002433316,
     "gcr_means": null,
     "_seeds": 1
-   }
+   },
+   "_v2_source_mse": 0.5621655583381653
   },
   "energy": {
    "seasonal_naive": {
@@ -885,7 +887,8 @@
     "rel_change": -0.07830870278567514,
     "gcr_means": null,
     "_seeds": 1
-   }
+   },
+   "_v2_source_mse": 0.1691462993621826
   }
  },
  "sensitivity": {

@@ -1,0 +1,12 @@
+{
+  "model_sha256": {
+    "strict_refined\\climate\\seed_0\\adapted_model.pt": "8b50cc5ccade2974be241a14c2657b9b2fa76e041fe9f7bc2ba4ff2a54ff9b47",
+    "strict_refined\\climate\\seed_0\\source_model.pt": "baa5ea47f8917ee34be7c9baa43519538eaa15e48b114502a479bcc5e21065e8",
+    "strict_refined\\climate\\seed_1\\adapted_model.pt": "683b2a510fde019ed3acb6e9d33b5337fcdd5b57504c24cb671b5da8747b34ca",
+    "strict_refined\\climate\\seed_1\\source_model.pt": "2371ac352e122e706bc98766718488cd34991c4640c826e66869b6d43b10e743",
+    "strict_refined\\climate\\seed_2\\adapted_model.pt": "bf2b366cfcbe2f9eeedfa2c1615d89be11a9995be58f63585d07d9d7206abdbe",
+    "strict_refined\\climate\\seed_2\\source_model.pt": "0bcb63667def7ddc0fafbb311baa6d665e0526dc0414c529394cad9b03c11594"
+  },
+  "utc_time": "2026-10-19T12:50:24.258577+00:00",
+  "purpose": "evaluation only; no retraining, tuning or model selection"
+}

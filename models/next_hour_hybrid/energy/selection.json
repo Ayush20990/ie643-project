@@ -1,0 +1,160 @@
+{
+  "seed": 0,
+  "calibration": [
+    {
+      "channel": 0,
+      "source_weights": [
+        0.5880826614798604,
+        0.0,
+        0.4119173385201396,
+        0.0,
+        2.6020852139652106e-18
+      ],
+      "adapted_weights": [
+        0.2705246869215843,
+        2.775557561562892e-17,
+        0.5706963257992779,
+        0.1587789872791379,
+        0.0
+      ],
+      "proxy": 0.9765478459745947,
+      "accepted": true,
+      "source_reference_MSE": 0.15072675993437468,
+      "adapted_source_MSE": 0.1542873370370974,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 1,
+      "source_weights": [
+        0.11216643479024865,
+        0.0,
+        0.8878335652097514,
+        0.0,
+        0.0
+      ],
+      "adapted_weights": [
+        0.0,
+        1.2823057043298175e-17,
+        0.9282059566971438,
+        0.04037239148739215,
+        0.03142165181546402
+      ],
+      "proxy": 0.9932811536805659,
+      "accepted": true,
+      "source_reference_MSE": 0.10882941402734558,
+      "adapted_source_MSE": 0.10974091580185819,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 2,
+      "source_weights": [
+        0.6431914750631362,
+        0.0,
+        0.3568085249368639,
+        0.0,
+        2.168404344971009e-18
+      ],
+      "adapted_weights": [
+        0.2886598524885966,
+        2.7611580014595682e-17,
+        0.0,
+        0.7113401475114034,
+        0.0
+      ],
+      "proxy": 0.9344562060762711,
+      "accepted": true,
+      "source_reference_MSE": 0.14893790448655753,
+      "adapted_source_MSE": 0.1549336210863994,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 3,
+      "source_weights": [
+        0.18861901743454929,
+        0.0,
+        0.8113809825654508,
+        0.0,
+        0.0
+      ],
+      "adapted_weights": [
+        0.0,
+        0.10440979667013656,
+        0.8534855929476578,
+        0.04210461038220572,
+        0.0
+      ],
+      "proxy": 0.995669439328095,
+      "accepted": true,
+      "source_reference_MSE": 0.1138415007032374,
+      "adapted_source_MSE": 0.11475150421836477,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 4,
+      "source_weights": [
+        0.4584191870023751,
+        0.0,
+        0.541580812997625,
+        0.0,
+        0.0
+      ],
+      "adapted_weights": [
+        0.0,
+        0.30326147552697286,
+        0.0,
+        0.6967385244730272,
+        1.444857485880137e-17
+      ],
+      "proxy": 0.9067110280796139,
+      "accepted": true,
+      "source_reference_MSE": 0.10948977664389248,
+      "adapted_source_MSE": 0.11038796879259027,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 5,
+      "source_weights": [
+        1.1796119636642286e-16,
+        0.0,
+        0.9999999999999998,
+        0.0,
+        0.0
+      ],
+      "adapted_weights": [
+        3.399923254250422e-17,
+        0.09771958700379607,
+        1.0743070012984355e-16,
+        0.8720234209496026,
+        0.030256992046601094
+      ],
+      "proxy": 0.9618576063744014,
+      "accepted": true,
+      "source_reference_MSE": 0.04180643084217417,
+      "adapted_source_MSE": 0.041992345944419696,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 6,
+      "source_weights": [
+        1.2490009027033009e-16,
+        0.0,
+        0.9999999999999998,
+        0.0,
+        6.938893903907227e-18
+      ],
+      "adapted_weights": [
+        1.8619006149354542e-17,
+        0.0,
+        4.829419876218984e-17,
+        0.8947596280514004,
+        0.10524037194859942
+      ],
+      "proxy": 0.714450694418125,
+      "accepted": true,
+      "source_reference_MSE": 0.007193732679493303,
+      "adapted_source_MSE": 0.007565191286942552,
+      "solver": "Optimization terminated successfully"
+    }
+  ],
+  "target_future_labels_used_for_training_or_selection": false
+}

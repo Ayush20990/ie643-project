@@ -1,0 +1,160 @@
+{
+  "seed": 2,
+  "calibration": [
+    {
+      "channel": 0,
+      "source_weights": [
+        0.816309038889851,
+        0.0,
+        0.18369096111014907,
+        0.0,
+        0.0
+      ],
+      "adapted_weights": [
+        0.1772193352213262,
+        0.34899349071338975,
+        5.1191283200260895e-17,
+        0.473787174065284,
+        3.5018036105387285e-17
+      ],
+      "proxy": 0.9144114517054875,
+      "accepted": true,
+      "source_reference_MSE": 0.021468219615320416,
+      "adapted_source_MSE": 0.022300267811902863,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 1,
+      "source_weights": [
+        0.710707221717681,
+        0.0,
+        0.289292778282319,
+        0.0,
+        2.3852447794681098e-18
+      ],
+      "adapted_weights": [
+        0.008472729494361175,
+        0.3885734475608199,
+        0.10852469091833673,
+        0.47729549866777793,
+        0.017133633358704308
+      ],
+      "proxy": 0.8959722324200163,
+      "accepted": true,
+      "source_reference_MSE": 0.06658463394824843,
+      "adapted_source_MSE": 0.07148305845879965,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 2,
+      "source_weights": [
+        0.3501975635952468,
+        0.0,
+        0.6498024364047533,
+        0.0,
+        0.0
+      ],
+      "adapted_weights": [
+        1.2201500498307203e-17,
+        0.3418746864742649,
+        0.044802755577272424,
+        0.6133225579484627,
+        2.4652767981807384e-17
+      ],
+      "proxy": 0.9596361540699295,
+      "accepted": true,
+      "source_reference_MSE": 0.017424025130780896,
+      "adapted_source_MSE": 0.01775454448459457,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 3,
+      "source_weights": [
+        0.7251040020818549,
+        0.0,
+        0.27489599791814506,
+        0.0,
+        2.7755575615628914e-17
+      ],
+      "adapted_weights": [
+        6.226689724435109e-17,
+        0.16592737460471396,
+        7.029508969710857e-17,
+        0.8340726253952859,
+        3.663179065160737e-17
+      ],
+      "proxy": 0.7143862872921667,
+      "accepted": true,
+      "source_reference_MSE": 0.0468594913655076,
+      "adapted_source_MSE": 0.05154544050208831,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 4,
+      "source_weights": [
+        0.9627804654835952,
+        0.0,
+        0.03721953451640486,
+        0.0,
+        0.0
+      ],
+      "adapted_weights": [
+        0.0,
+        0.5333551768336923,
+        0.45910888367990405,
+        0.0075359394864035895,
+        1.0449776336232232e-17
+      ],
+      "proxy": 0.9093064652154634,
+      "accepted": true,
+      "source_reference_MSE": 0.1766224197098356,
+      "adapted_source_MSE": 0.18279604762221335,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 5,
+      "source_weights": [
+        1.0,
+        0.0,
+        1.1102230246251565e-16,
+        0.0,
+        0.0
+      ],
+      "adapted_weights": [
+        0.14776133925743914,
+        0.4908302570580446,
+        4.540096597283051e-19,
+        0.04890994592127877,
+        0.31249845776323754
+      ],
+      "proxy": 0.9790362681809365,
+      "accepted": true,
+      "source_reference_MSE": 0.2612416435911997,
+      "adapted_source_MSE": 0.26747234923614605,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 6,
+      "source_weights": [
+        0.6373162674699107,
+        0.0,
+        0.3626837325300893,
+        0.0,
+        0.0
+      ],
+      "adapted_weights": [
+        6.079861832512056e-17,
+        0.5954714663733105,
+        0.0,
+        0.4045285336266894,
+        7.621015587220947e-17
+      ],
+      "proxy": 0.8400710044555751,
+      "accepted": true,
+      "source_reference_MSE": 0.021642135829774367,
+      "adapted_source_MSE": 0.020628905183469937,
+      "solver": "Optimization terminated successfully"
+    }
+  ],
+  "target_future_labels_used_for_training_or_selection": false
+}

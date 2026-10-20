@@ -1,0 +1,49 @@
+{
+  "dataset": "climate",
+  "args": {
+    "datasets": [
+      "climate",
+      "energy",
+      "finance"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "threads": 4
+  },
+  "torch": "2.6.0+cpu",
+  "python": "3.13.2",
+  "source_penalties": [
+    1e-05,
+    0.0001,
+    0.001,
+    0.01,
+    0.1,
+    1.0
+  ],
+  "anchors": [
+    0.0001,
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0
+  ],
+  "replay": [
+    0.0,
+    0.25,
+    1.0
+  ],
+  "data_sha256": {
+    "delhi.csv": "49707c4ed587ea164dc1da4e6757725b6f6de2a3463b6e6a0b985dc450b972a2",
+    "shimla.csv": "6af08ea35183bd23a9c0d8f88c2703c4b6fb9ed9387a534db2c3496b5053e4d3"
+  },
+  "code_sha256": {
+    "refinement.py": "4e1e334b7710dc96dcbd95903b4ae41705f2cbb43a087ad5b3bc2d6a87d01ce7",
+    "refined_models.py": "b5f3300b7a47a3c682d1d0434fb572512edcecf7375d822f6c8a52f44521c209"
+  },
+  "protocol": "source labels + forecasting entirely within observed target input history; no target future tensors in fitting/selection",
+  "evaluation": "reused development test, previously observed in architecture experiments"
+}

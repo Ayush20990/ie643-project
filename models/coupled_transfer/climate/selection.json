@@ -1,0 +1,157 @@
+{
+  "chosen": "input_round_8",
+  "proxy": 0.9957649446999606,
+  "history": [
+    {
+      "candidate": "zero_correction",
+      "source": {
+        "MSE": 0.254704218918092,
+        "key_MSE": 0.06505209734892188,
+        "score": 0.15987815813350692
+      },
+      "target_input": {
+        "MSE": 0.2238946754472538,
+        "key_MSE": 0.030514801744410142,
+        "score": 0.12720473859583198
+      },
+      "proxy": 1.0,
+      "eligible": true
+    },
+    {
+      "candidate": "source_decoder",
+      "source": {
+        "MSE": 0.2545137143641471,
+        "key_MSE": 0.06371857471823966,
+        "score": 0.15911614454119338
+      },
+      "target_input": {
+        "MSE": 0.22385007322655753,
+        "key_MSE": 0.030202599843251854,
+        "score": 0.1270263365349047
+      },
+      "proxy": 0.9969156529206584,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_1",
+      "source": {
+        "MSE": 0.2545027282563745,
+        "key_MSE": 0.06364162811575334,
+        "score": 0.15907217818606392
+      },
+      "target_input": {
+        "MSE": 0.22382771060401072,
+        "key_MSE": 0.030046051438688274,
+        "score": 0.1269368810213495
+      },
+      "proxy": 0.9964265331443014,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_2",
+      "source": {
+        "MSE": 0.2544948960965591,
+        "key_MSE": 0.06358684529256328,
+        "score": 0.1590408706945612
+      },
+      "target_input": {
+        "MSE": 0.22381689369541632,
+        "key_MSE": 0.029970281240963362,
+        "score": 0.12689358746818985
+      },
+      "proxy": 0.9961584499516908,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_3",
+      "source": {
+        "MSE": 0.25448748595952714,
+        "key_MSE": 0.06353489494316887,
+        "score": 0.159011190451348
+      },
+      "target_input": {
+        "MSE": 0.22381288796902796,
+        "key_MSE": 0.02994226873023639,
+        "score": 0.12687757834963218
+      },
+      "proxy": 0.9960027019260995,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_4",
+      "source": {
+        "MSE": 0.25447981831126865,
+        "key_MSE": 0.06348125447105321,
+        "score": 0.15898053639116094
+      },
+      "target_input": {
+        "MSE": 0.22381299917172343,
+        "key_MSE": 0.029943077883818937,
+        "score": 0.1268780385277712
+      },
+      "proxy": 0.9959086437931692,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_5",
+      "source": {
+        "MSE": 0.25447415470666374,
+        "key_MSE": 0.06344167133697001,
+        "score": 0.1589579130218169
+      },
+      "target_input": {
+        "MSE": 0.22381319943922395,
+        "key_MSE": 0.029944453580918736,
+        "score": 0.12687882651007135
+      },
+      "proxy": 0.9958409891848838,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_6",
+      "source": {
+        "MSE": 0.2544704845044698,
+        "key_MSE": 0.06341595715499909,
+        "score": 0.15894322082973444
+      },
+      "target_input": {
+        "MSE": 0.2238132784957864,
+        "key_MSE": 0.02994503775434023,
+        "score": 0.1268791581250633
+      },
+      "proxy": 0.9957963445641114,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_7",
+      "source": {
+        "MSE": 0.2544691331350981,
+        "key_MSE": 0.06340645252802889,
+        "score": 0.1589377928315635
+      },
+      "target_input": {
+        "MSE": 0.22381277495287313,
+        "key_MSE": 0.029941487492807423,
+        "score": 0.12687713122284028
+      },
+      "proxy": 0.9957714020566925,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_8",
+      "source": {
+        "MSE": 0.2544687706143109,
+        "key_MSE": 0.06340396941460917,
+        "score": 0.15893637001446004
+      },
+      "target_input": {
+        "MSE": 0.22381264597485448,
+        "key_MSE": 0.029940594932926234,
+        "score": 0.12687662045389037
+      },
+      "proxy": 0.9957649446999606,
+      "eligible": true
+    }
+  ],
+  "target_future_labels_used_for_training_or_selection": false
+}

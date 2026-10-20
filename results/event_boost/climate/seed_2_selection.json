@@ -1,0 +1,44 @@
+{
+  "seed": 2,
+  "source": {
+    "variant": "geometry",
+    "mode": "phase_extrema",
+    "weight": 0.5,
+    "trees": 400,
+    "quality": {
+      "MSE": 0.06049328297376633,
+      "event_MSE": 0.05487601459026337,
+      "extrema_MSE": 0.0396343469619751,
+      "ramp_MSE": 0.023127414286136627,
+      "score": 0.10015261843800545
+    },
+    "eligible": true,
+    "candidate": "source_tree_blend"
+  },
+  "adapted": {
+    "variant": "geometry",
+    "mode": "phase_extrema",
+    "weight": 0.5,
+    "trees": 800,
+    "added_trees": 400,
+    "source": {
+      "MSE": 0.062467340379953384,
+      "event_MSE": 0.053073152899742126,
+      "extrema_MSE": 0.0402112640440464,
+      "ramp_MSE": 0.023115402087569237,
+      "score": 0.10136827304959298
+    },
+    "target_input": {
+      "MSE": 0.03136220946907997,
+      "event_MSE": 0.024406548589468002,
+      "extrema_MSE": 0.023099277168512344,
+      "ramp_MSE": 0.007816838100552559,
+      "score": 0.050121986865997316
+    },
+    "proxy": 0.9159800134568626,
+    "eligible": true,
+    "candidate": "adapted_tree"
+  },
+  "target_future_labels_used_for_training_or_selection": false,
+  "training_seconds": 317.52831770000194
+}

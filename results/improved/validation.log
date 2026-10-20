@@ -1,0 +1,13 @@
+test_both_domains_and_all_datasets (test_app.AppSmokeTests.test_both_domains_and_all_datasets) ... ok
+test_exact_lookback_rows_forecast_without_future_actuals (test_app.AppSmokeTests.test_exact_lookback_rows_forecast_without_future_actuals) ... ok
+test_adaptation_falls_back_when_source_validation_deteriorates (test_forecasting.ForecastingRegressionTests.test_adaptation_falls_back_when_source_validation_deteriorates) ... ok
+test_architectures_roundtrip_and_input_pretext_is_causal (test_forecasting.ForecastingRegressionTests.test_architectures_roundtrip_and_input_pretext_is_causal) ... ok
+test_csv_rejects_lookahead_imputation_and_mixed_series (test_forecasting.ForecastingRegressionTests.test_csv_rejects_lookahead_imputation_and_mixed_series) ... ok
+test_gap_closure_undefined_when_reference_does_not_improve (test_forecasting.ForecastingRegressionTests.test_gap_closure_undefined_when_reference_does_not_improve) ... ok
+test_spectral_loss_updates_encoder (test_forecasting.ForecastingRegressionTests.test_spectral_loss_updates_encoder) ... ok
+test_split_futures_do_not_cross_chronological_boundaries (test_forecasting.ForecastingRegressionTests.test_split_futures_do_not_cross_chronological_boundaries) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 21.202s
+
+OK

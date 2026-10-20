@@ -1,0 +1,50 @@
+{
+  "seed": 1,
+  "chosen": "main_replay_inner",
+  "model_spec": {
+    "architecture": "patch_mlp"
+  },
+  "adaptation": "replay_inner",
+  "source_reference_mse": 0.273653119802475,
+  "input_reference_mse": 0.2481716424226761,
+  "scores": {
+    "main_source": {
+      "source_val_mse": 0.2611369490623474,
+      "target_input_mse": 0.21638183295726776,
+      "proxy": 0.913083291208991,
+      "eligible": true
+    },
+    "dlinear_source": {
+      "source_val_mse": 0.27029716968536377,
+      "target_input_mse": 0.22119908779859543,
+      "proxy": 0.939525701089231,
+      "eligible": true
+    },
+    "main_replay_inner": {
+      "source_val_mse": 0.2571817636489868,
+      "target_input_mse": 0.20909486711025238,
+      "proxy": 0.8911753483764356,
+      "eligible": true
+    },
+    "dlinear_replay_inner": {
+      "source_val_mse": 0.26831549406051636,
+      "target_input_mse": 0.2170567512512207,
+      "proxy": 0.9275592119811302,
+      "eligible": true
+    },
+    "main_replay_inner_mmd": {
+      "source_val_mse": 0.2577419877052307,
+      "target_input_mse": 0.20897163450717926,
+      "proxy": 0.8919506699231448,
+      "eligible": true
+    },
+    "dlinear_replay_inner_mmd": {
+      "source_val_mse": 0.26842424273490906,
+      "target_input_mse": 0.21736057102680206,
+      "proxy": 0.9283700262366857,
+      "eligible": true
+    }
+  },
+  "future_target_values_used_for_selection": false,
+  "note": "Exploratory model family selection on the reused development benchmark"
+}

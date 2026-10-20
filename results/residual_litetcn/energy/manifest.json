@@ -1,0 +1,40 @@
+{
+  "dataset": "energy",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "source_ridge": [
+    0.0001,
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0,
+    100.0
+  ],
+  "anchors": [
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0
+  ],
+  "source_replay": [
+    0.25,
+    1.0
+  ],
+  "code_sha256": {
+    "residual_tcn.py": "6271680428e662cd6690473b12726b814406f2e2deb86bd90dec28898bd3b290",
+    "residual_train.py": "e921a75f7d811b150478901c28ffe4fee3c8532509a2eed5404b4441c0e6eb39",
+    "model.py": "102f22b17091b21d0e719b382dc54beb51fbeb8bc3197968022fc2ecd9f938ed",
+    "data.py": "5f4840aaf72e54fa57862de21441e5c333b8bae4b8c81280be90b1f96d81cea5"
+  },
+  "data_sha256": {
+    "etth1.csv": "e6b024ca0e1423726f0a1e562c94c1babdb1a3a4fa1269a4fb1cbe3f57e6df44",
+    "etth2.csv": "dc09bac2ca501733e3d647552ee9d25e5d72bf2714453ea984a58f4c289cfc61"
+  },
+  "protocol": "source-trained original LiteTCN encoder; DLinear initialized shared skip; source residual-head ridge; within-input target head adaptation with source replay/anchor and zero-residual fallback",
+  "test_status": "reused development period; not independent confirmation"
+}

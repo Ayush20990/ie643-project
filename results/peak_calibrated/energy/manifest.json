@@ -1,0 +1,119 @@
+{
+  "dataset": "energy",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "configurations": [
+    {
+      "kind": "level",
+      "strength": 0.0,
+      "decay": 24.0
+    },
+    {
+      "kind": "level",
+      "strength": 0.25,
+      "decay": 6.0
+    },
+    {
+      "kind": "level",
+      "strength": 0.25,
+      "decay": 24.0
+    },
+    {
+      "kind": "level",
+      "strength": 0.5,
+      "decay": 6.0
+    },
+    {
+      "kind": "level",
+      "strength": 0.5,
+      "decay": 24.0
+    },
+    {
+      "kind": "level",
+      "strength": 1.0,
+      "decay": 6.0
+    },
+    {
+      "kind": "level",
+      "strength": 1.0,
+      "decay": 24.0
+    },
+    {
+      "kind": "innovation",
+      "strength": 0.25,
+      "decay": 6.0
+    },
+    {
+      "kind": "innovation",
+      "strength": 0.25,
+      "decay": 24.0
+    },
+    {
+      "kind": "innovation",
+      "strength": 0.5,
+      "decay": 6.0
+    },
+    {
+      "kind": "innovation",
+      "strength": 0.5,
+      "decay": 24.0
+    },
+    {
+      "kind": "innovation",
+      "strength": 1.0,
+      "decay": 6.0
+    },
+    {
+      "kind": "innovation",
+      "strength": 1.0,
+      "decay": 24.0
+    },
+    {
+      "kind": "affine",
+      "strength": 0.25,
+      "decay": 6.0
+    },
+    {
+      "kind": "affine",
+      "strength": 0.25,
+      "decay": 24.0
+    },
+    {
+      "kind": "affine",
+      "strength": 0.5,
+      "decay": 6.0
+    },
+    {
+      "kind": "affine",
+      "strength": 0.5,
+      "decay": 24.0
+    },
+    {
+      "kind": "affine",
+      "strength": 1.0,
+      "decay": 6.0
+    },
+    {
+      "kind": "affine",
+      "strength": 1.0,
+      "decay": 24.0
+    }
+  ],
+  "code_sha256": {
+    "peak_calibrate.py": "3d8d51956a1a1ae4e5aa0e48acdfb267d6460add81ad9e654401e6c0f1852e96",
+    "peak_calibration.py": "95bb079910e2f76b61165ee91879b0e0b92f8545071f8ab2acc16fa5e1f68c61"
+  },
+  "base_checkpoints": {
+    "peak_litetcn\\energy\\seed_0\\adapted_model.pt": "7ffc30a60d734203714e699730bce5c5ef3cce405d4382c566d9d210dcfed00c",
+    "peak_litetcn\\energy\\seed_0\\source_model.pt": "d465007308ec7c299bf8c8b08d98c6c16ddc566423e7f6652dba0c4b4cc3edd0",
+    "peak_litetcn\\energy\\seed_1\\adapted_model.pt": "d42d4a98c16871c90e287b43ce28a7e501bb23ab11a6021c0b5931d02505b19b",
+    "peak_litetcn\\energy\\seed_1\\source_model.pt": "2719eda1cf6292242fe399d215cc26e492440d17faebe90f7d1f98538ae74745",
+    "peak_litetcn\\energy\\seed_2\\adapted_model.pt": "b348702811924d9485ba9517b0d5529311034217bb6a3413dd237316a0ceac5f",
+    "peak_litetcn\\energy\\seed_2\\source_model.pt": "621fcc4ffc4428ff178f8bce0b0dbc465641e5df9447048ff1a00621f7deb7dc"
+  },
+  "target_protocol": "nested 12h input-only validation; no target forecasting labels; independent per-window correction",
+  "evaluation": "exploratory reused development test, not a fresh holdout"
+}

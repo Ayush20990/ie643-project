@@ -1,0 +1,97 @@
+[
+  {
+    "epoch": 0,
+    "source_val_mse": 0.7087429761886597,
+    "target_input_mse": 0.5817304849624634,
+    "selection_score": 1.0,
+    "eligible": true
+  },
+  {
+    "epoch": 1,
+    "source": 0.8264357275433011,
+    "inner": 0.40519814226362433,
+    "anchor": 2.956298020882918e-06,
+    "mmd": 0.0023750408888897957,
+    "source_val_mse": 0.7081154584884644,
+    "target_input_mse": 0.5799663364887238,
+    "selection_score": 0.9980410087058798,
+    "eligible": true
+  },
+  {
+    "epoch": 2,
+    "source": 0.8215570277637907,
+    "inner": 0.41738689475589336,
+    "anchor": 8.691346344373112e-06,
+    "mmd": 0.0026316073619657094,
+    "source_val_mse": 0.7087343335151672,
+    "target_input_mse": 0.5801090896129608,
+    "selection_score": 0.9986003061315465,
+    "eligible": true
+  },
+  {
+    "epoch": 3,
+    "source": 0.8221994850370618,
+    "inner": 0.404782387945387,
+    "anchor": 1.3473382326386253e-05,
+    "mmd": 0.0024393969603503742,
+    "source_val_mse": 0.7092564105987549,
+    "target_input_mse": 0.5803445279598236,
+    "selection_score": 0.9991709784606795,
+    "eligible": true
+  },
+  {
+    "epoch": 4,
+    "source": 0.8169980287551881,
+    "inner": 0.4172971996996138,
+    "anchor": 1.9131385326747676e-05,
+    "mmd": 0.002545862251685726,
+    "source_val_mse": 0.7094905376434326,
+    "target_input_mse": 0.5806388854980469,
+    "selection_score": 0.9995891507325858,
+    "eligible": true
+  },
+  {
+    "epoch": 5,
+    "source": 0.8324747946527269,
+    "inner": 0.40422702365451396,
+    "anchor": 2.3583047206759353e-05,
+    "mmd": 0.0024961366007725393,
+    "source_val_mse": 0.7098191976547241,
+    "target_input_mse": 0.5809873938560486,
+    "selection_score": 1.000120556465049,
+    "eligible": true
+  },
+  {
+    "epoch": 6,
+    "source": 0.8102268073293897,
+    "inner": 0.41819724705484196,
+    "anchor": 2.9408921747947002e-05,
+    "mmd": 0.0024464671086106035,
+    "source_val_mse": 0.7095276713371277,
+    "target_input_mse": 0.5808266401290894,
+    "selection_score": 0.9997767235615935,
+    "eligible": true
+  },
+  {
+    "epoch": 7,
+    "source": 0.8095197386211819,
+    "inner": 0.409434257613288,
+    "anchor": 3.312947576179997e-05,
+    "mmd": 0.002339705651522512,
+    "source_val_mse": 0.7094312310218811,
+    "target_input_mse": 0.5809526443481445,
+    "selection_score": 0.9998169885914596,
+    "eligible": true
+  },
+  {
+    "epoch": 8,
+    "source": 0.8206692033343843,
+    "inner": 0.41320981979370114,
+    "anchor": 3.7139483659605806e-05,
+    "mmd": 0.0025931893770272537,
+    "source_val_mse": 0.7098937034606934,
+    "target_input_mse": 0.5808945000171661,
+    "selection_score": 1.0000932757236967,
+    "eligible": true
+  }
+]

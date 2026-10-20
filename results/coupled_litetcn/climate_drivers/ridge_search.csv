@@ -1,0 +1,15 @@
+model,ridge,source_val_24h_RMSE
+temperature_history_calendar,0.0001,1.7748387489816566
+temperature_history_calendar,0.001,1.7741005799289788
+temperature_history_calendar,0.01,1.7734272357499785
+temperature_history_calendar,0.1,1.7934298018252155
+temperature_history_calendar,1.0,1.9319533724068445
+temperature_history_calendar,10.0,2.451362397383233
+temperature_history_calendar,100.0,4.090918884515078
+temperature_history_calendar_past_weather,0.0001,1.7306075533807121
+temperature_history_calendar_past_weather,0.001,1.727967090695703
+temperature_history_calendar_past_weather,0.01,1.7243057731430853
+temperature_history_calendar_past_weather,0.1,1.7436751174697176
+temperature_history_calendar_past_weather,1.0,1.8740084654315272
+temperature_history_calendar_past_weather,10.0,2.3537144727799753
+temperature_history_calendar_past_weather,100.0,3.929605315493451

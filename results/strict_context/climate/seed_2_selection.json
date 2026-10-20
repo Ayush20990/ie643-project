@@ -1,0 +1,237 @@
+{
+  "seed": 2,
+  "components": [
+    "linear_source",
+    "linear_adapted",
+    "neural_source",
+    "neural_adapted",
+    "dlinear_source",
+    "dlinear_adapted",
+    "input_mean",
+    "training_mean"
+  ],
+  "source_weights": [
+    [
+      0.852889358997345,
+      0.0,
+      0.14711064100265503,
+      0.0,
+      2.6020852139652106e-18,
+      0.0,
+      3.469446951953614e-18,
+      3.0357660829594124e-18
+    ],
+    [
+      0.8010562658309937,
+      0.0,
+      0.19089177250862122,
+      0.0,
+      1.579885853218721e-17,
+      0.0,
+      4.106415728288848e-18,
+      0.008051931858062744
+    ],
+    [
+      0.9578467607498169,
+      0.0,
+      0.03822021558880806,
+      0.0,
+      1.974010283576147e-17,
+      0.0,
+      0.0,
+      0.003933030646294355
+    ],
+    [
+      0.7915567755699158,
+      0.0,
+      0.20844320952892303,
+      0.0,
+      1.734723475976807e-17,
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.5311986804008484,
+      0.0,
+      0.10005740821361542,
+      0.0,
+      0.334089994430542,
+      0.0,
+      9.984400865760065e-20,
+      0.0346539244055748
+    ],
+    [
+      0.7992020845413208,
+      0.0,
+      0.04269540309906006,
+      0.0,
+      3.961652503647168e-17,
+      0.0,
+      0.013498818501830101,
+      0.14460371434688568
+    ],
+    [
+      0.7076003551483154,
+      0.0,
+      0.23634731769561768,
+      0.0,
+      0.056052323430776596,
+      0.0,
+      0.0,
+      0.0
+    ]
+  ],
+  "adapted_weights": [
+    [
+      0.01753486692905426,
+      0.8196373581886292,
+      0.0,
+      0.1628277748823166,
+      5.273627129605274e-17,
+      7.688687468816735e-17,
+      0.0,
+      8.183693523192148e-17
+    ],
+    [
+      0.0,
+      0.7047273516654968,
+      0.0,
+      0.1265856921672821,
+      0.0,
+      0.16868698596954346,
+      1.3736650942978209e-17,
+      2.1083604623586422e-17
+    ],
+    [
+      0.08541297912597656,
+      0.6343958377838135,
+      0.07924619317054749,
+      0.19182948768138885,
+      8.834765398099166e-18,
+      0.0,
+      6.251950183683991e-18,
+      0.009115484543144703
+    ],
+    [
+      5.489139939219227e-18,
+      0.6043667793273926,
+      0.12574279308319092,
+      0.24300092458724976,
+      0.0,
+      0.026889508590102196,
+      5.7795663610090454e-18,
+      0.0
+    ],
+    [
+      1.1878232532561447e-17,
+      0.5934848189353943,
+      6.546802435341274e-18,
+      0.36684855818748474,
+      8.894344736079523e-18,
+      0.00949125923216343,
+      5.092801311798119e-18,
+      0.030175337567925453
+    ],
+    [
+      5.755869456256749e-17,
+      0.5607723593711853,
+      0.0,
+      0.24285565316677094,
+      3.439035449937949e-18,
+      0.0,
+      0.0,
+      0.19637197256088257
+    ],
+    [
+      2.322764353643407e-17,
+      0.8375037312507629,
+      1.0142617355884308e-16,
+      0.14483554661273956,
+      2.55164986134826e-17,
+      0.017660729587078094,
+      0.0,
+      7.175350099450412e-18
+    ]
+  ],
+  "calibration": [
+    {
+      "column_index": 0,
+      "source_reference_MSE": 0.06205936274864565,
+      "target_input_reference_MSE": 0.034973009269903654,
+      "source_val_MSE": 0.06365019012588102,
+      "target_input_pretext_MSE": 0.028987943468700816,
+      "selection_score": 0.9286678320732925,
+      "accepted": true,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "column_index": 1,
+      "source_reference_MSE": 0.2529146396320884,
+      "target_input_reference_MSE": 0.13855150868032684,
+      "source_val_MSE": 0.25759339320567165,
+      "target_input_pretext_MSE": 0.09435869491082827,
+      "selection_score": 0.850987452675044,
+      "accepted": true,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "column_index": 2,
+      "source_reference_MSE": 0.07052906359046895,
+      "target_input_reference_MSE": 0.05605681610785662,
+      "source_val_MSE": 0.07275000188581027,
+      "target_input_pretext_MSE": 0.046884003970958044,
+      "selection_score": 0.9351298530456923,
+      "accepted": true,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "column_index": 3,
+      "source_reference_MSE": 0.16021702943732352,
+      "target_input_reference_MSE": 0.07276104633738623,
+      "source_val_MSE": 0.16693852233297646,
+      "target_input_pretext_MSE": 0.03262444920652352,
+      "selection_score": 0.7462236234340469,
+      "accepted": true,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "column_index": 4,
+      "source_reference_MSE": 0.4249241995113245,
+      "target_input_reference_MSE": 0.4885601223682712,
+      "source_val_MSE": 0.4185404060736914,
+      "target_input_pretext_MSE": 0.47266287568241044,
+      "selection_score": 0.9771095383494843,
+      "accepted": true,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "column_index": 5,
+      "source_reference_MSE": 0.6860128450964933,
+      "target_input_reference_MSE": 0.8352880432786639,
+      "source_val_MSE": 0.680830318566815,
+      "target_input_pretext_MSE": 0.8132700481090627,
+      "selection_score": 0.9840596909008351,
+      "accepted": true,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "column_index": 6,
+      "source_reference_MSE": 0.04016615577955829,
+      "target_input_reference_MSE": 0.024191583574135533,
+      "source_val_MSE": 0.04004135331376368,
+      "target_input_pretext_MSE": 0.019754505208087525,
+      "selection_score": 0.9080217571664226,
+      "accepted": true,
+      "solver": "Optimization terminated successfully"
+    }
+  ],
+  "model_spec": {
+    "architecture": "strict_context_ensemble",
+    "neural_spec": {
+      "architecture": "patch_mlp"
+    }
+  },
+  "target_future_labels_used_for_training_or_selection": false,
+  "cross_window_target_label_reconstruction": false
+}

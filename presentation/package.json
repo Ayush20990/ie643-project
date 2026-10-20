@@ -3,7 +3,8 @@
   "private": true,
   "description": "Builder for IE643_Prep_Presentation.pptx",
   "scripts": {
-    "build": "node build_deck.js"
+    "build": "node build_deck.js",
+    "build:intensive": "node build_intensive.js"
   },
   "dependencies": {
     "pptxgenjs": "^4.0.1",

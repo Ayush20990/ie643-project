@@ -29,7 +29,7 @@ class RevIN(nn.Module):
 
 
 class LiteTCNForecaster(nn.Module):
-    def __init__(self, L, H, C, width=64, latent=128, dropout=0.1):
+    def __init__(self, L, H, C, width=64, latent=128, dropout=0.1, depth=3):
         super().__init__()
         self.L, self.H, self.C = L, H, C
         self.revin = RevIN(C)
@@ -38,6 +38,10 @@ class LiteTCNForecaster(nn.Module):
             nn.Conv1d(width // 2, width, 5, stride=2, padding=4, dilation=2), nn.GELU(),
             nn.Conv1d(width, width, 5, stride=2, padding=4, dilation=2), nn.GELU(),
         )
+        if depth < 3:
+            raise ValueError("LiteTCN depth must be at least 3")
+        for i in range(depth - 3):
+            self.enc.append(ResidualTemporalBlock(width, 2 ** (i % 3), dropout))
         with torch.no_grad():
             n = self.enc(torch.zeros(1, C, L)).numel()
         self.proj = nn.Sequential(nn.Flatten(), nn.Dropout(dropout), nn.Linear(n, latent), nn.GELU())
@@ -95,3 +99,93 @@ class LiteTCNForecaster(nn.Module):
 
 def n_params(m):
     return sum(p.numel() for p in m.parameters())
+
+
+class ResidualTemporalBlock(nn.Module):
+    """One extra dilated convolution, preserving temporal resolution and a skip path."""
+
+    def __init__(self, width, dilation, dropout):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Conv1d(width, width, 3, padding=dilation, dilation=dilation),
+            nn.GELU(), nn.Dropout(dropout),
+        )
+
+    def forward(self, x):
+        return x + self.net(x)
+
+
+class PatchMLPForecaster(LiteTCNForecaster):
+    """Small patch MLP alternative with shared channel weights and cross-channel mixing.
+
+    This is a local architecture, not a reproduction of PatchTST or TSMixer.
+    Inherits the same input-only forecasting pretexts as LiteTCN.
+    """
+
+    def __init__(self, L, H, C, width=48, patch=12, dropout=0.1):
+        nn.Module.__init__(self)
+        self.L, self.H, self.C = L, H, C
+        self.patch = min(patch, L)
+        self.revin = RevIN(C)
+        n = (L - self.patch) // self.patch + 1
+        self.patch_embed = nn.Linear(self.patch, width)
+        self.channel_mix = nn.Sequential(nn.Linear(C, 2 * C), nn.GELU(), nn.Linear(2 * C, C))
+        self.proj = nn.Sequential(nn.Flatten(start_dim=2), nn.Linear(n * width, width),
+                                  nn.GELU(), nn.Dropout(dropout))
+        self.head = nn.Linear(width, H)
+        self.linear = nn.Linear(L, H)
+
+    def forward(self, x, return_z=False, return_h=False):
+        xn, stats = self.revin.norm(x)
+        patches = xn.transpose(1, 2).unfold(-1, self.patch, self.patch)
+        h = nn.functional.gelu(self.patch_embed(patches))
+        h = h + self.channel_mix(h.permute(0, 2, 3, 1)).permute(0, 3, 1, 2)
+        z = self.proj(h)
+        yn = (self.head(z) + self.linear(xn.transpose(1, 2))).transpose(1, 2)
+        y = self.revin.denorm(yn, stats)
+        pooled = z.mean(1)
+        if return_h:
+            return y, pooled, h.mean((1, 2))
+        return (y, pooled) if return_z else y
+
+
+class DLinearForecaster(LiteTCNForecaster):
+    """RevIN + moving-average decomposition + shared linear seasonal/trend heads.
+
+    DLinear-inspired baseline; RevIN is an explicit addition to the original design.
+    """
+
+    def __init__(self, L, H, C, kernel=25):
+        nn.Module.__init__(self)
+        self.L, self.H, self.C = L, H, C
+        self.kernel = min(kernel, L if L % 2 else L - 1)
+        self.revin = RevIN(C)
+        self.trend = nn.Linear(L, H)
+        self.head = nn.Linear(L, H)
+        for layer in (self.trend, self.head):
+            nn.init.constant_(layer.weight, 1 / L)
+            nn.init.zeros_(layer.bias)
+
+    def forward(self, x, return_z=False, return_h=False):
+        xn, stats = self.revin.norm(x)
+        xc = xn.transpose(1, 2)
+        trend = nn.functional.avg_pool1d(
+            nn.functional.pad(xc, (self.kernel // 2, self.kernel // 2), mode="replicate"),
+            self.kernel, stride=1,
+        )
+        seasonal = xc - trend
+        yn = (self.head(seasonal) + self.trend(trend)).transpose(1, 2)
+        y = self.revin.denorm(yn, stats)
+        z = yn.flatten(1)
+        if return_h:
+            return y, z, z
+        return (y, z) if return_z else y
+
+
+def make_forecaster(cfg, spec=None):
+    """Explicit architecture metadata; absent metadata loads original checkpoints unchanged."""
+    spec = dict(spec or {})
+    architecture = spec.pop("architecture", "litetcn")
+    cls = {"litetcn": LiteTCNForecaster, "patch_mlp": PatchMLPForecaster,
+           "dlinear": DLinearForecaster}[architecture]
+    return cls(cfg["L"], cfg["H"], len(cfg["columns"]), **spec)

@@ -1,0 +1,24 @@
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.17}
+\begin{longtable}{@{}p{0.1092\textwidth}p{0.4550\textwidth}p{0.1729\textwidth}p{0.1729\textwidth}@{}}
+\caption{Matched next-hour comparisons. The original checkpoint is fixed seed 0; other fitted families average three seeds.}\label{tab:rolling_comparison}\\
+\toprule
+Dataset & Same 1-hour task & MSE & Temperature RMSE (degC) \\
+\midrule\endfirsthead
+Dataset & Same 1-hour task & MSE & Temperature RMSE (degC) \\
+\midrule\endhead
+\midrule\multicolumn{4}{r}{Continued on next page}\\\endfoot
+\bottomrule\endlastfoot
+climate & Earlier hybrid, first-hour output & 0.0819 & 0.6540 \\
+climate & Next-hour LiteTCN & 0.0798 & 0.7445 \\
+climate & Next-hour LiteTCN + local dynamics & 0.0776 & 0.6926 \\
+climate & Original LiteTCN first-hour (fixed seed 0) & 0.1205 & 1.0089 \\
+climate & Peak-calibrated next-hour hybrid & 0.0781 & 0.6530 \\
+energy & Earlier hybrid, first-hour output & 0.0590 & 0.9462 \\
+energy & Next-hour LiteTCN & 0.0714 & 1.1002 \\
+energy & Next-hour LiteTCN + local dynamics & 0.0647 & 0.8970 \\
+energy & Original LiteTCN first-hour (fixed seed 0) & 0.0765 & 2.0938 \\
+energy & Peak-calibrated next-hour hybrid & 0.0606 & 0.9151 \\
+\end{longtable}
+}

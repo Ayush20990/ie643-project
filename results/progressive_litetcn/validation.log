@@ -1,0 +1,34 @@
+test_both_domains_and_all_datasets (test_app.AppSmokeTests.test_both_domains_and_all_datasets) ... 2026-10-19 20:09:50.725 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_exact_lookback_rows_forecast_without_future_actuals (test_app.AppSmokeTests.test_exact_lookback_rows_forecast_without_future_actuals) ... 2026-10-19 20:10:24.514 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_adaptation_falls_back_when_source_validation_deteriorates (test_forecasting.ForecastingRegressionTests.test_adaptation_falls_back_when_source_validation_deteriorates) ... ok
+test_architectures_roundtrip_and_input_pretext_is_causal (test_forecasting.ForecastingRegressionTests.test_architectures_roundtrip_and_input_pretext_is_causal) ... ok
+test_csv_rejects_lookahead_imputation_and_mixed_series (test_forecasting.ForecastingRegressionTests.test_csv_rejects_lookahead_imputation_and_mixed_series) ... ok
+test_gap_closure_undefined_when_reference_does_not_improve (test_forecasting.ForecastingRegressionTests.test_gap_closure_undefined_when_reference_does_not_improve) ... ok
+test_spectral_loss_updates_encoder (test_forecasting.ForecastingRegressionTests.test_spectral_loss_updates_encoder) ... ok
+test_split_futures_do_not_cross_chronological_boundaries (test_forecasting.ForecastingRegressionTests.test_split_futures_do_not_cross_chronological_boundaries) ... ok
+test_clock_rotation_matches_known_future_dates (test_peak_model.PeakModelTests.test_clock_rotation_matches_known_future_dates) ... ok
+test_convolution_preserves_resolution_and_is_causal (test_peak_model.PeakModelTests.test_convolution_preserves_resolution_and_is_causal) ... ok
+test_encoder_receives_forecast_gradient_after_residual_head_initialization (test_peak_model.PeakModelTests.test_encoder_receives_forecast_gradient_after_residual_head_initialization) ... ok
+test_inference_uses_supplied_clock_and_rejects_missing_hours (test_peak_model.PeakModelTests.test_inference_uses_supplied_clock_and_rejects_missing_hours) ... ok
+test_pretext_excludes_withheld_values_and_supports_real_prefix (test_peak_model.PeakModelTests.test_pretext_excludes_withheld_values_and_supports_real_prefix) ... ok
+test_recent_residual_correction_is_inside_input_and_decays (test_peak_model.PeakModelTests.test_recent_residual_correction_is_inside_input_and_decays) ... ok
+test_shape_loss_penalizes_flat_forecast_and_roundtrip (test_peak_model.PeakModelTests.test_shape_loss_penalizes_flat_forecast_and_roundtrip) ... ok
+test_adapter_api_excludes_target_forecasting_labels (test_progressive_tcn.ProgressiveTCNTests.test_adapter_api_excludes_target_forecasting_labels) ... ok
+test_pretext_excludes_tail_and_other_windows (test_progressive_tcn.ProgressiveTCNTests.test_pretext_excludes_tail_and_other_windows) ... ok
+test_staged_updates_preserve_skip_and_normalizer (test_progressive_tcn.ProgressiveTCNTests.test_staged_updates_preserve_skip_and_normalizer) ... ok
+test_hybrid_roundtrip_and_convex_baseline_selection (test_refinement.RefinementTests.test_hybrid_roundtrip_and_convex_baseline_selection) ... ok
+test_normal_equations_minimize_actual_forecast_loss (test_refinement.RefinementTests.test_normal_equations_minimize_actual_forecast_loss) ... ok
+test_stitch_uses_only_inputs_and_keeps_stocks_separate (test_refinement.RefinementTests.test_stitch_uses_only_inputs_and_keeps_stocks_separate) ... ok
+test_folded_skip_is_exact_dlinear_including_boundary_padding (test_residual_tcn.ResidualTCNTests.test_folded_skip_is_exact_dlinear_including_boundary_padding) ... ok
+test_residual_design_matches_inference_head_order_and_scaling (test_residual_tcn.ResidualTCNTests.test_residual_design_matches_inference_head_order_and_scaling) ... ok
+test_calibration_enforces_source_guard (test_strict_refinement.StrictRefinementTests.test_calibration_enforces_source_guard) ... ok
+test_pretext_cannot_read_withheld_values_or_other_windows (test_strict_refinement.StrictRefinementTests.test_pretext_cannot_read_withheld_values_or_other_windows) ... ok
+test_short_context_branch_uses_only_real_unmasked_prefix (test_strict_refinement.StrictRefinementTests.test_short_context_branch_uses_only_real_unmasked_prefix) ... ok
+test_sparse_forward_matches_all_components_and_roundtrips (test_strict_refinement.StrictRefinementTests.test_sparse_forward_matches_all_components_and_roundtrips) ... ok
+
+----------------------------------------------------------------------
+Ran 27 tests in 37.279s
+
+OK

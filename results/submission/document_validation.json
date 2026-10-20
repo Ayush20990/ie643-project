@@ -1,0 +1,13 @@
+{
+  "pdf_pages": 26,
+  "text_bounds": "passed",
+  "replacement_characters": false,
+  "overfull_boxes": false,
+  "template_source": "report/official_template/IE643_Project_Report.tex",
+  "browser_app_charts": "rendered",
+  "offline_dashboard": "rendered; five dataset/task views",
+  "presentation": "PowerPoint rendered all 20 slides; 18 content + 2 references",
+  "pdf_sha256": "c639db9ad943f266455bd339d40a06ff2e28fdc92da31891a5d12d8d27709109",
+  "current_tests": 46,
+  "combined_UI_combinations": 112
+}

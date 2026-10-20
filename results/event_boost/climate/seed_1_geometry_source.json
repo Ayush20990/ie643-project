@@ -1,0 +1,13 @@
+{
+  "variant": "geometry",
+  "mode": "phase_extrema",
+  "weight": 1.0,
+  "trees": 400,
+  "quality": {
+    "MSE": 0.07246379554271698,
+    "event_MSE": 0.05738053843379021,
+    "extrema_MSE": 0.03771721199154854,
+    "ramp_MSE": 0.02911623753607273,
+    "score": 0.1134949915111065
+  }
+}

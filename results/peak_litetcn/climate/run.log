@@ -1,0 +1,259 @@
+source screen no_clock_mse, parameters=44399
+no_clock_mse round 01 val_score=0.253782 key_MSE=0.087555
+no_clock_mse round 02 val_score=0.229073 key_MSE=0.081413
+no_clock_mse round 03 val_score=0.214197 key_MSE=0.077274
+no_clock_mse round 04 val_score=0.203092 key_MSE=0.074231
+no_clock_mse round 05 val_score=0.196641 key_MSE=0.073687
+no_clock_mse round 06 val_score=0.193192 key_MSE=0.072457
+no_clock_mse round 07 val_score=0.188711 key_MSE=0.070910
+no_clock_mse round 08 val_score=0.187280 key_MSE=0.069984
+no_clock_mse round 09 val_score=0.185443 key_MSE=0.069291
+no_clock_mse round 10 val_score=0.183155 key_MSE=0.068715
+no_clock_mse round 11 val_score=0.181969 key_MSE=0.067164
+no_clock_mse round 12 val_score=0.181314 key_MSE=0.066891
+no_clock_mse round 13 val_score=0.180771 key_MSE=0.066023
+no_clock_mse round 14 val_score=0.180192 key_MSE=0.065496
+no_clock_mse round 15 val_score=0.181081 key_MSE=0.065281
+no_clock_mse round 16 val_score=0.178599 key_MSE=0.065304
+no_clock_mse round 17 val_score=0.179371 key_MSE=0.064655
+no_clock_mse round 18 val_score=0.178009 key_MSE=0.064508
+no_clock_mse round 19 val_score=0.178414 key_MSE=0.064393
+no_clock_mse round 20 val_score=0.177244 key_MSE=0.064374
+no_clock_mse round 21 val_score=0.178756 key_MSE=0.064325
+no_clock_mse round 22 val_score=0.177944 key_MSE=0.064191
+no_clock_mse round 23 val_score=0.178052 key_MSE=0.064192
+no_clock_mse round 24 val_score=0.178319 key_MSE=0.063824
+no_clock_mse round 25 val_score=0.178122 key_MSE=0.063814
+no_clock_mse round 26 val_score=0.177640 key_MSE=0.063904
+no_clock_mse round 27 val_score=0.178054 key_MSE=0.063693
+no_clock_mse round 28 val_score=0.177350 key_MSE=0.063667
+no_clock_mse round 29 val_score=0.177198 key_MSE=0.063620
+no_clock_mse round 30 val_score=0.178016 key_MSE=0.063558
+no_clock_mse round 31 val_score=0.177704 key_MSE=0.063550
+no_clock_mse round 32 val_score=0.177744 key_MSE=0.063586
+no_clock_mse round 33 val_score=0.177617 key_MSE=0.063541
+no_clock_mse round 34 val_score=0.177514 key_MSE=0.063521
+no_clock_mse round 35 val_score=0.177529 key_MSE=0.063519
+no_clock_mse round 36 val_score=0.177523 key_MSE=0.063521
+source screen clock_mse, parameters=44399
+clock_mse round 01 val_score=0.253673 key_MSE=0.087327
+clock_mse round 02 val_score=0.229109 key_MSE=0.081309
+clock_mse round 03 val_score=0.213513 key_MSE=0.076655
+clock_mse round 04 val_score=0.203171 key_MSE=0.074047
+clock_mse round 05 val_score=0.197202 key_MSE=0.073933
+clock_mse round 06 val_score=0.192531 key_MSE=0.071670
+clock_mse round 07 val_score=0.188016 key_MSE=0.070387
+clock_mse round 08 val_score=0.186557 key_MSE=0.069174
+clock_mse round 09 val_score=0.185678 key_MSE=0.068741
+clock_mse round 10 val_score=0.183131 key_MSE=0.068231
+clock_mse round 11 val_score=0.181363 key_MSE=0.066588
+clock_mse round 12 val_score=0.181152 key_MSE=0.066463
+clock_mse round 13 val_score=0.180716 key_MSE=0.065432
+clock_mse round 14 val_score=0.180019 key_MSE=0.064665
+clock_mse round 15 val_score=0.180340 key_MSE=0.064839
+clock_mse round 16 val_score=0.178018 key_MSE=0.064742
+clock_mse round 17 val_score=0.178954 key_MSE=0.064123
+clock_mse round 18 val_score=0.177314 key_MSE=0.064112
+clock_mse round 19 val_score=0.178017 key_MSE=0.063914
+clock_mse round 20 val_score=0.176322 key_MSE=0.063861
+clock_mse round 21 val_score=0.177570 key_MSE=0.063902
+clock_mse round 22 val_score=0.176745 key_MSE=0.063635
+clock_mse round 23 val_score=0.177927 key_MSE=0.064002
+clock_mse round 24 val_score=0.178242 key_MSE=0.063769
+clock_mse round 25 val_score=0.177416 key_MSE=0.063564
+clock_mse round 26 val_score=0.177016 key_MSE=0.063589
+clock_mse round 27 val_score=0.177972 key_MSE=0.063580
+clock_mse round 28 val_score=0.177390 key_MSE=0.063425
+clock_mse round 29 val_score=0.177254 key_MSE=0.063429
+clock_mse round 30 val_score=0.177970 key_MSE=0.063388
+clock_mse round 31 val_score=0.177576 key_MSE=0.063307
+clock_mse round 32 val_score=0.177621 key_MSE=0.063447
+clock_mse round 33 val_score=0.177479 key_MSE=0.063384
+clock_mse round 34 val_score=0.177381 key_MSE=0.063348
+clock_mse round 35 val_score=0.177374 key_MSE=0.063341
+clock_mse round 36 val_score=0.177368 key_MSE=0.063347
+source screen clock_shape, parameters=44399
+clock_shape round 01 val_score=0.255140 key_MSE=0.088022
+clock_shape round 02 val_score=0.230162 key_MSE=0.082096
+clock_shape round 03 val_score=0.214734 key_MSE=0.077664
+clock_shape round 04 val_score=0.204176 key_MSE=0.074858
+clock_shape round 05 val_score=0.197909 key_MSE=0.074383
+clock_shape round 06 val_score=0.193040 key_MSE=0.072482
+clock_shape round 07 val_score=0.188691 key_MSE=0.071361
+clock_shape round 08 val_score=0.187238 key_MSE=0.069747
+clock_shape round 09 val_score=0.186411 key_MSE=0.069598
+clock_shape round 10 val_score=0.184153 key_MSE=0.069122
+clock_shape round 11 val_score=0.181696 key_MSE=0.067466
+clock_shape round 12 val_score=0.181296 key_MSE=0.067136
+clock_shape round 13 val_score=0.180855 key_MSE=0.065902
+clock_shape round 14 val_score=0.180396 key_MSE=0.065408
+clock_shape round 15 val_score=0.180176 key_MSE=0.065432
+clock_shape round 16 val_score=0.178092 key_MSE=0.065688
+clock_shape round 17 val_score=0.178972 key_MSE=0.064617
+clock_shape round 18 val_score=0.177546 key_MSE=0.064696
+clock_shape round 19 val_score=0.177532 key_MSE=0.064353
+clock_shape round 20 val_score=0.176673 key_MSE=0.064458
+clock_shape round 21 val_score=0.177427 key_MSE=0.064634
+clock_shape round 22 val_score=0.176678 key_MSE=0.064071
+clock_shape round 23 val_score=0.177634 key_MSE=0.064580
+clock_shape round 24 val_score=0.177970 key_MSE=0.064342
+clock_shape round 25 val_score=0.177314 key_MSE=0.064019
+clock_shape round 26 val_score=0.176625 key_MSE=0.064260
+clock_shape round 27 val_score=0.177701 key_MSE=0.064004
+clock_shape round 28 val_score=0.177271 key_MSE=0.063984
+clock_shape round 29 val_score=0.177087 key_MSE=0.064053
+clock_shape round 30 val_score=0.177592 key_MSE=0.063885
+clock_shape round 31 val_score=0.177115 key_MSE=0.063849
+clock_shape round 32 val_score=0.177234 key_MSE=0.063996
+clock_shape round 33 val_score=0.177101 key_MSE=0.063934
+clock_shape round 34 val_score=0.176998 key_MSE=0.063904
+clock_shape round 35 val_score=0.177011 key_MSE=0.063896
+clock_shape round 36 val_score=0.177007 key_MSE=0.063905
+source-validation choice: clock_mse
+s0 input_mse adapt 01 proxy=0.962403 eligible=True input_key_MSE=0.032452
+s0 input_mse adapt 02 proxy=0.947980 eligible=True input_key_MSE=0.031835
+s0 input_mse adapt 03 proxy=0.943384 eligible=True input_key_MSE=0.031293
+s0 input_mse adapt 04 proxy=0.942180 eligible=True input_key_MSE=0.031044
+s0 input_mse adapt 05 proxy=0.938360 eligible=True input_key_MSE=0.030795
+s0 input_mse adapt 06 proxy=0.939540 eligible=True input_key_MSE=0.030802
+s0 input_mse adapt 07 proxy=0.936000 eligible=True input_key_MSE=0.030558
+s0 input_mse adapt 08 proxy=0.934291 eligible=True input_key_MSE=0.030526
+s0 input_mse adapt 09 proxy=0.934313 eligible=True input_key_MSE=0.030533
+s0 input_mse adapt 10 proxy=0.934258 eligible=True input_key_MSE=0.030538
+s0 input_shape adapt 01 proxy=0.961364 eligible=True input_key_MSE=0.032326
+s0 input_shape adapt 02 proxy=0.948713 eligible=True input_key_MSE=0.031736
+s0 input_shape adapt 03 proxy=0.943487 eligible=True input_key_MSE=0.031189
+s0 input_shape adapt 04 proxy=0.941654 eligible=True input_key_MSE=0.031019
+s0 input_shape adapt 05 proxy=0.938112 eligible=True input_key_MSE=0.030775
+s0 input_shape adapt 06 proxy=0.939030 eligible=True input_key_MSE=0.030780
+s0 input_shape adapt 07 proxy=0.934888 eligible=True input_key_MSE=0.030569
+s0 input_shape adapt 08 proxy=0.933882 eligible=True input_key_MSE=0.030509
+s0 input_shape adapt 09 proxy=0.933899 eligible=True input_key_MSE=0.030510
+s0 input_shape adapt 10 proxy=0.933817 eligible=True input_key_MSE=0.030515
+s1 source round 01 val_score=0.256176 key_MSE=0.088705
+s1 source round 02 val_score=0.234239 key_MSE=0.082470
+s1 source round 03 val_score=0.215613 key_MSE=0.077554
+s1 source round 04 val_score=0.204985 key_MSE=0.075416
+s1 source round 05 val_score=0.198122 key_MSE=0.073249
+s1 source round 06 val_score=0.192790 key_MSE=0.072641
+s1 source round 07 val_score=0.191013 key_MSE=0.070929
+s1 source round 08 val_score=0.186781 key_MSE=0.069453
+s1 source round 09 val_score=0.186818 key_MSE=0.069381
+s1 source round 10 val_score=0.185422 key_MSE=0.068151
+s1 source round 11 val_score=0.184005 key_MSE=0.067725
+s1 source round 12 val_score=0.182220 key_MSE=0.067192
+s1 source round 13 val_score=0.183658 key_MSE=0.066614
+s1 source round 14 val_score=0.181484 key_MSE=0.065980
+s1 source round 15 val_score=0.181739 key_MSE=0.065581
+s1 source round 16 val_score=0.180292 key_MSE=0.065444
+s1 source round 17 val_score=0.180744 key_MSE=0.064994
+s1 source round 18 val_score=0.181038 key_MSE=0.064994
+s1 source round 19 val_score=0.181112 key_MSE=0.065339
+s1 source round 20 val_score=0.180435 key_MSE=0.064849
+s1 source round 21 val_score=0.180573 key_MSE=0.064893
+s1 source round 22 val_score=0.180527 key_MSE=0.064826
+s1 source round 23 val_score=0.180737 key_MSE=0.065028
+s1 source round 24 val_score=0.179739 key_MSE=0.064457
+s1 source round 25 val_score=0.179614 key_MSE=0.064720
+s1 source round 26 val_score=0.181050 key_MSE=0.064948
+s1 source round 27 val_score=0.179465 key_MSE=0.064536
+s1 source round 28 val_score=0.180127 key_MSE=0.064535
+s1 source round 29 val_score=0.180325 key_MSE=0.064588
+s1 source round 30 val_score=0.180815 key_MSE=0.064500
+s1 source round 31 val_score=0.180072 key_MSE=0.064502
+s1 source round 32 val_score=0.180151 key_MSE=0.064560
+s1 source round 33 val_score=0.180109 key_MSE=0.064608
+s1 source round 34 val_score=0.180246 key_MSE=0.064570
+s1 source round 35 val_score=0.180236 key_MSE=0.064558
+s1 source round 36 val_score=0.180233 key_MSE=0.064558
+s1 input_mse adapt 01 proxy=0.956453 eligible=True input_key_MSE=0.033146
+s1 input_mse adapt 02 proxy=0.945293 eligible=True input_key_MSE=0.032329
+s1 input_mse adapt 03 proxy=0.934113 eligible=True input_key_MSE=0.031878
+s1 input_mse adapt 04 proxy=0.930503 eligible=True input_key_MSE=0.031533
+s1 input_mse adapt 05 proxy=0.929735 eligible=True input_key_MSE=0.031313
+s1 input_mse adapt 06 proxy=0.926074 eligible=True input_key_MSE=0.031067
+s1 input_mse adapt 07 proxy=0.928162 eligible=True input_key_MSE=0.031134
+s1 input_mse adapt 08 proxy=0.925394 eligible=True input_key_MSE=0.030996
+s1 input_mse adapt 09 proxy=0.925053 eligible=True input_key_MSE=0.030968
+s1 input_mse adapt 10 proxy=0.924960 eligible=True input_key_MSE=0.030960
+s1 input_shape adapt 01 proxy=0.955607 eligible=True input_key_MSE=0.033033
+s1 input_shape adapt 02 proxy=0.943652 eligible=True input_key_MSE=0.032225
+s1 input_shape adapt 03 proxy=0.934144 eligible=True input_key_MSE=0.031811
+s1 input_shape adapt 04 proxy=0.930658 eligible=True input_key_MSE=0.031526
+s1 input_shape adapt 05 proxy=0.930319 eligible=True input_key_MSE=0.031262
+s1 input_shape adapt 06 proxy=0.926398 eligible=True input_key_MSE=0.031081
+s1 input_shape adapt 07 proxy=0.928171 eligible=True input_key_MSE=0.031087
+s1 input_shape adapt 08 proxy=0.926032 eligible=True input_key_MSE=0.031004
+s1 input_shape adapt 09 proxy=0.925633 eligible=True input_key_MSE=0.030964
+s1 input_shape adapt 10 proxy=0.925545 eligible=True input_key_MSE=0.030957
+s2 source round 01 val_score=0.256835 key_MSE=0.087591
+s2 source round 02 val_score=0.231445 key_MSE=0.080107
+s2 source round 03 val_score=0.215408 key_MSE=0.076075
+s2 source round 04 val_score=0.202489 key_MSE=0.073301
+s2 source round 05 val_score=0.195389 key_MSE=0.071405
+s2 source round 06 val_score=0.191603 key_MSE=0.071017
+s2 source round 07 val_score=0.188615 key_MSE=0.069122
+s2 source round 08 val_score=0.185767 key_MSE=0.068596
+s2 source round 09 val_score=0.183864 key_MSE=0.067947
+s2 source round 10 val_score=0.182645 key_MSE=0.067110
+s2 source round 11 val_score=0.181789 key_MSE=0.066349
+s2 source round 12 val_score=0.181927 key_MSE=0.065925
+s2 source round 13 val_score=0.183084 key_MSE=0.065761
+s2 source round 14 val_score=0.180399 key_MSE=0.065567
+s2 source round 15 val_score=0.180190 key_MSE=0.065449
+s2 source round 16 val_score=0.181630 key_MSE=0.064718
+s2 source round 17 val_score=0.180180 key_MSE=0.065240
+s2 source round 18 val_score=0.181277 key_MSE=0.065582
+s2 source round 19 val_score=0.182370 key_MSE=0.065560
+s2 source round 20 val_score=0.180854 key_MSE=0.064860
+s2 source round 21 val_score=0.180214 key_MSE=0.064690
+s2 source round 22 val_score=0.179876 key_MSE=0.064312
+s2 source round 23 val_score=0.180456 key_MSE=0.064433
+s2 source round 24 val_score=0.180553 key_MSE=0.064558
+s2 source round 25 val_score=0.180084 key_MSE=0.064355
+s2 source round 26 val_score=0.179785 key_MSE=0.064353
+s2 source round 27 val_score=0.181052 key_MSE=0.064631
+s2 source round 28 val_score=0.179333 key_MSE=0.064392
+s2 source round 29 val_score=0.179937 key_MSE=0.064305
+s2 source round 30 val_score=0.179736 key_MSE=0.064147
+s2 source round 31 val_score=0.179823 key_MSE=0.064080
+s2 source round 32 val_score=0.179672 key_MSE=0.064094
+s2 source round 33 val_score=0.179731 key_MSE=0.064138
+s2 source round 34 val_score=0.179790 key_MSE=0.064119
+s2 source round 35 val_score=0.179767 key_MSE=0.064101
+s2 source round 36 val_score=0.179771 key_MSE=0.064098
+s2 input_mse adapt 01 proxy=0.958897 eligible=True input_key_MSE=0.032888
+s2 input_mse adapt 02 proxy=0.942345 eligible=True input_key_MSE=0.032163
+s2 input_mse adapt 03 proxy=0.936802 eligible=True input_key_MSE=0.031933
+s2 input_mse adapt 04 proxy=0.936804 eligible=True input_key_MSE=0.031531
+s2 input_mse adapt 05 proxy=0.934496 eligible=True input_key_MSE=0.031433
+s2 input_mse adapt 06 proxy=0.931460 eligible=True input_key_MSE=0.031224
+s2 input_mse adapt 07 proxy=0.933356 eligible=True input_key_MSE=0.031221
+s2 input_mse adapt 08 proxy=0.931478 eligible=True input_key_MSE=0.031112
+s2 input_mse adapt 09 proxy=0.931557 eligible=True input_key_MSE=0.031076
+s2 input_mse adapt 10 proxy=0.931537 eligible=True input_key_MSE=0.031068
+s2 input_shape adapt 01 proxy=0.958436 eligible=True input_key_MSE=0.032692
+s2 input_shape adapt 02 proxy=0.941552 eligible=True input_key_MSE=0.032146
+s2 input_shape adapt 03 proxy=0.937105 eligible=True input_key_MSE=0.031875
+s2 input_shape adapt 04 proxy=0.935260 eligible=True input_key_MSE=0.031503
+s2 input_shape adapt 05 proxy=0.933890 eligible=True input_key_MSE=0.031389
+s2 input_shape adapt 06 proxy=0.930735 eligible=True input_key_MSE=0.031197
+s2 input_shape adapt 07 proxy=0.932291 eligible=True input_key_MSE=0.031183
+s2 input_shape adapt 08 proxy=0.930796 eligible=True input_key_MSE=0.031080
+s2 input_shape adapt 09 proxy=0.930828 eligible=True input_key_MSE=0.031023
+s2 input_shape adapt 10 proxy=0.930789 eligible=True input_key_MSE=0.031014
+all choices frozen; evaluate reused development test
+resumed no_clock_mse
+resumed clock_mse
+resumed clock_shape
+source-validation choice: clock_mse
+all choices frozen; evaluate reused development test
+                          MSE  key_RMSE
+method                                 
+input_mse            0.218790  1.328026
+input_shape          0.221482  1.328795
+screen_clock_mse     0.235863  1.420146
+screen_clock_shape   0.242914  1.418776
+screen_no_clock_mse  0.233873  1.402917
+selected_adapted     0.220609  1.328437
+source_only          0.239255  1.432720

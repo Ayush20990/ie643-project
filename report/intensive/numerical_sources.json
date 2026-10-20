@@ -1,0 +1,19 @@
+{
+  "results\\forecast_horizons\\climate_matched_reference_metrics.csv": "e47a2cd26b7ab72b1d07973f1429900f59fb02cdb42c563842bab28563ef41cd",
+  "results\\forecast_horizons\\climate_matched_reference_peaks.csv": "14fb785b028b536a2b7e7e4a9856911e921c5d139c5defeaa5060bc9065fd710",
+  "results\\forecast_horizons\\climate_next_hour_comparison.csv": "2bfd07c23a6427d4bca7419e6b05d9e6df5582fab30a210c7fdfa032863353b3",
+  "results\\forecast_horizons\\climate_next_hour_peak_comparison.csv": "e1ba5d71ec6122999f1e29624803cf7e1da1a6e1f9f9054a852931a212f2ce29",
+  "results\\forecast_horizons\\climate_rolling_plot_origins.csv": "1666883c75cc59c99ab4ea6ca5a3de55b33a21522eead91545e77f8a504970b9",
+  "results\\forecast_horizons\\efficiency.csv": "4732723415189b1f8ef55274cbec23f98ee67c3aef099e71c6f1b3e0c854538d",
+  "results\\forecast_horizons\\energy_matched_reference_metrics.csv": "429ea0cd0a5cf6a48582da488d6de6d25398e47dc3b4f751663f93164eb68a0f",
+  "results\\forecast_horizons\\energy_matched_reference_peaks.csv": "6812bf7ce9a06039578849ffdd033fdc9e16a9404347bdc9b38aa2dc4e0ddd1c",
+  "results\\forecast_horizons\\energy_next_hour_comparison.csv": "ca8f0a29efc934c3d7fb783109c4155265de3bd6ce660ac0336d65f6662251a4",
+  "results\\forecast_horizons\\energy_next_hour_peak_comparison.csv": "fae7ec08156c08f6d6c28bad5e1f953a79dfb4bb17f4d6e6e424fc69dabd7e4f",
+  "results\\forecast_horizons\\energy_rolling_plot_origins.csv": "af61cc925a4959985cd172fecc3a5d8eb77d00fd68b91bc6b9efc3ee73434fb3",
+  "results\\forecast_horizons\\next_hour_headline.csv": "1d69e37d475e83c999d80309cabe3a844750c5dc90fbd6f2962fc4f270f1016b",
+  "results\\forecast_horizons\\twenty_four_hour_headline.csv": "759b5950241b93107370f9dd3b9c894dad3a823b7545ffaf76e0e3e15c12b93c",
+  "results\\peak_next_hour\\climate\\metrics_all.csv": "96a0738acdb05b770053223922bf28db56d3928d7fa8054f50b13fb6e69cea45",
+  "results\\peak_next_hour\\climate\\rolling_peak_metrics.csv": "0cc581dfcea23c0c251a7fc42d8e1b4db8af6b96a365d46a25781478cd1e4631",
+  "results\\peak_next_hour\\energy\\metrics_all.csv": "64362ec11c51f4cee373abafde936bff6e235e74aa67ecd82b9007d7aee31e33",
+  "results\\peak_next_hour\\energy\\rolling_peak_metrics.csv": "08fc78f0838274a7463f74cc555ac1d4fa93ac31f2c945e443c72ec338b6b722"
+}

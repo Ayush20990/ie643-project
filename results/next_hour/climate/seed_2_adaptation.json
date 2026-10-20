@@ -1,0 +1,228 @@
+{
+  "selected_round": 8,
+  "proxy": 0.9469673698104272,
+  "history": [
+    {
+      "round": 0,
+      "source": {
+        "MSE": 0.0883931815624237,
+        "key_MSE": 0.02208145707845688,
+        "turning_weighted_key_MSE": 0.022224407643079758,
+        "score": 0.05527305696159601
+      },
+      "target_input": {
+        "MSE": 0.06828416138887405,
+        "key_MSE": 0.01561343390494585,
+        "turning_weighted_key_MSE": 0.018826477229595184,
+        "score": 0.042752058478072286
+      },
+      "proxy": 1.0,
+      "eligible": true
+    },
+    {
+      "round": 1,
+      "source": {
+        "MSE": 0.0915776789188385,
+        "key_MSE": 0.02505630813539028,
+        "turning_weighted_key_MSE": 0.025549273937940598,
+        "score": 0.05844023497775197
+      },
+      "target_input": {
+        "MSE": 0.062121693044900894,
+        "key_MSE": 0.01257290132343769,
+        "turning_weighted_key_MSE": 0.015945548191666603,
+        "score": 0.03819045890122652
+      },
+      "proxy": 0.9753008151599708,
+      "eligible": false
+    },
+    {
+      "round": 2,
+      "source": {
+        "MSE": 0.09265141189098358,
+        "key_MSE": 0.025124095380306244,
+        "turning_weighted_key_MSE": 0.026150139048695564,
+        "score": 0.05914426455274224
+      },
+      "target_input": {
+        "MSE": 0.06027192622423172,
+        "key_MSE": 0.012143331579864025,
+        "turning_weighted_key_MSE": 0.015397178940474987,
+        "score": 0.03702109074220061
+      },
+      "proxy": 0.9679933037167895,
+      "eligible": false
+    },
+    {
+      "round": 3,
+      "source": {
+        "MSE": 0.09200944751501083,
+        "key_MSE": 0.023970361799001694,
+        "turning_weighted_key_MSE": 0.02497340366244316,
+        "score": 0.05824066512286663
+      },
+      "target_input": {
+        "MSE": 0.05996252968907356,
+        "key_MSE": 0.012265893630683422,
+        "turning_weighted_key_MSE": 0.015486950986087322,
+        "score": 0.03691947599872947
+      },
+      "proxy": 0.9586309251644082,
+      "eligible": true
+    },
+    {
+      "round": 4,
+      "source": {
+        "MSE": 0.09218863397836685,
+        "key_MSE": 0.024356471374630928,
+        "turning_weighted_key_MSE": 0.025477975606918335,
+        "score": 0.05855292873457074
+      },
+      "target_input": {
+        "MSE": 0.060021791607141495,
+        "key_MSE": 0.012058639898896217,
+        "turning_weighted_key_MSE": 0.015110799111425877,
+        "score": 0.03680325555615127
+      },
+      "proxy": 0.9600964234093468,
+      "eligible": false
+    },
+    {
+      "round": 5,
+      "source": {
+        "MSE": 0.09217073023319244,
+        "key_MSE": 0.02487911842763424,
+        "turning_weighted_key_MSE": 0.02581973373889923,
+        "score": 0.05876007815822959
+      },
+      "target_input": {
+        "MSE": 0.060005951672792435,
+        "key_MSE": 0.011804385110735893,
+        "turning_weighted_key_MSE": 0.014922450296580791,
+        "score": 0.03668468468822539
+      },
+      "proxy": 0.9605835698172714,
+      "eligible": false
+    },
+    {
+      "round": 6,
+      "source": {
+        "MSE": 0.09166225790977478,
+        "key_MSE": 0.02464446797966957,
+        "turning_weighted_key_MSE": 0.02566656470298767,
+        "score": 0.0584088871255517
+      },
+      "target_input": {
+        "MSE": 0.059328336268663406,
+        "key_MSE": 0.011643472127616405,
+        "turning_weighted_key_MSE": 0.014753897674381733,
+        "score": 0.03626351058483124
+      },
+      "proxy": 0.9524809204796972,
+      "eligible": false
+    },
+    {
+      "round": 7,
+      "source": {
+        "MSE": 0.0915960967540741,
+        "key_MSE": 0.024298300966620445,
+        "turning_weighted_key_MSE": 0.025369413197040558,
+        "score": 0.0582149769179523
+      },
+      "target_input": {
+        "MSE": 0.05924486741423607,
+        "key_MSE": 0.011679783463478088,
+        "turning_weighted_key_MSE": 0.014726031571626663,
+        "score": 0.03622388746589422
+      },
+      "proxy": 0.9502634030208643,
+      "eligible": false
+    },
+    {
+      "round": 8,
+      "source": {
+        "MSE": 0.09129033982753754,
+        "key_MSE": 0.02379348687827587,
+        "turning_weighted_key_MSE": 0.02497219666838646,
+        "score": 0.05783659080043435
+      },
+      "target_input": {
+        "MSE": 0.0592765212059021,
+        "key_MSE": 0.011679240502417088,
+        "turning_weighted_key_MSE": 0.014706650748848915,
+        "score": 0.03623473341576755
+      },
+      "proxy": 0.9469673698104272,
+      "eligible": true
+    },
+    {
+      "round": 9,
+      "source": {
+        "MSE": 0.09135985374450684,
+        "key_MSE": 0.0237644761800766,
+        "turning_weighted_key_MSE": 0.024988314136862755,
+        "score": 0.057868124451488256
+      },
+      "target_input": {
+        "MSE": 0.059329863637685776,
+        "key_MSE": 0.011650745756924152,
+        "turning_weighted_key_MSE": 0.014676529914140701,
+        "score": 0.0362467507366091
+      },
+      "proxy": 0.9473931698686535,
+      "eligible": true
+    },
+    {
+      "round": 10,
+      "source": {
+        "MSE": 0.09138090163469315,
+        "key_MSE": 0.023924142122268677,
+        "turning_weighted_key_MSE": 0.025193283334374428,
+        "score": 0.05796980718150735
+      },
+      "target_input": {
+        "MSE": 0.05928974226117134,
+        "key_MSE": 0.011611281894147396,
+        "turning_weighted_key_MSE": 0.014621253125369549,
+        "score": 0.03620300488546491
+      },
+      "proxy": 0.9478013689632235,
+      "eligible": true
+    },
+    {
+      "round": 11,
+      "source": {
+        "MSE": 0.09139944612979889,
+        "key_MSE": 0.023989850655198097,
+        "turning_weighted_key_MSE": 0.02525508776307106,
+        "score": 0.058010957669466734
+      },
+      "target_input": {
+        "MSE": 0.05921582132577896,
+        "key_MSE": 0.011608745902776718,
+        "turning_weighted_key_MSE": 0.0146188260987401,
+        "score": 0.036164803663268685
+      },
+      "proxy": 0.9477268398152974,
+      "eligible": true
+    },
+    {
+      "round": 12,
+      "source": {
+        "MSE": 0.09141755104064941,
+        "key_MSE": 0.024011841043829918,
+        "turning_weighted_key_MSE": 0.025295639410614967,
+        "score": 0.05803564563393593
+      },
+      "target_input": {
+        "MSE": 0.05922611430287361,
+        "key_MSE": 0.011588646098971367,
+        "turning_weighted_key_MSE": 0.014589879661798477,
+        "score": 0.03615768859162927
+      },
+      "proxy": 0.9478669539038438,
+      "eligible": true
+    }
+  ],
+  "target_future_labels_used_for_training_or_selection": false
+}

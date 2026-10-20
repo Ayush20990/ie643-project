@@ -1,0 +1,44 @@
+{
+  "climate": {
+    "code_data_initial_and_frozen_hashes": true,
+    "selection_recomputed": true,
+    "retained_adapted_backbone_unchanged": true,
+    "non_temperature_forecasts_unchanged": true,
+    "deployment_full_test_MSE_recomputed": true,
+    "seeds": [
+      {
+        "seed": 0,
+        "chosen": "input_round_8"
+      },
+      {
+        "seed": 1,
+        "chosen": "input_round_8"
+      },
+      {
+        "seed": 2,
+        "chosen": "input_round_8"
+      }
+    ]
+  },
+  "energy": {
+    "code_data_initial_and_frozen_hashes": true,
+    "selection_recomputed": true,
+    "retained_adapted_backbone_unchanged": true,
+    "non_temperature_forecasts_unchanged": true,
+    "deployment_full_test_MSE_recomputed": true,
+    "seeds": [
+      {
+        "seed": 0,
+        "chosen": "input_round_8"
+      },
+      {
+        "seed": 1,
+        "chosen": "input_round_8"
+      },
+      {
+        "seed": 2,
+        "chosen": "input_round_8"
+      }
+    ]
+  }
+}

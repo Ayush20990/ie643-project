@@ -1,0 +1,24 @@
+{
+  "tests": 47,
+  "all_tests_passed": true,
+  "research_ui_combinations": 76,
+  "submission_ui_combinations": 36,
+  "explicit_switches": [
+    "climate H1 ? H24 ? H1",
+    "energy H1 ? H24 ? H1"
+  ],
+  "forecast_shapes": [
+    [
+      1,
+      7
+    ],
+    [
+      24,
+      7
+    ]
+  ],
+  "future_labels_required_for_inference": false,
+  "health_url": "http://localhost:8502/_stcore/health",
+  "health_status": 200,
+  "browser_surface": "No browser exposed in this turn; verified through Streamlit AppTest"
+}

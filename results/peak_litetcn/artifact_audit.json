@@ -1,0 +1,25 @@
+{
+  "climate": {
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "code_and_data_hashes": true,
+    "selection_recomputed": true,
+    "original_encoder_retained_in_LiteTCN_R": true,
+    "deployment_test_MSE_recomputed": true
+  },
+  "energy": {
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "code_and_data_hashes": true,
+    "selection_recomputed": true,
+    "original_encoder_retained_in_LiteTCN_R": true,
+    "deployment_test_MSE_recomputed": true
+  },
+  "new_2026_climate_weights_remain_frozen": true
+}

@@ -1,0 +1,70 @@
+{
+  "source": [
+    {
+      "column": "log_return",
+      "normalization": "none",
+      "penalty": 1.0,
+      "validation_MSE": 0.9566686749458313
+    },
+    {
+      "column": "hl_range",
+      "normalization": "mean",
+      "penalty": 0.1,
+      "validation_MSE": 0.448020339012146
+    },
+    {
+      "column": "gap",
+      "normalization": "none",
+      "penalty": 1.0,
+      "validation_MSE": 1.0790222883224487
+    },
+    {
+      "column": "log_volume",
+      "normalization": "revin",
+      "penalty": 0.001,
+      "validation_MSE": 0.2741444408893585
+    }
+  ],
+  "input_only_adapter": [
+    {
+      "column_index": 0,
+      "normalization": "none",
+      "replay": 0.0,
+      "anchor": 1.0,
+      "source_val_MSE": 0.9558279514312744,
+      "target_input_pretext_MSE": 0.8146979212760925,
+      "score": 0.9987633228302002,
+      "eligible": true
+    },
+    {
+      "column_index": 1,
+      "normalization": "mean",
+      "replay": 0.0,
+      "anchor": 10.0,
+      "source_val_MSE": 0.44858747720718384,
+      "target_input_pretext_MSE": 0.6030489206314087,
+      "score": 0.9996219277381897,
+      "eligible": true
+    },
+    {
+      "column_index": 2,
+      "normalization": "none",
+      "replay": 0.25,
+      "anchor": 1.0,
+      "source_val_MSE": 1.0791759490966797,
+      "target_input_pretext_MSE": 0.6376379728317261,
+      "score": 0.9992191791534424,
+      "eligible": true
+    },
+    {
+      "column_index": 3,
+      "normalization": "revin",
+      "replay": 1.0,
+      "anchor": 0.1,
+      "source_val_MSE": 0.27699801325798035,
+      "target_input_pretext_MSE": 0.29138362407684326,
+      "score": 0.9957906007766724,
+      "eligible": true
+    }
+  ]
+}

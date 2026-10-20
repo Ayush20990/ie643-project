@@ -132,7 +132,7 @@ async function main() {
       ["Datasets & preparation", "Three source → target pairs; extraction and curation steps"],
       ["Lightweight forecaster", "LiteTCN: RevIN + dilated convolutions + linear path"],
       ["CARE-DA strategy & loss", "v1 design; v2 is a first follow-up, not locked"],
-      ["Metrics & protocol", "Forecast accuracy and adaptation-efficiency metrics"],
+      ["Metrics & protocol", "What we measure and how the runs were set up"],
       ["First experiments", "3-seed v1 campaign + seed-0 v2 probe"],
       ["Prototype & remaining work", "Interface v1, open questions, second-half plan"],
     ];
@@ -238,10 +238,10 @@ async function main() {
     s.addNotes("Why lightweight: the brief asks for it, and adaptation is repeated per domain, so it must be cheap. DLinear shows simple models are strong; TCN gives a compact nonlinear encoder whose features we can align; RevIN deals with level shift for free.");
   }
 
-  // ================================================================ 6 BACKGROUND: THEORY
+  // ================================================================ 6 BACKGROUND: THEORY + METHOD FAMILIES
   {
-    const s = content("02 · Background reading", "Why aligning features can work: the domain-adaptation bound");
-    card(s, 0.6, 1.6, 12.13, 1.45, C.basalt);
+    const s = content("02 · Background reading", "Why aligning features can work, and what we borrow");
+    card(s, 0.6, 1.5, 12.13, 1.4, C.basalt);
     s.addText([
       { text: "ε", options: { fontFace: H } }, { text: "T", options: { subscript: true } }, { text: "(h)  ≤  " },
       { text: "ε", options: { color: C.tealLt } }, { text: "S", options: { subscript: true, color: C.tealLt } }, { text: "(h)", options: { color: C.tealLt } },
@@ -249,43 +249,27 @@ async function main() {
       { text: "(D", options: { color: "F2B45C" } }, { text: "S", options: { subscript: true, color: "F2B45C" } }, { text: ", D", options: { color: "F2B45C" } },
       { text: "T", options: { subscript: true, color: "F2B45C" } }, { text: ")", options: { color: "F2B45C" } }, { text: "  +  " },
       { text: "λ*", options: { color: "E8A7A0" } },
-    ], { x: 0.6, y: 1.6, w: 12.13, h: 1.1, fontFace: H, fontSize: 34, color: C.white, align: "center", valign: "middle", margin: 0, isTextBox: true });
-    T(s, "Ben-David et al., Machine Learning 2010: target error is bounded by source error + domain divergence + the error of the best joint hypothesis.", {
-      x: 0.6, y: 2.62, w: 12.13, h: 0.35, fontSize: 11.5, color: C.glacier, align: "center" });
+    ], { x: 0.6, y: 1.5, w: 12.13, h: 1.0, fontFace: H, fontSize: 32, color: C.white, align: "center", valign: "middle", margin: 0, isTextBox: true });
+    T(s, "Ben-David et al., Machine Learning 2010: target error ≤ source error + domain divergence + error of the best joint hypothesis.", {
+      x: 0.6, y: 2.48, w: 12.13, h: 0.35, fontSize: 11.5, color: C.glacier, align: "center" });
     const terms = [
-      ["Source error", "Keep minimising the supervised forecasting loss on Domain 1 during adaptation.", C.teal, "→ L_fcst"],
-      ["Domain divergence", "Make source and target feature distributions look alike: MMD, CORAL, adversarial (DANN).", C.saffron, "→ L_MMD + L_CORAL"],
-      ["Joint error λ*", "Cannot be measured without target labels. Alignment alone can destroy forecast-relevant information; keep features meaningful with self-supervision and stay close to the source weights.", C.rose, "→ L_SSL + L_anchor"],
+      ["Source error", "Keep minimising the supervised forecasting loss on Domain 1 while adapting.", C.teal, "→ L_fcst"],
+      ["Domain divergence", "Make source and target feature distributions look alike (MMD, CORAL, adversarial).", C.saffron, "→ L_MMD + L_CORAL"],
+      ["Joint error λ*", "Unmeasurable without labels. Aligning at any cost destroys forecast-relevant features, so keep a pretext task and stay near the source weights.", C.rose, "→ L_pretext + L_anchor"],
     ];
     terms.forEach((t, i) => {
       const x = 0.6 + i * 4.1;
-      card(s, x, 3.35, 3.9, 3.45);
-      s.addShape(pres.shapes.OVAL, { x: x + 0.25, y: 3.58, w: 0.34, h: 0.34, fill: { color: t[2] }, line: { color: t[2] } });
-      T(s, t[0], { x: x + 0.72, y: 3.56, w: 3.0, h: 0.4, fontSize: 17, bold: true });
-      T(s, t[1], { x: x + 0.25, y: 4.15, w: 3.45, h: 1.9, fontSize: 13, color: C.slate });
-      T(s, t[3], { x: x + 0.25, y: 6.2, w: 3.45, h: 0.4, fontSize: 14, bold: true, color: C.ink, fontFace: "Consolas" });
+      card(s, x, 3.2, 3.9, 2.45);
+      s.addShape(pres.shapes.OVAL, { x: x + 0.25, y: 3.42, w: 0.34, h: 0.34, fill: { color: t[2] }, line: { color: t[2] } });
+      T(s, t[0], { x: x + 0.72, y: 3.4, w: 3.0, h: 0.4, fontSize: 16.5, bold: true });
+      T(s, t[1], { x: x + 0.25, y: 3.95, w: 3.45, h: 1.35, fontSize: 12.5, color: C.slate });
+      T(s, t[3], { x: x + 0.25, y: 5.2, w: 3.45, h: 0.38, fontSize: 13, bold: true, color: C.ink, fontFace: "Consolas" });
     });
-    s.addNotes("This one equation motivates every term of our loss. Walk left to right: source error, divergence, joint error. The third term is the trap: aligning at any cost can make forecasting impossible, so we add self-supervision and anchoring.");
-  }
-
-  // ================================================================ 7 BACKGROUND: UDA TOOLBOX
-  {
-    const s = content("02 · Background reading", "The domain-adaptation toolbox and what we take from it");
-    const hdr = (t) => ({ text: t, options: { bold: true, color: C.white, fill: { color: C.basalt } } });
-    const Y = { text: "✓ used", options: { bold: true, color: C.teal } };
-    const rows = [
-      [hdr("Family"), hdr("Core idea"), hdr("Representative methods"), hdr("Role in our project")],
-      ["Discrepancy-based", "Minimise a statistical distance between source and target features", "MMD / DAN (Long et al. 2015), Deep CORAL (Sun & Saenko 2016)", "Alignment terms of CARE-DA; also stand-alone baselines"],
-      ["Adversarial", "A domain classifier is fooled through a gradient-reversal layer", "DANN (Ganin et al. 2016), CoDATS (Wilson et al. 2020)", "Baseline"],
-      ["Self-supervised / test-time training", "Auxiliary label-free task on target data keeps features informative", "TTT (Sun et al. 2020), masked reconstruction", "SSL term: masked reconstruction of target windows"],
-      ["Parameter regularisation", "Penalise drifting away from the pre-trained (source) solution", "L2-SP (Li et al. 2018)", "Elastic anchor: prevents forgetting and over-alignment"],
-      ["Normalisation-based", "Remove per-instance or per-domain statistics", "RevIN (Kim et al. 2022), AdaBN", "RevIN inside the model + per-domain z-scoring"],
-    ].map((r, i) => i === 0 ? r : r.map((c, j) => ({ text: c, options: { bold: j === 0, color: j === 3 ? C.teal : C.ink, fill: { color: i % 2 ? C.white : C.panel } } })));
-    s.addTable(rows, { x: 0.6, y: 1.6, w: 12.13, colW: [2.45, 3.6, 3.33, 2.75], fontFace: B, fontSize: 12.5, valign: "middle",
-      border: { type: "solid", pt: 0.75, color: C.line }, rowH: [0.45, 0.85, 0.75, 0.85, 0.75, 0.75], margin: 0.08 });
-    T(s, "Insight from reading: no single family is sufficient for regression on time series. Our strategy combines the four complementary ideas in a single loss.", {
-      x: 0.6, y: 6.25, w: 12.1, h: 0.5, fontSize: 13, italic: true, color: C.slate });
-    s.addNotes("This is our map of the literature. Emphasise we did not invent a family; we composed complementary pieces and justify each one with the bound on the previous slide.");
+    card(s, 0.6, 5.85, 12.13, 1.0);
+    T(s, "Five method families we read, and where each one lands in our design", { x: 0.85, y: 5.95, w: 11.6, h: 0.3, fontSize: 12.5, bold: true, color: C.teal });
+    T(s, "Discrepancy (MMD/DAN, Deep CORAL) → our alignment terms and baselines  ·  Adversarial (DANN, CoDATS) → baseline  ·  Self-supervised / test-time training (TTT) → pretext term  ·  Parameter regularisation (L2-SP) → elastic anchor  ·  Normalisation (RevIN, AdaBN) → inside the model", {
+      x: 0.85, y: 6.28, w: 11.6, h: 0.5, fontSize: 11.5, color: C.slate });
+    s.addNotes("This one equation motivates every term of our loss. Walk left to right: source error, divergence, joint error. The third term is the trap: aligning at any cost can make forecasting impossible, so we add a pretext task and an anchor. The strip at the bottom is our map of the literature: we did not invent a family, we composed complementary pieces.");
   }
 
   // ================================================================ 8 BACKGROUND: TS-DA LITERATURE
@@ -380,21 +364,6 @@ async function main() {
     T(s, "python -m src.data_download", { x: 8.5, y: 5.7, w: 4, h: 0.4, fontSize: 14, fontFace: "Consolas", color: C.white });
     T(s, "Raw pulls saved in data/raw, curated CSVs in data/processed/<benchmark>/<domain>.csv", { x: 8.5, y: 6.12, w: 4.0, h: 0.6, fontSize: 11, color: C.glacier });
     s.addNotes("Walk the pipeline left to right. The important design choice is step 5: each domain gets its own scaler, and for the target that only needs unlabeled inputs — legitimate under UDA. Then the leakage guards.");
-  }
-
-  // ================================================================ 11 SHIFT IN OTHER DATASETS
-  {
-    const s = content("03 · Datasets", "Domain shift in the energy and finance benchmarks");
-    fitImage(s, path.join(FIG, "energy_domain_shift.png"), 0.6, 1.5, 8.6, 2.6, "left");
-    fitImage(s, path.join(FIG, "finance_domain_shift.png"), 0.6, 4.25, 8.6, 2.6, "left");
-    const e = N.datasets.energy, f = N.datasets.finance;
-    card(s, 9.4, 1.55, 3.33, 2.5);
-    T(s, "ETTh1 → ETTh2", { x: 9.6, y: 1.7, w: 3, h: 0.35, fontSize: 15, bold: true, color: C.teal });
-    T(s, `Oil temperature mean ${e.source.mean.OT.toFixed(1)} vs ${e.target.mean.OT.toFixed(1)} °C; load channels have different scales and daily/weekly structure.`, { x: 9.6, y: 2.1, w: 2.95, h: 1.8, fontSize: 12, color: C.slate });
-    card(s, 9.4, 4.3, 3.33, 2.5);
-    T(s, "IT → Pharma", { x: 9.6, y: 4.45, w: 3, h: 0.35, fontSize: 15, bold: true, color: "A5650F" });
-    T(s, `Daily high-low range ${f.source.mean.hl_range.toFixed(2)}% vs ${f.target.mean.hl_range.toFixed(2)}%. Returns are near-unpredictable, while volatility and volume are persistent and forecastable.`, { x: 9.6, y: 4.85, w: 2.95, h: 1.9, fontSize: 12, color: C.slate });
-    s.addNotes("Energy has a strong shift; finance has a subtler one. That contrast becomes important when we interpret results later.");
   }
 
   // ================================================================ 12 MODEL
@@ -500,68 +469,52 @@ async function main() {
     s.addNotes("This is deliverable 5, the designed loss. Connect each row to the bound. Mention the weights were fixed, not tuned per dataset, which makes the comparison fair.");
   }
 
-  // ================================================================ 15 METRICS
+  // ================================================================ METRICS + PROTOCOL (merged)
   {
-    const s = content("06 · Performance metrics", "Measuring forecast quality and adaptation efficiency");
-    card(s, 0.6, 1.6, 5.9, 5.2);
-    T(s, "Forecast accuracy (per domain)", { x: 0.85, y: 1.8, w: 5.4, h: 0.4, fontSize: 17, bold: true, color: C.teal });
+    const s = content("06 · Metrics & protocol", "How we measure, and how the experiments were run");
+    card(s, 0.6, 1.5, 6.0, 5.3);
+    T(s, "Forecast accuracy (per domain)", { x: 0.85, y: 1.65, w: 5.5, h: 0.35, fontSize: 15.5, bold: true, color: C.teal });
     const fm = [
-      ["MSE / MAE", "on z-scored values, averaged over all H steps and C variables (comparable across variables)"],
-      ["MASE", "MAE ÷ in-sample seasonal-naive MAE: < 1 beats the naive forecast; scale-free across domains"],
-      ["Key-variable RMSE", "in physical units: °C temperature, % range, °C oil temperature (interpretable for users)"],
+      ["MSE / MAE", "on z-scored values, averaged over all H steps and C variables"],
+      ["MASE", "MAE ÷ seasonal-naive MAE; below 1 beats the naive forecast, and it is scale-free"],
+      ["Key-variable RMSE", "in physical units (°C temperature, % daily range, °C oil temperature)"],
     ];
     fm.forEach((m, i) => {
-      T(s, m[0], { x: 0.85, y: 2.4 + i * 1.3, w: 5.4, h: 0.35, fontSize: 14.5, bold: true });
-      T(s, m[1], { x: 0.85, y: 2.75 + i * 1.3, w: 5.4, h: 0.8, fontSize: 12.5, color: C.slate });
+      T(s, m[0], { x: 0.85, y: 2.08 + i * 0.82, w: 5.5, h: 0.3, fontSize: 13.5, bold: true });
+      T(s, m[1], { x: 0.85, y: 2.38 + i * 0.82, w: 5.5, h: 0.5, fontSize: 11.5, color: C.slate });
     });
-    card(s, 6.83, 1.6, 5.9, 5.2, C.basalt);
-    T(s, "Adaptation efficiency (our additions)", { x: 7.08, y: 1.8, w: 5.4, h: 0.4, fontSize: 17, bold: true, color: "F2B45C" });
-    T(s, "Gap-Closure Ratio", { x: 7.08, y: 2.35, w: 5.4, h: 0.35, fontSize: 14.5, bold: true, color: C.white });
-    T(s, "GCR = (E_source-only − E_method) / (E_source-only − E_oracle)", { x: 7.08, y: 2.72, w: 5.5, h: 0.4, fontSize: 13, fontFace: "Cambria Math", color: C.white });
-    T(s, "Share of the gap to a fully supervised fine-tuned model that is closed without labels. 1 = oracle level; < 0 = negative transfer.", { x: 7.08, y: 3.12, w: 5.4, h: 0.75, fontSize: 12, color: C.glacier });
+    T(s, "Adaptation efficiency (our additions)", { x: 0.85, y: 4.6, w: 5.5, h: 0.35, fontSize: 15.5, bold: true, color: "A5650F" });
+    T(s, "GCR = (E_source-only − E_method) / (E_source-only − E_oracle)", { x: 0.85, y: 5.0, w: 5.5, h: 0.3, fontSize: 12, fontFace: "Cambria Math", color: C.ink });
     const am = [
-      ["Feature discrepancy", "MMD² between source and target latents: did alignment happen?"],
-      ["Forgetting %", "change in Domain 1 test MSE after adapting to Domain 2"],
-      ["Stability", "mean ± std over 3 random seeds"],
+      ["Gap-closure ratio", "share of the supervised gap closed with no labels; 1 = oracle, < 0 = negative transfer"],
+      ["Feature MMD² / Forgetting %", "did alignment happen, and did Domain 1 accuracy survive?"],
     ];
     am.forEach((m, i) => {
-      T(s, m[0], { x: 7.08, y: 4.05 + i * 0.9, w: 5.4, h: 0.33, fontSize: 14, bold: true, color: C.white });
-      T(s, m[1], { x: 7.08, y: 4.38 + i * 0.9, w: 5.4, h: 0.45, fontSize: 12, color: C.glacier });
+      T(s, m[0], { x: 0.85, y: 5.38 + i * 0.72, w: 5.5, h: 0.3, fontSize: 13, bold: true });
+      T(s, m[1], { x: 0.85, y: 5.66 + i * 0.72, w: 5.5, h: 0.5, fontSize: 11.5, color: C.slate });
     });
-    s.addNotes("Deliverable 6. Accuracy metrics are standard; GCR is what tells us whether adaptation is worth it relative to simply collecting labels. Forgetting tells us whether Domain 1 still works.");
-  }
-
-  // ================================================================ 16 PROTOCOL
-  {
-    const s = content("07 · Experiments", "Experimental protocol");
-    card(s, 0.6, 1.6, 5.9, 5.2);
-    T(s, "Methods compared (same source checkpoint)", { x: 0.85, y: 1.8, w: 5.4, h: 0.4, fontSize: 16, bold: true, color: C.teal });
+    card(s, 6.83, 1.5, 5.9, 5.3, C.basalt);
+    T(s, "Methods compared — all from the same source checkpoint", { x: 7.08, y: 1.65, w: 5.4, h: 0.35, fontSize: 14.5, bold: true, color: C.tealLt });
     const ms = [
-      ["Seasonal naive", "repeat last season (no learning)"],
-      ["Source-only", "Domain 1 model applied as-is (lower bound)"],
-      ["DANN / Deep CORAL / MMD", "classic single-principle UDA baselines"],
-      ["CARE-DA v1 / v2 (ours)", "v1 + ablations (3 seeds); v2 is a seed-0 probe only"],
-      ["Target-only*", "trained from scratch on labeled Domain 2"],
-      ["Fine-tune oracle*", "source model fine-tuned with Domain 2 labels (upper bound)"],
+      ["Seasonal naive", "repeat the last season (no learning)"],
+      ["Source-only", "Domain 1 model applied as-is (floor)"],
+      ["DANN / CORAL / MMD", "classic single-principle UDA baselines"],
+      ["CARE-DA v1 + ablations", "our design, 3 seeds"],
+      ["CARE-DA v2", "follow-up probe, seed 0 only"],
+      ["Target-only*, Oracle*", "trained / fine-tuned with Domain 2 labels"],
     ];
     ms.forEach((m, i) => {
-      T(s, m[0], { x: 0.85, y: 2.35 + i * 0.7, w: 2.45, h: 0.6, fontSize: 13, bold: true, color: m[0].startsWith("CARE") ? C.teal : C.ink });
-      T(s, m[1], { x: 3.3, y: 2.35 + i * 0.7, w: 3.1, h: 0.6, fontSize: 12, color: C.slate });
+      T(s, m[0], { x: 7.08, y: 2.1 + i * 0.52, w: 2.4, h: 0.45, fontSize: 12, bold: true, color: m[0].startsWith("CARE") ? C.tealLt : C.white });
+      T(s, m[1], { x: 9.55, y: 2.1 + i * 0.52, w: 2.95, h: 0.45, fontSize: 11, color: C.glacier });
     });
-    T(s, "* uses target labels: reference only, not UDA", { x: 0.85, y: 6.4, w: 5.4, h: 0.3, fontSize: 10.5, italic: true, color: C.muted });
-    const hp = [
-      ["Source training", "20 epochs, AdamW, lr 1e-3, cosine schedule, best source-validation checkpoint"],
-      ["Adaptation", "10 epochs, lr 3e-4; v1 = last epoch; v2 picks min(source-val MSE + feature MMD) — still no target labels"],
-      ["Self-supervision", "mask ratio 0.3; also used during source training so the head is ready"],
-      ["Seeds / hardware", "3 seeds (0, 1, 2); PyTorch on a laptop CPU"],
-    ];
-    hp.forEach((h, i) => {
-      const y = 1.6 + i * 1.33;
-      card(s, 6.83, y, 5.9, 1.15);
-      T(s, h[0], { x: 7.08, y: y + 0.12, w: 5.4, h: 0.35, fontSize: 14, bold: true });
-      T(s, h[1], { x: 7.08, y: y + 0.48, w: 5.4, h: 0.6, fontSize: 12, color: C.slate });
-    });
-    s.addNotes("Emphasise fairness: every method starts from the same source checkpoint and gets the same budget; checkpoints for UDA are never chosen using target labels.");
+    T(s, "* uses Domain 2 labels: reference only, not UDA", { x: 7.08, y: 5.25, w: 5.4, h: 0.25, fontSize: 10, italic: true, color: C.muted });
+    T(s, "Settings", { x: 7.08, y: 5.6, w: 5.4, h: 0.3, fontSize: 14, bold: true, color: C.tealLt });
+    T(s, [
+      { text: "Source: 20 epochs, AdamW, lr 1e-3, best source-validation checkpoint.", options: { bullet: true, breakLine: true } },
+      { text: "Adaptation: 10 epochs, lr 3e-4, batches 256 + 256; v1 takes the last epoch, v2 picks min(source-val MSE + feature MMD) — still no target labels.", options: { bullet: true, breakLine: true } },
+      { text: "3 seeds (0, 1, 2) for v1; PyTorch on a laptop CPU.", options: { bullet: true } },
+    ], { x: 7.08, y: 5.92, w: 5.4, h: 0.85, fontSize: 10.5, color: C.glacier, paraSpaceAfter: 2 });
+    s.addNotes("Left: what we measure. MASE makes domains comparable; gap-closure says whether adaptation is worth it compared with just collecting labels; forgetting checks Domain 1 still works. Right: fairness of the protocol — same checkpoint, same budget, and target labels never used to choose a checkpoint.");
   }
 
   // ================================================================ 17 RESULTS TABLE
@@ -592,7 +545,7 @@ async function main() {
     s.addTable(rows, { x: 0.6, y: 1.48, w: 12.13, colW: [2.85, 1.72, 1.72, 1.72, 1.37, 1.38, 1.37], fontFace: B, fontSize: 11.5, valign: "middle",
       border: { type: "solid", pt: 0.75, color: C.line }, rowH: 0.40, margin: 0.04 });
     const nS = (N.results.climate && N.results.climate._n_seeds) || "?";
-    T(s, `First campaign: v1 is mean ± std over ${nS} seeds. v2 is a seed-0 probe only — we will re-run it over 3 seeds before locking the method. Bold teal = best 3-seed label-free so far. * uses Domain 2 labels.`, {
+    T(s, `First campaign: v1 is mean ± std over ${nS} seeds. v2 is a seed-0 probe only — we will re-run it over 3 seeds before locking the method, and its Δ is measured against the same seed-0 source model (MSE ${DS.map((x) => `${DSN[x].toLowerCase()} ${fmt((N.results[x] || {})._v2_source_mse)}`).join(", ")}), not against the 3-seed mean. Bold teal = best 3-seed label-free so far. * uses Domain 2 labels.`, {
       x: 0.6, y: 6.12, w: 12.1, h: 0.55, fontSize: 11, italic: true, color: C.slate });
     s.addNotes("Call this a first campaign. Be honest: full v1 is not the best; −SSL is stronger. v2 looks promising on seed 0 but is not confirmed. That is the work of the second half.");
   }
@@ -625,37 +578,22 @@ async function main() {
     s.addNotes("First-campaign reading: alignment helps, DANN/CORAL hurt. Climate's best 3-seed method is still MMD. Energy/finance v2 numbers are seed 0 only — say we will confirm them. Finance has little headroom even for the oracle.");
   }
 
-  // ================================================================ 19 ADAPTATION CURVES
+  // ================================================================ ADAPTATION BEHAVIOUR + QUALITATIVE (merged)
   {
-    const s = content("07 · Adaptation behaviour", "Logged adaptation dynamics (climate, seed 0)");
-    fitImage(s, path.join(FIG, "climate_adaptation_curves.png"), 0.6, 1.45, 12.13, 3.45);
+    const s = content("07 · Adaptation behaviour", "What the logs and the forecasts look like (climate, seed 0)");
+    fitImage(s, path.join(FIG, "climate_adaptation_curves.png"), 0.6, 1.4, 12.13, 3.0);
     const obs = [
-      ["Alignment happens", `CARE-DA cuts latent MMD² between domains from ${fmt(R("climate", "source_only", "feat_mmd_mean"), 3)} to ${fmt(R("climate", "care", "feat_mmd_mean"), 3)} (climate, mean of 3 seeds).`],
-      ["Lower gap ≠ lower error", `CARE-DA reaches the smallest discrepancy, yet MMD-only forecasts better; DANN is unstable (MMD² ${fmt(R("climate", "dann", "feat_mmd_mean"), 1)}) and its target error drifts upward.`],
-      ["No forgetting", `Label-free variants keep Domain 1 error flat (CARE-DA ${fmt(R("climate", "care", "forgetting_%_mean"), 1)}%), while supervised fine-tuning degrades Domain 1 by +${fmt(R("climate", "oracle_finetune", "forgetting_%_mean"), 0)}%.`],
+      ["Alignment happens, Domain 1 survives", `Latent MMD² between domains drops from ${fmt(R("climate", "source_only", "feat_mmd_mean"), 3)} to ${fmt(R("climate", "care", "feat_mmd_mean"), 3)}, and Domain 1 error stays flat (${fmt(R("climate", "care", "forgetting_%_mean"), 1)}%) — supervised fine-tuning instead costs +${fmt(R("climate", "oracle_finetune", "forgetting_%_mean"), 0)}%.`],
+      ["But a smaller gap ≠ better forecasts", `CARE-DA v1 reaches the smallest discrepancy yet MMD-only forecasts better; DANN is unstable (MMD² ${fmt(R("climate", "dann", "feat_mmd_mean"), 1)}) and its target error drifts upward. Alignment must keep forecast-relevant information.`],
     ];
     obs.forEach((o, i) => {
-      const x = 0.6 + i * 4.1;
-      card(s, x, 5.1, 3.9, 1.72);
-      T(s, o[0], { x: x + 0.2, y: 5.22, w: 3.5, h: 0.35, fontSize: 14, bold: true, color: i === 1 ? "A5650F" : C.teal });
-      T(s, o[1], { x: x + 0.2, y: 5.6, w: 3.5, h: 1.15, fontSize: 12, color: C.slate });
+      const x = 0.6 + i * 4.05;
+      card(s, x, 4.55, 3.85, 2.25);
+      T(s, o[0], { x: x + 0.2, y: 4.68, w: 3.45, h: 0.62, fontSize: 13.5, bold: true, color: i === 1 ? "A5650F" : C.teal });
+      T(s, o[1], { x: x + 0.2, y: 5.34, w: 3.45, h: 1.4, fontSize: 11.5, color: C.slate });
     });
-    s.addNotes("These are the adaptation logs (deliverable 4). Target MSE is plotted for monitoring only, never used to pick checkpoints. Three messages: alignment works as intended, a smaller feature distance does not guarantee better forecasts, and label-free adaptation does not destroy Domain 1 performance.");
-  }
-
-  // ================================================================ 20 LATENT + FORECAST
-  {
-    const s = content("07 · Qualitative results", "What adaptation does to features and forecasts");
-    fitImage(s, path.join(FIG, "energy_latent_pca.png"), 0.6, 1.45, 6.2, 2.85, "left");
-    fitImage(s, path.join(FIG, "climate_forecast_example.png"), 6.95, 1.45, 5.8, 2.85);
-    fitImage(s, path.join(FIG, "energy_forecast_example.png"), 6.95, 4.35, 5.8, 2.5);
-    card(s, 0.6, 4.5, 6.1, 2.3);
-    T(s, "Reading the plots", { x: 0.85, y: 4.65, w: 5.6, h: 0.35, fontSize: 14, bold: true, color: C.teal });
-    T(s, [
-      { text: `Left: PCA of encoder features on ETT (blue = Domain 1, orange = Domain 2). After CARE-DA the two clouds mix more evenly; latent MMD² falls from ${fmt(R("energy", "source_only", "feat_mmd_mean"), 2)} to ${fmt(R("energy", "care", "feat_mmd_mean"), 2)}.`, options: { bullet: true, breakLine: true } },
-      { text: "Right: Domain 2 test windows. Grey = input, black = actual, orange dashed = source-only, blue = CARE-DA, green dotted = supervised oracle.", options: { bullet: true } },
-    ], { x: 0.85, y: 5.05, w: 5.7, h: 1.7, fontSize: 12, color: C.slate, paraSpaceAfter: 6 });
-    s.addNotes("Qualitative evidence. Pick one forecast window and explain where the source-only model is biased and how the adapted one moves towards the actual values.");
+    fitImage(s, path.join(FIG, "climate_forecast_example.png"), 8.7, 4.45, 4.03, 2.4);
+    s.addNotes("These are the adaptation logs required by the brief. Target MSE is plotted for monitoring only, never used to pick a checkpoint. Three messages: alignment works, Domain 1 is not forgotten, but a smaller feature gap does not guarantee better forecasts. The plot on the right is one Domain 2 window: grey input, black actual, orange dashed source-only, blue adapted.");
   }
 
   // ================================================================ 21 INSIGHTS / ABLATIONS
@@ -756,50 +694,49 @@ async function main() {
     s.addNotes("Close as mid-project: first cycle is real, nothing is locked. Ask the TAs to verify the datasets. Second half = lock v2, write the report, polish the demo.");
   }
 
-  // ================================================================ 24-25 REFERENCES
-  const refs1 = [
-    "Shai Ben-David, John Blitzer, Koby Crammer, Alex Kulesza, Fernando Pereira and Jennifer Wortman Vaughan. A theory of learning from different domains, Machine Learning, 2010. https://doi.org/10.1007/s10994-009-5152-4",
-    "Yaroslav Ganin, Evgeniya Ustinova, Hana Ajakan, Pascal Germain, Hugo Larochelle, François Laviolette, Mario Marchand and Victor Lempitsky. Domain-Adversarial Training of Neural Networks, Journal of Machine Learning Research, 2016. https://arxiv.org/abs/1505.07818",
-    "Baochen Sun and Kate Saenko. Deep CORAL: Correlation Alignment for Deep Domain Adaptation, ECCV Workshops, 2016. https://arxiv.org/abs/1607.01719",
-    "Mingsheng Long, Yue Cao, Jianmin Wang and Michael I. Jordan. Learning Transferable Features with Deep Adaptation Networks, ICML, 2015. https://arxiv.org/abs/1502.02791",
-    "Arthur Gretton, Karsten M. Borgwardt, Malte J. Rasch, Bernhard Schölkopf and Alexander Smola. A Kernel Two-Sample Test, Journal of Machine Learning Research, 2012. https://jmlr.org/papers/v13/gretton12a.html",
-    "Xuhong Li, Yves Grandvalet and Franck Davoine. Explicit Inductive Bias for Transfer Learning with Convolutional Networks, ICML, 2018. https://arxiv.org/abs/1802.01483",
-    "Yu Sun, Xiaolong Wang, Zhuang Liu, John Miller, Alexei A. Efros and Moritz Hardt. Test-Time Training with Self-Supervision for Generalization under Distribution Shifts, ICML, 2020. https://arxiv.org/abs/1909.13231",
-    "Xiaoyong Jin, Youngsuk Park, Danielle C. Maddix, Hao Wang and Yuyang Wang. Domain Adaptation for Time Series Forecasting via Attention Sharing, ICML, 2022. https://arxiv.org/abs/2102.06828",
-    "Garrett Wilson, Janardhan Rao Doppa and Diane J. Cook. Multi-Source Deep Domain Adaptation with Weak Supervision for Time-Series Sensor Data, KDD, 2020. https://arxiv.org/abs/2005.10996",
-    "Ruichu Cai, Jiawei Chen, Zijian Li, Wei Chen, Keli Zhang, Junjian Ye, Zhuozhang Li, Xiaoyan Yang and Zhenjie Zhang. Time Series Domain Adaptation via Sparse Associative Structure Alignment, AAAI, 2021. https://arxiv.org/abs/2012.11797",
-  ];
-  const refs2 = [
-    "Yilmazcan Ozyurt, Stefan Feuerriegel and Ce Zhang. Contrastive Learning for Unsupervised Domain Adaptation of Time Series, ICLR, 2023. https://arxiv.org/abs/2206.06243",
-    "Huan He, Owen Queen, Teddy Koker, Consuelo Cuevas, Theodoros Tsiligkaridis and Marinka Zitnik. Domain Adaptation for Time Series Under Feature and Label Shifts, ICML, 2023. https://arxiv.org/abs/2302.03133",
-    "Taesung Kim, Jinhee Kim, Yunwon Tae, Cheonbok Park, Jang-Ho Choi and Jaegul Choo. Reversible Instance Normalization for Accurate Time-Series Forecasting against Distribution Shift, ICLR, 2022. https://openreview.net/forum?id=cGDAkQo1C0p",
-    "Ailing Zeng, Muxi Chen, Lei Zhang and Qiang Xu. Are Transformers Effective for Time Series Forecasting?, AAAI, 2023. https://arxiv.org/abs/2205.13504",
-    "Yuqi Nie, Nam H. Nguyen, Phanwadee Sinthong and Jayant Kalagnanam. A Time Series is Worth 64 Words: Long-term Forecasting with Transformers, ICLR, 2023. https://arxiv.org/abs/2211.14730",
-    "Shaojie Bai, J. Zico Kolter and Vladlen Koltun. An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling, arXiv preprint, 2018. https://arxiv.org/abs/1803.01271",
-    "Haoyi Zhou, Shanghang Zhang, Jieqi Peng, Shuai Zhang, Jianxin Li, Hui Xiong and Wancai Zhang. Informer: Beyond Efficient Transformer for Long Sequence Time-Series Forecasting (ETT dataset), AAAI, 2021. https://arxiv.org/abs/2012.07436",
-    "Rob J. Hyndman and Anne B. Koehler. Another look at measures of forecast accuracy, International Journal of Forecasting, 2006. https://doi.org/10.1016/j.ijforecast.2006.03.001",
-  ];
-  const webs = [
-    "Open-Meteo. https://open-meteo.com/en/docs/historical-weather-api. Accessed on: 18th September, 2026.",
-    "Ran Aroussi. https://github.com/ranaroussi/yfinance. Accessed on: 18th September, 2026.",
-    "Haoyi Zhou. https://github.com/zhouhaoyi/ETDataset. Accessed on: 18th September, 2026.",
-  ];
-  const refSlide = (title, list, start, extra) => {
-    const s = content("References", title);
-    const runs = list.map((r, i) => ({ text: `[${start + i}]  ${r}`, options: { breakLine: i < list.length - 1 } }));
-    T(s, runs, { x: 0.6, y: 1.5, w: 12.13, h: extra ? 3.9 : 5.35, fontSize: 11, color: C.ink, paraSpaceAfter: 5.5 });
-    return s;
-  };
-  refSlide("Research papers (1/2)", refs1, 1).addNotes("References follow the course-prescribed format.");
+  // ================================================================ REFERENCES (single slide)
   {
-    const s = refSlide("Research papers (2/2) and web resources", refs2, refs1.length + 1, true);
-    T(s, "Websites", { x: 0.6, y: 5.45, w: 5, h: 0.3, fontSize: 12, bold: true, color: C.teal });
-    T(s, webs.map((w, i) => ({ text: `[${refs1.length + refs2.length + 1 + i}]  ${w}`, options: { breakLine: i < webs.length - 1 } })), {
-      x: 0.6, y: 5.75, w: 9.2, h: 1.1, fontSize: 11, color: C.ink, paraSpaceAfter: 3 });
-    card(s, 10.05, 5.5, 2.68, 1.3, C.basalt);
-    T(s, "Thank you", { x: 10.05, y: 5.6, w: 2.68, h: 0.6, fontFace: H, fontSize: 24, bold: true, color: C.white, align: "center" });
-    T(s, "Questions welcome", { x: 10.05, y: 6.2, w: 2.68, h: 0.4, fontSize: 12, color: C.tealLt, align: "center" });
-    s.addNotes("Wrap up in one sentence: lightweight forecaster + principled label-free adaptation + honest metrics. Thank the audience.");
+    const papers = [
+      "Shai Ben-David, John Blitzer, Koby Crammer, Alex Kulesza, Fernando Pereira and Jennifer Wortman Vaughan. A theory of learning from different domains, Machine Learning, 2010. https://doi.org/10.1007/s10994-009-5152-4",
+      "Yaroslav Ganin, Evgeniya Ustinova, Hana Ajakan, Pascal Germain, Hugo Larochelle, François Laviolette, Mario Marchand and Victor Lempitsky. Domain-Adversarial Training of Neural Networks, Journal of Machine Learning Research, 2016. https://arxiv.org/abs/1505.07818",
+      "Baochen Sun and Kate Saenko. Deep CORAL: Correlation Alignment for Deep Domain Adaptation, ECCV Workshops, 2016. https://arxiv.org/abs/1607.01719",
+      "Mingsheng Long, Yue Cao, Jianmin Wang and Michael I. Jordan. Learning Transferable Features with Deep Adaptation Networks, ICML, 2015. https://arxiv.org/abs/1502.02791",
+      "Arthur Gretton, Karsten M. Borgwardt, Malte J. Rasch, Bernhard Schölkopf and Alexander Smola. A Kernel Two-Sample Test, Journal of Machine Learning Research, 2012. https://jmlr.org/papers/v13/gretton12a.html",
+      "Xuhong Li, Yves Grandvalet and Franck Davoine. Explicit Inductive Bias for Transfer Learning with Convolutional Networks, ICML, 2018. https://arxiv.org/abs/1802.01483",
+      "Yu Sun, Xiaolong Wang, Zhuang Liu, John Miller, Alexei A. Efros and Moritz Hardt. Test-Time Training with Self-Supervision for Generalization under Distribution Shifts, ICML, 2020. https://arxiv.org/abs/1909.13231",
+      "Xiaoyong Jin, Youngsuk Park, Danielle C. Maddix, Hao Wang and Yuyang Wang. Domain Adaptation for Time Series Forecasting via Attention Sharing, ICML, 2022. https://arxiv.org/abs/2102.06828",
+      "Garrett Wilson, Janardhan Rao Doppa and Diane J. Cook. Multi-Source Deep Domain Adaptation with Weak Supervision for Time-Series Sensor Data, KDD, 2020. https://arxiv.org/abs/2005.10996",
+      "Ruichu Cai, Jiawei Chen, Zijian Li, Wei Chen, Keli Zhang, Junjian Ye, Zhuozhang Li, Xiaoyan Yang and Zhenjie Zhang. Time Series Domain Adaptation via Sparse Associative Structure Alignment, AAAI, 2021. https://arxiv.org/abs/2012.11797",
+      "Yilmazcan Ozyurt, Stefan Feuerriegel and Ce Zhang. Contrastive Learning for Unsupervised Domain Adaptation of Time Series, ICLR, 2023. https://arxiv.org/abs/2206.06243",
+      "Huan He, Owen Queen, Teddy Koker, Consuelo Cuevas, Theodoros Tsiligkaridis and Marinka Zitnik. Domain Adaptation for Time Series Under Feature and Label Shifts, ICML, 2023. https://arxiv.org/abs/2302.03133",
+      "Taesung Kim, Jinhee Kim, Yunwon Tae, Cheonbok Park, Jang-Ho Choi and Jaegul Choo. Reversible Instance Normalization for Accurate Time-Series Forecasting against Distribution Shift, ICLR, 2022. https://openreview.net/forum?id=cGDAkQo1C0p",
+      "Ailing Zeng, Muxi Chen, Lei Zhang and Qiang Xu. Are Transformers Effective for Time Series Forecasting?, AAAI, 2023. https://arxiv.org/abs/2205.13504",
+      "Yuqi Nie, Nam H. Nguyen, Phanwadee Sinthong and Jayant Kalagnanam. A Time Series is Worth 64 Words: Long-term Forecasting with Transformers, ICLR, 2023. https://arxiv.org/abs/2211.14730",
+      "Shaojie Bai, J. Zico Kolter and Vladlen Koltun. An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling, arXiv preprint, 2018. https://arxiv.org/abs/1803.01271",
+      "Haoyi Zhou, Shanghang Zhang, Jieqi Peng, Shuai Zhang, Jianxin Li, Hui Xiong and Wancai Zhang. Informer: Beyond Efficient Transformer for Long Sequence Time-Series Forecasting (ETT dataset), AAAI, 2021. https://arxiv.org/abs/2012.07436",
+      "Rob J. Hyndman and Anne B. Koehler. Another look at measures of forecast accuracy, International Journal of Forecasting, 2006. https://doi.org/10.1016/j.ijforecast.2006.03.001",
+    ];
+    const webs = [
+      "Open-Meteo. https://open-meteo.com/en/docs/historical-weather-api. Accessed on: 18th September, 2026.",
+      "Ran Aroussi. https://github.com/ranaroussi/yfinance. Accessed on: 18th September, 2026.",
+      "Haoyi Zhou. https://github.com/zhouhaoyi/ETDataset. Accessed on: 18th September, 2026.",
+    ];
+    const s = content("References", "References");
+    const col = (list, start, x, header) => {
+      const runs = [];
+      if (header) runs.push({ text: header, options: { bold: true, color: C.teal, breakLine: true, fontSize: 10.5 } });
+      list.forEach((r, i) => runs.push({ text: `[${start + i}]  ${r}`, options: { breakLine: i < list.length - 1 } }));
+      T(s, runs, { x, y: 1.45, w: 5.9, h: 5.3, fontSize: 9, color: C.ink, paraSpaceAfter: 4 });
+    };
+    col(papers.slice(0, 9), 1, 0.6, "Research papers (1/2)");
+    const s2 = papers.slice(9);
+    const runs = [{ text: "Research papers (2/2)", options: { bold: true, color: C.teal, breakLine: true, fontSize: 10.5 } }];
+    s2.forEach((r, i) => runs.push({ text: `[${10 + i}]  ${r}`, options: { breakLine: true } }));
+    runs.push({ text: "Websites", options: { bold: true, color: C.teal, breakLine: true, fontSize: 10.5 } });
+    webs.forEach((r, i) => runs.push({ text: `[${papers.length + 1 + i}]  ${r}`, options: { breakLine: i < webs.length - 1 } }));
+    T(s, runs, { x: 6.83, y: 1.45, w: 5.9, h: 5.0, fontSize: 9, color: C.ink, paraSpaceAfter: 4 });
+    chip(s, "Thank you  ·  Questions welcome", 6.83, 6.5, 5.9, C.basalt, C.white, 12);
+    s.addNotes("References follow the course-prescribed format. Wrap up in one sentence: a small forecaster, a label-free adaptation loss, honest metrics, and a clear plan for the second half. Thank the audience.");
   }
 
   let out = path.join(HERE, "IE643_Prep_Presentation.pptx");

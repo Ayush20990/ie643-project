@@ -1,0 +1,27 @@
+{
+  "domain": "Shimla source only",
+  "target_values_used": false,
+  "future_weather_inputs_used": false,
+  "analysis_column_order": [
+    "relative_humidity_2m",
+    "dew_point_2m",
+    "surface_pressure",
+    "wind_speed_10m",
+    "cloud_cover",
+    "shortwave_radiation",
+    "temperature_2m"
+  ],
+  "source_train_rows": 24544,
+  "source_val_rows": 3507,
+  "penalties": [
+    0.0001,
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0,
+    100.0
+  ],
+  "selection_and_reporting_period": "source validation; no independent confirmation or causal claim",
+  "source_file_sha256": "6af08ea35183bd23a9c0d8f88c2703c4b6fb9ed9387a534db2c3496b5053e4d3"
+}

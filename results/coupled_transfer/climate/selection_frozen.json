@@ -1,0 +1,20 @@
+{
+  "timestamp_utc": "2026-10-19T14:51:13.031754+00:00",
+  "test_evaluated_at_freeze": false,
+  "checkpoint_sha256": {
+    "adapted_model.pt": "9e08bcf7b6c4443d4c474a689f2c52c830f3d5638fb05a89b8c23fae190e10e9",
+    "seed_0\\adapted_backbone_only.pt": "02229ace734216f42aecdeea3f406e286ca87fa7c676b71af24034b4975504bc",
+    "seed_0\\adapted_model.pt": "9e08bcf7b6c4443d4c474a689f2c52c830f3d5638fb05a89b8c23fae190e10e9",
+    "seed_0\\source_decoder_on_adapted_backbone.pt": "53671ed89702b8dd571b7bd84372ef5c6e21623cbad2eb354acb4ab584d25ef6",
+    "seed_0\\source_model.pt": "cad9d55cde8d7e3f2d32bd2b72517b63dd20d97c3f63edb82dff319a0688e9b7",
+    "seed_1\\adapted_backbone_only.pt": "f46bdebb4cde2ad1109f6554feb637b98163effc1fd4e30874083b372ae21a55",
+    "seed_1\\adapted_model.pt": "6a18e99399bf029b98d3ed3116279e230bd517cc31324c5d240e8f2392c46f80",
+    "seed_1\\source_decoder_on_adapted_backbone.pt": "c94333590535f0e8d9562c2bae6619a5fadba9b14cc369d09dc22ef0a1b7b592",
+    "seed_1\\source_model.pt": "86cee8a2c8fb771d960d91dafa4a16cee86035c1bbe7a602f652da25436b3504",
+    "seed_2\\adapted_backbone_only.pt": "a70550450598240f17db1553e77fd0e83d8f3e173e8e765d635ecca69900ec94",
+    "seed_2\\adapted_model.pt": "40515d6113e0b2c253027ca4840c516a86fdc0f254abe767e6e702ca2997a178",
+    "seed_2\\source_decoder_on_adapted_backbone.pt": "d07c579d945b46af585459581f88de7aa60c6b3098ccd9a6dc0c3b9b81d08ea5",
+    "seed_2\\source_model.pt": "bda76212e2a6765989e74dae19c5f66a5dada4adfb57ca878d81e35e5d7b5c35",
+    "source_model.pt": "cad9d55cde8d7e3f2d32bd2b72517b63dd20d97c3f63edb82dff319a0688e9b7"
+  }
+}

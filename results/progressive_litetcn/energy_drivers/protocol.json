@@ -1,0 +1,19 @@
+{
+  "domain": "ETTh1 source only",
+  "target_values_used": false,
+  "future_load_inputs_used": false,
+  "forecast": "direct 24-hour oil-temperature change from last observation",
+  "source_train_rows": 10452,
+  "source_val_rows": 3484,
+  "penalties": [
+    0.0001,
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0,
+    100.0
+  ],
+  "selection_and_reporting_period": "source validation; not independent confirmation or causal proof",
+  "source_file_sha256": "e6b024ca0e1423726f0a1e562c94c1babdb1a3a4fa1269a4fb1cbe3f57e6df44"
+}

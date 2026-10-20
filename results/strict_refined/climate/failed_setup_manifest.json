@@ -1,0 +1,31 @@
+{
+  "dataset": "climate",
+  "args": {
+    "datasets": [
+      "climate",
+      "energy",
+      "finance"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "threads": 4
+  },
+  "torch": "2.6.0+cpu",
+  "python": "3.13.2",
+  "code_sha256": {
+    "strict_refinement.py": "7c1bc6859afaf2755acdfcf4dea7fb0bbf5801199b4f8f68b39d2d9de0d4f24c",
+    "strict_models.py": "431b0c2998fc3e772e2a1a89f455cf66c2384161966d98f58d070c213ad2dbd8",
+    "refined_models.py": "b5f3300b7a47a3c682d1d0434fb572512edcecf7375d822f6c8a52f44521c209",
+    "refinement.py": "4e1e334b7710dc96dcbd95903b4ae41705f2cbb43a087ad5b3bc2d6a87d01ce7"
+  },
+  "data_sha256": {
+    "delhi.csv": "49707c4ed587ea164dc1da4e6757725b6f6de2a3463b6e6a0b985dc450b972a2",
+    "shimla.csv": "6af08ea35183bd23a9c0d8f88c2703c4b6fb9ed9387a534db2c3496b5053e4d3"
+  },
+  "target_protocol": "withhold H INSIDE each supplied X; constant left padding; no cross-window reconstruction; target Y excluded",
+  "selection": "per-channel .5 source-relative MSE + .5 target-input-relative MSE, source degradation <=10%; source fallback",
+  "evaluation": "reused development benchmark; no new external holdout"
+}

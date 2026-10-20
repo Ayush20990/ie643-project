@@ -1,0 +1,68 @@
+climate seed=2 uniform r=1 source_val=0.124701 key=0.039102 selected=1
+climate seed=2 uniform r=2 source_val=0.112640 key=0.030643 selected=2
+climate seed=2 uniform r=3 source_val=0.107679 key=0.030541 selected=3
+climate seed=2 uniform r=4 source_val=0.103731 key=0.029067 selected=4
+climate seed=2 uniform r=5 source_val=0.101567 key=0.029912 selected=5
+climate seed=2 uniform r=6 source_val=0.102193 key=0.030245 selected=5
+climate seed=2 uniform r=7 source_val=0.097681 key=0.026820 selected=7
+climate seed=2 uniform r=8 source_val=0.096859 key=0.026025 selected=8
+climate seed=2 uniform r=9 source_val=0.095848 key=0.026618 selected=9
+climate seed=2 uniform r=10 source_val=0.093080 key=0.024525 selected=10
+climate seed=2 uniform r=11 source_val=0.093402 key=0.024142 selected=11
+climate seed=2 uniform r=12 source_val=0.092197 key=0.024836 selected=12
+climate seed=2 uniform r=13 source_val=0.091655 key=0.023915 selected=13
+climate seed=2 uniform r=14 source_val=0.090096 key=0.022474 selected=14
+climate seed=2 uniform r=15 source_val=0.090796 key=0.023172 selected=14
+climate seed=2 uniform r=16 source_val=0.091094 key=0.023777 selected=14
+climate seed=2 uniform r=17 source_val=0.091989 key=0.025715 selected=14
+climate seed=2 uniform r=18 source_val=0.090569 key=0.024110 selected=14
+climate seed=2 uniform r=19 source_val=0.090535 key=0.023629 selected=14
+climate seed=2 uniform r=20 source_val=0.090190 key=0.023000 selected=14
+climate seed=2 uniform r=21 source_val=0.090557 key=0.023137 selected=14
+climate seed=2 uniform r=22 source_val=0.090355 key=0.023515 selected=14
+climate seed=2 uniform r=23 source_val=0.090313 key=0.023705 selected=14
+climate seed=2 uniform r=24 source_val=0.089964 key=0.023184 selected=14
+climate seed=2 uniform r=25 source_val=0.090129 key=0.023313 selected=14
+climate seed=2 uniform r=26 source_val=0.090226 key=0.023421 selected=14
+climate seed=2 uniform r=27 source_val=0.090064 key=0.023271 selected=14
+climate seed=2 uniform r=28 source_val=0.090067 key=0.023311 selected=14
+climate seed=2 turning r=1 source_val=0.125196 key=0.042108 selected=1
+climate seed=2 turning r=2 source_val=0.111641 key=0.031185 selected=2
+climate seed=2 turning r=3 source_val=0.107554 key=0.031692 selected=3
+climate seed=2 turning r=4 source_val=0.103709 key=0.030863 selected=4
+climate seed=2 turning r=5 source_val=0.101758 key=0.031690 selected=5
+climate seed=2 turning r=6 source_val=0.101833 key=0.032364 selected=5
+climate seed=2 turning r=7 source_val=0.097106 key=0.029363 selected=7
+climate seed=2 turning r=8 source_val=0.095835 key=0.027238 selected=8
+climate seed=2 turning r=9 source_val=0.094630 key=0.027483 selected=9
+climate seed=2 turning r=10 source_val=0.091169 key=0.024896 selected=10
+climate seed=2 turning r=11 source_val=0.092091 key=0.025019 selected=10
+climate seed=2 turning r=12 source_val=0.090068 key=0.024665 selected=12
+climate seed=2 turning r=13 source_val=0.090168 key=0.024120 selected=13
+climate seed=2 turning r=14 source_val=0.088393 key=0.022081 selected=14
+climate seed=2 turning r=15 source_val=0.088842 key=0.022227 selected=14
+climate seed=2 turning r=16 source_val=0.089383 key=0.023799 selected=14
+climate seed=2 turning r=17 source_val=0.090198 key=0.025188 selected=14
+climate seed=2 turning r=18 source_val=0.089194 key=0.024068 selected=14
+climate seed=2 turning r=19 source_val=0.089039 key=0.023775 selected=14
+climate seed=2 turning r=20 source_val=0.088511 key=0.022352 selected=14
+climate seed=2 turning r=21 source_val=0.088961 key=0.022898 selected=14
+climate seed=2 turning r=22 source_val=0.088698 key=0.022811 selected=14
+climate seed=2 turning r=23 source_val=0.089033 key=0.023611 selected=14
+climate seed=2 turning r=24 source_val=0.088537 key=0.023089 selected=14
+climate seed=2 turning r=25 source_val=0.088638 key=0.023096 selected=14
+climate seed=2 turning r=26 source_val=0.088672 key=0.023034 selected=14
+climate seed=2 turning r=27 source_val=0.088503 key=0.022806 selected=14
+climate seed=2 turning r=28 source_val=0.088468 key=0.022739 selected=14
+climate seed=2 adapt r=1 source_val=0.091578 input=0.062122 proxy=0.975301 selected=0
+climate seed=2 adapt r=2 source_val=0.092651 input=0.060272 proxy=0.967993 selected=0
+climate seed=2 adapt r=3 source_val=0.092009 input=0.059963 proxy=0.958631 selected=3
+climate seed=2 adapt r=4 source_val=0.092189 input=0.060022 proxy=0.960096 selected=3
+climate seed=2 adapt r=5 source_val=0.092171 input=0.060006 proxy=0.960584 selected=3
+climate seed=2 adapt r=6 source_val=0.091662 input=0.059328 proxy=0.952481 selected=3
+climate seed=2 adapt r=7 source_val=0.091596 input=0.059245 proxy=0.950263 selected=3
+climate seed=2 adapt r=8 source_val=0.091290 input=0.059277 proxy=0.946967 selected=8
+climate seed=2 adapt r=9 source_val=0.091360 input=0.059330 proxy=0.947393 selected=8
+climate seed=2 adapt r=10 source_val=0.091381 input=0.059290 proxy=0.947801 selected=8
+climate seed=2 adapt r=11 source_val=0.091399 input=0.059216 proxy=0.947727 selected=8
+climate seed=2 adapt r=12 source_val=0.091418 input=0.059226 proxy=0.947867 selected=8

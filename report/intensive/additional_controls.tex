@@ -1,0 +1,49 @@
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.17}
+\begin{longtable}{@{}p{0.2912\textwidth}p{0.1547\textwidth}p{0.1547\textwidth}p{0.1547\textwidth}p{0.1547\textwidth}@{}}
+\caption{Additional recorded controls. Family names indicate experiment stage; screen controls can be seed 0, whereas selected policies average three seeds. H=1 families begin at next\_\allowbreak{}hour.}\label{tab:additional_controls}\\
+\toprule
+Recorded family / method & climate MSE & climate key\_\allowbreak{}RMSE & energy MSE & energy key\_\allowbreak{}RMSE \\
+\midrule\endfirsthead
+Recorded family / method & climate MSE & climate key\_\allowbreak{}RMSE & energy MSE & energy key\_\allowbreak{}RMSE \\
+\midrule\endhead
+\midrule\multicolumn{5}{r}{Continued on next page}\\\endfoot
+\bottomrule\endlastfoot
+peak\_\allowbreak{}litetcn / input\_\allowbreak{}mse & 0.2188 & 1.3280 & 0.1672 & 4.1729 \\
+peak\_\allowbreak{}litetcn / input\_\allowbreak{}shape & 0.2215 & 1.3288 & 0.1684 & 4.2001 \\
+peak\_\allowbreak{}litetcn / screen\_\allowbreak{}clock\_\allowbreak{}mse & 0.2359 & 1.4201 & 0.1859 & 4.7128 \\
+peak\_\allowbreak{}litetcn / screen\_\allowbreak{}clock\_\allowbreak{}shape & 0.2429 & 1.4188 & 0.1866 & 4.6265 \\
+peak\_\allowbreak{}litetcn / screen\_\allowbreak{}no\_\allowbreak{}clock\_\allowbreak{}mse & 0.2339 & 1.4029 & 0.1823 & 4.3960 \\
+peak\_\allowbreak{}litetcn / selected\_\allowbreak{}adapted & 0.2206 & 1.3284 & 0.1678 & 4.1789 \\
+peak\_\allowbreak{}litetcn / source\_\allowbreak{}only & 0.2393 & 1.4327 & 0.1788 & 4.6285 \\
+peak\_\allowbreak{}calibrated / local\_\allowbreak{}adapted & 0.2207 & 1.3226 & 0.1642 & 4.1912 \\
+peak\_\allowbreak{}calibrated / local\_\allowbreak{}source & 0.2371 & 1.4205 & 0.1725 & 4.6104 \\
+peak\_\allowbreak{}calibrated / raw\_\allowbreak{}adapted & 0.2206 & 1.3284 & 0.1678 & 4.1789 \\
+peak\_\allowbreak{}calibrated / raw\_\allowbreak{}source & 0.2393 & 1.4327 & 0.1788 & 4.6285 \\
+residual\_\allowbreak{}litetcn / adapted\_\allowbreak{}residual\_\allowbreak{}tcn & 0.2276 & 1.3781 & 0.1462 & 4.0991 \\
+residual\_\allowbreak{}litetcn / linear\_\allowbreak{}skip\_\allowbreak{}only & 0.2288 & 1.3578 & 0.1446 & 4.0982 \\
+residual\_\allowbreak{}litetcn / source\_\allowbreak{}residual\_\allowbreak{}tcn & 0.2298 & 1.4319 & 0.1466 & 4.0858 \\
+progressive\_\allowbreak{}litetcn / adapted\_\allowbreak{}model & 0.2284 & 1.3856 & 0.1468 & 4.0773 \\
+progressive\_\allowbreak{}litetcn / head\_\allowbreak{}only & 0.2299 & 1.4329 & 0.1466 & 4.0858 \\
+progressive\_\allowbreak{}litetcn / progressive & 0.2299 & 1.4329 & 0.1466 & 4.0858 \\
+progressive\_\allowbreak{}litetcn / source\_\allowbreak{}model & 0.2299 & 1.4329 & 0.1466 & 4.0858 \\
+coupled\_\allowbreak{}litetcn / adapted\_\allowbreak{}model & 0.2391 & 1.4075 & 0.1466 & 4.0894 \\
+coupled\_\allowbreak{}litetcn / coupled & 0.2393 & 1.4401 & 0.1483 & 4.2917 \\
+coupled\_\allowbreak{}litetcn / source\_\allowbreak{}model & 0.2393 & 1.4401 & 0.1468 & 4.1139 \\
+coupled\_\allowbreak{}litetcn / temperature\_\allowbreak{}only & 0.2393 & 1.4351 & 0.1468 & 4.1139 \\
+coupled\_\allowbreak{}transfer / adapted\_\allowbreak{}backbone\_\allowbreak{}only & 0.2206 & 1.3284 & 0.1462 & 4.0991 \\
+coupled\_\allowbreak{}transfer / adapted\_\allowbreak{}model & 0.2206 & 1.3293 & 0.1461 & 4.0835 \\
+coupled\_\allowbreak{}transfer / source\_\allowbreak{}decoder\_\allowbreak{}on\_\allowbreak{}adapted\_\allowbreak{}backbone & 0.2207 & 1.3368 & 0.1462 & 4.0933 \\
+coupled\_\allowbreak{}transfer / source\_\allowbreak{}model & 0.2393 & 1.4401 & 0.1468 & 4.1139 \\
+event\_\allowbreak{}boost / adapted\_\allowbreak{}model & 0.2205 & 1.3136 & 0.1456 & 4.0168 \\
+event\_\allowbreak{}boost / retained\_\allowbreak{}backbone & 0.2206 & 1.3284 & 0.1462 & 4.0991 \\
+event\_\allowbreak{}boost / source\_\allowbreak{}model & 0.2395 & 1.4685 & 0.1474 & 4.1914 \\
+next\_\allowbreak{}hour / adapted\_\allowbreak{}model & 0.0798 & 0.7445 & 0.0714 & 1.1002 \\
+next\_\allowbreak{}hour / source\_\allowbreak{}model & 0.0901 & 0.9784 & 0.0802 & 1.3500 \\
+next\_\allowbreak{}hour\_\allowbreak{}hybrid / adapted\_\allowbreak{}model & 0.0776 & 0.6926 & 0.0647 & 0.8970 \\
+next\_\allowbreak{}hour\_\allowbreak{}hybrid / source\_\allowbreak{}model & 0.0852 & 0.8704 & 0.0682 & 1.3945 \\
+peak\_\allowbreak{}next\_\allowbreak{}hour / adapted\_\allowbreak{}model & 0.0781 & 0.6530 & 0.0606 & 0.9151 \\
+peak\_\allowbreak{}next\_\allowbreak{}hour / source\_\allowbreak{}model & 0.0809 & 0.6791 & 0.0649 & 1.2653 \\
+\end{longtable}
+}

@@ -1,0 +1,13 @@
+{
+  "variant": "trajectory",
+  "mode": "mean",
+  "weight": 1.0,
+  "trees": 400,
+  "quality": {
+    "MSE": 0.06650412827730179,
+    "event_MSE": 0.06231679767370224,
+    "extrema_MSE": 0.0436021126806736,
+    "ramp_MSE": 0.02714693546295166,
+    "score": 0.11127774883061647
+  }
+}

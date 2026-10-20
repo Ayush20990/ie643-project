@@ -1,0 +1,121 @@
+{
+  "title": "Climate: Hilly (Shimla) -> Plain (Delhi)",
+  "source": "shimla",
+  "target": "delhi",
+  "source_label": "Shimla (hilly, ~2200 m)",
+  "target_label": "New Delhi (plain, ~215 m)",
+  "columns": [
+    "temperature_2m",
+    "relative_humidity_2m",
+    "dew_point_2m",
+    "surface_pressure",
+    "wind_speed_10m",
+    "cloud_cover",
+    "shortwave_radiation"
+  ],
+  "key": "temperature_2m",
+  "key_unit": "degC",
+  "L": 168,
+  "H": 24,
+  "season": 24,
+  "split": [
+    0.7,
+    0.1,
+    0.2
+  ],
+  "train_stride": 2,
+  "source_scaler": {
+    "mean": [
+      11.59757137298584,
+      69.55708312988281,
+      5.360960006713867,
+      782.5718994140625,
+      5.7812418937683105,
+      39.366973876953125,
+      203.4100799560547
+    ],
+    "std": [
+      6.8844685554504395,
+      21.671072006225586,
+      7.575037002563477,
+      3.6610543727874756,
+      3.484452247619629,
+      41.10994338989258,
+      274.479248046875
+    ]
+  },
+  "target_scaler": {
+    "mean": [
+      24.8870849609375,
+      62.24934768676758,
+      15.544761657714844,
+      983.5255737304688,
+      9.966468811035156,
+      31.63009262084961,
+      206.2194061279297
+    ],
+    "std": [
+      7.945765972137451,
+      23.595911026000977,
+      7.195147514343262,
+      6.186683654785156,
+      4.743910312652588,
+      39.550113677978516,
+      275.24151611328125
+    ]
+  },
+  "model_spec": {
+    "architecture": "event_boost",
+    "base_kind": "peak",
+    "base_spec": {
+      "calendar": true
+    }
+  },
+  "training_seed": 0,
+  "experiment": "event_boost",
+  "adaptation": "within_input_event_boost",
+  "selection": {
+    "seed": 0,
+    "source": {
+      "variant": "geometry",
+      "mode": "phase_extrema",
+      "weight": 0.5,
+      "trees": 400,
+      "quality": {
+        "MSE": 0.06067724525928497,
+        "event_MSE": 0.05359205603599548,
+        "extrema_MSE": 0.039669472724199295,
+        "ramp_MSE": 0.02339414320886135,
+        "score": 0.09973005577921867
+      },
+      "eligible": true,
+      "candidate": "source_tree_blend"
+    },
+    "adapted": {
+      "variant": "geometry",
+      "mode": "phase_extrema",
+      "weight": 0.5,
+      "trees": 800,
+      "added_trees": 400,
+      "source": {
+        "MSE": 0.06276217103004456,
+        "event_MSE": 0.05092928931117058,
+        "extrema_MSE": 0.039783626794815063,
+        "ramp_MSE": 0.023450801149010658,
+        "score": 0.10051780249923467
+      },
+      "target_input": {
+        "MSE": 0.03155692666769028,
+        "event_MSE": 0.024880634620785713,
+        "extrema_MSE": 0.023784447461366653,
+        "ramp_MSE": 0.007883477956056595,
+        "score": 0.05073170363903046
+      },
+      "proxy": 0.9292113969587803,
+      "eligible": true,
+      "candidate": "adapted_tree"
+    },
+    "target_future_labels_used_for_training_or_selection": false,
+    "training_seconds": 286.71958369999993
+  }
+}

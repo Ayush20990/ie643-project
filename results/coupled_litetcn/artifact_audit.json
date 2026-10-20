@@ -1,0 +1,50 @@
+{
+  "climate": {
+    "code_data_base_checkpoint_hashes": true,
+    "selection_recomputed": true,
+    "base_weights_unchanged": true,
+    "other_channel_forecasts_unchanged": true,
+    "full_deployment_test_MSE_recomputed": true,
+    "seeds": [
+      {
+        "seed": 0,
+        "source_control": "coupled",
+        "adaptation_round": 6
+      },
+      {
+        "seed": 1,
+        "source_control": "coupled",
+        "adaptation_round": 6
+      },
+      {
+        "seed": 2,
+        "source_control": "coupled",
+        "adaptation_round": 6
+      }
+    ]
+  },
+  "energy": {
+    "code_data_base_checkpoint_hashes": true,
+    "selection_recomputed": true,
+    "base_weights_unchanged": true,
+    "other_channel_forecasts_unchanged": true,
+    "full_deployment_test_MSE_recomputed": true,
+    "seeds": [
+      {
+        "seed": 0,
+        "source_control": "temperature_only",
+        "adaptation_round": 6
+      },
+      {
+        "seed": 1,
+        "source_control": "temperature_only",
+        "adaptation_round": 6
+      },
+      {
+        "seed": 2,
+        "source_control": "temperature_only",
+        "adaptation_round": 6
+      }
+    ]
+  }
+}

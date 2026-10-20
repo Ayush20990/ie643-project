@@ -1,0 +1,160 @@
+{
+  "seed": 1,
+  "calibration": [
+    {
+      "channel": 0,
+      "source_weights": [
+        0.7202168727830525,
+        0.0,
+        0.2797831272169476,
+        0.0,
+        0.0
+      ],
+      "adapted_weights": [
+        0.09660060644311852,
+        0.4593738588946876,
+        1.2875324314738992e-17,
+        0.44402553466219397,
+        1.7811091177508207e-17
+      ],
+      "proxy": 0.8498015138416146,
+      "accepted": true,
+      "source_reference_MSE": 0.021150039211195848,
+      "adapted_source_MSE": 0.022043846138890988,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 1,
+      "source_weights": [
+        0.6352398303104585,
+        0.0,
+        0.2863828205653936,
+        0.0,
+        0.07837734912414798
+      ],
+      "adapted_weights": [
+        6.159363885607394e-19,
+        0.39367885180938006,
+        0.06427916258469922,
+        0.5120641590104944,
+        0.029977826595426273
+      ],
+      "proxy": 0.8744284147449904,
+      "accepted": true,
+      "source_reference_MSE": 0.06848187173844,
+      "adapted_source_MSE": 0.0724733391838055,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 2,
+      "source_weights": [
+        0.4490518629339658,
+        0.0,
+        0.5509481370660343,
+        0.0,
+        1.3877787807814457e-17
+      ],
+      "adapted_weights": [
+        0.12126714856332198,
+        0.19007295622186585,
+        0.0,
+        0.6886598952148123,
+        0.0
+      ],
+      "proxy": 0.9458359362884298,
+      "accepted": true,
+      "source_reference_MSE": 0.01699825180576986,
+      "adapted_source_MSE": 0.017335553133766668,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 3,
+      "source_weights": [
+        0.6208194712699829,
+        0.0,
+        0.3791805287300172,
+        0.0,
+        2.7755575615628914e-17
+      ],
+      "adapted_weights": [
+        2.6132672379622912e-17,
+        0.1801050067326617,
+        0.0,
+        0.8198949932673383,
+        0.0
+      ],
+      "proxy": 0.7163155687463395,
+      "accepted": true,
+      "source_reference_MSE": 0.047396012402374676,
+      "adapted_source_MSE": 0.050688594016139454,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 4,
+      "source_weights": [
+        0.7499758509655748,
+        0.0,
+        0.25002414903442527,
+        0.0,
+        0.0
+      ],
+      "adapted_weights": [
+        0.0,
+        0.3516982463793641,
+        0.08615891703731754,
+        0.5621428365833184,
+        4.0126306127421114e-17
+      ],
+      "proxy": 0.9142630607434296,
+      "accepted": true,
+      "source_reference_MSE": 0.18621030435977104,
+      "adapted_source_MSE": 0.18967064573661352,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 5,
+      "source_weights": [
+        0.9999999999999998,
+        0.0,
+        1.3877787807814454e-16,
+        0.0,
+        1.3877787807814454e-17
+      ],
+      "adapted_weights": [
+        0.04871824745285269,
+        0.7188629706171921,
+        9.2970336290632e-18,
+        3.0391542147484296e-18,
+        0.23241878192995521
+      ],
+      "proxy": 0.9853309299707242,
+      "accepted": true,
+      "source_reference_MSE": 0.2590082666863095,
+      "adapted_source_MSE": 0.2638932035527267,
+      "solver": "Optimization terminated successfully"
+    },
+    {
+      "channel": 6,
+      "source_weights": [
+        0.8839971318431734,
+        0.0,
+        0.1160028681568267,
+        0.0,
+        0.0
+      ],
+      "adapted_weights": [
+        0.0,
+        0.752728702014577,
+        0.0,
+        0.24727129798542308,
+        1.0028959471727279e-17
+      ],
+      "proxy": 0.8125059289291158,
+      "accepted": true,
+      "source_reference_MSE": 0.017450590547722467,
+      "adapted_source_MSE": 0.01804339240151931,
+      "solver": "Optimization terminated successfully"
+    }
+  ],
+  "target_future_labels_used_for_training_or_selection": false
+}

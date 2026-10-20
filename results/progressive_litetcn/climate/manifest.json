@@ -1,0 +1,49 @@
+{
+  "dataset": "climate",
+  "args": {
+    "datasets": [
+      "climate",
+      "energy"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "rounds": 24,
+    "adapt_rounds": 8,
+    "max_windows": 4096,
+    "batch_size": 256,
+    "threads": 4
+  },
+  "torch": "2.6.0+cpu",
+  "python": "3.13.2",
+  "initialization": "source-only ridge LiteTCN-R, matched within seed",
+  "source_controls": [
+    "head_only",
+    "progressive"
+  ],
+  "source_objective": "0.5 global MSE + 0.5 key MSE + 0.001 relative layer anchor",
+  "source_selection": "minimum source validation objective, include initial state; global MSE guard +3%",
+  "adaptation_objective": "target input objective + source replay objective + 0.01 relative layer anchor",
+  "adaptation_selection": "0.5 relative source validation + 0.5 relative target input; source MSE guard +10%; epoch-zero fallback",
+  "target_future_labels_used_for_training_or_selection": false,
+  "test_status": "previously inspected development period; no independent confirmation claimed",
+  "scaling_convention": "unchanged cached per-domain training-period scalers for comparison",
+  "code_sha256": {
+    "progressive_tcn.py": "2011c82bd3c61bcb985aad8f6e02b52e8ee20a3649832957f53d3cb2443be405",
+    "progressive_train.py": "ffe065c3e4298ce83ca2c43592fe5e2d5365e8109be69f2aad9c14b77c091a3d",
+    "residual_tcn.py": "6271680428e662cd6690473b12726b814406f2e2deb86bd90dec28898bd3b290",
+    "model.py": "102f22b17091b21d0e719b382dc54beb51fbeb8bc3197968022fc2ecd9f938ed",
+    "data.py": "5f4840aaf72e54fa57862de21441e5c333b8bae4b8c81280be90b1f96d81cea5"
+  },
+  "data_sha256": {
+    "delhi.csv": "49707c4ed587ea164dc1da4e6757725b6f6de2a3463b6e6a0b985dc450b972a2",
+    "shimla.csv": "6af08ea35183bd23a9c0d8f88c2703c4b6fb9ed9387a534db2c3496b5053e4d3"
+  },
+  "initial_checkpoint_sha256": {
+    "residual_litetcn\\climate\\seed_0\\source_model.pt": "a4fdce59b634b1bb86112b691dc9f76393a691f80e171b4bca4bb2646e8ab8cb",
+    "residual_litetcn\\climate\\seed_1\\source_model.pt": "0a0e85d2ed392e9345ca559f8258d223bed5e1d33f1cdf1da7e41bb479640a1a",
+    "residual_litetcn\\climate\\seed_2\\source_model.pt": "42ffd6fdeff4bbfc2bfdf7331d00a97af08aa125b7e6986a25a3b23dc5699205"
+  }
+}

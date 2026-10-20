@@ -1,0 +1,89 @@
+[
+  {
+    "epoch": 0,
+    "source_val_mse": 0.7092217803001404,
+    "target_input_mse": 0.5821588039398193,
+    "selection_score": 1.0,
+    "eligible": true
+  },
+  {
+    "epoch": 1,
+    "source": 0.8226727445920311,
+    "inner": 0.4190660966767205,
+    "anchor": 2.983457641963443e-06,
+    "source_val_mse": 0.7092989683151245,
+    "target_input_mse": 0.5799121558666229,
+    "selection_score": 0.9981248338787982,
+    "eligible": true
+  },
+  {
+    "epoch": 2,
+    "source": 0.8171733895937604,
+    "inner": 0.40634091198444366,
+    "anchor": 8.273705477929779e-06,
+    "source_val_mse": 0.7092912197113037,
+    "target_input_mse": 0.5803123414516449,
+    "selection_score": 0.9984630793930032,
+    "eligible": true
+  },
+  {
+    "epoch": 3,
+    "source": 0.8034041590160792,
+    "inner": 0.4043466991848417,
+    "anchor": 1.1998700817154413e-05,
+    "source_val_mse": 0.7094385623931885,
+    "target_input_mse": 0.5804792046546936,
+    "selection_score": 0.9987102698648682,
+    "eligible": true
+  },
+  {
+    "epoch": 4,
+    "source": 0.8347841050889757,
+    "inner": 0.4193012297153474,
+    "anchor": 1.5173951922204448e-05,
+    "source_val_mse": 0.7098483443260193,
+    "target_input_mse": 0.5808249413967133,
+    "selection_score": 0.9992961090132462,
+    "eligible": true
+  },
+  {
+    "epoch": 5,
+    "source": 0.813961723115709,
+    "inner": 0.41749541229671905,
+    "anchor": 1.927728897296927e-05,
+    "source_val_mse": 0.7101661562919617,
+    "target_input_mse": 0.5808362066745758,
+    "selection_score": 0.9995298412757273,
+    "eligible": true
+  },
+  {
+    "epoch": 6,
+    "source": 0.824454218811459,
+    "inner": 0.39751642743746435,
+    "anchor": 2.1807619163559538e-05,
+    "source_val_mse": 0.7101307511329651,
+    "target_input_mse": 0.5811117589473724,
+    "selection_score": 0.9997415448870293,
+    "eligible": true
+  },
+  {
+    "epoch": 7,
+    "source": 0.8375848611195883,
+    "inner": 0.41836160355144075,
+    "anchor": 2.3353442399335706e-05,
+    "source_val_mse": 0.7104770541191101,
+    "target_input_mse": 0.5810496807098389,
+    "selection_score": 0.99993237055949,
+    "eligible": true
+  },
+  {
+    "epoch": 8,
+    "source": 0.8041943457391527,
+    "inner": 0.41228744983673105,
+    "anchor": 2.4911715324075583e-05,
+    "source_val_mse": 0.7099943161010742,
+    "target_input_mse": 0.5813414454460144,
+    "selection_score": 0.9998426297936254,
+    "eligible": true
+  }
+]

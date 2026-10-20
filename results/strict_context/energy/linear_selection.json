@@ -1,0 +1,108 @@
+{
+  "source": [
+    {
+      "column": "HUFL",
+      "normalization": "last",
+      "penalty": 0.01,
+      "validation_MSE": 0.48015835881233215
+    },
+    {
+      "column": "HULL",
+      "normalization": "mean",
+      "penalty": 0.01,
+      "validation_MSE": 0.21180759370326996
+    },
+    {
+      "column": "MUFL",
+      "normalization": "last",
+      "penalty": 0.01,
+      "validation_MSE": 0.4990500509738922
+    },
+    {
+      "column": "MULL",
+      "normalization": "revin",
+      "penalty": 0.01,
+      "validation_MSE": 0.18986548483371735
+    },
+    {
+      "column": "LUFL",
+      "normalization": "revin",
+      "penalty": 0.001,
+      "validation_MSE": 0.25254395604133606
+    },
+    {
+      "column": "LULL",
+      "normalization": "mean",
+      "penalty": 0.01,
+      "validation_MSE": 0.14408856630325317
+    },
+    {
+      "column": "OT",
+      "normalization": "revin",
+      "penalty": 0.001,
+      "validation_MSE": 0.039778124541044235
+    }
+  ],
+  "input_only_adapter": [
+    {
+      "column_index": 0,
+      "normalization": "last",
+      "replay": 1.0,
+      "anchor": 0.1,
+      "source_val_MSE": 0.4930077791213989,
+      "target_input_pretext_MSE": 0.23784418404102325,
+      "score": 0.9666560888290405,
+      "eligible": true
+    },
+    {
+      "column_index": 1,
+      "recipe": "source_fallback",
+      "score": 1.0
+    },
+    {
+      "column_index": 2,
+      "normalization": "last",
+      "replay": 1.0,
+      "anchor": 0.0001,
+      "source_val_MSE": 0.503204882144928,
+      "target_input_pretext_MSE": 0.09022186696529388,
+      "score": 0.9283227324485779,
+      "eligible": true
+    },
+    {
+      "column_index": 3,
+      "recipe": "source_fallback",
+      "score": 1.0
+    },
+    {
+      "column_index": 4,
+      "normalization": "revin",
+      "replay": 0.25,
+      "anchor": 0.001,
+      "source_val_MSE": 0.25622937083244324,
+      "target_input_pretext_MSE": 0.08879760652780533,
+      "score": 0.7218406796455383,
+      "eligible": true
+    },
+    {
+      "column_index": 5,
+      "normalization": "mean",
+      "replay": 0.25,
+      "anchor": 0.01,
+      "source_val_MSE": 0.14764337241649628,
+      "target_input_pretext_MSE": 0.010324844159185886,
+      "score": 0.7378817796707153,
+      "eligible": true
+    },
+    {
+      "column_index": 6,
+      "normalization": "revin",
+      "replay": 1.0,
+      "anchor": 0.0001,
+      "source_val_MSE": 0.04111161455512047,
+      "target_input_pretext_MSE": 0.06887689977884293,
+      "score": 0.9209977388381958,
+      "eligible": true
+    }
+  ]
+}

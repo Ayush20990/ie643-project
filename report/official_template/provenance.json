@@ -1,0 +1,18 @@
+{
+  "source_folder": "https://drive.google.com/drive/folders/1MiVMhSTl9ETkMTY8tPI2r1Q5RUAKlDYZ?usp=share_link",
+  "files": {
+    "IE643_Project_Report.pdf": "c3c63398d7fd45d845a307d50f90c646d009a8e42757c22a4be5b2798396dd8f",
+    "IE643_Project_Report.tex": "6af6ee62af4b18f434546ae0158531f794e3937b78b230bcf14ae62571968061"
+  },
+  "unmodified_official_template": true,
+  "user_supplied_archive": "C:\\Users\\miral\\Downloads\\IE643_2026_Report_template-20261019T133423Z-1-001.zip",
+  "archive_sha256": "74b820c478db8355da4633870613b6d1c98037d970754d84e016fa5398d4cad0",
+  "archive_template_assets": {
+    "threestepprocess.png": "b033cea64f787f4d6fa563546e6f57977fde66af701424cc078086b974a6bb06",
+    "IE643_Project_Report.tex": "6af6ee62af4b18f434546ae0158531f794e3937b78b230bcf14ae62571968061",
+    "grammar.png": "ef868698345353fee246dd908afe15d942e4fd04319c052e48495d4aa8ebf76a",
+    "demo.bib": "9ed6f4013baf87708f8b028dc4ebb922635249c81b026998eefd71bb262c793b",
+    "specgen.png": "c1044c0adf445bbcf554f198246ebff5332fc8ca25c634d264ce76f627a04929",
+    "IE643_Project_Report.pdf": "c3c63398d7fd45d845a307d50f90c646d009a8e42757c22a4be5b2798396dd8f"
+  }
+}

@@ -1,0 +1,14 @@
+test_assessment_app_domain_and_horizon_combinations (test_submission.SubmissionTests.test_assessment_app_domain_and_horizon_combinations) ... 2026-10-20 17:13:49.629 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_csv_rejects_duplicate_headers_and_hourly_gaps (test_submission.SubmissionTests.test_csv_rejects_duplicate_headers_and_hourly_gaps) ... ok
+test_evaluation_survives_rerun_for_multiple_downloads (test_submission.SubmissionTests.test_evaluation_survives_rerun_for_multiple_downloads) ... 2026-10-20 17:14:10.372 Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+ok
+test_export_matches_direct_predictions_and_truth (test_submission.SubmissionTests.test_export_matches_direct_predictions_and_truth) ... ok
+test_forecast_excludes_future_rows (test_submission.SubmissionTests.test_forecast_excludes_future_rows) ... ok
+test_no_actuals_and_horizon_mismatch (test_submission.SubmissionTests.test_no_actuals_and_horizon_mismatch) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 23.855s
+
+OK
+Submission UI dataset/domain/horizon/model combinations checked: 36

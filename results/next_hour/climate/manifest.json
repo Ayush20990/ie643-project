@@ -1,0 +1,41 @@
+{
+  "dataset": "climate",
+  "args": {
+    "datasets": [
+      "climate",
+      "energy"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "rounds": 28,
+    "adapt_rounds": 12,
+    "max_windows": 4096,
+    "threads": 2
+  },
+  "context": 48,
+  "horizon": 1,
+  "controls": [
+    "uniform",
+    "turning"
+  ],
+  "source_loss": ".5 global MSE + .5 key MSE, optionally 3x weight at observed direction reversals",
+  "adaptation_loss": "target withheld-last-hour loss + .5 source replay + .001 relative layer source anchor",
+  "selection": "equal relative source validation / target input scores, 10% source global/key guard and epoch-zero fallback",
+  "target_future_labels_used_for_training_or_selection": false,
+  "evaluation": "next-hour rolling predictions with observations updated hourly; not a single 24-hour forecast",
+  "test_status": "reused development periods; no independent confirmation",
+  "code_sha256": {
+    "nowcast_tcn.py": "8ebf86c82f0438042190eed951dd57979fd4ce153f19a38999fd81e736d0558e",
+    "nowcast_train.py": "d3a1f8e4843a4baac862c91fa5091e75b3a2548b0b558d61a79d569a3110cb7a",
+    "peak_data.py": "7c74bfe0d50b71f99ca9ad34794aa9ce71db36565399733689561be135329b0c",
+    "peak_model.py": "71457bb44b6c891cd818df723510631b149b46acbba8c3028a96ff7b2e74dbba",
+    "data.py": "5f4840aaf72e54fa57862de21441e5c333b8bae4b8c81280be90b1f96d81cea5"
+  },
+  "data_sha256": {
+    "delhi.csv": "49707c4ed587ea164dc1da4e6757725b6f6de2a3463b6e6a0b985dc450b972a2",
+    "shimla.csv": "6af08ea35183bd23a9c0d8f88c2703c4b6fb9ed9387a534db2c3496b5053e4d3"
+  }
+}

@@ -50,6 +50,8 @@ for ds, cfg in DATASETS.items():
                 "rel_change": float(row["rel_change_%"]) / 100.0,
                 "gcr_means": None, "_seeds": 1,
             }
+            # seed-0 source-only baseline that the v2 Δ is measured against (not the 3-seed mean)
+            out["results"][ds]["_v2_source_mse"] = so
 log = RESULTS_DIR / "climate" / "train_log.txt"
 if log.exists():
     for line in log.read_text(encoding="utf-8").splitlines():

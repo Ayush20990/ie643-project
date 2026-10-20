@@ -1,0 +1,46 @@
+{
+  "dataset": "climate",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "event_weight": 2.0,
+  "ramp_weight": 0.1,
+  "regimes": "regular, approaching peak, approaching trough, flat/observed reversal; past last 3 values and past 48-hour scale only",
+  "calibration": "rolling 24-hour episodes wholly inside each source/target validation X; first L origins purged; stride25",
+  "objective": "point MSE + 2x actual peak/trough MSE + .1 ramp MSE; equal relative source/target-input event loss + .001 source-mixture anchor",
+  "guards": "source point degradation <=10%, target-input point degradation <=5%, minimum64 points per regime; source fallback",
+  "target_future_labels_used_for_training_or_selection": false,
+  "cross_window_target_label_reconstruction": false,
+  "test_status": "previously inspected development period; no independent confirmation",
+  "code_sha256": {
+    "peak_nowcast.py": "a6727ebfb980d8b01e3c2815ad90ab0c054bfdcd388e0e49065afb1cf9da35fb",
+    "peak_nowcast_train.py": "9e2b3e278500ff64a67c4938d1f650a6a7e017cfaeb773579eb8036db1ac40cf",
+    "nowcast_hybrid.py": "8b080603d636f4aa34282303c5106442cb73e7cc88b6088192d512ea2c80a73d",
+    "nowcast_tcn.py": "8ebf86c82f0438042190eed951dd57979fd4ce153f19a38999fd81e736d0558e",
+    "context_models.py": "ea4723d254b1be8e46ab7cc22294bf7a45ef8afa6e37b7f5e01a38c5be4530e5",
+    "strict_models.py": "431b0c2998fc3e772e2a1a89f455cf66c2384161966d98f58d070c213ad2dbd8",
+    "refined_models.py": "b5f3300b7a47a3c682d1d0434fb572512edcecf7375d822f6c8a52f44521c209",
+    "model.py": "102f22b17091b21d0e719b382dc54beb51fbeb8bc3197968022fc2ecd9f938ed",
+    "data.py": "5f4840aaf72e54fa57862de21441e5c333b8bae4b8c81280be90b1f96d81cea5"
+  },
+  "data_sha256": {
+    "delhi.csv": "49707c4ed587ea164dc1da4e6757725b6f6de2a3463b6e6a0b985dc450b972a2",
+    "shimla.csv": "6af08ea35183bd23a9c0d8f88c2703c4b6fb9ed9387a534db2c3496b5053e4d3"
+  },
+  "expert_sha256": {
+    "next_hour_hybrid\\climate\\seed_0\\source_model.pt": "4b69f7699988c6deb4153e5aa2b17f5aec8f304d252bdb5967a6d255c70d4536",
+    "next_hour_hybrid\\climate\\seed_0\\adapted_model.pt": "58142043f5a6601c7a43d7a4fab2af4983b0e9b9a9d82927324537ab2759b3cb",
+    "strict_context\\climate\\seed_0\\source_model.pt": "5a9b1b54ab40ff03b04db292ded0ecf901877fa2853668cace46b5a6c2ee4532",
+    "strict_context\\climate\\seed_0\\adapted_model.pt": "217ab72abf22221b510d9a059ef237f118fb714166d617596b9cd69bc902ef34",
+    "next_hour_hybrid\\climate\\seed_1\\source_model.pt": "c1dc82ef358c3f4824d296909c35130f3d71a789f67f51a6be6903f6b4c00cbb",
+    "next_hour_hybrid\\climate\\seed_1\\adapted_model.pt": "cf7680c183f6689fedfe22532b83d5d7ab9a6e0aa56c30a33d83af2376536709",
+    "strict_context\\climate\\seed_1\\source_model.pt": "c95a6a89865fbca8168b316cf15da010e18151ffbb9b4a69446bc5816514523a",
+    "strict_context\\climate\\seed_1\\adapted_model.pt": "9d61d749d454deb01549a2a5e863112a570d19b0dfda8c972df7d54a0e870476",
+    "next_hour_hybrid\\climate\\seed_2\\source_model.pt": "836d5000215e8c01699ccfa7d1f1a53d30c9756e6f35830aec6e334501c51ffe",
+    "next_hour_hybrid\\climate\\seed_2\\adapted_model.pt": "bf722700045acf951e3a7729ad0efa4f5fdd3c1dd699afa13d2c435cc3f796de",
+    "strict_context\\climate\\seed_2\\source_model.pt": "88cf81c42b6920f0845506a75a5342303a6bf5902b7b618d4df7cb74d5975b48",
+    "strict_context\\climate\\seed_2\\adapted_model.pt": "17fb69f92f8907b42651d5ff5e7976cbac1b13d05036c4429decba00f0c07752"
+  }
+}

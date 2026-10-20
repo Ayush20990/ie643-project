@@ -1,0 +1,4 @@
+2026-10-19 19:48:09.820 WARNING streamlit.runtime.scriptrunner_utils.script_run_context: Thread 'MainThread': missing ScriptRunContext! This warning can be ignored when running in bare mode.
+Final app smoke passed with experiment-note download available
+
+Process exit code: 0

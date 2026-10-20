@@ -1,0 +1,20 @@
+{
+  "timestamp_utc": "2026-10-19T14:47:07.040687+00:00",
+  "test_evaluated_at_freeze": false,
+  "checkpoint_sha256": {
+    "adapted_model.pt": "54d0ca313da734863e3ce5a879517b78509e8dad1a780d92713774a2e77087f0",
+    "seed_0\\adapted_model.pt": "54d0ca313da734863e3ce5a879517b78509e8dad1a780d92713774a2e77087f0",
+    "seed_0\\coupled.pt": "627d688f5f42118c134e52616e011fdf64a936863853bb4c18c808ffa3374c3b",
+    "seed_0\\source_model.pt": "c1e8aece062778d2a1ccaaf20dc883886e83dd4766f6988d1e8d19b8903cfc86",
+    "seed_0\\temperature_only.pt": "1f7d13b5a72ab216f1223a9baaf0f51a8033b1b3d53781ed0a004f01049958cb",
+    "seed_1\\adapted_model.pt": "0c20fe93e2b70e6f0e0fdb7da9ca1bf2a25a7682401df4f7ab0de947530ef3c1",
+    "seed_1\\coupled.pt": "58ffe3327ab9396cda72c9a64f362853f68a89c9be477793c11784953a9e47c6",
+    "seed_1\\source_model.pt": "84f3ad70aaa40eb210e40d49d3dae60b83a5f4ef18fc84add7e1d12317d6fb95",
+    "seed_1\\temperature_only.pt": "94d4f90a6e5f62c014119ad165ab49b90652a1fa35982ad5444b4e280d46ea0b",
+    "seed_2\\adapted_model.pt": "ae1e5fa85b83e22de91d45ccf6c53fb6e8e6bc568cb41c22bf4ec807d8812600",
+    "seed_2\\coupled.pt": "29b5a866b9ae06db454415146b1973aaf2bd131019ec8defa827d97b981468a3",
+    "seed_2\\source_model.pt": "9c60f76a4f831ce2a0141400f73e14fa4b6e96ac031986a2fe69928085e696c2",
+    "seed_2\\temperature_only.pt": "c9fc77f9b43aaf36b65f2fb8e828b8f7e6fcca1aaa69817553c163c6de34999a",
+    "source_model.pt": "c1e8aece062778d2a1ccaaf20dc883886e83dd4766f6988d1e8d19b8903cfc86"
+  }
+}

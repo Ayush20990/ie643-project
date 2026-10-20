@@ -1,0 +1,57 @@
+{
+  "dataset": "finance",
+  "args": {
+    "datasets": [
+      "climate",
+      "energy",
+      "finance"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "epochs": 15,
+    "adapt_epochs": 8,
+    "threads": 4
+  },
+  "torch": "2.6.0+cpu",
+  "python": "3.13.2",
+  "candidate_specs": {
+    "tcn3": {
+      "architecture": "litetcn",
+      "depth": 3
+    },
+    "tcn5": {
+      "architecture": "litetcn",
+      "depth": 5
+    },
+    "tcn7": {
+      "architecture": "litetcn",
+      "depth": 7
+    },
+    "patch_mlp": {
+      "architecture": "patch_mlp"
+    },
+    "dlinear": {
+      "architecture": "dlinear"
+    }
+  },
+  "recipes": {
+    "replay_inner": {
+      "inner": 0.5,
+      "anchor": 0.001
+    },
+    "replay_inner_mmd": {
+      "inner": 0.5,
+      "mmd": 0.05,
+      "anchor": 0.001
+    }
+  },
+  "source_ssl_weight": 0,
+  "selection": "source validation MSE; adaptation input-only proxy with epoch-zero fallback",
+  "data_sha256": {
+    "it.csv": "94bca94008e67d92640931d5154ccfcdff3a47cd6e6c9330011deccc7443a3d9",
+    "pharma.csv": "b78199c0ffcecd7ec25ae8b222471434362fe74532b0ecc32fc532cece686af1"
+  }
+}

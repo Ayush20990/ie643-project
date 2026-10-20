@@ -1,0 +1,7 @@
+{
+  "tests_passed": 15,
+  "interface_experiment_domain_dataset_combinations": 36,
+  "streamlit_health_http_status": 200,
+  "native_app_browser_screenshot_available": false,
+  "log": "validation.log"
+}

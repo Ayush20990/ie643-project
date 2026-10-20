@@ -1,0 +1,42 @@
+{
+  "dataset": "climate",
+  "args": {
+    "datasets": [
+      "climate",
+      "energy",
+      "finance"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "threads": 4,
+    "epochs": 12
+  },
+  "torch": "2.6.0+cpu",
+  "python": "3.13.2",
+  "loss": {
+    "target_history": 1.0,
+    "source_replay": 0.25,
+    "l2_sp": 0.001
+  },
+  "optimizer": {
+    "name": "AdamW",
+    "lr": 0.0003,
+    "weight_decay": 0.0001,
+    "schedule": "cosine"
+  },
+  "data_sha256": {
+    "delhi.csv": "49707c4ed587ea164dc1da4e6757725b6f6de2a3463b6e6a0b985dc450b972a2",
+    "shimla.csv": "6af08ea35183bd23a9c0d8f88c2703c4b6fb9ed9387a534db2c3496b5053e4d3"
+  },
+  "code_sha256": {
+    "history_refinement.py": "f159c89b715b130a6b8a6b147d50fa544fbb35b4f7d5c6fe5373e5c667e62370",
+    "history_models.py": "e9691ba3212a22f21d8f93bfcaa9c05666b7d7cb0aac3ba8b790946394f9c20d",
+    "refined_models.py": "b5f3300b7a47a3c682d1d0434fb572512edcecf7375d822f6c8a52f44521c209",
+    "refinement.py": "4e1e334b7710dc96dcbd95903b4ae41705f2cbb43a087ad5b3bc2d6a87d01ce7"
+  },
+  "protocol": "fit and validate forecasts within observed target X union, not original target Y tensors",
+  "evaluation": "reused development test, not external confirmation"
+}

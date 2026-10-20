@@ -1,0 +1,104 @@
+{
+  "source": [
+    {
+      "channel": 0,
+      "ridge": 0.01,
+      "MSE": 0.16293777525424957,
+      "score": 0.16293777525424957,
+      "eligible": true
+    },
+    {
+      "channel": 1,
+      "ridge": 0.1,
+      "MSE": 0.1091856062412262,
+      "score": 0.1091856062412262,
+      "eligible": true
+    },
+    {
+      "channel": 2,
+      "ridge": 0.01,
+      "MSE": 0.16156990826129913,
+      "score": 0.16156990826129913,
+      "eligible": true
+    },
+    {
+      "channel": 3,
+      "ridge": 0.01,
+      "MSE": 0.1146184578537941,
+      "score": 0.1146184578537941,
+      "eligible": true
+    },
+    {
+      "channel": 4,
+      "ridge": 0.001,
+      "MSE": 0.11374033987522125,
+      "score": 0.11374033987522125,
+      "eligible": true
+    },
+    {
+      "channel": 5,
+      "ridge": 0.0001,
+      "MSE": 0.041806433349847794,
+      "score": 0.041806433349847794,
+      "eligible": true
+    },
+    {
+      "channel": 6,
+      "ridge": 0.01,
+      "MSE": 0.007193731609731913,
+      "score": 0.007513552438467741,
+      "eligible": true
+    }
+  ],
+  "adapted": [
+    {
+      "channel": 0,
+      "recipe": "source_fallback",
+      "proxy": 1.0
+    },
+    {
+      "channel": 1,
+      "recipe": "source_fallback",
+      "proxy": 1.0
+    },
+    {
+      "channel": 2,
+      "anchor": 0.001,
+      "source_MSE": 0.16552749276161194,
+      "target_input_MSE": 0.028949519619345665,
+      "proxy": 0.9674128293991089,
+      "eligible": true
+    },
+    {
+      "channel": 3,
+      "recipe": "source_fallback",
+      "proxy": 1.0
+    },
+    {
+      "channel": 4,
+      "anchor": 1e-05,
+      "source_MSE": 0.11428811401128769,
+      "target_input_MSE": 0.0360245406627655,
+      "proxy": 0.8927775621414185,
+      "eligible": true
+    },
+    {
+      "channel": 5,
+      "anchor": 1e-05,
+      "source_MSE": 0.04184071347117424,
+      "target_input_MSE": 0.004117189906537533,
+      "proxy": 0.9617908000946045,
+      "eligible": true
+    },
+    {
+      "channel": 6,
+      "anchor": 0.001,
+      "source_MSE": 0.007609381806105375,
+      "target_input_MSE": 0.003004400059580803,
+      "proxy": 0.7160319685935974,
+      "eligible": true
+    }
+  ],
+  "target_future_labels_used": false,
+  "objective": "raw-unit next-hour reversal-weighted ridge; target inner-X loss + .5 source replay + source-weight anchor"
+}

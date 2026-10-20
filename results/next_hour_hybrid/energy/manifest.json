@@ -1,0 +1,50 @@
+{
+  "dataset": "energy",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "local_ridges": [
+    1e-05,
+    0.0001,
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0
+  ],
+  "local_anchors": [
+    1e-05,
+    0.0001,
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0
+  ],
+  "local_replay": 0.5,
+  "target_future_labels_used_for_training_or_selection": false,
+  "evaluation": "rolling next-hour with hourly updated observations",
+  "test_status": "reused development; no independent confirmation",
+  "code_sha256": {
+    "nowcast_hybrid.py": "8b080603d636f4aa34282303c5106442cb73e7cc88b6088192d512ea2c80a73d",
+    "nowcast_hybrid_train.py": "734ad1df1629283645a9a6cd957556835a512d5c893e67702dd4b352ce572548",
+    "nowcast_tcn.py": "8ebf86c82f0438042190eed951dd57979fd4ce153f19a38999fd81e736d0558e",
+    "nowcast_train.py": "d3a1f8e4843a4baac862c91fa5091e75b3a2548b0b558d61a79d569a3110cb7a",
+    "peak_data.py": "7c74bfe0d50b71f99ca9ad34794aa9ce71db36565399733689561be135329b0c",
+    "data.py": "5f4840aaf72e54fa57862de21441e5c333b8bae4b8c81280be90b1f96d81cea5"
+  },
+  "data_sha256": {
+    "etth1.csv": "e6b024ca0e1423726f0a1e562c94c1babdb1a3a4fa1269a4fb1cbe3f57e6df44",
+    "etth2.csv": "dc09bac2ca501733e3d647552ee9d25e5d72bf2714453ea984a58f4c289cfc61"
+  },
+  "base_sha256": {
+    "next_hour\\energy\\seed_0\\source_model.pt": "d44e8ab9cf46d4a68847e9cf9e6438e96399f1f756ea6c1c6b31ac78392d8f8a",
+    "next_hour\\energy\\seed_0\\adapted_model.pt": "5f7a5d27a3ff196df691ab0af55858c5ef28b271045b838bb5f6078cbb9ff931",
+    "next_hour\\energy\\seed_1\\source_model.pt": "d7468422f55ee0f6559437f64b39617feb165e2f4e8e8986e15f2161cd65368b",
+    "next_hour\\energy\\seed_1\\adapted_model.pt": "2935a2512df78fde78b096c63d9ac79b670a044e782b467a7923c2f66f60f93f",
+    "next_hour\\energy\\seed_2\\source_model.pt": "fc3f4b6fc7b35c0328e2c1d5bf08c2065b854f5062b497b7c7904fe3b9f645e5",
+    "next_hour\\energy\\seed_2\\adapted_model.pt": "1731058e0820536235dfdc900bdc65028e0b4e78bf4b72f6b34e5f5d7c7939d4"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "slides": 20,
+  "content_slides": 18,
+  "reference_slides": 2,
+  "native_charts": 5,
+  "embedded_editable_workbooks": 5,
+  "native_tables_on_slides": [
+    5,
+    7,
+    8,
+    12
+  ],
+  "all_chart_values_match_saved_evidence": true,
+  "forecast_chart_horizons": [
+    24,
+    24,
+    1,
+    1
+  ],
+  "visual_reference": "presentation/IE643_Prep_Presentation.pptx",
+  "fonts": [
+    "Cambria",
+    "Calibri"
+  ],
+  "rendered_in": "PowerPoint via a separate hidden automation instance",
+  "all_slides_visually_reviewed": true,
+  "structural_findings": 0,
+  "layout_findings": 0,
+  "layout_warnings": 0,
+  "bundled_artifact_runtime": "Not exposed; existing repository PPTX dependency used"
+}

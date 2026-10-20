@@ -1,0 +1,46 @@
+{
+  "dataset": "energy",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "event_weight": 2.0,
+  "ramp_weight": 0.1,
+  "regimes": "regular, approaching peak, approaching trough, flat/observed reversal; past last 3 values and past 48-hour scale only",
+  "calibration": "rolling 24-hour episodes wholly inside each source/target validation X; first L origins purged; stride25",
+  "objective": "point MSE + 2x actual peak/trough MSE + .1 ramp MSE; equal relative source/target-input event loss + .001 source-mixture anchor",
+  "guards": "source point degradation <=10%, target-input point degradation <=5%, minimum64 points per regime; source fallback",
+  "target_future_labels_used_for_training_or_selection": false,
+  "cross_window_target_label_reconstruction": false,
+  "test_status": "previously inspected development period; no independent confirmation",
+  "code_sha256": {
+    "peak_nowcast.py": "a6727ebfb980d8b01e3c2815ad90ab0c054bfdcd388e0e49065afb1cf9da35fb",
+    "peak_nowcast_train.py": "9e2b3e278500ff64a67c4938d1f650a6a7e017cfaeb773579eb8036db1ac40cf",
+    "nowcast_hybrid.py": "8b080603d636f4aa34282303c5106442cb73e7cc88b6088192d512ea2c80a73d",
+    "nowcast_tcn.py": "8ebf86c82f0438042190eed951dd57979fd4ce153f19a38999fd81e736d0558e",
+    "context_models.py": "ea4723d254b1be8e46ab7cc22294bf7a45ef8afa6e37b7f5e01a38c5be4530e5",
+    "strict_models.py": "431b0c2998fc3e772e2a1a89f455cf66c2384161966d98f58d070c213ad2dbd8",
+    "refined_models.py": "b5f3300b7a47a3c682d1d0434fb572512edcecf7375d822f6c8a52f44521c209",
+    "model.py": "102f22b17091b21d0e719b382dc54beb51fbeb8bc3197968022fc2ecd9f938ed",
+    "data.py": "5f4840aaf72e54fa57862de21441e5c333b8bae4b8c81280be90b1f96d81cea5"
+  },
+  "data_sha256": {
+    "etth1.csv": "e6b024ca0e1423726f0a1e562c94c1babdb1a3a4fa1269a4fb1cbe3f57e6df44",
+    "etth2.csv": "dc09bac2ca501733e3d647552ee9d25e5d72bf2714453ea984a58f4c289cfc61"
+  },
+  "expert_sha256": {
+    "next_hour_hybrid\\energy\\seed_0\\source_model.pt": "a4ce2d18319b71291942abf1180fd1d1e715c99d0586c5f6522b978a66bc7e7b",
+    "next_hour_hybrid\\energy\\seed_0\\adapted_model.pt": "02614dece7dd77030f38abd17a0b0493fda61196e123bc328b2bc9a8aa4828f2",
+    "strict_refined\\energy\\seed_0\\source_model.pt": "e946ea96f41976208de044d9138862e5550767cac4c68b704d0a4e37312e8b8a",
+    "strict_refined\\energy\\seed_0\\adapted_model.pt": "8db3b59485683a4265327bd06812e7199728c4c72870d608cbb8ef9d86405220",
+    "next_hour_hybrid\\energy\\seed_1\\source_model.pt": "ff1c8ee4c74245f1ea150513614f60e153ba9501202fa5c0784e74c3759f2526",
+    "next_hour_hybrid\\energy\\seed_1\\adapted_model.pt": "92f167d52d9eebef329c89147122ec82efcb9b67d96af5c4a1c14e34dd211e4b",
+    "strict_refined\\energy\\seed_1\\source_model.pt": "87901886133c4ec60101bd7ccdd8481a42bbcf382d0c878311d73ba343b3688e",
+    "strict_refined\\energy\\seed_1\\adapted_model.pt": "0ae078896a1fa3708a1758fcd073e0938f1c3f91258e8a354b25043de88eb6e9",
+    "next_hour_hybrid\\energy\\seed_2\\source_model.pt": "ef1f57098ed7a2e545d982b763bcff1c910ebf04b67195dd59b2600a72e15857",
+    "next_hour_hybrid\\energy\\seed_2\\adapted_model.pt": "b5fa27bc3b21b7899f9f075b11e8a8981e0ae0fd471fbb71a90ea7aa319603a1",
+    "strict_refined\\energy\\seed_2\\source_model.pt": "3e7d0538cd7698c3d88fb54301e50a8351ae73e28aaf91108f81c6360ef0f541",
+    "strict_refined\\energy\\seed_2\\adapted_model.pt": "17958c0060ae59105f86dd998d6e4a1d1440bcb3f9abe74fe9e07025ad4c3bbb"
+  }
+}

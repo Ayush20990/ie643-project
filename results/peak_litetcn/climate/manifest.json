@@ -1,0 +1,56 @@
+{
+  "dataset": "climate",
+  "args": {
+    "datasets": [
+      "climate",
+      "energy"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "epochs": 36,
+    "adapt_epochs": 10,
+    "max_windows": 4096,
+    "batch_size": 256,
+    "threads": 4
+  },
+  "torch": "2.6.0+cpu",
+  "python": "3.13.2",
+  "code_sha256": {
+    "peak_train.py": "e4ea8dc392cc0e26eac244615d4699621c447e291750d9b8a62439ecbfeb85ab",
+    "peak_model.py": "71457bb44b6c891cd818df723510631b149b46acbba8c3028a96ff7b2e74dbba",
+    "peak_data.py": "7c74bfe0d50b71f99ca9ad34794aa9ce71db36565399733689561be135329b0c",
+    "data.py": "5f4840aaf72e54fa57862de21441e5c333b8bae4b8c81280be90b1f96d81cea5",
+    "losses.py": "8149740ba5d4de5cbe5cda00c2f5c3832af7df3029f60982c57fcfc98ad17c41",
+    "metrics.py": "39798db586616f26ab1bea257654b0be5b8adf4b381a79dd67ebaf52c2f37800"
+  },
+  "data_sha256": {
+    "delhi.csv": "49707c4ed587ea164dc1da4e6757725b6f6de2a3463b6e6a0b985dc450b972a2",
+    "shimla.csv": "6af08ea35183bd23a9c0d8f88c2703c4b6fb9ed9387a534db2c3496b5053e4d3"
+  },
+  "candidates": {
+    "no_clock_mse": {
+      "calendar": false,
+      "shape_loss": false
+    },
+    "clock_mse": {
+      "calendar": true,
+      "shape_loss": false
+    },
+    "clock_shape": {
+      "calendar": true,
+      "shape_loss": true
+    }
+  },
+  "parameters": "seasonal-folded depthwise dilated LiteTCN, width 32, 4 blocks",
+  "source_selection": ".5 all-variable MSE + .5 key MSE + .25 key peak/trough MSE + .1 key ramp MSE",
+  "target_protocol": "within EACH X: forecast final H observed values from real L-H prefix and deterministic clock; no target Y, no cross-window reconstruction",
+  "adaptation": {
+    "source_replay": 0.25,
+    "L2SP": 0.001,
+    "source_MSE_guard": 1.1
+  },
+  "evaluation": "reused development period; previous 2025 period also already observed, not fresh for this round"
+}

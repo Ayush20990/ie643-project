@@ -1,0 +1,118 @@
+{
+  "source": [
+    {
+      "column": "temperature_2m",
+      "normalization": "none",
+      "penalty": 0.0001,
+      "validation_MSE": 0.0614330880343914
+    },
+    {
+      "column": "relative_humidity_2m",
+      "normalization": "none",
+      "penalty": 0.01,
+      "validation_MSE": 0.2533254027366638
+    },
+    {
+      "column": "dew_point_2m",
+      "normalization": "none",
+      "penalty": 0.001,
+      "validation_MSE": 0.07088693231344223
+    },
+    {
+      "column": "surface_pressure",
+      "normalization": "last",
+      "penalty": 0.01,
+      "validation_MSE": 0.15964993834495544
+    },
+    {
+      "column": "wind_speed_10m",
+      "normalization": "last",
+      "penalty": 0.001,
+      "validation_MSE": 0.43063345551490784
+    },
+    {
+      "column": "cloud_cover",
+      "normalization": "none",
+      "penalty": 0.1,
+      "validation_MSE": 0.6916201710700989
+    },
+    {
+      "column": "shortwave_radiation",
+      "normalization": "none",
+      "penalty": 0.01,
+      "validation_MSE": 0.04025651514530182
+    }
+  ],
+  "input_only_adapter": [
+    {
+      "column_index": 0,
+      "normalization": "none",
+      "replay": 1.0,
+      "anchor": 0.0001,
+      "source_val_MSE": 0.0623200424015522,
+      "target_input_pretext_MSE": 0.02932988852262497,
+      "score": 0.8498460054397583,
+      "eligible": true
+    },
+    {
+      "column_index": 1,
+      "normalization": "none",
+      "replay": 0.25,
+      "anchor": 0.1,
+      "source_val_MSE": 0.2559798061847687,
+      "target_input_pretext_MSE": 0.09539545327425003,
+      "score": 0.8451385498046875,
+      "eligible": true
+    },
+    {
+      "column_index": 2,
+      "normalization": "none",
+      "replay": 1.0,
+      "anchor": 1.0,
+      "source_val_MSE": 0.07324831932783127,
+      "target_input_pretext_MSE": 0.04735822603106499,
+      "score": 0.9310303926467896,
+      "eligible": true
+    },
+    {
+      "column_index": 3,
+      "normalization": "last",
+      "replay": 1.0,
+      "anchor": 0.01,
+      "source_val_MSE": 0.16867144405841827,
+      "target_input_pretext_MSE": 0.034173592925071716,
+      "score": 0.7031999826431274,
+      "eligible": true
+    },
+    {
+      "column_index": 4,
+      "normalization": "last",
+      "replay": 1.0,
+      "anchor": 0.0001,
+      "source_val_MSE": 0.42141562700271606,
+      "target_input_pretext_MSE": 0.47747287154197693,
+      "score": 0.9618264436721802,
+      "eligible": true
+    },
+    {
+      "column_index": 5,
+      "normalization": "none",
+      "replay": 1.0,
+      "anchor": 0.1,
+      "source_val_MSE": 0.6927129626274109,
+      "target_input_pretext_MSE": 0.838732898235321,
+      "score": 0.9899706840515137,
+      "eligible": true
+    },
+    {
+      "column_index": 6,
+      "normalization": "none",
+      "replay": 0.25,
+      "anchor": 0.01,
+      "source_val_MSE": 0.040027279406785965,
+      "target_input_pretext_MSE": 0.019815640524029732,
+      "score": 0.8103468418121338,
+      "eligible": true
+    }
+  ]
+}

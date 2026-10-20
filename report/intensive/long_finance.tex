@@ -1,0 +1,21 @@
+{\footnotesize
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.17}
+\begin{longtable}{@{}p{0.5278\textwidth}p{0.1911\textwidth}p{0.1911\textwidth}@{}}
+\caption{Finance, H=5 trading days: target development results. Key RMSE is 100 log(high/low), not price RMSE.}\label{tab:long_finance}\\
+\toprule
+Model / policy & Standardized MSE & Key-variable RMSE \\
+\midrule\endfirsthead
+Model / policy & Standardized MSE & Key-variable RMSE \\
+\midrule\endhead
+\midrule\multicolumn{3}{r}{Continued on next page}\\\endfoot
+\bottomrule\endlastfoot
+Original CARE-DA v2, fixed seed 0 & 0.5520 & 1.0732 \\
+First validation-selected adapted model & 0.5475 & 1.0712 \\
+Strict input-only ensemble & 0.5373 & 1.0658 \\
+Shorter-context strict ensemble & 0.5373 & 1.0657 \\
+seasonal\_\allowbreak{}naive & 1.0240 & 1.4027 \\
+persistence & 1.0240 & 1.4027 \\
+input\_\allowbreak{}mean & 0.5460 & 1.0731 \\
+\end{longtable}
+}

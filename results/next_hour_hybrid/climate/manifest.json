@@ -1,0 +1,50 @@
+{
+  "dataset": "climate",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "local_ridges": [
+    1e-05,
+    0.0001,
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0
+  ],
+  "local_anchors": [
+    1e-05,
+    0.0001,
+    0.001,
+    0.01,
+    0.1,
+    1.0,
+    10.0
+  ],
+  "local_replay": 0.5,
+  "target_future_labels_used_for_training_or_selection": false,
+  "evaluation": "rolling next-hour with hourly updated observations",
+  "test_status": "reused development; no independent confirmation",
+  "code_sha256": {
+    "nowcast_hybrid.py": "8b080603d636f4aa34282303c5106442cb73e7cc88b6088192d512ea2c80a73d",
+    "nowcast_hybrid_train.py": "734ad1df1629283645a9a6cd957556835a512d5c893e67702dd4b352ce572548",
+    "nowcast_tcn.py": "8ebf86c82f0438042190eed951dd57979fd4ce153f19a38999fd81e736d0558e",
+    "nowcast_train.py": "d3a1f8e4843a4baac862c91fa5091e75b3a2548b0b558d61a79d569a3110cb7a",
+    "peak_data.py": "7c74bfe0d50b71f99ca9ad34794aa9ce71db36565399733689561be135329b0c",
+    "data.py": "5f4840aaf72e54fa57862de21441e5c333b8bae4b8c81280be90b1f96d81cea5"
+  },
+  "data_sha256": {
+    "delhi.csv": "49707c4ed587ea164dc1da4e6757725b6f6de2a3463b6e6a0b985dc450b972a2",
+    "shimla.csv": "6af08ea35183bd23a9c0d8f88c2703c4b6fb9ed9387a534db2c3496b5053e4d3"
+  },
+  "base_sha256": {
+    "next_hour\\climate\\seed_0\\source_model.pt": "e81a0673937c6041c2da30ff1ab90d5a654f4f4411f54cb864f3e1957f696799",
+    "next_hour\\climate\\seed_0\\adapted_model.pt": "069faca30dc16ac14b538a04aac952988c8758228394fa6e008f743316253ebf",
+    "next_hour\\climate\\seed_1\\source_model.pt": "cc4a37b5ba187edd6c4b1850684f34df2e29cd20eadd1f487e569be752828925",
+    "next_hour\\climate\\seed_1\\adapted_model.pt": "9452c4dd71b62ad4a8e741373d40f0bdf576b40a682c8897f3393d2c0446daf2",
+    "next_hour\\climate\\seed_2\\source_model.pt": "454207c55d0c442552a47508fa4c86776152da1f942ff76ce65e93d5219e22f3",
+    "next_hour\\climate\\seed_2\\adapted_model.pt": "bda219ab31ca15bf71b0b17d89ee7863f2f8d12509ed9cc01e0ceb380d360f78"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "source": {
+    "request": {
+      "latitude": 31.1048,
+      "longitude": 77.1734,
+      "start_date": "2025-12-25",
+      "end_date": "2026-09-30",
+      "hourly": "temperature_2m,relative_humidity_2m,dew_point_2m,surface_pressure,wind_speed_10m,cloud_cover,shortwave_radiation",
+      "timezone": "Asia/Kolkata"
+    },
+    "data_sha256": "f1086dd90aaa2edc076881116435ffe354f24d1ec83e4d28780efecf9fee39f5",
+    "windows": 6529,
+    "hourly_units": {
+      "time": "iso8601",
+      "temperature_2m": "\u00b0C",
+      "relative_humidity_2m": "%",
+      "dew_point_2m": "\u00b0C",
+      "surface_pressure": "hPa",
+      "wind_speed_10m": "km/h",
+      "cloud_cover": "%",
+      "shortwave_radiation": "W/m\u00b2"
+    },
+    "overlap_2025_RMSE": {
+      "temperature_2m": 0.0,
+      "relative_humidity_2m": 0.0,
+      "dew_point_2m": 0.0,
+      "surface_pressure": 0.0,
+      "wind_speed_10m": 0.0,
+      "cloud_cover": 0.0,
+      "shortwave_radiation": 0.0
+    }
+  },
+  "target": {
+    "request": {
+      "latitude": 28.6139,
+      "longitude": 77.209,
+      "start_date": "2025-12-25",
+      "end_date": "2026-09-30",
+      "hourly": "temperature_2m,relative_humidity_2m,dew_point_2m,surface_pressure,wind_speed_10m,cloud_cover,shortwave_radiation",
+      "timezone": "Asia/Kolkata"
+    },
+    "data_sha256": "050f1df7c1fce2b4f5a7c1f37035ff2ec3565d0f6b7c0f85ffa33ce454d2bdad",
+    "windows": 6529,
+    "hourly_units": {
+      "time": "iso8601",
+      "temperature_2m": "\u00b0C",
+      "relative_humidity_2m": "%",
+      "dew_point_2m": "\u00b0C",
+      "surface_pressure": "hPa",
+      "wind_speed_10m": "km/h",
+      "cloud_cover": "%",
+      "shortwave_radiation": "W/m\u00b2"
+    },
+    "overlap_2025_RMSE": {
+      "temperature_2m": 0.0,
+      "relative_humidity_2m": 0.0,
+      "dew_point_2m": 0.0,
+      "surface_pressure": 0.0,
+      "wind_speed_10m": 0.0,
+      "cloud_cover": 0.0,
+      "shortwave_radiation": 0.0
+    }
+  }
+}

@@ -1,0 +1,56 @@
+energy seed=0 head_only round=01 stage=head source_val=0.267675 key=0.045027 selected=0
+energy seed=0 head_only round=02 stage=head source_val=0.268776 key=0.045209 selected=0
+energy seed=0 head_only round=03 stage=head source_val=0.269639 key=0.045410 selected=0
+energy seed=0 head_only round=04 stage=head source_val=0.270567 key=0.045623 selected=0
+energy seed=0 head_only round=05 stage=head source_val=0.271508 key=0.045861 selected=0
+energy seed=0 head_only round=06 stage=head source_val=0.272181 key=0.046141 selected=0
+energy seed=0 head_only round=07 stage=head source_val=0.272861 key=0.046340 selected=0
+energy seed=0 head_only round=08 stage=head source_val=0.273588 key=0.046506 selected=0
+energy seed=0 head_only round=09 stage=head source_val=0.273896 key=0.046690 selected=0
+energy seed=0 head_only round=10 stage=head source_val=0.273971 key=0.046774 selected=0
+energy seed=0 head_only round=11 stage=head source_val=0.274174 key=0.046880 selected=0
+energy seed=0 head_only round=12 stage=head source_val=0.274494 key=0.046979 selected=0
+energy seed=0 head_only round=13 stage=head source_val=0.274611 key=0.047060 selected=0
+energy seed=0 head_only round=14 stage=head source_val=0.274744 key=0.047089 selected=0
+energy seed=0 head_only round=15 stage=head source_val=0.274899 key=0.047134 selected=0
+energy seed=0 head_only round=16 stage=head source_val=0.274964 key=0.047167 selected=0
+energy seed=0 head_only round=17 stage=head source_val=0.275025 key=0.047190 selected=0
+energy seed=0 head_only round=18 stage=head source_val=0.275060 key=0.047212 selected=0
+energy seed=0 head_only round=19 stage=head source_val=0.275067 key=0.047229 selected=0
+energy seed=0 head_only round=20 stage=head source_val=0.275096 key=0.047237 selected=0
+energy seed=0 head_only round=21 stage=head source_val=0.275097 key=0.047245 selected=0
+energy seed=0 head_only round=22 stage=head source_val=0.275106 key=0.047251 selected=0
+energy seed=0 head_only round=23 stage=head source_val=0.275113 key=0.047253 selected=0
+energy seed=0 head_only round=24 stage=head source_val=0.275116 key=0.047254 selected=0
+energy seed=0 progressive round=01 stage=head source_val=0.267675 key=0.045027 selected=0
+energy seed=0 progressive round=02 stage=head source_val=0.268776 key=0.045209 selected=0
+energy seed=0 progressive round=03 stage=head source_val=0.269639 key=0.045410 selected=0
+energy seed=0 progressive round=04 stage=head source_val=0.270567 key=0.045623 selected=0
+energy seed=0 progressive round=05 stage=projection source_val=0.271671 key=0.045888 selected=0
+energy seed=0 progressive round=06 stage=projection source_val=0.272414 key=0.046206 selected=0
+energy seed=0 progressive round=07 stage=projection source_val=0.273140 key=0.046420 selected=0
+energy seed=0 progressive round=08 stage=projection source_val=0.273976 key=0.046622 selected=0
+energy seed=0 progressive round=09 stage=encoder source_val=0.274469 key=0.046894 selected=0
+energy seed=0 progressive round=10 stage=encoder source_val=0.274513 key=0.046983 selected=0
+energy seed=0 progressive round=11 stage=encoder source_val=0.274818 key=0.047136 selected=0
+energy seed=0 progressive round=12 stage=encoder source_val=0.275319 key=0.047293 selected=0
+energy seed=0 progressive round=13 stage=encoder source_val=0.275589 key=0.047449 selected=0
+energy seed=0 progressive round=14 stage=encoder source_val=0.275756 key=0.047493 selected=0
+energy seed=0 progressive round=15 stage=encoder source_val=0.276065 key=0.047580 selected=0
+energy seed=0 progressive round=16 stage=encoder source_val=0.276204 key=0.047662 selected=0
+energy seed=0 progressive round=17 stage=encoder source_val=0.276262 key=0.047685 selected=0
+energy seed=0 progressive round=18 stage=encoder source_val=0.276271 key=0.047714 selected=0
+energy seed=0 progressive round=19 stage=encoder source_val=0.276284 key=0.047742 selected=0
+energy seed=0 progressive round=20 stage=encoder source_val=0.276339 key=0.047752 selected=0
+energy seed=0 progressive round=21 stage=encoder source_val=0.276359 key=0.047775 selected=0
+energy seed=0 progressive round=22 stage=encoder source_val=0.276400 key=0.047796 selected=0
+energy seed=0 progressive round=23 stage=encoder source_val=0.276424 key=0.047801 selected=0
+energy seed=0 progressive round=24 stage=encoder source_val=0.276445 key=0.047807 selected=0
+energy seed=0 adapt round=1 stage=head source_val=0.267167 input=0.161987 proxy=0.999664 selected=1
+energy seed=0 adapt round=2 stage=head source_val=0.267311 input=0.161978 proxy=0.999486 selected=2
+energy seed=0 adapt round=3 stage=projection source_val=0.267408 input=0.162070 proxy=0.999679 selected=2
+energy seed=0 adapt round=4 stage=projection source_val=0.267448 input=0.162132 proxy=0.999825 selected=2
+energy seed=0 adapt round=5 stage=encoder source_val=0.267506 input=0.162220 proxy=1.000073 selected=2
+energy seed=0 adapt round=6 stage=encoder source_val=0.267588 input=0.162291 proxy=1.000310 selected=2
+energy seed=0 adapt round=7 stage=encoder source_val=0.267619 input=0.162334 proxy=1.000408 selected=2
+energy seed=0 adapt round=8 stage=encoder source_val=0.267635 input=0.162352 proxy=1.000462 selected=2

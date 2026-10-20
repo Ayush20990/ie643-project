@@ -36,4 +36,4 @@ def gap_closure(err_src_only, err_method, err_oracle):
     """Fraction of the source-only -> oracle (target fine-tuned) error gap closed without target labels.
     1 = as good as the supervised oracle, 0 = no gain, <0 = negative transfer."""
     gap = err_src_only - err_oracle
-    return float((err_src_only - err_method) / gap) if abs(gap) > 1e-12 else float("nan")
+    return float((err_src_only - err_method) / gap) if gap > 1e-12 else float("nan")

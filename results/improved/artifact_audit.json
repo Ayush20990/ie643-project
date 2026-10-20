@@ -1,0 +1,100 @@
+{
+  "climate": {
+    "complete_seeds": [
+      0,
+      1,
+      2
+    ],
+    "expected_seeds": [
+      0,
+      1,
+      2
+    ],
+    "architecture": {
+      "architecture": "patch_mlp"
+    },
+    "adaptation": "replay_inner"
+  },
+  "finance": {
+    "complete_seeds": [
+      0,
+      1,
+      2
+    ],
+    "expected_seeds": [
+      0,
+      1,
+      2
+    ],
+    "architecture": {
+      "architecture": "patch_mlp"
+    },
+    "adaptation": "replay_inner_mmd"
+  },
+  "energy": {
+    "complete_seeds": [
+      0,
+      1,
+      2
+    ],
+    "expected_seeds": [
+      0,
+      1,
+      2
+    ],
+    "architecture": {
+      "architecture": "patch_mlp"
+    },
+    "adaptation": "replay_inner_mmd"
+  },
+  "transfer_selection": {
+    "climate": {
+      "complete_seeds": [
+        0,
+        1,
+        2
+      ],
+      "expected_seeds": [
+        0,
+        1,
+        2
+      ],
+      "architecture": {
+        "architecture": "patch_mlp"
+      },
+      "adaptation": "replay_inner"
+    },
+    "finance": {
+      "complete_seeds": [
+        0,
+        1,
+        2
+      ],
+      "expected_seeds": [
+        0,
+        1,
+        2
+      ],
+      "architecture": {
+        "architecture": "patch_mlp"
+      },
+      "adaptation": "replay_inner_mmd"
+    },
+    "energy": {
+      "complete_seeds": [
+        0,
+        1,
+        2
+      ],
+      "expected_seeds": [
+        0,
+        1,
+        2
+      ],
+      "architecture": {
+        "architecture": "patch_mlp"
+      },
+      "adaptation": "replay_inner_mmd"
+    }
+  }
+}

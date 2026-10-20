@@ -1,0 +1,29 @@
+{
+  "model_sha256": {
+    "peak_litetcn\\climate\\seed_0\\adapted_model.pt": "d086eb4ba9b7fbe53efe9d4fd50c446f247c7559cb7fb288440b22e6230576a9",
+    "peak_litetcn\\climate\\seed_0\\source_model.pt": "5ceb72cbc693cb5c1d5aed990c1d527ac75dc60896e9c4ab4638c9cad4acef10",
+    "peak_litetcn\\climate\\seed_1\\adapted_model.pt": "536235a863e667980a71c8d2ced1ab9720eb967e8ffd95a261843f8d96f581c6",
+    "peak_litetcn\\climate\\seed_1\\source_model.pt": "9fd56e17ed776fae1cb31d21e306a2c4274e6dfa49097fcd30085689da0fc92a",
+    "peak_litetcn\\climate\\seed_2\\adapted_model.pt": "aaea9a0abf929951cb7477f45dbed0f873533f1d8ec8f6b23299af58ac2f192d",
+    "peak_litetcn\\climate\\seed_2\\source_model.pt": "b13f020ac0c9f2b017602204e0e30af41b10cb53080935404bbb1da4a823d32f",
+    "peak_calibrated\\climate\\seed_0\\adapted_model.pt": "0a8699a713df0c85d59a3b8da756988d8b0476065b7397d10bb0bfbe3c6271a8",
+    "peak_calibrated\\climate\\seed_0\\source_model.pt": "1dd7c3f969daee789f16904668a087f5957e9a17316c02348732f65c2d5a948a",
+    "peak_calibrated\\climate\\seed_1\\adapted_model.pt": "968ed0c8b942edeed5ccbe0a0d99a6949f8a8b7eed27b455b9a849b56db12453",
+    "peak_calibrated\\climate\\seed_1\\source_model.pt": "c6de67dd6f3f543668005fc3f1419dd6d530e5ace1b27767c2671dd3a27dad21",
+    "peak_calibrated\\climate\\seed_2\\adapted_model.pt": "ef119afbf0ce1cd5b007b60c2ab68fc077737b706738a280ce21c2bad31631b3",
+    "peak_calibrated\\climate\\seed_2\\source_model.pt": "fba2fb07fde19b2f0ca3126e73c22db6fb5775d5b92fc26674ae3795bf1e3d69",
+    "strict_context\\climate\\seed_0\\adapted_model.pt": "217ab72abf22221b510d9a059ef237f118fb714166d617596b9cd69bc902ef34",
+    "strict_context\\climate\\seed_0\\source_model.pt": "5a9b1b54ab40ff03b04db292ded0ecf901877fa2853668cace46b5a6c2ee4532",
+    "strict_context\\climate\\seed_1\\adapted_model.pt": "9d61d749d454deb01549a2a5e863112a570d19b0dfda8c972df7d54a0e870476",
+    "strict_context\\climate\\seed_1\\source_model.pt": "c95a6a89865fbca8168b316cf15da010e18151ffbb9b4a69446bc5816514523a",
+    "strict_context\\climate\\seed_2\\adapted_model.pt": "17fb69f92f8907b42651d5ff5e7976cbac1b13d05036c4429decba00f0c07752",
+    "strict_context\\climate\\seed_2\\source_model.pt": "88cf81c42b6920f0845506a75a5342303a6bf5902b7b618d4df7cb74d5975b48",
+    "peak_litetcn\\climate\\meta.json": "cbacc792aee54b2dd435873652708aa265cd0f8245280a4bda139e66c284799b",
+    "peak_calibrated\\climate\\meta.json": "ff086f27d5e86176f75ee6b28f07f9b7a5f902ccd6841455b557e939e0268ec9",
+    "strict_context\\climate\\meta.json": "707c68b13f53fd1da6eba9b6a2fce1c37aa5c7a31e0376ee7fee26a9c25d2d29",
+    "climate\\source_model.pt": "d4b03917dad2c2300dd51fc6ece5387e9ba7864ebe33ec0a98ab17ee29600c8f",
+    "climate\\adapted_model.pt": "c8490852603a181ac8c5b37cde3482fdfaa9cf88bc913369f37b356728965017"
+  },
+  "utc_time": "2026-10-19T13:53:05.473390+00:00",
+  "no_further_training_or_selection_on_this_period": true
+}

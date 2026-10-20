@@ -1,0 +1,55 @@
+{
+  "climate": {
+    "data_code_initialization_hashes": true,
+    "selection_recomputed": true,
+    "skip_and_RevIN_unchanged": true,
+    "full_deployment_test_MSE_recomputed": true,
+    "seeds": [
+      {
+        "seed": 0,
+        "source_control": "head_only",
+        "adaptation_round": 8,
+        "adapted_encoder_L2_change": 0.009641195958347783
+      },
+      {
+        "seed": 1,
+        "source_control": "head_only",
+        "adaptation_round": 8,
+        "adapted_encoder_L2_change": 0.01082214597570152
+      },
+      {
+        "seed": 2,
+        "source_control": "head_only",
+        "adaptation_round": 8,
+        "adapted_encoder_L2_change": 0.01248131841120109
+      }
+    ]
+  },
+  "energy": {
+    "data_code_initialization_hashes": true,
+    "selection_recomputed": true,
+    "skip_and_RevIN_unchanged": true,
+    "full_deployment_test_MSE_recomputed": true,
+    "seeds": [
+      {
+        "seed": 0,
+        "source_control": "head_only",
+        "adaptation_round": 2,
+        "adapted_encoder_L2_change": 0.0
+      },
+      {
+        "seed": 1,
+        "source_control": "head_only",
+        "adaptation_round": 8,
+        "adapted_encoder_L2_change": 0.013467563203808852
+      },
+      {
+        "seed": 2,
+        "source_control": "head_only",
+        "adaptation_round": 2,
+        "adapted_encoder_L2_change": 0.0
+      }
+    ]
+  },
+  "fresh_climate_models_unchanged": true
+}

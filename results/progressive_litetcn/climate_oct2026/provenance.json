@@ -1,0 +1,68 @@
+{
+  "source": {
+    "request": {
+      "latitude": 31.1048,
+      "longitude": 77.1734,
+      "start_date": "2026-09-24",
+      "end_date": "2026-10-17",
+      "hourly": "temperature_2m,relative_humidity_2m,dew_point_2m,surface_pressure,wind_speed_10m,cloud_cover,shortwave_radiation",
+      "timezone": "Asia/Kolkata"
+    },
+    "data_sha256": "32fed4c371deb600cf04949142fdde30b1bd506dd11e243c8f3e6f4fa23021e0",
+    "windows": 385,
+    "forecast_start": "2026-10-01 00:00:00",
+    "last_actual": "2026-10-17 23:00:00",
+    "hourly_units": {
+      "time": "iso8601",
+      "temperature_2m": "\u00b0C",
+      "relative_humidity_2m": "%",
+      "dew_point_2m": "\u00b0C",
+      "surface_pressure": "hPa",
+      "wind_speed_10m": "km/h",
+      "cloud_cover": "%",
+      "shortwave_radiation": "W/m\u00b2"
+    },
+    "overlap_RMSE": {
+      "temperature_2m": 0.0,
+      "relative_humidity_2m": 0.0,
+      "dew_point_2m": 0.0,
+      "surface_pressure": 0.0,
+      "wind_speed_10m": 0.0,
+      "cloud_cover": 0.0,
+      "shortwave_radiation": 0.0
+    }
+  },
+  "target": {
+    "request": {
+      "latitude": 28.6139,
+      "longitude": 77.209,
+      "start_date": "2026-09-24",
+      "end_date": "2026-10-17",
+      "hourly": "temperature_2m,relative_humidity_2m,dew_point_2m,surface_pressure,wind_speed_10m,cloud_cover,shortwave_radiation",
+      "timezone": "Asia/Kolkata"
+    },
+    "data_sha256": "63261bbc423e2f42b4078ed4ad5acecbd8e97b7f46f54e0b4907399facf10ea6",
+    "windows": 385,
+    "forecast_start": "2026-10-01 00:00:00",
+    "last_actual": "2026-10-17 23:00:00",
+    "hourly_units": {
+      "time": "iso8601",
+      "temperature_2m": "\u00b0C",
+      "relative_humidity_2m": "%",
+      "dew_point_2m": "\u00b0C",
+      "surface_pressure": "hPa",
+      "wind_speed_10m": "km/h",
+      "cloud_cover": "%",
+      "shortwave_radiation": "W/m\u00b2"
+    },
+    "overlap_RMSE": {
+      "temperature_2m": 0.0,
+      "relative_humidity_2m": 0.0,
+      "dew_point_2m": 0.0,
+      "surface_pressure": 0.0,
+      "wind_speed_10m": 0.0,
+      "cloud_cover": 0.0,
+      "shortwave_radiation": 0.0
+    }
+  }
+}

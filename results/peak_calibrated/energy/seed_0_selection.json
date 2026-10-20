@@ -1,0 +1,15 @@
+{
+  "seed": 0,
+  "calibration_source": {
+    "kind": "affine",
+    "strength": 0.25,
+    "decay": 24.0
+  },
+  "calibration_target": {
+    "kind": "affine",
+    "strength": 0.25,
+    "decay": 24.0
+  },
+  "target_forecasting_labels_used": false,
+  "calibration_inside_each_input_only": true
+}

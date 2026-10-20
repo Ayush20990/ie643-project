@@ -1,0 +1,21 @@
+{
+  "seed": 0,
+  "source_variant": "clock_mse",
+  "model_spec": {
+    "architecture": "peak_litetcn",
+    "calendar": true,
+    "shape_loss": false
+  },
+  "adaptation": "input_shape",
+  "proxy": {
+    "source_only": 1.0,
+    "input_mse": 0.934257875563632,
+    "input_shape": 0.9338172819354753
+  },
+  "selected_rounds": {
+    "source_only": 0,
+    "input_mse": 10,
+    "input_shape": 10
+  },
+  "target_future_labels_used_for_training_or_selection": false
+}

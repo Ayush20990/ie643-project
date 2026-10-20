@@ -1,0 +1,119 @@
+{
+  "dataset": "climate",
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "configurations": [
+    {
+      "kind": "level",
+      "strength": 0.0,
+      "decay": 24.0
+    },
+    {
+      "kind": "level",
+      "strength": 0.25,
+      "decay": 6.0
+    },
+    {
+      "kind": "level",
+      "strength": 0.25,
+      "decay": 24.0
+    },
+    {
+      "kind": "level",
+      "strength": 0.5,
+      "decay": 6.0
+    },
+    {
+      "kind": "level",
+      "strength": 0.5,
+      "decay": 24.0
+    },
+    {
+      "kind": "level",
+      "strength": 1.0,
+      "decay": 6.0
+    },
+    {
+      "kind": "level",
+      "strength": 1.0,
+      "decay": 24.0
+    },
+    {
+      "kind": "innovation",
+      "strength": 0.25,
+      "decay": 6.0
+    },
+    {
+      "kind": "innovation",
+      "strength": 0.25,
+      "decay": 24.0
+    },
+    {
+      "kind": "innovation",
+      "strength": 0.5,
+      "decay": 6.0
+    },
+    {
+      "kind": "innovation",
+      "strength": 0.5,
+      "decay": 24.0
+    },
+    {
+      "kind": "innovation",
+      "strength": 1.0,
+      "decay": 6.0
+    },
+    {
+      "kind": "innovation",
+      "strength": 1.0,
+      "decay": 24.0
+    },
+    {
+      "kind": "affine",
+      "strength": 0.25,
+      "decay": 6.0
+    },
+    {
+      "kind": "affine",
+      "strength": 0.25,
+      "decay": 24.0
+    },
+    {
+      "kind": "affine",
+      "strength": 0.5,
+      "decay": 6.0
+    },
+    {
+      "kind": "affine",
+      "strength": 0.5,
+      "decay": 24.0
+    },
+    {
+      "kind": "affine",
+      "strength": 1.0,
+      "decay": 6.0
+    },
+    {
+      "kind": "affine",
+      "strength": 1.0,
+      "decay": 24.0
+    }
+  ],
+  "code_sha256": {
+    "peak_calibrate.py": "3d8d51956a1a1ae4e5aa0e48acdfb267d6460add81ad9e654401e6c0f1852e96",
+    "peak_calibration.py": "95bb079910e2f76b61165ee91879b0e0b92f8545071f8ab2acc16fa5e1f68c61"
+  },
+  "base_checkpoints": {
+    "peak_litetcn\\climate\\seed_0\\adapted_model.pt": "d086eb4ba9b7fbe53efe9d4fd50c446f247c7559cb7fb288440b22e6230576a9",
+    "peak_litetcn\\climate\\seed_0\\source_model.pt": "5ceb72cbc693cb5c1d5aed990c1d527ac75dc60896e9c4ab4638c9cad4acef10",
+    "peak_litetcn\\climate\\seed_1\\adapted_model.pt": "536235a863e667980a71c8d2ced1ab9720eb967e8ffd95a261843f8d96f581c6",
+    "peak_litetcn\\climate\\seed_1\\source_model.pt": "9fd56e17ed776fae1cb31d21e306a2c4274e6dfa49097fcd30085689da0fc92a",
+    "peak_litetcn\\climate\\seed_2\\adapted_model.pt": "aaea9a0abf929951cb7477f45dbed0f873533f1d8ec8f6b23299af58ac2f192d",
+    "peak_litetcn\\climate\\seed_2\\source_model.pt": "b13f020ac0c9f2b017602204e0e30af41b10cb53080935404bbb1da4a823d32f"
+  },
+  "target_protocol": "nested 12h input-only validation; no target forecasting labels; independent per-window correction",
+  "evaluation": "exploratory reused development test, not a fresh holdout"
+}

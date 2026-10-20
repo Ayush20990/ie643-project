@@ -1,0 +1,10 @@
+climate HYBRID NEXT-HOUR
+                    MSE  key_RMSE
+method                           
+adapted_model  0.077617  0.692561
+source_model   0.085167  0.870367
+energy HYBRID NEXT-HOUR
+                    MSE  key_RMSE
+method                           
+adapted_model  0.064697  0.896999
+source_model   0.068166  1.394546

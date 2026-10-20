@@ -1,0 +1,3 @@
+dataset,parameters,batch_1_CPU_ms,threads,warmups,repeats
+climate,229902,1.2999133334233193,1,5,30
+energy,229902,1.4073633332979323,1,5,30

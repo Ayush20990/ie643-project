@@ -1,0 +1,115 @@
+{
+  "seed": 1,
+  "source_head": [
+    {
+      "channel": 0,
+      "ridge": 0.001,
+      "MSE": 0.062110535800457
+    },
+    {
+      "channel": 1,
+      "ridge": 0.1,
+      "MSE": 0.26715534925460815
+    },
+    {
+      "channel": 2,
+      "ridge": 0.01,
+      "MSE": 0.07952094078063965
+    },
+    {
+      "channel": 3,
+      "ridge": 0.1,
+      "MSE": 0.16937515139579773
+    },
+    {
+      "channel": 4,
+      "ridge": null,
+      "MSE": 0.4406687319278717
+    },
+    {
+      "channel": 5,
+      "ridge": 1.0,
+      "MSE": 0.7586368322372437
+    },
+    {
+      "channel": 6,
+      "ridge": 0.01,
+      "MSE": 0.03987428545951843
+    }
+  ],
+  "adapted_head": [
+    {
+      "channel": 0,
+      "method": "input_residual",
+      "source_replay": 0.25,
+      "anchor": 0.001,
+      "source_val_MSE": 0.06618871539831161,
+      "input_pretext_MSE": 0.03168172389268875,
+      "proxy": 0.8667623996734619,
+      "eligible": true
+    },
+    {
+      "channel": 1,
+      "method": "input_residual",
+      "source_replay": 0.25,
+      "anchor": 0.001,
+      "source_val_MSE": 0.27682778239250183,
+      "input_pretext_MSE": 0.09831345826387405,
+      "proxy": 0.9295496940612793,
+      "eligible": true
+    },
+    {
+      "channel": 2,
+      "method": "input_residual",
+      "source_replay": 0.25,
+      "anchor": 10.0,
+      "source_val_MSE": 0.07955947518348694,
+      "input_pretext_MSE": 0.05390320345759392,
+      "proxy": 0.9459337592124939,
+      "eligible": true
+    },
+    {
+      "channel": 3,
+      "method": "input_residual",
+      "source_replay": 1.0,
+      "anchor": 0.01,
+      "source_val_MSE": 0.17151793837547302,
+      "input_pretext_MSE": 0.03714679926633835,
+      "proxy": 0.8835991621017456,
+      "eligible": true
+    },
+    {
+      "channel": 4,
+      "method": "input_residual",
+      "source_replay": 0.25,
+      "anchor": 10.0,
+      "source_val_MSE": 0.4408857226371765,
+      "input_pretext_MSE": 0.5087828040122986,
+      "proxy": 0.9998680353164673,
+      "eligible": true
+    },
+    {
+      "channel": 5,
+      "method": "input_residual",
+      "source_replay": 0.25,
+      "anchor": 0.001,
+      "source_val_MSE": 0.7467831373214722,
+      "input_pretext_MSE": 0.8848342299461365,
+      "proxy": 0.9839822053909302,
+      "eligible": true
+    },
+    {
+      "channel": 6,
+      "method": "input_residual",
+      "source_replay": 0.25,
+      "anchor": 0.001,
+      "source_val_MSE": 0.041406333446502686,
+      "input_pretext_MSE": 0.021873049437999725,
+      "proxy": 0.6736525297164917,
+      "eligible": true
+    }
+  ],
+  "zero_residual_baseline": "DLinear source forecast, exactly merged into the shared temporal skip",
+  "target_forecasting_labels_used": false,
+  "source_guard_reference": "zero-residual validation MSE per channel"
+}

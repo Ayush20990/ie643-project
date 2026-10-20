@@ -1,0 +1,157 @@
+{
+  "chosen": "input_round_8",
+  "proxy": 0.9973151428111855,
+  "history": [
+    {
+      "candidate": "zero_correction",
+      "source": {
+        "MSE": 0.25358694962874895,
+        "key_MSE": 0.06506265701146541,
+        "score": 0.15932480332010718
+      },
+      "target_input": {
+        "MSE": 0.22693970435043428,
+        "key_MSE": 0.03119749101958784,
+        "score": 0.12906859768501106
+      },
+      "proxy": 1.0,
+      "eligible": true
+    },
+    {
+      "candidate": "source_decoder",
+      "source": {
+        "MSE": 0.25349098940120085,
+        "key_MSE": 0.06439092828027142,
+        "score": 0.15894095884073614
+      },
+      "target_input": {
+        "MSE": 0.2268790357695929,
+        "key_MSE": 0.03077282031183265,
+        "score": 0.12882592804071277
+      },
+      "proxy": 0.997855322511086,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_1",
+      "source": {
+        "MSE": 0.25347793358886006,
+        "key_MSE": 0.06429952013078567,
+        "score": 0.15888872685982286
+      },
+      "target_input": {
+        "MSE": 0.22687683855830326,
+        "key_MSE": 0.030757397994929422,
+        "score": 0.12881711827661635
+      },
+      "proxy": 0.9976572776215343,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_2",
+      "source": {
+        "MSE": 0.25346665274262015,
+        "key_MSE": 0.06422055086247136,
+        "score": 0.15884360180254575
+      },
+      "target_input": {
+        "MSE": 0.2268790238452423,
+        "key_MSE": 0.030772741310871564,
+        "score": 0.12882588257805694
+      },
+      "proxy": 0.997549616317974,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_3",
+      "source": {
+        "MSE": 0.2534584070114263,
+        "key_MSE": 0.06416282812657367,
+        "score": 0.158810617569
+      },
+      "target_input": {
+        "MSE": 0.22687979829502983,
+        "key_MSE": 0.030778154110627936,
+        "score": 0.12882897620282888
+      },
+      "proxy": 0.9974580881881219,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_4",
+      "source": {
+        "MSE": 0.25345151241009056,
+        "key_MSE": 0.06411456460845319,
+        "score": 0.1587830385092719
+      },
+      "target_input": {
+        "MSE": 0.2268806022049776,
+        "key_MSE": 0.030783733551900505,
+        "score": 0.12883216787843904
+      },
+      "proxy": 0.9973839026489286,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_5",
+      "source": {
+        "MSE": 0.2534472717551769,
+        "key_MSE": 0.064084918423204,
+        "score": 0.15876609508919046
+      },
+      "target_input": {
+        "MSE": 0.22688172434282358,
+        "key_MSE": 0.030791609606841405,
+        "score": 0.12883666697483248
+      },
+      "proxy": 0.9973481591639455,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_6",
+      "source": {
+        "MSE": 0.2534445782205952,
+        "key_MSE": 0.0640661278408102,
+        "score": 0.1587553530307027
+      },
+      "target_input": {
+        "MSE": 0.2268825752658494,
+        "key_MSE": 0.03079754105596947,
+        "score": 0.12884005816090943
+      },
+      "proxy": 0.9973275851168417,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_7",
+      "source": {
+        "MSE": 0.25344322503776423,
+        "key_MSE": 0.06405659450643646,
+        "score": 0.15874990977210035
+      },
+      "target_input": {
+        "MSE": 0.2268831432207854,
+        "key_MSE": 0.03080154820660773,
+        "score": 0.12884234571369657
+      },
+      "proxy": 0.9973193646181758,
+      "eligible": true
+    },
+    {
+      "candidate": "input_round_8",
+      "source": {
+        "MSE": 0.2534428936537317,
+        "key_MSE": 0.06405427542982363,
+        "score": 0.15874858454177765
+      },
+      "target_input": {
+        "MSE": 0.2268831429299476,
+        "key_MSE": 0.03080151601770442,
+        "score": 0.128842329473826
+      },
+      "proxy": 0.9973151428111855,
+      "eligible": true
+    }
+  ],
+  "target_future_labels_used_for_training_or_selection": false
+}

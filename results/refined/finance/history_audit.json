@@ -1,0 +1,28 @@
+{
+  "train": {
+    "original_input_windows": 11305,
+    "reconstructed_forecasts": 11280,
+    "observed_rows_per_series": [
+      2320,
+      2320,
+      2320,
+      2320,
+      2320
+    ],
+    "last_H_future_rows_excluded": true,
+    "target_Y_tensor_accessed": false
+  },
+  "validation": {
+    "original_input_windows": 1640,
+    "reconstructed_forecasts": 1615,
+    "observed_rows_per_series": [
+      387,
+      387,
+      387,
+      387,
+      387
+    ],
+    "last_H_future_rows_excluded": true,
+    "target_Y_tensor_accessed": false
+  }
+}

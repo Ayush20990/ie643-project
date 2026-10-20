@@ -1,0 +1,57 @@
+{
+  "dataset": "climate",
+  "args": {
+    "datasets": [
+      "climate",
+      "energy",
+      "finance"
+    ],
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "epochs": 15,
+    "adapt_epochs": 8,
+    "threads": 4
+  },
+  "torch": "2.6.0+cpu",
+  "python": "3.13.2",
+  "candidate_specs": {
+    "tcn3": {
+      "architecture": "litetcn",
+      "depth": 3
+    },
+    "tcn5": {
+      "architecture": "litetcn",
+      "depth": 5
+    },
+    "tcn7": {
+      "architecture": "litetcn",
+      "depth": 7
+    },
+    "patch_mlp": {
+      "architecture": "patch_mlp"
+    },
+    "dlinear": {
+      "architecture": "dlinear"
+    }
+  },
+  "recipes": {
+    "replay_inner": {
+      "inner": 0.5,
+      "anchor": 0.001
+    },
+    "replay_inner_mmd": {
+      "inner": 0.5,
+      "mmd": 0.05,
+      "anchor": 0.001
+    }
+  },
+  "source_ssl_weight": 0,
+  "selection": "source validation MSE; adaptation input-only proxy with epoch-zero fallback",
+  "data_sha256": {
+    "delhi.csv": "49707c4ed587ea164dc1da4e6757725b6f6de2a3463b6e6a0b985dc450b972a2",
+    "shimla.csv": "6af08ea35183bd23a9c0d8f88c2703c4b6fb9ed9387a534db2c3496b5053e4d3"
+  }
+}

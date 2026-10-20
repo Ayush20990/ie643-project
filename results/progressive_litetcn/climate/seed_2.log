@@ -1,0 +1,56 @@
+climate seed=2 head_only round=01 stage=head source_val=0.258439 key=0.061644 selected=1
+climate seed=2 head_only round=02 stage=head source_val=0.258735 key=0.061641 selected=1
+climate seed=2 head_only round=03 stage=head source_val=0.259006 key=0.061651 selected=1
+climate seed=2 head_only round=04 stage=head source_val=0.259229 key=0.061598 selected=1
+climate seed=2 head_only round=05 stage=head source_val=0.259330 key=0.061548 selected=1
+climate seed=2 head_only round=06 stage=head source_val=0.259497 key=0.061548 selected=1
+climate seed=2 head_only round=07 stage=head source_val=0.259729 key=0.061587 selected=1
+climate seed=2 head_only round=08 stage=head source_val=0.259863 key=0.061600 selected=1
+climate seed=2 head_only round=09 stage=head source_val=0.260059 key=0.061622 selected=1
+climate seed=2 head_only round=10 stage=head source_val=0.260351 key=0.061660 selected=1
+climate seed=2 head_only round=11 stage=head source_val=0.260521 key=0.061653 selected=1
+climate seed=2 head_only round=12 stage=head source_val=0.260611 key=0.061607 selected=1
+climate seed=2 head_only round=13 stage=head source_val=0.260631 key=0.061570 selected=1
+climate seed=2 head_only round=14 stage=head source_val=0.260666 key=0.061559 selected=1
+climate seed=2 head_only round=15 stage=head source_val=0.260742 key=0.061555 selected=1
+climate seed=2 head_only round=16 stage=head source_val=0.260839 key=0.061572 selected=1
+climate seed=2 head_only round=17 stage=head source_val=0.260898 key=0.061575 selected=1
+climate seed=2 head_only round=18 stage=head source_val=0.260931 key=0.061579 selected=1
+climate seed=2 head_only round=19 stage=head source_val=0.260984 key=0.061583 selected=1
+climate seed=2 head_only round=20 stage=head source_val=0.261010 key=0.061588 selected=1
+climate seed=2 head_only round=21 stage=head source_val=0.261013 key=0.061591 selected=1
+climate seed=2 head_only round=22 stage=head source_val=0.261018 key=0.061590 selected=1
+climate seed=2 head_only round=23 stage=head source_val=0.261022 key=0.061591 selected=1
+climate seed=2 head_only round=24 stage=head source_val=0.261024 key=0.061591 selected=1
+climate seed=2 progressive round=01 stage=head source_val=0.258439 key=0.061644 selected=1
+climate seed=2 progressive round=02 stage=head source_val=0.258735 key=0.061641 selected=1
+climate seed=2 progressive round=03 stage=head source_val=0.259006 key=0.061651 selected=1
+climate seed=2 progressive round=04 stage=head source_val=0.259229 key=0.061598 selected=1
+climate seed=2 progressive round=05 stage=projection source_val=0.259287 key=0.061482 selected=1
+climate seed=2 progressive round=06 stage=projection source_val=0.259427 key=0.061402 selected=1
+climate seed=2 progressive round=07 stage=projection source_val=0.259692 key=0.061388 selected=1
+climate seed=2 progressive round=08 stage=projection source_val=0.259848 key=0.061361 selected=1
+climate seed=2 progressive round=09 stage=encoder source_val=0.260163 key=0.061379 selected=1
+climate seed=2 progressive round=10 stage=encoder source_val=0.260558 key=0.061440 selected=1
+climate seed=2 progressive round=11 stage=encoder source_val=0.260801 key=0.061402 selected=1
+climate seed=2 progressive round=12 stage=encoder source_val=0.260913 key=0.061337 selected=1
+climate seed=2 progressive round=13 stage=encoder source_val=0.260927 key=0.061288 selected=1
+climate seed=2 progressive round=14 stage=encoder source_val=0.260998 key=0.061278 selected=1
+climate seed=2 progressive round=15 stage=encoder source_val=0.261150 key=0.061299 selected=1
+climate seed=2 progressive round=16 stage=encoder source_val=0.261286 key=0.061328 selected=1
+climate seed=2 progressive round=17 stage=encoder source_val=0.261356 key=0.061325 selected=1
+climate seed=2 progressive round=18 stage=encoder source_val=0.261416 key=0.061331 selected=1
+climate seed=2 progressive round=19 stage=encoder source_val=0.261499 key=0.061348 selected=1
+climate seed=2 progressive round=20 stage=encoder source_val=0.261542 key=0.061354 selected=1
+climate seed=2 progressive round=21 stage=encoder source_val=0.261555 key=0.061356 selected=1
+climate seed=2 progressive round=22 stage=encoder source_val=0.261570 key=0.061354 selected=1
+climate seed=2 progressive round=23 stage=encoder source_val=0.261572 key=0.061358 selected=1
+climate seed=2 progressive round=24 stage=encoder source_val=0.261583 key=0.061359 selected=1
+climate seed=2 adapt round=1 stage=head source_val=0.258781 input=0.239944 proxy=0.994025 selected=1
+climate seed=2 adapt round=2 stage=head source_val=0.259214 input=0.238968 proxy=0.990762 selected=2
+climate seed=2 adapt round=3 stage=projection source_val=0.259657 input=0.238041 proxy=0.987787 selected=3
+climate seed=2 adapt round=4 stage=projection source_val=0.259919 input=0.237600 proxy=0.986275 selected=4
+climate seed=2 adapt round=5 stage=encoder source_val=0.260111 input=0.237380 proxy=0.985456 selected=5
+climate seed=2 adapt round=6 stage=encoder source_val=0.260160 input=0.237250 proxy=0.984935 selected=6
+climate seed=2 adapt round=7 stage=encoder source_val=0.260203 input=0.237202 proxy=0.984712 selected=7
+climate seed=2 adapt round=8 stage=encoder source_val=0.260214 input=0.237173 proxy=0.984584 selected=8

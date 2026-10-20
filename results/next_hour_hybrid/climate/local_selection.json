@@ -1,0 +1,113 @@
+{
+  "source": [
+    {
+      "channel": 0,
+      "ridge": 0.01,
+      "MSE": 0.02506444975733757,
+      "score": 0.027255387976765633,
+      "eligible": true
+    },
+    {
+      "channel": 1,
+      "ridge": 0.001,
+      "MSE": 0.07680944353342056,
+      "score": 0.07680944353342056,
+      "eligible": true
+    },
+    {
+      "channel": 2,
+      "ridge": 1e-05,
+      "MSE": 0.01814083755016327,
+      "score": 0.01814083755016327,
+      "eligible": true
+    },
+    {
+      "channel": 3,
+      "ridge": 0.01,
+      "MSE": 0.05352155864238739,
+      "score": 0.05352155864238739,
+      "eligible": true
+    },
+    {
+      "channel": 4,
+      "ridge": 1e-05,
+      "MSE": 0.1986280232667923,
+      "score": 0.1986280232667923,
+      "eligible": true
+    },
+    {
+      "channel": 5,
+      "ridge": 1.0,
+      "MSE": 0.27013033628463745,
+      "score": 0.27013033628463745,
+      "eligible": true
+    },
+    {
+      "channel": 6,
+      "ridge": 1e-05,
+      "MSE": 0.025174759328365326,
+      "score": 0.025174759328365326,
+      "eligible": true
+    }
+  ],
+  "adapted": [
+    {
+      "channel": 0,
+      "anchor": 1e-05,
+      "source_MSE": 0.025089681148529053,
+      "target_input_MSE": 0.009464340284466743,
+      "proxy": 0.8982411623001099,
+      "eligible": true
+    },
+    {
+      "channel": 1,
+      "anchor": 1e-05,
+      "source_MSE": 0.07735767960548401,
+      "target_input_MSE": 0.030800040811300278,
+      "proxy": 0.942752480506897,
+      "eligible": true
+    },
+    {
+      "channel": 2,
+      "anchor": 0.01,
+      "source_MSE": 0.017985405400395393,
+      "target_input_MSE": 0.006930403411388397,
+      "proxy": 0.9533591270446777,
+      "eligible": true
+    },
+    {
+      "channel": 3,
+      "anchor": 0.01,
+      "source_MSE": 0.054325878620147705,
+      "target_input_MSE": 0.0019544928800314665,
+      "proxy": 0.7835981845855713,
+      "eligible": true
+    },
+    {
+      "channel": 4,
+      "anchor": 10.0,
+      "source_MSE": 0.19600935280323029,
+      "target_input_MSE": 0.14134109020233154,
+      "proxy": 0.981864333152771,
+      "eligible": true
+    },
+    {
+      "channel": 5,
+      "anchor": 0.1,
+      "source_MSE": 0.2721056342124939,
+      "target_input_MSE": 0.19239354133605957,
+      "proxy": 0.9910989999771118,
+      "eligible": true
+    },
+    {
+      "channel": 6,
+      "anchor": 0.001,
+      "source_MSE": 0.025975333526730537,
+      "target_input_MSE": 0.009624755941331387,
+      "proxy": 0.8503667116165161,
+      "eligible": true
+    }
+  ],
+  "target_future_labels_used": false,
+  "objective": "raw-unit next-hour reversal-weighted ridge; target inner-X loss + .5 source replay + source-weight anchor"
+}

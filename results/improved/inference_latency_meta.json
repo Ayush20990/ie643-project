@@ -1,0 +1,9 @@
+{
+  "threads": 1,
+  "repeats": 50,
+  "warmups": 10,
+  "torch": "2.6.0+cpu",
+  "processor": "AMD64 Family 25 Model 80 Stepping 0, AuthenticAMD",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "timing": "warm forward only, no IO or scaling"
+}

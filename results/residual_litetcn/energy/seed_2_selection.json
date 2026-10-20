@@ -1,0 +1,105 @@
+{
+  "seed": 2,
+  "source_head": [
+    {
+      "channel": 0,
+      "ridge": 1.0,
+      "MSE": 0.5102785229682922
+    },
+    {
+      "channel": 1,
+      "ridge": 10.0,
+      "MSE": 0.21595965325832367
+    },
+    {
+      "channel": 2,
+      "ridge": 1.0,
+      "MSE": 0.5224032402038574
+    },
+    {
+      "channel": 3,
+      "ridge": 10.0,
+      "MSE": 0.19449783861637115
+    },
+    {
+      "channel": 4,
+      "ridge": 1.0,
+      "MSE": 0.24842119216918945
+    },
+    {
+      "channel": 5,
+      "ridge": 0.1,
+      "MSE": 0.14993831515312195
+    },
+    {
+      "channel": 6,
+      "ridge": 1.0,
+      "MSE": 0.04470564052462578
+    }
+  ],
+  "adapted_head": [
+    {
+      "channel": 0,
+      "method": "input_residual",
+      "source_replay": 0.25,
+      "anchor": 0.1,
+      "source_val_MSE": 0.5014581680297852,
+      "input_pretext_MSE": 0.2552436292171478,
+      "proxy": 0.9891030788421631,
+      "eligible": true
+    },
+    {
+      "channel": 1,
+      "method": "input_residual",
+      "source_replay": 1.0,
+      "anchor": 1.0,
+      "source_val_MSE": 0.21637246012687683,
+      "input_pretext_MSE": 0.17965056002140045,
+      "proxy": 0.9915012121200562,
+      "eligible": true
+    },
+    {
+      "channel": 2,
+      "method": "source_head",
+      "proxy": 0.9938561320304871
+    },
+    {
+      "channel": 3,
+      "method": "input_residual",
+      "source_replay": 1.0,
+      "anchor": 1.0,
+      "source_val_MSE": 0.1946481168270111,
+      "input_pretext_MSE": 0.407118022441864,
+      "proxy": 0.9931373596191406,
+      "eligible": true
+    },
+    {
+      "channel": 4,
+      "method": "zero_residual",
+      "proxy": 1.0
+    },
+    {
+      "channel": 5,
+      "method": "input_residual",
+      "source_replay": 0.25,
+      "anchor": 0.1,
+      "source_val_MSE": 0.1497204601764679,
+      "input_pretext_MSE": 0.008167368359863758,
+      "proxy": 0.995042085647583,
+      "eligible": true
+    },
+    {
+      "channel": 6,
+      "method": "input_residual",
+      "source_replay": 1.0,
+      "anchor": 0.01,
+      "source_val_MSE": 0.044799648225307465,
+      "input_pretext_MSE": 0.07285682111978531,
+      "proxy": 0.9836909770965576,
+      "eligible": true
+    }
+  ],
+  "zero_residual_baseline": "DLinear source forecast, exactly merged into the shared temporal skip",
+  "target_forecasting_labels_used": false,
+  "source_guard_reference": "zero-residual validation MSE per channel"
+}

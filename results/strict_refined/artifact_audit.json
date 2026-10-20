@@ -1,0 +1,73 @@
+{
+  "strict_refined": {
+    "climate": {
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics_rows": 42,
+      "hashes_verified": true,
+      "source_guard_recomputed": true,
+      "test_MSE_recomputed": true
+    },
+    "finance": {
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics_rows": 42,
+      "hashes_verified": true,
+      "source_guard_recomputed": true,
+      "test_MSE_recomputed": true
+    },
+    "energy": {
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics_rows": 42,
+      "hashes_verified": true,
+      "source_guard_recomputed": true,
+      "test_MSE_recomputed": true
+    }
+  },
+  "strict_context": {
+    "climate": {
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics_rows": 42,
+      "hashes_verified": true,
+      "source_guard_recomputed": true,
+      "test_MSE_recomputed": true
+    },
+    "finance": {
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics_rows": 42,
+      "hashes_verified": true,
+      "source_guard_recomputed": true,
+      "test_MSE_recomputed": true
+    },
+    "energy": {
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "metrics_rows": 42,
+      "hashes_verified": true,
+      "source_guard_recomputed": true,
+      "test_MSE_recomputed": true
+    }
+  },
+  "climate_2025_frozen_models_verified": true
+}

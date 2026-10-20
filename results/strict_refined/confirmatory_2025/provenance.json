@@ -1,0 +1,88 @@
+{
+  "source": {
+    "request": {
+      "latitude": 31.1048,
+      "longitude": 77.1734,
+      "start_date": "2024-12-25",
+      "end_date": "2025-12-31",
+      "hourly": "temperature_2m,relative_humidity_2m,dew_point_2m,surface_pressure,wind_speed_10m,cloud_cover,shortwave_radiation",
+      "timezone": "Asia/Kolkata"
+    },
+    "sha256": "1e75b9dee98cf1f5319a917b0d5787cbb2f430e9077452366179ad6789afbe4a",
+    "windows": 8737,
+    "first_forecast_time": "2025-01-01 00:00:00",
+    "last_forecast_origin": "2025-12-31 00:00:00",
+    "overlap_2024_RMSE_in_original_units": {
+      "temperature_2m": 0.0,
+      "relative_humidity_2m": 0.0,
+      "dew_point_2m": 0.0,
+      "surface_pressure": 0.0,
+      "wind_speed_10m": 0.0,
+      "cloud_cover": 0.0,
+      "shortwave_radiation": 0.0
+    },
+    "metadata": {
+      "latitude": 31.107204,
+      "longitude": 77.17339,
+      "generationtime_ms": 177.4533987045288,
+      "utc_offset_seconds": 19800,
+      "timezone": "Asia/Kolkata",
+      "timezone_abbreviation": "GMT+5:30",
+      "elevation": 2195.0,
+      "hourly_units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "relative_humidity_2m": "%",
+        "dew_point_2m": "\u00b0C",
+        "surface_pressure": "hPa",
+        "wind_speed_10m": "km/h",
+        "cloud_cover": "%",
+        "shortwave_radiation": "W/m\u00b2"
+      }
+    },
+    "provider_note": "Original and new requests use API default best-match, not a pinned ERA5-only model."
+  },
+  "target": {
+    "request": {
+      "latitude": 28.6139,
+      "longitude": 77.209,
+      "start_date": "2024-12-25",
+      "end_date": "2025-12-31",
+      "hourly": "temperature_2m,relative_humidity_2m,dew_point_2m,surface_pressure,wind_speed_10m,cloud_cover,shortwave_radiation",
+      "timezone": "Asia/Kolkata"
+    },
+    "sha256": "823add6f9e10548dd8d9ef69645314473ef7854c2a01a837f3d9654cf5d571ff",
+    "windows": 8737,
+    "first_forecast_time": "2025-01-01 00:00:00",
+    "last_forecast_origin": "2025-12-31 00:00:00",
+    "overlap_2024_RMSE_in_original_units": {
+      "temperature_2m": 0.0,
+      "relative_humidity_2m": 0.0,
+      "dew_point_2m": 0.0,
+      "surface_pressure": 0.0,
+      "wind_speed_10m": 0.0,
+      "cloud_cover": 0.0,
+      "shortwave_radiation": 0.0
+    },
+    "metadata": {
+      "latitude": 28.576448,
+      "longitude": 77.18678,
+      "generationtime_ms": 297.5257635116577,
+      "utc_offset_seconds": 19800,
+      "timezone": "Asia/Kolkata",
+      "timezone_abbreviation": "GMT+5:30",
+      "elevation": 214.0,
+      "hourly_units": {
+        "time": "iso8601",
+        "temperature_2m": "\u00b0C",
+        "relative_humidity_2m": "%",
+        "dew_point_2m": "\u00b0C",
+        "surface_pressure": "hPa",
+        "wind_speed_10m": "km/h",
+        "cloud_cover": "%",
+        "shortwave_radiation": "W/m\u00b2"
+      }
+    },
+    "provider_note": "Original and new requests use API default best-match, not a pinned ERA5-only model."
+  }
+}
