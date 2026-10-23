@@ -9,6 +9,7 @@ Team **DeepGen**: Ayush Patel (23B0037) and Rishik Yadav (23B2103).
 - [Assessment presentation](presentation/intensive/IE643_Intensive_Assessment.pptx)
 - [Technical report](report/intensive/IE643_Intensive_Assessment_Report.pdf)
 - [Complete study guide](report/IE643_ASSESSMENT_GUIDE.md)
+- [Code recording script](recording/CODE_WALKTHROUGH.html) and [dashboard demo script](recording/DASHBOARD_DEMO.html)
 
 The repository includes application code, all saved model families, sample inputs,
 raw/processed datasets, experiment results and plots, the midterm and intensive
@@ -46,6 +47,13 @@ The earlier full experiment explorer is preserved as `app/research.py`.
 The packaged handoff is available from the release linked above. Running the package
 builder creates `submission/DeepGen_IE643_CourseProject_IntensiveAssessment/` locally.
 See [handoff details](submission/README.md) for the download and remaining team tasks.
+
+**Recording scripts:** open the HTML files in [recording/](recording/) in a browser.
+For the code video, Rishik covers data/models (0:00–4:35), then Ayush covers
+adaptation/inference (4:35–9:15). For the demo, Ayush covers weather, CSV upload
+and rolling evaluation (0:00–2:30), then Rishik covers day-ahead, energy and finance
+(2:30–4:45). Each guide includes spoken paragraphs, screen actions, a rehearsal
+clock and a printable view. The code guide includes verified source line references.
 
 **Assessment preparation:** [complete project study guide (HTML)](report/IE643_ASSESSMENT_GUIDE.html)
 or [editable Markdown](report/IE643_ASSESSMENT_GUIDE.md). Covers the original work,

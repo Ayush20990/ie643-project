@@ -1,0 +1,28 @@
+{
+  "CODE_WALKTHROUGH.html": {
+    "segments": 11,
+    "seconds": 555,
+    "spoken_words": 1014,
+    "speaker_seconds": {
+      "Rishik": 275,
+      "Ayush": 280
+    },
+    "source_references": 22,
+    "html_links": "pass",
+    "embedded_javascript": "syntax pass",
+    "source_hashes_and_excerpts": "pass"
+  },
+  "DASHBOARD_DEMO.html": {
+    "segments": 9,
+    "seconds": 285,
+    "spoken_words": 472,
+    "speaker_seconds": {
+      "Rishik": 135,
+      "Ayush": 150
+    },
+    "source_references": 0,
+    "html_links": "pass",
+    "embedded_javascript": "syntax pass",
+    "source_hashes_and_excerpts": "pass"
+  }
+}

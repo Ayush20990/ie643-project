@@ -13,5 +13,6 @@ Generate a fresh package from a clone with `python -m src.package_submission`.
 The technical files and GitHub handoff are complete. Both team members should still
 review the report in their own words, record the required code walkthrough/demo,
 verify TA dataset approval and complete the course submission process. The detailed
-recording guide is inside the packaged ZIP. Uploading to GitHub does not submit to
+recording scripts are in [recording/](../recording/) and inside the packaged ZIP.
+Uploading to GitHub does not submit to
 the course or deploy the Streamlit app publicly.

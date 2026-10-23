@@ -23,7 +23,7 @@ def main():
     def copy(p,relative=None):
         dest=stage/(relative or p.relative_to(ROOT));dest.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(p,dest)
     # Preserve all model families and experiment provenance, including negative controls.
-    for folder in ('app','src','tests','data','models','results','.streamlit'):
+    for folder in ('app','src','tests','data','models','results','.streamlit','recording'):
         for p in (ROOT/folder).rglob('*'):
             if p.is_file() and '__pycache__' not in p.parts and p.suffix not in ('.pyc','.pyo'):
                 copy(p)
@@ -83,6 +83,7 @@ Ayush Patel (23B0037) and Rishik Yadav (23B2103).
 - **Dashboard.html**: interactive offline results viewer. Open directly in a browser; all charts and Plotly are embedded.
 - **START_APP.py**: CSV forecasting interface for all three datasets and both domains. This requires Python dependencies; the HTML dashboard does not.
 - **report/IE643_ASSESSMENT_GUIDE.html**: complete project study guide and viva preparation.
+- **recording/CODE_WALKTHROUGH.html** and **recording/DASHBOARD_DEMO.html**: timed two-person recording scripts with exact screen actions and a rehearsal clock.
 
 ## Launch the CSV app
 
@@ -130,33 +131,7 @@ The supplied assessment instructions require the team's own report account and w
 
 The team must still record the **maximum 10-minute code walkthrough** and **5-minute demo**, with the required participation/face visibility, confirm TA dataset approval, check the actual deadline/slot and access settings, and upload the required materials. No placeholder recordings are included. See `VIDEO_RECORDING_GUIDE.md` for the sequence. The supplied deadline is 25 October 2026, 11:59 PM IST; presentation is 12 minutes plus 3 minutes Q&A.
 ''',encoding='utf-8')
-    (stage/'VIDEO_RECORDING_GUIDE.md').write_text('''# DeepGen recording guide
-
-These are recording prompts, not completed video deliverables. Both members should explain the code in their own words. Follow the supplied assessment instructions on participation, visible faces, audio clarity and formats.
-
-## Code walkthrough: rehearse below 10 minutes
-
-1. 0:00-1:00: identify the task and team. Open `src/config.py` and `data_download.py`; show the three domain pairs, fields and finance feature definitions.
-2. 1:00-2:00: `data.py`: per-series chronological splits, source/target training scalers and input/future windows.
-3. 2:00-3:00: `model.py` and `train.py`: original LiteTCN, RevIN, linear path and CARE losses. Explain that later models are separate files.
-4. 3:00-5:00: `nowcast_tcn.py` and `nowcast_train.py`: predict increments, zero head, within-input last-hour pretext, source replay/anchor, optimizer/rates and selection.
-5. 5:00-7:00: `peak_nowcast.py` and `peak_nowcast_train.py`: causal regimes, five experts, observed rolling episodes, event loss, SLSQP constraints and fallback. Show that `collect_episodes` accepts X, not original target Y.
-6. 7:00-8:00: `metrics.py` and `diagnose_peaks.py`: standardized MSE, physical-unit RMSE, fixed/window MASE, actual-peak/trough and timing metrics.
-7. 8:00-9:00: one model metadata file, selection JSON and `results/submission/validation.log`. Explain three-seed means versus deployed seed 0 and reused-test limitations.
-8. 9:00-10:00: `src/submission.py` and `app/submission_app.py`: strict CSV validation, frozen inference, matching forecast horizons and downloads.
-
-## Demonstration: 5 minutes
-
-1. 0:00-0:30: launch `START_APP.py`, select climate Domain 1 and explain the input schema.
-2. 0:30-1:25: switch Domain 2, H=1, peak-calibrated hybrid. Show forecast/input/actual and selected-window metrics.
-3. 1:25-2:10: run historical evaluation and download the actual/forecast CSV. Explain hourly observation updates with fixed weights.
-4. 2:10-2:55: change to H=24; explain no updates inside its horizon and why the numbers differ.
-5. 2:55-3:50: show energy oil temperature and the honest energy-trough limitation.
-6. 3:50-4:30: show finance H=5 and the strict/input-mean comparison; state the actual engineered-feature targets.
-7. 4:30-5:00: upload another valid file or use input-only forecast-after-final-row mode. Briefly open the offline dashboard if useful.
-
-For the live 12-minute presentation, use the deck's shorter one-minute demonstration. Test uploads and browser access on the actual assessment machine before recording or presenting. Do not rerun model training during the demo.
-''',encoding='utf-8')
+    (stage/'VIDEO_RECORDING_GUIDE.md').write_text('# DeepGen recording guide\n\nOpen these offline HTML scripts in a browser:\n\n- [Code walkthrough](recording/CODE_WALKTHROUGH.html): Rishik 0:00-4:35, Ayush 4:35-9:15; leave 45 seconds within the maximum ten minutes.\n- [Dashboard demo](recording/DASHBOARD_DEMO.html): Ayush 0:00-2:30, Rishik 2:30-4:45; reserve 15 seconds for transitions in the five-minute video.\n\nBoth guides include spoken paragraphs, exact screen actions, a speaker timeline, rehearsal clock and printable view. The code guide includes verified source excerpts. Keep the guide on another device or an unshared screen; rehearse navigation before recording. Both members participate and keep faces visible in the code recording. These are scripts, not completed recordings.\n\nLaunch the app with `python START_APP.py` after extracting the complete ZIP and installing dependencies. Start the demo with climate, Next hour, Peak-calibrated hybrid, Domain 1 source, the bundled sample and the input-only checkbox off. Switch to Domain 2 before uploading `sample_inputs/climate_domain2_delhi.csv`. Do not train models or download datasets during recording. The scripts cover both forecast horizons, energy, the weak finance results and downloads.\n\nFor the live presentation, use the separate deck notes and its shorter demonstration.\n',encoding='utf-8')
     status={'team':'DeepGen','technical_artifacts':'built locally','report_author_narrative_review':'required under supplied assessment instructions',
             'recordings':'not recorded; team faces/participation required','TA_dataset_approval':'not supplied','remote_push_or_upload':'GitHub handoff published; see https://github.com/Ayush20990/ie643-project/releases/latest. Local rebuilds require separate publication.',
             'check_logs':['results/submission/validation.log','results/submission/presentation_validation.json','results/submission/document_validation.json']}
