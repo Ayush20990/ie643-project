@@ -2,13 +2,15 @@
   "slides": 20,
   "content_slides": 18,
   "reference_slides": 2,
-  "native_charts": 5,
-  "embedded_editable_workbooks": 5,
+  "native_charts": 6,
+  "embedded_editable_workbooks": 6,
   "native_tables_on_slides": [
     5,
     7,
     8,
-    12
+    12,
+    14,
+    15
   ],
   "all_chart_values_match_saved_evidence": true,
   "forecast_chart_horizons": [
@@ -27,5 +29,14 @@
   "structural_findings": 0,
   "layout_findings": 0,
   "layout_warnings": 0,
-  "bundled_artifact_runtime": "Not exposed; existing repository PPTX dependency used"
+  "bundled_artifact_runtime": "Not exposed; existing repository PPTX dependency used",
+  "finance_results_slide": 14,
+  "finance_forecast_horizon_trading_days": 5,
+  "finance_plot_features": [
+    "hl_range",
+    "log_return"
+  ],
+  "finance_example_selection": "First fixed saved target origin, deployment seed 0; no performance filtering",
+  "finance_table_scope": "Full target-test three-seed means",
+  "revised_date": "2026-10-23"
 }

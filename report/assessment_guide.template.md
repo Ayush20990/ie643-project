@@ -758,30 +758,30 @@ Spend roughly one minute on data/config, one minute on splits/scaling, one minut
 
 ## 19. An 18-slide, 12-minute presentation plan
 
-This is a proposed structure, not a claim that a new PPT has been generated. Keep references outside the 18-slide count. The planned speaking/demo material totals **11 minutes 5 seconds**, leaving **55 seconds** for transitions or a small delay.
+The current intensive-assessment PPT follows this 18-content-slide structure, with two reference slides outside the count. Revised 23 October 2026 to give finance its own results slide. The speaker-note budget totals **11 minutes 15 seconds**, leaving **45 seconds** for transitions; rehearse to confirm the actual duration.
 
 | Slide | Topic | Time | Main point / evidence |
 | --- | --- | --- | --- |
-| 1 | Title, task, course, actual team names/rolls | 0:15 | Domain adaptation for multivariate forecasting; fill the actual team name. |
+| 1 | Domain adaptation for multivariate forecasting | 0:15 | DeepGen; Ayush Patel (23B0037), Rishik Yadav (23B2103); IE643 task. |
 | 2 | Outline | 0:15 | Problem → prior work → method → evidence → demo → limits. |
-| 3 | Problem and label-free constraint | 0:35 | Source X/Y versus target X; three domain pairs. |
-| 4 | Workflow diagram | 0:30 | Collection → source model → input-only adaptation → frozen evaluation → interface. |
-| 5 | Work before prep review | 0:35 | LiteTCN, CARE recipes, baselines; distinguish v1 means from v2 seed 0. |
-| 6 | Work after prep review | 0:30 | Depth tests, hybrid/TCN revisions, peak diagnostics, added H=1 task. Confirm actual historical boundary. |
-| 7 | Datasets and extraction | 0:45 | Source/target, row counts, variables, frequencies and finance scope. |
-| 8 | Preprocessing and evaluation contract | 0:40 | Chronological splits, scalers, within-X pretext and horizon distinction. |
-| 9 | Final architecture | 0:50 | Small LiteTCN + dynamics + earlier hybrid + causal regime mixture. |
-| 10 | Adaptation and custom loss | 1:00 | Episode loss, source replay/anchor, guards, fallback; no target Y. |
-| 11 | Experimental setup | 0:35 | Three seeds, sampled budgets, CPU, source/target selection and reused-test caveat. |
-| 12 | Three-dataset original-horizon results | 0:45 | Comparable baselines, strict finance gain, preserved H=24 evidence. |
-| 13 | Why peaks were difficult | 0:40 | Uncertain timing/drivers and objective; depth alone did not fix them. |
-| 14 | Rolling H=1 results | 0:45 | Same-horizon source/adapted/persistence table and overview plot. |
-| 15 | Peak/trough metrics and controls | 0:40 | Actual extrema errors, energy trough limitation, source-only controls. |
-| 16 | Live interface demo | 1:00 | Valid CSV, target mode, source/adapted overlay, one-hour vs 24-hour switch. |
-| 17 | Conclusions | 0:20 | What improved, what LiteTCN contributes and what remains unresolved. |
-| 18 | Novelty-assessment plan | 0:25 | Equal-expert ablations, fresh time blocks, stronger evaluation and compression. |
+| 3 | Forecasting under domain shift | 0:30 | Source X/Y versus target X; three domain pairs. |
+| 4 | Project workflow | 0:25 | Collection → source model → input-only adaptation → frozen evaluation → interface. |
+| 5 | Before the review: LiteTCN and CARE-DA | 0:35 | LiteTCN, CARE recipes, baselines; distinguish v1 means from v2 seed 0. |
+| 6 | After the review: depth alone was insufficient | 0:30 | Depth tests, hybrid/TCN revisions, peak diagnostics, added H=1 task. Confirm actual historical boundary. |
+| 7 | Three datasets with distinct domains | 0:40 | Source/target, row counts, variables, frequencies and finance scope. |
+| 8 | Observed history supplies the adaptation task | 0:45 | Chronological splits, scalers, within-X pretext and horizon distinction. |
+| 9 | LiteTCN within the final next-hour hybrid | 0:45 | Small LiteTCN + dynamics + earlier hybrid + causal regime mixture. |
+| 10 | Adaptation objective and safeguards | 0:55 | Episode loss, source replay/anchor, guards, fallback; no target Y. |
+| 11 | Experimental setup and metrics | 0:30 | Three seeds, sampled budgets, CPU, source/target selection and reused-test caveat. |
+| 12 | Original-horizon results | 0:50 | Comparable baselines, strict finance gain, preserved H=24 evidence. |
+| 13 | 24-hour forecasts from a single origin | 0:45 | Uncertain timing/drivers and objective; depth alone did not fix them. |
+| 14 | Finance: modest gains over a strong baseline | 0:55 | Finance H=5 actual/source/adapted/input-mean plots; source/adapted/baseline MSE and range RMSE. State the small gains and missed movements. |
+| 15 | Hourly forecasts and peak tradeoffs | 0:55 | Hourly climate/energy plots, source/adapted/persistence RMSE, adaptation gains and the remaining energy-trough limitation. |
+| 16 | CSV interface and live demonstration | 0:55 | Valid CSV, target mode, source/adapted overlay, one-hour vs 24-hour switch. |
+| 17 | Conclusions and team contributions | 0:25 | What improved, what LiteTCN contributes and what remains unresolved. |
+| 18 | Plan for the novelty assessment | 0:25 | Equal-expert ablations, fresh time blocks, stronger evaluation and compression. |
 
-Put detailed per-stage tables and additional plots in accessible supporting material rather than making all 18 slides dense. Reference slides should identify papers, dataset sites and your actual code repository. The existing prep script has 20 slides, a longer timing target and placeholder speaker labels; replace those for the intensive assessment rather than treating it as final-ready.
+Put detailed per-stage tables and additional plots in accessible supporting material rather than making all 18 slides dense. Reference slides should identify papers, dataset sites and your actual code repository. The preserved prep deck is historical. Use the revised intensive deck and its matching speaker notes for this assessment.
 
 ### 19.1 The explanation you should be able to give naturally
 

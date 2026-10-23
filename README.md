@@ -5,7 +5,7 @@
 
 Team **DeepGen**: Ayush Patel (23B0037) and Rishik Yadav (23B2103).
 
-- [Complete download and individual report / PPT / dashboard files](https://github.com/Ayush20990/ie643-project/releases/tag/intensive-assessment-2026-10-20)
+- [Complete download and individual report / PPT / dashboard files](https://github.com/Ayush20990/ie643-project/releases/latest)
 - [Assessment presentation](presentation/intensive/IE643_Intensive_Assessment.pptx)
 - [Technical report](report/intensive/IE643_Intensive_Assessment_Report.pdf)
 - [Complete study guide](report/IE643_ASSESSMENT_GUIDE.md)
@@ -32,7 +32,7 @@ dashboard shows saved results; run the Streamlit app for predictions from a CSV.
 Run verification with `.venv/Scripts/python -m unittest discover -s tests -v`.
 To rebuild the packaged handoff locally, run `.venv/Scripts/python -m src.package_submission`.
 
-**Intensive assessment (Team DeepGen, updated 20 October 2026):**
+**Intensive assessment (Team DeepGen, updated 23 October 2026):**
 [technical report and LaTeX](report/intensive/), [intensive slides and notes](presentation/intensive/),
 [offline dashboard](dashboard/IE643_Results_Dashboard.html).
 The reviewer-facing CSV app is `python -m streamlit run app/app.py`.

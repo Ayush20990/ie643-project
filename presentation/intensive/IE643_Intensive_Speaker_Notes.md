@@ -1,6 +1,6 @@
 # DeepGen intensive assessment speaker notes
 
-18 content slides + 2 reference slides. Planned talk/demo: 10:55. Rehearse within the 12-minute allowance.
+18 content slides + 2 reference slides. Planned talk/demo: 11:15. Rehearse within the 12-minute allowance.
 
 ## 1. Domain adaptation for multivariate forecasting (0:15)
 
@@ -80,17 +80,17 @@ First fixed target origin, seed 0, without visual performance filtering. Each cu
 
 Evidence: results/event_boost/*/forecast_examples.npz; results/strict_context/climate/forecast_examples.npz; results/strict_refined/energy/forecast_examples.npz; presentation/intensive/evidence.json
 
-## 14. Rolling next-hour results (0:45)
+## 14. Finance: modest gains over a strong baseline (0:55)
 
-Predict one hour and refresh observations before the next. Matching family source/adapted RMSE gains: 3.84% climate, 27.68% energy. Full-system gains over persistence are 48.55% and 31.37%, including source learning and hybrid components. Earlier first-hour climate RMSE 0.654038 is nearly as good as final 0.653009. First TCN/dynamics energy RMSE 0.896999 beats final 0.915108 but has worse event errors.
+Finance needs explicit qualitative and quantitative coverage. All four engineered variables are forecast over five trading days from 60 observed trading days. Two illustrative outputs are shown: high-low range and daily log return, both from the first fixed saved target origin, deployment seed 0. The example is not selected by error. Source/adapted curves nearly overlap. Flat return forecasts miss the observed sign changes, and range amplitude is biased in this example. The table contains complete target-test means over seeds 0,1,2, not the displayed-window scores. Global MSE is standardized across all four features. Range RMSE is in 100 log(high/low) units. Overall MSE gain over input mean is about 1.60%, and adaptation over the matched strict source-only hybrid adds only about 0.14%. Financial features are not stock-price forecasts or evidence of trading profitability. No new finance training was performed.
 
-Evidence: results/forecast_horizons/next_hour_headline.csv; results/forecast_horizons/*_next_hour_comparison.csv
+Evidence: results/strict_refined/finance/metrics_all.csv; results/strict_refined/finance/forecast_examples.npz; models/strict_refined/finance/meta.json; presentation/intensive/evidence.json
 
-## 15. Hourly trajectories and peak tradeoffs (0:45)
+## 15. Hourly forecasts and peak tradeoffs (0:55)
 
-First 96 fixed target origins, seed 0. Successive next-hour predictions, not a 96-hour forecast from one origin. Refresh inputs every hour with fixed weights. Side event numbers average three seeds over complete daily episodes. Final climate peak/trough MAE 0.2810/0.5514, energy 0.8477/0.6650. Energy persistence trough MAE 0.4761 remains better. First-hybrid vs final comparison changes experts/regimes and loss together.
+First 96 fixed target origins, seed 0. These are successive next-hour forecasts with refreshed observations, not one 96-hour forecast. Weights stay fixed. Matching source/adapted temperature RMSE gains are 3.84% climate and 27.68% energy. The table is whole-test three-seed means. Full-system reductions over persistence are 48.55% and 31.37%, including source learning and hybrid components. Climate earlier-hybrid first hour is nearly as good (0.654038 RMSE). The first TCN/dynamics energy hybrid has lower overall temperature RMSE 0.896999 but worse event errors. Complete daily-episode peak/trough MAE: climate 0.2810/0.5514, energy 0.8477/0.6650. Energy persistence trough error 0.4761 is better. Final vs first hybrid changes experts/regimes and loss together, so this is not a loss-only ablation.
 
-Evidence: results/peak_next_hour/*/rolling_forecasts.npz; results/forecast_horizons/*_next_hour_peak_comparison.csv
+Evidence: results/peak_next_hour/*/rolling_forecasts.npz; results/forecast_horizons/next_hour_headline.csv; results/forecast_horizons/*_next_hour_peak_comparison.csv
 
 ## 16. CSV interface and live demonstration (0:55)
 

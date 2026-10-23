@@ -112,7 +112,7 @@ The latest test logs and artifact audit are in `results/submission/` and `result
 
 Optional documentation rebuilding needs `requirements-documentation.txt`. Generate numerical tables with `python -m src.build_submission_assets`, generate the template source with `python -m src.build_intensive_report`, then compile from `report/intensive/` using `tectonic IE643_Intensive_Assessment_Report.tex` or a compatible LaTeX/BibTeX installation. The supplied template and provenance record are preserved. The PPTX source is `presentation/build_intensive.js`; install its declared Node packages before rebuilding it.
 
-The configured GitHub remote is https://github.com/Ayush20990/ie643-project . The shareable intensive-assessment release is https://github.com/Ayush20990/ie643-project/releases/tag/intensive-assessment-2026-10-20 . The repository and release are the collaboration handoff; building this ZIP alone does not publish it. No Drive upload, course submission or partner messaging is performed by the package builder.
+The configured GitHub remote is https://github.com/Ayush20990/ie643-project . The shareable intensive-assessment release is https://github.com/Ayush20990/ie643-project/releases/latest . The repository and release are the collaboration handoff; building this ZIP alone does not publish it. No Drive upload, course submission or partner messaging is performed by the package builder.
 
 ## Team contributions supplied by the team
 

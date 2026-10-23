@@ -1,6 +1,6 @@
 # DeepGen complete handoff
 
-[Download the complete project ZIP and individual artifacts](https://github.com/Ayush20990/ie643-project/releases/tag/intensive-assessment-2026-10-20).
+[Download the complete project ZIP and individual artifacts](https://github.com/Ayush20990/ie643-project/releases/latest).
 
 The release contains the application, saved source/adapted models, datasets, results,
 plots, reports, presentation, study guide and offline dashboard. Extract the entire

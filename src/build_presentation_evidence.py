@@ -81,7 +81,24 @@ def main():
         output["datasets"][ds] = record
     f = read_csv(RESULTS_DIR / "strict_refined/finance/metrics_all.csv")
     output["finance"] = {method: f.query("domain == 'target' and method == @method")[["MSE", "key_RMSE"]].mean().to_dict()
-                         for method in ("strict_source", "strict_adapted", "input_mean")}
+                         for method in ("strict_source", "strict_adapted", "input_mean", "persistence")}
+    archive = RESULTS_DIR / "strict_refined/finance/forecast_examples.npz"
+    meta_path = MODEL_DIR / "strict_refined/finance/meta.json"
+    sources.update((archive, meta_path))
+    a = np.load(archive)
+    meta = json.loads(meta_path.read_text())
+    assert int(a["target_indices"][0]) == 0
+    output["finance_plots"] = {"origin": 0, "seed": 0, "horizon_trading_days": 5,
+                               "days": list(range(1, 6)), "features": {}}
+    for j, name in enumerate(meta["columns"]):
+        sd, mean = meta["target_scaler"]["std"][j], meta["target_scaler"]["mean"][j]
+        values = {}
+        for label, field in (("actual", "target_Y"), ("source", "target_strict_source"),
+                             ("adapted", "target_strict_adapted"), ("input_mean", "target_input_mean")):
+            physical = np.asarray(a[field][0, :, j], dtype=float) * sd + mean
+            assert len(physical) == 5 and np.isfinite(physical).all()
+            values[label] = physical.tolist()
+        output["finance_plots"]["features"][name] = values
     output["sources"] = {str(p.relative_to(ROOT)).replace("\\", "/"): hashlib.sha256(p.read_bytes()).hexdigest()
                          for p in sorted(sources)}
     out = ROOT / "presentation/intensive/evidence.json"

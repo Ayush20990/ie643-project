@@ -1632,7 +1632,7 @@ models/event_boost/&lt;dataset&gt;/  [separate 24-hour follow-up]
 <h3 id="184-ten-minute-code-walkthrough-plan">18.4 Ten-minute code walkthrough plan</h3>
 <p>Spend roughly one minute on data/config, one minute on splits/scaling, one minute on the original model and CARE idea, two minutes on the new TCN and within-X adaptation, two minutes on episode loss/regime weights/guards, one minute on metrics, one minute on saved models/audits, and one minute on app inference. Rehearse below the ten-minute maximum. Show <code>collect_episodes(model, input_windows)</code> to make the exclusion of target Y concrete.</p>
 <h2 id="19-an-18-slide-12-minute-presentation-plan">19. An 18-slide, 12-minute presentation plan</h2>
-<p>This is a proposed structure, not a claim that a new PPT has been generated. Keep references outside the 18-slide count. The planned speaking/demo material totals <strong>11 minutes 5 seconds</strong>, leaving <strong>55 seconds</strong> for transitions or a small delay.</p>
+<p>The current intensive-assessment PPT follows this 18-content-slide structure, with two reference slides outside the count. Revised 23 October 2026 to give finance its own results slide. The speaker-note budget totals <strong>11 minutes 15 seconds</strong>, leaving <strong>45 seconds</strong> for transitions; rehearse to confirm the actual duration.</p>
 <div class="table-wrap" tabindex="0"><table>
 <thead>
 <tr>
@@ -1645,9 +1645,9 @@ models/event_boost/&lt;dataset&gt;/  [separate 24-hour follow-up]
 <tbody>
 <tr>
 <td>1</td>
-<td>Title, task, course, actual team names/rolls</td>
+<td>Domain adaptation for multivariate forecasting</td>
 <td>0:15</td>
-<td>Domain adaptation for multivariate forecasting; fill the actual team name.</td>
+<td>DeepGen; Ayush Patel (23B0037), Rishik Yadav (23B2103); IE643 task.</td>
 </tr>
 <tr>
 <td>2</td>
@@ -1657,103 +1657,103 @@ models/event_boost/&lt;dataset&gt;/  [separate 24-hour follow-up]
 </tr>
 <tr>
 <td>3</td>
-<td>Problem and label-free constraint</td>
-<td>0:35</td>
+<td>Forecasting under domain shift</td>
+<td>0:30</td>
 <td>Source X/Y versus target X; three domain pairs.</td>
 </tr>
 <tr>
 <td>4</td>
-<td>Workflow diagram</td>
-<td>0:30</td>
+<td>Project workflow</td>
+<td>0:25</td>
 <td>Collection → source model → input-only adaptation → frozen evaluation → interface.</td>
 </tr>
 <tr>
 <td>5</td>
-<td>Work before prep review</td>
+<td>Before the review: LiteTCN and CARE-DA</td>
 <td>0:35</td>
 <td>LiteTCN, CARE recipes, baselines; distinguish v1 means from v2 seed 0.</td>
 </tr>
 <tr>
 <td>6</td>
-<td>Work after prep review</td>
+<td>After the review: depth alone was insufficient</td>
 <td>0:30</td>
 <td>Depth tests, hybrid/TCN revisions, peak diagnostics, added H=1 task. Confirm actual historical boundary.</td>
 </tr>
 <tr>
 <td>7</td>
-<td>Datasets and extraction</td>
-<td>0:45</td>
+<td>Three datasets with distinct domains</td>
+<td>0:40</td>
 <td>Source/target, row counts, variables, frequencies and finance scope.</td>
 </tr>
 <tr>
 <td>8</td>
-<td>Preprocessing and evaluation contract</td>
-<td>0:40</td>
+<td>Observed history supplies the adaptation task</td>
+<td>0:45</td>
 <td>Chronological splits, scalers, within-X pretext and horizon distinction.</td>
 </tr>
 <tr>
 <td>9</td>
-<td>Final architecture</td>
-<td>0:50</td>
+<td>LiteTCN within the final next-hour hybrid</td>
+<td>0:45</td>
 <td>Small LiteTCN + dynamics + earlier hybrid + causal regime mixture.</td>
 </tr>
 <tr>
 <td>10</td>
-<td>Adaptation and custom loss</td>
-<td>1:00</td>
+<td>Adaptation objective and safeguards</td>
+<td>0:55</td>
 <td>Episode loss, source replay/anchor, guards, fallback; no target Y.</td>
 </tr>
 <tr>
 <td>11</td>
-<td>Experimental setup</td>
-<td>0:35</td>
+<td>Experimental setup and metrics</td>
+<td>0:30</td>
 <td>Three seeds, sampled budgets, CPU, source/target selection and reused-test caveat.</td>
 </tr>
 <tr>
 <td>12</td>
-<td>Three-dataset original-horizon results</td>
-<td>0:45</td>
+<td>Original-horizon results</td>
+<td>0:50</td>
 <td>Comparable baselines, strict finance gain, preserved H=24 evidence.</td>
 </tr>
 <tr>
 <td>13</td>
-<td>Why peaks were difficult</td>
-<td>0:40</td>
+<td>24-hour forecasts from a single origin</td>
+<td>0:45</td>
 <td>Uncertain timing/drivers and objective; depth alone did not fix them.</td>
 </tr>
 <tr>
 <td>14</td>
-<td>Rolling H=1 results</td>
-<td>0:45</td>
-<td>Same-horizon source/adapted/persistence table and overview plot.</td>
+<td>Finance: modest gains over a strong baseline</td>
+<td>0:55</td>
+<td>Finance H=5 actual/source/adapted/input-mean plots; source/adapted/baseline MSE and range RMSE. State the small gains and missed movements.</td>
 </tr>
 <tr>
 <td>15</td>
-<td>Peak/trough metrics and controls</td>
-<td>0:40</td>
-<td>Actual extrema errors, energy trough limitation, source-only controls.</td>
+<td>Hourly forecasts and peak tradeoffs</td>
+<td>0:55</td>
+<td>Hourly climate/energy plots, source/adapted/persistence RMSE, adaptation gains and the remaining energy-trough limitation.</td>
 </tr>
 <tr>
 <td>16</td>
-<td>Live interface demo</td>
-<td>1:00</td>
+<td>CSV interface and live demonstration</td>
+<td>0:55</td>
 <td>Valid CSV, target mode, source/adapted overlay, one-hour vs 24-hour switch.</td>
 </tr>
 <tr>
 <td>17</td>
-<td>Conclusions</td>
-<td>0:20</td>
+<td>Conclusions and team contributions</td>
+<td>0:25</td>
 <td>What improved, what LiteTCN contributes and what remains unresolved.</td>
 </tr>
 <tr>
 <td>18</td>
-<td>Novelty-assessment plan</td>
+<td>Plan for the novelty assessment</td>
 <td>0:25</td>
 <td>Equal-expert ablations, fresh time blocks, stronger evaluation and compression.</td>
 </tr>
 </tbody>
 </table></div>
-<p>Put detailed per-stage tables and additional plots in accessible supporting material rather than making all 18 slides dense. Reference slides should identify papers, dataset sites and your actual code repository. The existing prep script has 20 slides, a longer timing target and placeholder speaker labels; replace those for the intensive assessment rather than treating it as final-ready.</p>
+<p>Put detailed per-stage tables and additional plots in accessible supporting material rather than making all 18 slides dense. Reference slides should identify papers, dataset sites and your actual code repository. The preserved prep deck is historical. Use the revised intensive deck and its matching speaker notes for this assessment.</p>
 <h3 id="191-the-explanation-you-should-be-able-to-give-naturally">19.1 The explanation you should be able to give naturally</h3>
 <p>“We started with LiteTCN and alignment-based adaptation. We then checked whether poor results were simply a depth problem, but deeper TCNs did not reliably improve them. Forecast-aligned self-supervision and guarded linear/neural mixtures were stronger. We retained and revised LiteTCN rather than discarding it, measured its remaining 24-hour limitations, and added an explicitly separate next-hour task. Our latest hybrid adapts from observed histories and calibrates for extremes without target forecast labels. It improves same-horizon error over persistence, while energy troughs and day-ahead uncertainty remain limitations.”</p>
 <p>Use this as a practice explanation, not a script to read word-for-word. Be prepared to point to one CSV and one implementation function behind every major claim.</p>

@@ -3,9 +3,10 @@
   "reference_sha256": "89e360abdd0ab225ae820e9cacfe9a6eebcd6947b0386f687e194f5fe151d8be",
   "design": "Original contour backgrounds, Cambria headings, Calibri body, teal and saffron. Rebuilt layouts for the intensive content.",
   "slide_size": "16:9, 13.333 × 7.5 inches",
-  "native_charts": 5,
+  "native_charts": 6,
+  "finance_results_slide": 14,
   "content_slides": 18,
   "reference_slides": 2,
   "evidence": "evidence.json",
-  "chart_selection": "Fixed first saved origin (H=24), first 96 origins (H=1), deployment seed 0"
+  "chart_selection": "Fixed first saved origins (H=24 and finance H=5), first 96 origins (H=1), deployment seed 0"
 }
