@@ -1,0 +1,77 @@
+{
+  "city": "Pune",
+  "purpose": "New-city CSV upload smoke check; frozen existing checkpoints/scalers, no Pune adaptation/training",
+  "cases": [
+    {
+      "file": "weather_pune_2025-10-01_2025-10-31.csv",
+      "horizon": 1,
+      "rows": 744,
+      "forecast_shape": [
+        1,
+        7
+      ],
+      "app_exceptions": 0,
+      "finite_predictions": true,
+      "selected_window_metrics": 4,
+      "forecast_after_final_row": false,
+      "historical_evaluation_origins": 96,
+      "historical_evaluation": "pass",
+      "last_window_temperature_RMSE_degC": {
+        "source_model": 0.6532611846923828,
+        "adapted_model": 0.6763916015625,
+        "persistence": 0.5,
+        "seasonal_naive": 1.8999996185302734,
+        "input_mean": 1.3791675567626953
+      }
+    },
+    {
+      "file": "weather_pune_2025-10-01_2025-10-31.csv",
+      "horizon": 24,
+      "rows": 744,
+      "forecast_shape": [
+        24,
+        7
+      ],
+      "app_exceptions": 0,
+      "finite_predictions": true,
+      "selected_window_metrics": 4,
+      "forecast_after_final_row": false,
+      "historical_evaluation_origins": 24,
+      "historical_evaluation": "pass",
+      "last_window_temperature_RMSE_degC": {
+        "source_model": 0.5967296957969666,
+        "adapted_model": 0.5379927158355713,
+        "persistence": 3.775966167449951,
+        "seasonal_naive": 1.4655770063400269,
+        "input_mean": 2.5954105854034424
+      }
+    },
+    {
+      "file": "weather_pune_2025-10-01_2025-10-31_history_only.csv",
+      "horizon": 1,
+      "rows": 168,
+      "forecast_shape": [
+        1,
+        7
+      ],
+      "app_exceptions": 0,
+      "finite_predictions": true,
+      "selected_window_metrics": 0,
+      "forecast_after_final_row": true
+    },
+    {
+      "file": "weather_pune_2025-10-01_2025-10-31_history_only.csv",
+      "horizon": 24,
+      "rows": 168,
+      "forecast_shape": [
+        24,
+        7
+      ],
+      "app_exceptions": 0,
+      "finite_predictions": true,
+      "selected_window_metrics": 0,
+      "forecast_after_final_row": true
+    }
+  ],
+  "ui_check_method": "Streamlit AppTest with real CSV bytes injected at the file_uploader boundary; actual desktop file-picker interaction not automated."
+}

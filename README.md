@@ -30,6 +30,12 @@ Choose **Next hour** or **Next 24 hours** at the top for climate/energy; finance
 five trading days. Use a bundled sample or upload a CSV. Opening the offline HTML
 dashboard shows saved results; run the Streamlit app for predictions from a CSV.
 
+For a third-city upload check, use the [Pune weather CSV](sample_inputs/weather_pune_2025-10-01_2025-10-31.csv)
+or its [history-only version](sample_inputs/weather_pune_2025-10-01_2025-10-31_history_only.csv).
+The [external weather guide](sample_inputs/EXTERNAL_WEATHER_README.md) explains
+both modes, units and provenance. These examples use the existing checkpoints;
+uploading does not retrain a city-specific model.
+
 Run verification with `.venv/Scripts/python -m unittest discover -s tests -v`.
 To rebuild the packaged handoff locally, run `.venv/Scripts/python -m src.package_submission`.
 

@@ -1,0 +1,44 @@
+{
+  "city": "Pune",
+  "retrieved_utc": "2026-10-23T18:06:28.664399+00:00",
+  "request_url": "https://archive-api.open-meteo.com/v1/archive?latitude=18.5204&longitude=73.8567&start_date=2025-10-01&end_date=2025-10-31&hourly=temperature_2m%2Crelative_humidity_2m%2Cdew_point_2m%2Csurface_pressure%2Cwind_speed_10m%2Ccloud_cover%2Cshortwave_radiation&timezone=Asia%2FKolkata&temperature_unit=celsius&wind_speed_unit=kmh",
+  "request_parameters": {
+    "latitude": 18.5204,
+    "longitude": 73.8567,
+    "start_date": "2025-10-01",
+    "end_date": "2025-10-31",
+    "hourly": "temperature_2m,relative_humidity_2m,dew_point_2m,surface_pressure,wind_speed_10m,cloud_cover,shortwave_radiation",
+    "timezone": "Asia/Kolkata",
+    "temperature_unit": "celsius",
+    "wind_speed_unit": "kmh"
+  },
+  "provider": "Open-Meteo Historical Weather API",
+  "documentation": "https://open-meteo.com/en/docs/historical-weather-api",
+  "product": "API default best match historical gridded weather; not a station sensor export",
+  "returned_grid": {
+    "latitude": 18.523726,
+    "longitude": 73.86876,
+    "elevation": 561.0,
+    "timezone": "Asia/Kolkata",
+    "utc_offset_seconds": 19800
+  },
+  "units": {
+    "time": "iso8601",
+    "temperature_2m": "\u00b0C",
+    "relative_humidity_2m": "%",
+    "dew_point_2m": "\u00b0C",
+    "surface_pressure": "hPa",
+    "wind_speed_10m": "km/h",
+    "cloud_cover": "%",
+    "shortwave_radiation": "W/m\u00b2"
+  },
+  "timezone_convention": "Asia/Kolkata local wall-clock timestamps, without UTC offset",
+  "missing_values_filled": false,
+  "rows": 744,
+  "files": {
+    "sample_inputs/weather_pune_2025-10-01_2025-10-31.csv": "3eec8d229bdc81d5e66b230e0a34ad478d2bb24f0825af7ac7010a8f75c3dbf7",
+    "sample_inputs/weather_pune_2025-10-01_2025-10-31_history_only.csv": "742f4fe2d85d6c4ae7a6f22a6b371ec3a251e3495bddd6148fe177b54cb72b24",
+    "data/raw/external_weather/weather_pune_2025-10-01_2025-10-31.json": "d636c61badc5d7bba9621ade7afd17cc31d46c8fd0ae699e8b26a42d4987fef8"
+  },
+  "usage": "External upload smoke check only. No model training, scaler fitting or benchmark changes."
+}

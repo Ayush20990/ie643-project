@@ -43,6 +43,7 @@ def main():
         copy(p)
     for p in (ROOT/'dashboard').glob('*.html'):copy(p)
     for p in (ROOT/'sample_inputs').glob('*.csv'):copy(p)
+    for p in (ROOT/'sample_inputs').glob('*.md'):copy(p)
     for filename in ('requirements.txt','requirements-experiments.txt','requirements-documentation.txt'):
         copy(ROOT/filename)
     copy(ROOT/'README.md',Path('PROJECT_README.md'))
