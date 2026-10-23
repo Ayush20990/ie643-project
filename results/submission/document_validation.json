@@ -1,5 +1,5 @@
 {
-  "pdf_pages": 26,
+  "pdf_pages": 27,
   "text_bounds": "passed",
   "replacement_characters": false,
   "overfull_boxes": false,
@@ -7,7 +7,12 @@
   "browser_app_charts": "rendered",
   "offline_dashboard": "rendered; five dataset/task views",
   "presentation": "PowerPoint rendered all 20 slides; 18 content + 2 references",
-  "pdf_sha256": "c639db9ad943f266455bd339d40a06ff2e28fdc92da31891a5d12d8d27709109",
-  "current_tests": 46,
-  "combined_UI_combinations": 112
+  "pdf_sha256": "dc6abfb9dbe4a40cdfcfacdfd1066e6bf75aef87863597a8f55ce397819ebadd",
+  "current_tests": 47,
+  "combined_UI_combinations": 112,
+  "finance_qualitative_figure": true,
+  "finance_figure_pages": [
+    10
+  ],
+  "report_revision": "2026-10-23"
 }

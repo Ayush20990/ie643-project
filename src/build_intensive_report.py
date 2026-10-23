@@ -6,8 +6,34 @@ from pathlib import Path
 from .config import ROOT
 
 
+def finance_plot(folder):
+    """Draw the same fixed seed-0 example as the finance results slide."""
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    evidence=json.loads((ROOT/'presentation/intensive/evidence.json').read_text())
+    data=evidence['finance_plots']
+    fig,axes=plt.subplots(2,1,figsize=(10,5.6),layout='constrained')
+    for ax,name,title in zip(axes,('hl_range','log_return'),
+                            ('Daily high-low range: 100 log(high / low)',
+                             'Daily return: 100 log(close / previous close)')):
+        p=data['features'][name]
+        for key,label,color,style in [('actual','Actual','#1b2b31','-'),
+                                     ('source','Source-only','#d98a1e','--'),
+                                     ('adapted','Adapted','#2f7f73','-'),
+                                     ('input_mean','Input mean','#8773a9',':')]:
+            ax.plot(data['days'],p[key],label=label,color=color,ls=style,marker='o',lw=1.7,ms=3.5)
+        ax.set_title(title,fontsize=11)
+        ax.set_xticks(data['days']);ax.grid(alpha=.2);ax.set_ylabel('Log-percent units')
+    axes[0].legend(ncol=4,fontsize=9)
+    axes[-1].set_xlabel('Trading days ahead from one forecast origin')
+    figures=folder/'figures';figures.mkdir(exist_ok=True)
+    fig.savefig(figures/'finance_forecasts.png',dpi=180);plt.close(fig)
+
+
 def main():
     folder=ROOT/'report'/'intensive';folder.mkdir(parents=True,exist_ok=True)
+    finance_plot(folder)
     template=ROOT/'report'/'official_template'/'IE643_Project_Report.tex'
     preamble=template.read_text(encoding='utf-8').split(r'\begin{document}')[0]
     # The supplied fourth macro argument is unused and its sample call supplies three.

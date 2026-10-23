@@ -158,7 +158,7 @@ These are recording prompts, not completed video deliverables. Both members shou
 For the live 12-minute presentation, use the deck's shorter one-minute demonstration. Test uploads and browser access on the actual assessment machine before recording or presenting. Do not rerun model training during the demo.
 ''',encoding='utf-8')
     status={'team':'DeepGen','technical_artifacts':'built locally','report_author_narrative_review':'required under supplied assessment instructions',
-            'recordings':'not recorded; team faces/participation required','TA_dataset_approval':'not supplied','remote_push_or_upload':'not performed',
+            'recordings':'not recorded; team faces/participation required','TA_dataset_approval':'not supplied','remote_push_or_upload':'GitHub handoff published; see https://github.com/Ayush20990/ie643-project/releases/latest. Local rebuilds require separate publication.',
             'check_logs':['results/submission/validation.log','results/submission/presentation_validation.json','results/submission/document_validation.json']}
     (stage/'HANDOFF_STATUS.json').write_text(json.dumps(status,indent=2),encoding='utf-8')
     files={str(p.relative_to(stage)).replace('\\','/'):digest(p) for p in sorted(stage.rglob('*')) if p.is_file() and p.name!='PACKAGE_MANIFEST.json'}

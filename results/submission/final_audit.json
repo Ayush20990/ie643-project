@@ -1,0 +1,47 @@
+{
+  "date": "2026-10-23",
+  "technical_artifacts": "audited",
+  "report": {
+    "pages": 27,
+    "official_template": true,
+    "finance_quantitative_and_qualitative_results": true,
+    "unresolved_citations_or_replacement_characters": false,
+    "out_of_page_text": false
+  },
+  "presentation": {
+    "content_slides": 18,
+    "reference_slides": 2,
+    "finance_results_slide": 14,
+    "charts_verified_against_saved_forecasts": 6
+  },
+  "app": {
+    "latest_complete_test_suite": 47,
+    "research_ui_combinations": 76,
+    "submission_ui_combinations": 36,
+    "prediction_modes": {
+      "climate": [
+        1,
+        24
+      ],
+      "energy": [
+        1,
+        24
+      ],
+      "finance": [
+        5
+      ]
+    },
+    "inference_code_changed_since_passing_suite": false
+  },
+  "offline_dashboard": {
+    "dataset_horizon_views": 5,
+    "external_scripts_required": false
+  },
+  "remaining_team_requirements": [
+    "Both authors must review and write the report narrative in their own words under the supplied course authorship rule",
+    "Provide code walkthrough video, maximum 10 minutes, with all members involved and faces visible",
+    "Provide five-minute demonstration video",
+    "Confirm TA dataset approval; not supplied in this conversation",
+    "Upload and share the named Google Drive folder and complete the course submission form; GitHub publication does not replace submission"
+  ]
+}

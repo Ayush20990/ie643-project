@@ -561,14 +561,16 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [6]
 (original_table.tex [7]) (v2_table.tex) (depth_table.tex) (long_climate.tex
 [8]) (long_energy.tex) (long_finance.tex) [9]
+File: figures/finance_forecasts.png Graphic file (type bmp)
+<figures/finance_forecasts.png>
 File: ../../results/forecast_horizons/figures/climate_single_origin_24h.png Gra
 phic file (type bmp)
 <../../results/forecast_horizons/figures/climate_single_origin_24h.png>
 File: ../../results/forecast_horizons/figures/energy_single_origin_24h.png Grap
 hic file (type bmp)
 <../../results/forecast_horizons/figures/energy_single_origin_24h.png>
- [10] [11] (rolling_headline.tex)
-(rolling_comparison.tex) (source_retention.tex)
+ [10] [11] [12]
+(rolling_headline.tex) (rolling_comparison.tex) (source_retention.tex)
 File: ../../results/forecast_horizons/figures/rolling_next_hour_overview.png Gr
 aphic file (type bmp)
 <../../results/forecast_horizons/figures/rolling_next_hour_overview.png>
@@ -578,8 +580,8 @@ phic file (type bmp)
 File: ../../results/forecast_horizons/figures/energy_rolling_next_hour.png Grap
 hic file (type bmp)
 <../../results/forecast_horizons/figures/energy_rolling_next_hour.png>
- [12] [13] [14] [15]
-(peak_table.tex)
+ [13]
+[14] [15] [16] (peak_table.tex)
 File: ../../results/forecast_horizons/figures/climate_next_hour_adaptation.png 
 Graphic file (type bmp)
 <../../results/forecast_horizons/figures/climate_next_hour_adaptation.png>
@@ -592,29 +594,28 @@ hic file (type bmp)
 File: ../../results/forecast_horizons/figures/energy_peak_calibration.png Graph
 ic file (type bmp)
 <../../results/forecast_horizons/figures/energy_peak_calibration.png>
- (boost_ablation.tex [16
+ (boost_ablation.tex [17
 
-] [17]) (efficiency.tex) [18]
+] [18]) (efficiency.tex) [19]
 File: figures/app_studio.png Graphic file (type bmp)
 <figures/app_studio.png>
 File: figures/offline_dashboard.png Graphic file (type bmp)
 <figures/offline_dashboard.png>
- [19]
-[20] [21] [22] (IE643_Intensive_Assessment_Report.bbl
+ [20] [21] [22] [23] (IE643_Intensive_Assessment_Report.bbl
 Underfull \hbox (badness 3312) in paragraph at lines 42--47
 []\T1/lmr/m/n/10 Open-Meteo con-trib-u-tors.  His-tor-i-cal weather api.  [][]$
 \T1/lmtt/m/n/10 https : / / open-[]meteo . com / en / docs / 
  []
 
-) [23
+) [24
 
-] (original_complete.tex) (additional_controls.tex [24
+] (original_complete.tex) (additional_controls.tex [25
 
-]) [25] [26]
+]) [26] [27]
 (IE643_Intensive_Assessment_Report.aux)
 Package rerunfilecheck Info: File `IE643_Intensive_Assessment_Report.out' has n
 ot changed.
 (rerunfilecheck)             Checksum: 1D4FC544DB330A94833EEAFC82AAC18C;5414.
  )
-Output written on IE643_Intensive_Assessment_Report.xdv (26 pages, 95964 bytes)
+Output written on IE643_Intensive_Assessment_Report.xdv (27 pages, 98172 bytes)
 .
