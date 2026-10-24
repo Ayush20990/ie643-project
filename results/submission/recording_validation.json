@@ -2,7 +2,7 @@
   "CODE_WALKTHROUGH.html": {
     "segments": 11,
     "seconds": 555,
-    "spoken_words": 1014,
+    "spoken_words": 1094,
     "speaker_seconds": {
       "Rishik": 275,
       "Ayush": 280
@@ -11,8 +11,8 @@
     "html_links": "pass",
     "embedded_javascript": "syntax pass",
     "source_hashes_and_excerpts": "pass",
-    "inline_cues": 44,
-    "spoken_narration": "exactly preserved; cues excluded from word counts",
+    "inline_cues": 42,
+    "spoken_narration": "rendered narration matches current script source; directions excluded from spoken word count",
     "inline_cue_source_locations": "verified against current file lines and SHA-256"
   },
   "DASHBOARD_DEMO.html": {
@@ -28,7 +28,7 @@
     "embedded_javascript": "syntax pass",
     "source_hashes_and_excerpts": "pass",
     "inline_cues": 0,
-    "spoken_narration": "exactly preserved; cues excluded from word counts",
+    "spoken_narration": "rendered narration matches current script source; directions excluded from spoken word count",
     "inline_cue_source_locations": "verified against current file lines and SHA-256"
   }
 }

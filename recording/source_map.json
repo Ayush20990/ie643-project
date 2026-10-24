@@ -11,7 +11,7 @@
         "Show the repository in the IDE. Keep both face tiles visible.",
         "Open src/config.py. Do not explain the folder tree line by line."
       ],
-      "speech": "Hello, we are team DeepGen: Rishik Yadav, 23B2103, and Ayush Patel, 23B0037. Our IE643 project adapts a lightweight multivariate forecaster from one domain to another. I will explain the data and forecasting models. Ayush will explain adaptation, the final hybrid, and inference.",
+      "speech": "Hello, we are team DeepGen: Rishik Yadav, 23B2103, and Ayush Patel, 23B0037. Our task is to learn forecasting in one domain, then adapt it to another using observed target history. I will trace the data through source training. Ayush will then explain adaptation, how we combine forecasts, and how the app uses the saved model.",
       "refs": [],
       "essential": "",
       "cues": [
@@ -33,7 +33,7 @@
         "Point at DATASETS in src/config.py: the source, target, columns, L and H fields.",
         "Briefly open ohlcv_to_features in src/data_download.py. Point at its four feature formulas."
       ],
-      "speech": "The three domain pairs are Shimla to Delhi weather, transformer station ETTh1 to ETTh2, and IT to pharma company time series. Weather and energy predict all seven variables. Energy temperature means transformer oil temperature. Finance predicts returns, high-low range, opening gap and log volume, rather than stock price directly. Weather comes from Open-Meteo, energy from ETT, and finance from cached Yahoo Finance downloads. The original horizons are 24 hours and five trading days. The new one-hour task applies to weather and energy.",
+      "speech": "We begin in config.py, which defines our forecasting tasks. We use Shimla to Delhi weather, ETTh1 to ETTh2 transformer data, and IT to pharma company series. The columns field lists seven targets for weather and energy, including air temperature and transformer oil temperature respectively. For finance, ohlcv_to_features converts prices and volume into four targets: log return, high-low range, opening gap and log volume. Back in the configuration, L counts past observations and H counts future steps. We retain 24-hour weather and energy forecasts, add next-hour forecasts, and use five trading days for finance.",
       "refs": [
         {
           "file": "src/config.py",
@@ -55,8 +55,8 @@
       "essential": "Three domain pairs; all variables; finance has engineered features and a different horizon.",
       "cues": [
         {
-          "before": "The three domain pairs",
-          "text": "Switch to src/config.py:13 \u2192 DATASETS. Point at source/target, columns, L and H.",
+          "before": "We begin",
+          "text": "Switch to src/config.py:13 ? DATASETS. Point at source/target and columns.",
           "ref": {
             "file": "src/config.py",
             "anchor": "DATASETS =",
@@ -67,8 +67,8 @@
           }
         },
         {
-          "before": "Finance predicts",
-          "text": "Switch to src/data_download.py:45 \u2192 ohlcv_to_features(). Point at the four feature formulas.",
+          "before": "For finance,",
+          "text": "Switch to src/data_download.py:45 ? ohlcv_to_features(). Point at the four feature formulas.",
           "ref": {
             "file": "src/data_download.py",
             "anchor": "def ohlcv_to_features",
@@ -79,8 +79,8 @@
           }
         },
         {
-          "before": "The original horizons",
-          "text": "Return to src/config.py:13 \u2192 DATASETS. Point at the L and H fields.",
+          "before": "Back in the configuration,",
+          "text": "Return to src/config.py:13 ? DATASETS. Point at the L and H fields.",
           "ref": {
             "file": "src/config.py",
             "anchor": "DATASETS =",
@@ -103,7 +103,7 @@
         "In src/data.py point at chrono_split, then make_windows.",
         "In prepare point at Scaler.fit(parts[\"train\"]). Show series_list only briefly for finance."
       ],
-      "speech": "We split each series chronologically, so training precedes validation and testing. Weather and finance use a seventy-ten-twenty split, and energy uses sixty-twenty-twenty. Finance company series remain separate when creating windows. Each domain has a scaler fitted on its training period. In make_windows, the first L observations become X and the following H observations become Y. Earlier observations can provide validation or test context, but they are not new future labels. For the strict target adaptation, the fitting routines receive observed X; the original target Y is reserved for evaluation. The scaler and input-tail adaptation are separate operations.",
+      "speech": "Once the data is downloaded, data.py turns it into learning examples. First, chrono_split separates each series by time, keeping training before validation and testing. Weather and finance use seventy-ten-twenty; energy uses sixty-twenty-twenty. The series_list helper keeps finance companies separate, so a window cannot cross from one company into another. In prepare, each domain's scaler is fitted only on its training period. Then make_windows creates X from the first L observations and Y from the following H observations. Source training can learn from both. Target adaptation will receive observed X, while its original forecast future Y stays outside adaptation. These windows go into the model next.",
       "refs": [
         {
           "file": "src/data.py",
@@ -133,8 +133,8 @@
       "essential": "Split by time and company; fit the scaler on training data; keep the original target Y out of adaptation.",
       "cues": [
         {
-          "before": "We split",
-          "text": "Switch to src/data.py:43 \u2192 chrono_split(). Point at the chronological array slices.",
+          "before": "First, chrono_split",
+          "text": "Switch to src/data.py:43 ? chrono_split(). Point at the time-ordered slices.",
           "ref": {
             "file": "src/data.py",
             "anchor": "def chrono_split",
@@ -145,8 +145,8 @@
           }
         },
         {
-          "before": "Finance company",
-          "text": "Stay in data.py; jump to src/data.py:37 \u2192 series_list(). Point at grouping by series.",
+          "before": "The series_list helper",
+          "text": "Stay in data.py; jump to src/data.py:37 ? series_list(). Point at grouping by company.",
           "ref": {
             "file": "src/data.py",
             "anchor": "def series_list",
@@ -157,8 +157,8 @@
           }
         },
         {
-          "before": "Each domain",
-          "text": "Jump to src/data.py:75 \u2192 prepare(). Point at Scaler.fit(parts[\"train\"]).",
+          "before": "In prepare,",
+          "text": "Jump to src/data.py:75 ? prepare(). Point at Scaler.fit(parts[\"train\"]).",
           "ref": {
             "file": "src/data.py",
             "anchor": "scaler = Scaler.fit(parts[\"train\"])",
@@ -169,8 +169,8 @@
           }
         },
         {
-          "before": "In make_windows,",
-          "text": "Jump to src/data.py:55 \u2192 make_windows(). Point at xs.append(w[:, :L]) and ys.append(w[:, L:]).",
+          "before": "Then make_windows",
+          "text": "Jump to src/data.py:55 ? make_windows(). Point at xs.append(w[:, :L]) and ys.append(w[:, L:]).",
           "ref": {
             "file": "src/data.py",
             "anchor": "def make_windows",
@@ -193,7 +193,7 @@
         "Open src/model.py at LiteTCNForecaster.",
         "Point at self.revin, self.enc, self.head and self.linear; then the addition in forward."
       ],
-      "speech": "This is the LiteTCN we started with. RevIN normalizes each observed window. Temporal convolutions extract patterns, and the forecast combines a neural head with a linear temporal path. A reconstruction head supported the original adaptation experiments. We tested deeper networks and alternatives, but extra layers did not consistently improve the results. We therefore kept LiteTCN in the project and moved toward forecasting-aligned self-supervision and complementary predictors. The final hourly result belongs to a hybrid, rather than to this original network alone.",
+      "speech": "The original model receiving these windows is LiteTCNForecaster. Its RevIN step normalizes each input window, and temporal convolutions extract patterns from it. In forward, the neural forecast head and a linear temporal path are added to produce the forecast. The reconstruction head supported our earlier adaptation experiments. However, deeper networks did not consistently fix the observed errors. We retained LiteTCN and developed a smaller next-hour version, alongside the separate 24-hour benchmark. The two horizons remain separate forecasting tasks.",
       "refs": [
         {
           "file": "src/model.py",
@@ -215,8 +215,8 @@
       "essential": "LiteTCN was retained; deeper layers alone did not resolve the errors.",
       "cues": [
         {
-          "before": "This is the LiteTCN",
-          "text": "Switch to src/model.py:31 \u2192 LiteTCNForecaster.__init__(). Point at self.revin and self.enc.",
+          "before": "The original model",
+          "text": "Switch to src/model.py:31 ? LiteTCNForecaster.__init__(). Point at self.revin and self.enc.",
           "ref": {
             "file": "src/model.py",
             "anchor": "class LiteTCNForecaster",
@@ -227,8 +227,8 @@
           }
         },
         {
-          "before": "and the forecast combines",
-          "text": "Jump to src/model.py:67 \u2192 forward(). Point at the neural-head + linear-path addition.",
+          "before": "In forward,",
+          "text": "Scroll to src/model.py:67 ? forward(). Point at the neural-head + linear-path addition.",
           "ref": {
             "file": "src/model.py",
             "anchor": "yn = self.head(z)",
@@ -239,8 +239,8 @@
           }
         },
         {
-          "before": "A reconstruction head",
-          "text": "Return to src/model.py:50 \u2192 self.recon in the constructor. Keep this explanation brief.",
+          "before": "The reconstruction head",
+          "text": "Point briefly at src/model.py:50 ? self.recon in the constructor.",
           "ref": {
             "file": "src/model.py",
             "anchor": "self.recon =",
@@ -263,7 +263,7 @@
         "Open src/nowcast_tcn.py. Show the constructor, then the last return in forward.",
         "Point at context=48, H=1, dilations 1/2/4 and zero initialization."
       ],
-      "speech": "The new next-hour network uses the latest 48 observed hours, differences, and six deterministic time features. It has width 32 and residual convolution blocks with dilations one, two and four. These blocks capture recent dynamics without the original strided compression. For seven variables this TCN has 8,903 trainable parameters. It predicts an increment relative to the latest observation, scaled by recent variability. The final layer starts at zero, so the initial prediction is exactly persistence. The clock features are known from timestamps, not observed future weather or load. This model outputs one future timestamp for all seven variables. A rolling curve is formed by repeating that prediction after each new actual observation arrives.",
+      "speech": "That next-hour version is NextHourTCN. Its job is to take recent multivariate history and return one timestamp for all seven variables. The constructor uses the latest 48 hours, width 32, and convolution blocks with dilations one, two and four. It has 8,903 trainable parameters. In forward, the output is the latest observation plus a learned, scaled increment. This explicitly models change. The final layer starts at zero, so the untrained model reproduces persistence. Timestamp features supply known clock information. To obtain a rolling curve, we repeat this one-hour prediction after each newly observed actual value. Next, we train it on the source domain.",
       "refs": [
         {
           "file": "src/nowcast_tcn.py",
@@ -285,8 +285,8 @@
       "essential": "H=1 predicts increments from recent history; a rolling curve requires newly observed values.",
       "cues": [
         {
-          "before": "The new next-hour",
-          "text": "Switch to src/nowcast_tcn.py:8 \u2192 NextHourTCN.__init__(). Point at context=48, width=32, H=1 and dilations (1,2,4).",
+          "before": "That next-hour version",
+          "text": "Switch to src/nowcast_tcn.py:8 ? NextHourTCN.__init__(). Point at context, H, width and the encoder.",
           "ref": {
             "file": "src/nowcast_tcn.py",
             "anchor": "class NextHourTCN",
@@ -297,8 +297,8 @@
           }
         },
         {
-          "before": "It predicts an increment",
-          "text": "Jump to src/nowcast_tcn.py:36 \u2192 forward(). Point at last + sd * self.head(inputs).",
+          "before": "In forward,",
+          "text": "Jump to src/nowcast_tcn.py:36 ? forward(). Point at last + sd * self.head(inputs).",
           "ref": {
             "file": "src/nowcast_tcn.py",
             "anchor": "return last+sd*self.head",
@@ -310,7 +310,7 @@
         },
         {
           "before": "The final layer starts",
-          "text": "Scroll back to src/nowcast_tcn.py:17 \u2192 the two nn.init.zeros_ calls.",
+          "text": "Scroll back to src/nowcast_tcn.py:17 ? the two nn.init.zeros_ calls.",
           "ref": {
             "file": "src/nowcast_tcn.py",
             "anchor": "nn.init.zeros_",
@@ -321,8 +321,8 @@
           }
         },
         {
-          "before": "The clock features",
-          "text": "Jump to src/nowcast_tcn.py:30 \u2192 forward(). Point at the timestamp-based future-feature loop.",
+          "before": "Timestamp features",
+          "text": "Point at src/nowcast_tcn.py:30 ? the timestamp-based feature loop in forward().",
           "ref": {
             "file": "src/nowcast_tcn.py",
             "anchor": "for j,period in enumerate(TIME_PERIODS)",
@@ -345,7 +345,7 @@
         "In src/nowcast_train.py show source_fit and the optimizer/scheduler lines.",
         "Point at train_loss in the loop and validation-based checkpoint selection. Do not run training."
       ],
-      "speech": "Source training uses labeled source histories and futures. AdamW starts at learning rate 0.001, with weight decay 0.0001 and cosine decay. We compare ordinary and turning-weighted source controls, and use source validation to choose the source model. The recorded budget is 28 sampled rounds, with up to 4,096 windows per round; these are not full-dataset epochs. Adaptation later uses learning rate 0.0002 for twelve sampled rounds. We save the chosen checkpoints. Ayush will now show how adaptation uses target history while excluding its original forecast future.",
+      "speech": "That learning happens in source_fit. It receives source training and validation windows, creates NextHourTCN, and updates it with AdamW at learning rate 0.001, weight decay 0.0001 and cosine decay. We compare ordinary and turning-weighted losses to test emphasis on direction changes. Validation selects the retained checkpoint. Training uses 28 sampled rounds with up to 4,096 windows each, not 28 complete dataset passes. The output is the source checkpoint. Ayush will now explain adaptation without target future labels.",
       "refs": [
         {
           "file": "src/nowcast_train.py",
@@ -359,8 +359,8 @@
       "essential": "AdamW and cosine decay; source validation selects checkpoints; training is not part of the recording.",
       "cues": [
         {
-          "before": "Source training",
-          "text": "Switch to src/nowcast_train.py:40 \u2192 source_fit(). Point at AdamW and the cosine scheduler.",
+          "before": "That learning happens",
+          "text": "Switch to src/nowcast_train.py:40 ? source_fit(). Point at its inputs, NextHourTCN creation and optimizer.",
           "ref": {
             "file": "src/nowcast_train.py",
             "anchor": "def source_fit",
@@ -372,7 +372,19 @@
         },
         {
           "before": "We compare ordinary",
-          "text": "Scroll to src/nowcast_train.py:60 \u2192 source_fit() validation/eligibility checks and best checkpoint update.",
+          "text": "Point at src/nowcast_train.py:55 ? forecast_loss() and the turning-control option.",
+          "ref": {
+            "file": "src/nowcast_train.py",
+            "anchor": "loss=forecast_loss(model(x)",
+            "start": 55,
+            "end": 55,
+            "sha256": "d3a1f8e4843a4baac862c91fa5091e75b3a2548b0b558d61a79d569a3110cb7a",
+            "excerpt": " 55              loss=forecast_loss(model(x),y,x,key,control==\"turning\")"
+          }
+        },
+        {
+          "before": "Validation selects",
+          "text": "Scroll to src/nowcast_train.py:60 ? validation eligibility and best checkpoint update.",
           "ref": {
             "file": "src/nowcast_train.py",
             "anchor": "eligible=q[\"MSE\"]",
@@ -380,18 +392,6 @@
             "end": 60,
             "sha256": "d3a1f8e4843a4baac862c91fa5091e75b3a2548b0b558d61a79d569a3110cb7a",
             "excerpt": " 60          eligible=q[\"MSE\"]<=1.05*baseline[\"MSE\"]"
-          }
-        },
-        {
-          "before": "The recorded budget",
-          "text": "Stay in source_fit(); point at the sampled-window selection and training loop.",
-          "ref": {
-            "file": "src/nowcast_train.py",
-            "anchor": "model.train();ix=torch.randperm",
-            "start": 51,
-            "end": 51,
-            "sha256": "d3a1f8e4843a4baac862c91fa5091e75b3a2548b0b558d61a79d569a3110cb7a",
-            "excerpt": " 51          model.train();ix=torch.randperm(len(train[0]),generator=gen)[:args.max_windows]"
           }
         },
         {
@@ -413,7 +413,7 @@
         "Show within_input in src/nowcast_tcn.py, then adapt_fit in src/nowcast_train.py.",
         "Point at the actual loss line and the source-validation eligibility guard."
       ],
-      "speech": "I am Ayush Patel. The key boundary is in within_input. The final observed hour becomes a practice answer, and the predictor receives only the preceding history. For example, when 168 hours are already observed, an inner task uses hours one to 167 to predict observed hour 168. The real forecast then uses the full history to predict unseen hour 169. No original target forecast Y is passed to this adaptation function. Its loss combines target-history prediction, half-weighted source replay, and a 0.001 anchor toward source parameters. Source validation guards and the unchanged source checkpoint provide protection against harmful adaptation. The target historical values supply self-supervision; label-free does not mean that numerical target history is unavailable.",
+      "speech": "I am Ayush Patel. We have a source-trained network, but the target can behave differently. We adapt it using a practice forecasting task inside already observed target history. The within_input function creates that task: its earlier prefix is the input and its last observed hour is the answer. For 168 observed hours, we practice predicting hour 168 from hours one to 167. The real forecast still predicts unseen hour 169. The adapt_fit function receives target X windows and fine-tunes a source-model copy at learning rate 0.0002. Its loss combines this practice error, half-weighted source replay to retain source behavior, and a 0.001 parameter anchor to limit drift. Source-validation guards and the original checkpoint provide a fallback. This produces an adapted TCN. Next, we combine it with complementary predictors.",
       "refs": [
         {
           "file": "src/nowcast_tcn.py",
@@ -436,7 +436,12 @@
       "cues": [
         {
           "before": "I am Ayush",
-          "text": "Ayush begins. Switch to src/nowcast_tcn.py:39 \u2192 within_input(). Keep this short function visible for the example.",
+          "text": "Ayush begins. First explain why adaptation is needed; then show the practice task.",
+          "ref": null
+        },
+        {
+          "before": "The within_input function",
+          "text": "Switch to src/nowcast_tcn.py:39 ? within_input(). Point at the earlier prefix and withheld last observation.",
           "ref": {
             "file": "src/nowcast_tcn.py",
             "anchor": "def within_input",
@@ -447,20 +452,8 @@
           }
         },
         {
-          "before": "The final observed hour",
-          "text": "Point at src/nowcast_tcn.py:41: packed[:,:-1] is the predictor; packed[:,-1:] is the observed practice answer.",
-          "ref": {
-            "file": "src/nowcast_tcn.py",
-            "anchor": "return packed[:,:-1]",
-            "start": 41,
-            "end": 41,
-            "sha256": "8ebf86c82f0438042190eed951dd57979fd4ce153f19a38999fd81e736d0558e",
-            "excerpt": " 41      return packed[:,:-1],packed[:,-1:,:channels].detach()"
-          }
-        },
-        {
-          "before": "No original target forecast",
-          "text": "Switch to src/nowcast_train.py:68 \u2192 adapt_fit(). Point at target_train_x / target_val_x in its signature, then within_input().",
+          "before": "The adapt_fit function",
+          "text": "Switch to src/nowcast_train.py:68 ? adapt_fit(). Point at target X inputs, source copy and optimizer.",
           "ref": {
             "file": "src/nowcast_train.py",
             "anchor": "def adapt_fit",
@@ -472,7 +465,7 @@
         },
         {
           "before": "Its loss combines",
-          "text": "Scroll to src/nowcast_train.py:85 \u2192 the loss assignment. Point at target loss, +.5 source replay and +.001 anchor.",
+          "text": "Scroll to src/nowcast_train.py:85 ? loss. Point at target practice loss, +.5 source replay and +.001 anchor.",
           "ref": {
             "file": "src/nowcast_train.py",
             "anchor": "loss=forecast_loss(model(xt[i])",
@@ -483,8 +476,8 @@
           }
         },
         {
-          "before": "Source validation guards",
-          "text": "Scroll to src/nowcast_train.py:90 \u2192 eligible and the best checkpoint update.",
+          "before": "Source-validation guards",
+          "text": "Point at src/nowcast_train.py:90 ? eligibility and the retained best checkpoint.",
           "ref": {
             "file": "src/nowcast_train.py",
             "anchor": "eligible=sv[\"MSE\"]",
@@ -507,7 +500,7 @@
         "Open src/peak_nowcast.py at experts, then forward.",
         "Point at [:,:1] for the earlier 24-hour head; briefly point at observed_regime."
       ],
-      "speech": "The final model combines five outer forecasts: source-only and adapted versions of the new TCN-and-dynamics hybrid, source-only and adapted earlier-hybrid outputs, and persistence. From the earlier 24-hour head we take only the first hour, so every expert predicts the same timestamp. Nonnegative weights sum to one for each variable and trend regime. The regime uses recent observed slopes and acceleration; it does not inspect the future peak. This retains LiteTCN while allowing local dynamics and earlier predictors to contribute. The experts are frozen when the final mixture weights are calibrated.",
+      "speech": "We combine predictors because one network can still miss turning points. In PeakNowcast, experts returns five candidate next-hour forecasts: source and adapted TCN-and-local-dynamics hybrids, source and adapted earlier hybrids, and persistence. Local dynamics supplies a simple forecast of changes from recent observations. For the earlier 24-hour models, we take only their first output hour, so all five candidates refer to the same timestamp. The forward function combines them using weights that sum to one. The observed_regime function chooses which weight set to use from recent slopes and acceleration. These categories describe the observed trend, without inspecting a future peak. We have the candidates and combination rule; next we learn the weights.",
       "refs": [
         {
           "file": "src/peak_nowcast.py",
@@ -529,8 +522,8 @@
       "essential": "Five same-horizon experts; regimes use past values; weights form a convex mixture.",
       "cues": [
         {
-          "before": "The final model",
-          "text": "Switch to src/peak_nowcast.py:46 \u2192 PeakNowcast.experts(). Point at the five entries in p.",
+          "before": "In PeakNowcast,",
+          "text": "Switch to src/peak_nowcast.py:46 ? PeakNowcast.experts(). Point at the five entries in p.",
           "ref": {
             "file": "src/peak_nowcast.py",
             "anchor": "def experts",
@@ -541,8 +534,8 @@
           }
         },
         {
-          "before": "From the earlier",
-          "text": "Point at src/peak_nowcast.py:48 \u2192 [:,:1], which selects the first hour of the earlier head.",
+          "before": "For the earlier",
+          "text": "Point at src/peak_nowcast.py:48 ? [:,:1], selecting the earlier model's first forecast hour.",
           "ref": {
             "file": "src/peak_nowcast.py",
             "anchor": "reference=self.reference.components",
@@ -553,8 +546,8 @@
           }
         },
         {
-          "before": "Nonnegative weights",
-          "text": "Scroll to src/peak_nowcast.py:55 \u2192 forward(). Point at regime-dependent weights and the weighted sum.",
+          "before": "The forward function",
+          "text": "Scroll to src/peak_nowcast.py:55 ? forward(). Point at the selected weights and weighted sum.",
           "ref": {
             "file": "src/peak_nowcast.py",
             "anchor": "def forward(self,x)",
@@ -565,8 +558,8 @@
           }
         },
         {
-          "before": "The regime uses",
-          "text": "Jump to src/peak_nowcast.py:10 \u2192 observed_regime(). Point at current, previous and acceleration.",
+          "before": "The observed_regime function",
+          "text": "Jump to src/peak_nowcast.py:10 ? observed_regime(). Point at current, previous and acceleration.",
           "ref": {
             "file": "src/peak_nowcast.py",
             "anchor": "def observed_regime",
@@ -587,19 +580,11 @@
       "title": "Event loss, observed episodes and source safeguards",
       "actions": [
         "Show collect_episodes in src/peak_nowcast_train.py. Its arguments contain input_windows, not target Y.",
-        "Point at EVENT_WEIGHT / RAMP_WEIGHT, then objective and constraints inside fit_weights.",
+        "Follow the data: collect_episodes builds practice examples, design scores them, and fit_weights learns the mixture.",
         "Keep the matrix algebra collapsed; explain its purpose only."
       ],
-      "speech": "This collector creates a daily episode of successive one-hour practice forecasts entirely inside an already observed input. At each practice origin only the earlier prefix is visible. The event objective combines point MSE, twice the peak-and-trough error, and 0.1 times ramp error. Historical extrema identify the calibration loss locations, but never enter the regime features. This separates event supervision during fitting from causal inputs during prediction. The final calibration fits mixture weights with constrained SLSQP, rather than retraining all neural experts. It balances source and target-history objectives with a small source-weight anchor. Guards allow at most ten percent source point-error deterioration and five percent target-input point-error deterioration on those calibration data. Sparse regimes and failed fits fall back to source weights. These guards are not guarantees about unknown future test errors.",
+      "speech": "To learn those weights without target future labels, we first need practice examples. The collect_episodes function builds them from each observed input window. It steps through that window's final 24 observed hours, predicting each hour from its earlier prefix. It returns the five expert predictions, their observed trend categories, and the already observed answers. Together, these form one daily practice episode. Next, design defines how to score the combined forecast on that episode: point MSE, twice the peak-and-trough MSE, and 0.1 times ramp MSE. Its argmax and argmin locate historical extrema for the loss; they never supply future regime features. Finally, fit_weights balances source and target-history event losses with a source-weight anchor. It uses constrained SLSQP to adjust mixture weights while keeping the experts frozen. Source and target-input point-error guards limit deterioration on calibration data; sparse or failed fits retain source weights. The result is a saved adapted mixture, with no guarantee that every future peak improves.",
       "refs": [
-        {
-          "file": "src/peak_nowcast_train.py",
-          "anchor": "EVENT_WEIGHT=2.",
-          "start": 26,
-          "end": 28,
-          "sha256": "9e2b3e278500ff64a67c4938d1f650a6a7e017cfaeb773579eb8036db1ac40cf",
-          "excerpt": " 26  EVENT_WEIGHT=2.\n 27  RAMP_WEIGHT=.1\n 28  "
-        },
         {
           "file": "src/peak_nowcast_train.py",
           "anchor": "def collect_episodes",
@@ -607,6 +592,14 @@
           "end": 44,
           "sha256": "9e2b3e278500ff64a67c4938d1f650a6a7e017cfaeb773579eb8036db1ac40cf",
           "excerpt": " 31  def collect_episodes(model,input_windows):\n 32      \"\"\"Prefixes/labels come from this X only; no cross-window assembly or Y.\"\"\"\n 33      predictions,regimes,truth=[],[],[]\n 34      model.eval()\n 35      for end in range(model.L-24,model.L):\n 36          prefix,tail=episode_prefix(input_windows,end,model.C)\n 37          predictions.append(model.experts(prefix))\n 38          regimes.append(observed_regime(prefix,model.C)[:,None])\n 39          truth.append(tail)\n 40      return torch.cat(predictions,1).numpy(),torch.cat(regimes,1).numpy(),torch.cat(truth,1).numpy()\n 41  \n 42  \n 43  def design(predictions,regimes,truth,channel):\n 44      p=predictions[:,:,channel].astype(float);reg=regimes[:,:,channel]"
+        },
+        {
+          "file": "src/peak_nowcast_train.py",
+          "anchor": "def design",
+          "start": 43,
+          "end": 59,
+          "sha256": "9e2b3e278500ff64a67c4938d1f650a6a7e017cfaeb773579eb8036db1ac40cf",
+          "excerpt": " 43  def design(predictions,regimes,truth,channel):\n 44      p=predictions[:,:,channel].astype(float);reg=regimes[:,:,channel]\n 45      y=truth[:,:,channel].astype(float);e,h=y.shape\n 46      a=np.zeros((e,h,20))\n 47      flat=a.reshape(-1,20)\n 48      for r in range(4):flat[reg.reshape(-1)==r,r*5:(r+1)*5]=p.reshape(-1,5)[reg.reshape(-1)==r]\n 49      w=np.ones_like(y);i=np.arange(e)\n 50      w[i,y.argmax(1)]+=EVENT_WEIGHT*h/2\n 51      w[i,y.argmin(1)]+=EVENT_WEIGHT*h/2\n 52      da=np.diff(a,axis=1).reshape(-1,20);dy=np.diff(y,axis=1).reshape(-1)\n 53      a=a.reshape(-1,20);yy=y.reshape(-1);ww=w.reshape(-1)\n 54      g=a.T@(a*ww[:,None])/len(yy)+RAMP_WEIGHT*da.T@da/len(dy)\n 55      rhs=a.T@(yy*ww)/len(yy)+RAMP_WEIGHT*da.T@dy/len(dy)\n 56      g0=a.T@a/len(yy);r0=a.T@yy/len(yy);constant=np.mean(yy**2)\n 57      event=lambda v:float(np.mean((a@v-yy)**2*ww)+RAMP_WEIGHT*np.mean((da@v-dy)**2))\n 58      point=lambda v:float(v@g0@v-2*v@r0+constant)\n 59      return g,rhs,event,point,np.bincount(reg.reshape(-1),minlength=4)"
         },
         {
           "file": "src/peak_nowcast_train.py",
@@ -620,8 +613,8 @@
       "essential": "Observed episodes, event-sensitive loss and constrained frozen-expert calibration; no future-label regime features.",
       "cues": [
         {
-          "before": "This collector",
-          "text": "Switch to src/peak_nowcast_train.py:31 \u2192 collect_episodes(). Point at input_windows, episode_prefix() and the observed tail.",
+          "before": "The collect_episodes function",
+          "text": "Switch to src/peak_nowcast_train.py:31 ? collect_episodes(). Point at input_windows, the 24-hour loop, and the three returned arrays.",
           "ref": {
             "file": "src/peak_nowcast_train.py",
             "anchor": "def collect_episodes",
@@ -632,44 +625,20 @@
           }
         },
         {
-          "before": "The event objective",
-          "text": "Scroll up to src/peak_nowcast_train.py:26 \u2192 EVENT_WEIGHT=2 and RAMP_WEIGHT=.1.",
+          "before": "Next, design",
+          "text": "Scroll to src/peak_nowcast_train.py:43 ? design(). Point at the peak/trough weights, ramp differences and event loss.",
           "ref": {
             "file": "src/peak_nowcast_train.py",
-            "anchor": "EVENT_WEIGHT=2.",
-            "start": 26,
-            "end": 26,
+            "anchor": "def design",
+            "start": 43,
+            "end": 43,
             "sha256": "9e2b3e278500ff64a67c4938d1f650a6a7e017cfaeb773579eb8036db1ac40cf",
-            "excerpt": " 26  EVENT_WEIGHT=2."
+            "excerpt": " 43  def design(predictions,regimes,truth,channel):"
           }
         },
         {
-          "before": "Historical extrema",
-          "text": "Jump to src/peak_nowcast_train.py:50 \u2192 design(). Point at y.argmax / y.argmin: these choose loss locations only.",
-          "ref": {
-            "file": "src/peak_nowcast_train.py",
-            "anchor": "w[i,y.argmax(1)]",
-            "start": 50,
-            "end": 50,
-            "sha256": "9e2b3e278500ff64a67c4938d1f650a6a7e017cfaeb773579eb8036db1ac40cf",
-            "excerpt": " 50      w[i,y.argmax(1)]+=EVENT_WEIGHT*h/2"
-          }
-        },
-        {
-          "before": "The final calibration",
-          "text": "Jump to src/peak_nowcast_train.py:96 \u2192 fit_weights(). Point at minimize(..., method=\"SLSQP\"); skip matrix algebra.",
-          "ref": {
-            "file": "src/peak_nowcast_train.py",
-            "anchor": "fit=minimize(objective",
-            "start": 96,
-            "end": 96,
-            "sha256": "9e2b3e278500ff64a67c4938d1f650a6a7e017cfaeb773579eb8036db1ac40cf",
-            "excerpt": " 96          fit=minimize(objective,source,jac=jac,bounds=adapted_bounds,method=\"SLSQP\","
-          }
-        },
-        {
-          "before": "It balances source",
-          "text": "Point at src/peak_nowcast_train.py:91 \u2192 objective: source/target event losses and source-weight anchor.",
+          "before": "Finally, fit_weights",
+          "text": "Scroll to src/peak_nowcast_train.py:91 ? fit_weights() objective. Point at source loss, target-history loss and the anchor.",
           "ref": {
             "file": "src/peak_nowcast_train.py",
             "anchor": "objective=lambda",
@@ -680,8 +649,20 @@
           }
         },
         {
-          "before": "Guards allow",
-          "text": "Point at src/peak_nowcast_train.py:97 \u2192 the two inequality constraints, 1.1 source and 1.05 target-input point error.",
+          "before": "It uses constrained SLSQP",
+          "text": "Point at src/peak_nowcast_train.py:96 ? minimize(..., method=\"SLSQP\"). The experts supply fixed predictions; only mixture weights change.",
+          "ref": {
+            "file": "src/peak_nowcast_train.py",
+            "anchor": "fit=minimize(objective",
+            "start": 96,
+            "end": 96,
+            "sha256": "9e2b3e278500ff64a67c4938d1f650a6a7e017cfaeb773579eb8036db1ac40cf",
+            "excerpt": " 96          fit=minimize(objective,source,jac=jac,bounds=adapted_bounds,method=\"SLSQP\","
+          }
+        },
+        {
+          "before": "Source and target-input",
+          "text": "Point at src/peak_nowcast_train.py:97 ? the two error constraints. Then show the sparse-regime bounds just above and acceptance/fallback below.",
           "ref": {
             "file": "src/peak_nowcast_train.py",
             "anchor": "constraints=constraints+[{\"type\":\"ineq\",\"fun\":lambda v:1.1",
@@ -689,18 +670,6 @@
             "end": 97,
             "sha256": "9e2b3e278500ff64a67c4938d1f650a6a7e017cfaeb773579eb8036db1ac40cf",
             "excerpt": " 97              constraints=constraints+[{\"type\":\"ineq\",\"fun\":lambda v:1.1*point_s-ms(v)},"
-          }
-        },
-        {
-          "before": "Sparse regimes",
-          "text": "Point at src/peak_nowcast_train.py:95 \u2192 min(ns[r],nt[r])<64, then the if not accepted fallback below.",
-          "ref": {
-            "file": "src/peak_nowcast_train.py",
-            "anchor": "if min(ns[r],nt[r])<64",
-            "start": 95,
-            "end": 95,
-            "sha256": "9e2b3e278500ff64a67c4938d1f650a6a7e017cfaeb773579eb8036db1ac40cf",
-            "excerpt": " 95              for j in range(5):adapted_bounds.append((source[r*5+j],source[r*5+j]) if min(ns[r],nt[r])<64 else (0,1))"
           }
         }
       ]
@@ -716,7 +685,7 @@
         "In src/submission.py show load_selected and predict_window.",
         "Briefly show the Prediction type radio in app/submission_app.py. Do not explain layout code."
       ],
-      "speech": "The app loads saved checkpoints according to dataset, prediction type and model. Weather and energy offer one hour or 24 hours; finance uses its existing strict hybrid at five trading days. CSV validation checks required columns and consecutive hourly timestamps. In predict_window, only rows before the chosen origin enter X. Predictions are computed before actual future rows are used for scoring. Changing the prediction option therefore changes the checkpoint and output horizon together. Uploaded files are used for frozen inference and evaluation, not for automatic retraining.",
+      "speech": "With calibration complete, the app uses the saved models. The load_selected function selects the checkpoint family for the dataset and horizon: one or 24 hours for weather and energy, and five trading days for finance. Before inference, read_input validates the CSV schema and consecutive hourly timestamps. Then predict_window takes only the rows before the selected origin, obtains forecasts, and reads actual future rows separately for scoring. The app's Prediction type control sends the chosen horizon to this workflow. Uploading a CSV therefore runs frozen inference and evaluation; it does not silently retrain the model. Finally, we measure these forecasts.",
       "refs": [
         {
           "file": "src/submission.py",
@@ -746,8 +715,8 @@
       "essential": "Mode selects a matching checkpoint; only preceding rows enter inference; actuals are for scoring.",
       "cues": [
         {
-          "before": "The app loads",
-          "text": "Switch to src/submission.py:26 \u2192 load_selected(). Point at the horizon/model dispatch.",
+          "before": "The load_selected function",
+          "text": "Switch to src/submission.py:26 ? load_selected(). Point at dataset/horizon/model dispatch.",
           "ref": {
             "file": "src/submission.py",
             "anchor": "def load_selected",
@@ -758,8 +727,8 @@
           }
         },
         {
-          "before": "CSV validation",
-          "text": "Jump to src/submission.py:44 \u2192 read_input(). Point at the required columns and consecutive-hour validation.",
+          "before": "Before inference,",
+          "text": "Jump to src/submission.py:44 ? read_input(). Point at CSV and hourly-timestamp validation.",
           "ref": {
             "file": "src/submission.py",
             "anchor": "def read_input",
@@ -770,8 +739,8 @@
           }
         },
         {
-          "before": "In predict_window,",
-          "text": "Jump to src/submission.py:72 \u2192 predict_window(). Point at values[origin-l:origin] and the prediction call before truth.",
+          "before": "Then predict_window",
+          "text": "Scroll to src/submission.py:72 ? predict_window(). Point at the input slice, forecast call, then separate truth slice.",
           "ref": {
             "file": "src/submission.py",
             "anchor": "def predict_window",
@@ -782,8 +751,8 @@
           }
         },
         {
-          "before": "Changing the prediction",
-          "text": "Switch to app/submission_app.py:185 \u2192 main(). Point at the Prediction type radio and its horizon options.",
+          "before": "The app's Prediction type",
+          "text": "Switch to app/submission_app.py:185 ? main(). Point at the Prediction type radio and its horizon options.",
           "ref": {
             "file": "app/submission_app.py",
             "anchor": "horizon = st.radio",
@@ -806,7 +775,7 @@
         "Show all_metrics in src/metrics.py, then peak_metrics in src/diagnose_peaks.py.",
         "Open results/submission/validation.log at its final test summary; do not rerun the suite."
       ],
-      "speech": "Global MSE measures standardized error across all predicted variables. Key-variable RMSE reverses the scaling, giving temperature error in degrees Celsius or finance high-low-range error in log-percent units. We separately measure errors at actual peaks and troughs. Source-only and adapted models must be compared at the same horizon. The complete suite recorded 47 passing tests. The app deploys seed zero, while the main benchmark tables average three seeds. The periods were reused during development, so we do not claim independent confirmation. The separate demo shows the saved models working through the interface.",
+      "speech": "The all_metrics function measures standardized multivariate MSE and MAE. It also reverses the scaling for key-variable RMSE, giving temperature error in degrees Celsius. Because average error can hide missed extremes, peak_metrics separately measures errors at actual peaks and troughs. These comparisons must use matching horizons. The saved validation log records 47 passing tests. For interpreting results, the app uses seed zero; benchmarks average three seeds. Development test periods were reused, so these are not independent confirmation results. This completes the data-to-adaptation-to-forecast workflow. Our separate demo shows the interface.",
       "refs": [
         {
           "file": "src/metrics.py",
@@ -828,8 +797,8 @@
       "essential": "Physical-unit RMSE, matched horizons, event metrics, three-seed benchmarks and honest limitations.",
       "cues": [
         {
-          "before": "Global MSE",
-          "text": "Switch to src/metrics.py:24 \u2192 all_metrics(). Point at MSE/MAE over all variables.",
+          "before": "The all_metrics function",
+          "text": "Switch to src/metrics.py:24 ? all_metrics(). Point at multivariate MSE and MAE.",
           "ref": {
             "file": "src/metrics.py",
             "anchor": "def all_metrics",
@@ -840,13 +809,13 @@
           }
         },
         {
-          "before": "Key-variable RMSE",
-          "text": "Stay in all_metrics(); point at the inverse scaling and key_RMSE calculation below.",
+          "before": "It also reverses",
+          "text": "Stay in all_metrics(); point at inverse scaling and key_RMSE.",
           "ref": null
         },
         {
-          "before": "We separately measure",
-          "text": "Switch to src/diagnose_peaks.py:18 \u2192 peak_metrics(). Point at actual peak/trough indices and their errors.",
+          "before": "Because average error",
+          "text": "Switch to src/diagnose_peaks.py:18 ? peak_metrics(). Point at actual peak/trough indices and errors.",
           "ref": {
             "file": "src/diagnose_peaks.py",
             "anchor": "def peak_metrics",
@@ -857,8 +826,8 @@
           }
         },
         {
-          "before": "The complete suite",
-          "text": "Switch to results/submission/validation.log:225 \u2192 the final test summary. Show 47 tests / OK; do not run the suite.",
+          "before": "The saved validation log",
+          "text": "Switch to results/submission/validation.log:225 ? the final 47-tests / OK summary; do not rerun tests.",
           "ref": {
             "file": "results/submission/validation.log",
             "anchor": "Ran 47 tests",
@@ -869,8 +838,8 @@
           }
         },
         {
-          "before": "The app deploys",
-          "text": "Keep the saved test summary visible and finish the interpretation. No more file switches.",
+          "before": "For interpreting results,",
+          "text": "Keep the saved log visible. Explain benchmark scope, then finish without another file switch.",
           "ref": null
         }
       ]
