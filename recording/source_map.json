@@ -13,7 +13,14 @@
       ],
       "speech": "Hello, we are team DeepGen: Rishik Yadav, 23B2103, and Ayush Patel, 23B0037. Our IE643 project adapts a lightweight multivariate forecaster from one domain to another. I will explain the data and forecasting models. Ayush will explain adaptation, the final hybrid, and inference.",
       "refs": [],
-      "essential": ""
+      "essential": "",
+      "cues": [
+        {
+          "before": "Hello,",
+          "text": "Keep the IDE and both face tiles visible. Rishik begins.",
+          "ref": null
+        }
+      ]
     },
     {
       "start": "0:25",
@@ -45,7 +52,45 @@
           "excerpt": " 45  def ohlcv_to_features(df):\n 46      \"\"\"OHLCV -> stationary features used by the model (all in %, except log volume).\"\"\"\n 47      f = pd.DataFrame({\"date\": pd.to_datetime(df[\"Date\"] if \"Date\" in df else df[\"date\"])})\n 48      c, o, h, l, v = (df[k].astype(float).values for k in [\"Close\", \"Open\", \"High\", \"Low\", \"Volume\"])\n 49      prev_c = np.r_[np.nan, c[:-1]]\n 50      f[\"log_return\"] = 100 * np.log(c / prev_c)\n 51      f[\"hl_range\"] = 100 * np.log(h / l)\n 52      f[\"gap\"] = 100 * np.log(o / prev_c)\n 53      f[\"log_volume\"] = np.log1p(v)\n 54      f[\"close\"] = c\n 55      f = f.replace([np.inf, -np.inf], np.nan).dropna()\n 56      return f[(f[\"log_volume\"] > 0) & (f[\"hl_range\"] >= 0)]\n 57  \n 58  \n 59  def download_finance():"
         }
       ],
-      "essential": "Three domain pairs; all variables; finance has engineered features and a different horizon."
+      "essential": "Three domain pairs; all variables; finance has engineered features and a different horizon.",
+      "cues": [
+        {
+          "before": "The three domain pairs",
+          "text": "Switch to src/config.py:13 \u2192 DATASETS. Point at source/target, columns, L and H.",
+          "ref": {
+            "file": "src/config.py",
+            "anchor": "DATASETS =",
+            "start": 13,
+            "end": 13,
+            "sha256": "ddbd2a67777833231a8dca0e01b82d72581052710b7adfc0e8b99a437e290d06",
+            "excerpt": " 13  DATASETS = {"
+          }
+        },
+        {
+          "before": "Finance predicts",
+          "text": "Switch to src/data_download.py:45 \u2192 ohlcv_to_features(). Point at the four feature formulas.",
+          "ref": {
+            "file": "src/data_download.py",
+            "anchor": "def ohlcv_to_features",
+            "start": 45,
+            "end": 45,
+            "sha256": "de4246b8ae37e4c7a21da5d6200d269cc4e43549d2a9b6561c789c4e64f56a01",
+            "excerpt": " 45  def ohlcv_to_features(df):"
+          }
+        },
+        {
+          "before": "The original horizons",
+          "text": "Return to src/config.py:13 \u2192 DATASETS. Point at the L and H fields.",
+          "ref": {
+            "file": "src/config.py",
+            "anchor": "DATASETS =",
+            "start": 13,
+            "end": 13,
+            "sha256": "ddbd2a67777833231a8dca0e01b82d72581052710b7adfc0e8b99a437e290d06",
+            "excerpt": " 13  DATASETS = {"
+          }
+        }
+      ]
     },
     {
       "start": "1:10",
@@ -85,7 +130,57 @@
           "excerpt": " 67  def prepare(ds):\n 68      \"\"\"Returns dict with scaled windows for both domains + scalers.\"\"\"\n 69      cfg = DATASETS[ds]\n 70      L, H, cols = cfg[\"L\"], cfg[\"H\"], cfg[\"columns\"]\n 71      out = {\"cfg\": cfg}\n 72      for role in [\"source\", \"target\"]:\n 73          arrays = series_list(load_domain(ds, cfg[role]), cols)\n 74          parts = chrono_split(arrays, cfg[\"split\"], L)\n 75          scaler = Scaler.fit(parts[\"train\"])\n 76          d = {\"scaler\": scaler}\n 77          for s in [\"train\", \"val\", \"test\"]:\n 78              scaled = [scaler.transform(a) for a in parts[s]]\n 79              stride = cfg[\"train_stride\"] if s == \"train\" else 1\n 80              d[s] = make_windows(scaled, L, H, stride)\n 81          out[role] = d\n 82      return out\n 83  \n 84  "
         }
       ],
-      "essential": "Split by time and company; fit the scaler on training data; keep the original target Y out of adaptation."
+      "essential": "Split by time and company; fit the scaler on training data; keep the original target Y out of adaptation.",
+      "cues": [
+        {
+          "before": "We split",
+          "text": "Switch to src/data.py:43 \u2192 chrono_split(). Point at the chronological array slices.",
+          "ref": {
+            "file": "src/data.py",
+            "anchor": "def chrono_split",
+            "start": 43,
+            "end": 43,
+            "sha256": "5f4840aaf72e54fa57862de21441e5c333b8bae4b8c81280be90b1f96d81cea5",
+            "excerpt": " 43  def chrono_split(arrays, split, L):"
+          }
+        },
+        {
+          "before": "Finance company",
+          "text": "Stay in data.py; jump to src/data.py:37 \u2192 series_list(). Point at grouping by series.",
+          "ref": {
+            "file": "src/data.py",
+            "anchor": "def series_list",
+            "start": 37,
+            "end": 37,
+            "sha256": "5f4840aaf72e54fa57862de21441e5c333b8bae4b8c81280be90b1f96d81cea5",
+            "excerpt": " 37  def series_list(df, cols):"
+          }
+        },
+        {
+          "before": "Each domain",
+          "text": "Jump to src/data.py:75 \u2192 prepare(). Point at Scaler.fit(parts[\"train\"]).",
+          "ref": {
+            "file": "src/data.py",
+            "anchor": "scaler = Scaler.fit(parts[\"train\"])",
+            "start": 75,
+            "end": 75,
+            "sha256": "5f4840aaf72e54fa57862de21441e5c333b8bae4b8c81280be90b1f96d81cea5",
+            "excerpt": " 75          scaler = Scaler.fit(parts[\"train\"])"
+          }
+        },
+        {
+          "before": "In make_windows,",
+          "text": "Jump to src/data.py:55 \u2192 make_windows(). Point at xs.append(w[:, :L]) and ys.append(w[:, L:]).",
+          "ref": {
+            "file": "src/data.py",
+            "anchor": "def make_windows",
+            "start": 55,
+            "end": 55,
+            "sha256": "5f4840aaf72e54fa57862de21441e5c333b8bae4b8c81280be90b1f96d81cea5",
+            "excerpt": " 55  def make_windows(arrays, L, H, stride=1):"
+          }
+        }
+      ]
     },
     {
       "start": "2:05",
@@ -117,7 +212,45 @@
           "excerpt": " 60      def forward(self, x, return_z=False, return_h=False):\n 61          xn, stats = self.revin.norm(x)\n 62          if return_h:\n 63              z, h = self.encode_multi(xn)\n 64          else:\n 65              z = self.encode(xn)\n 66              h = None\n 67          yn = self.head(z).view(-1, self.H, self.C) + self.linear(xn.transpose(1, 2)).transpose(1, 2)\n 68          y = self.revin.denorm(yn, stats)\n 69          if return_h:\n 70              return y, z, h\n 71          return (y, z) if return_z else y"
         }
       ],
-      "essential": "LiteTCN was retained; deeper layers alone did not resolve the errors."
+      "essential": "LiteTCN was retained; deeper layers alone did not resolve the errors.",
+      "cues": [
+        {
+          "before": "This is the LiteTCN",
+          "text": "Switch to src/model.py:31 \u2192 LiteTCNForecaster.__init__(). Point at self.revin and self.enc.",
+          "ref": {
+            "file": "src/model.py",
+            "anchor": "class LiteTCNForecaster",
+            "start": 31,
+            "end": 31,
+            "sha256": "102f22b17091b21d0e719b382dc54beb51fbeb8bc3197968022fc2ecd9f938ed",
+            "excerpt": " 31  class LiteTCNForecaster(nn.Module):"
+          }
+        },
+        {
+          "before": "and the forecast combines",
+          "text": "Jump to src/model.py:67 \u2192 forward(). Point at the neural-head + linear-path addition.",
+          "ref": {
+            "file": "src/model.py",
+            "anchor": "yn = self.head(z)",
+            "start": 67,
+            "end": 67,
+            "sha256": "102f22b17091b21d0e719b382dc54beb51fbeb8bc3197968022fc2ecd9f938ed",
+            "excerpt": " 67          yn = self.head(z).view(-1, self.H, self.C) + self.linear(xn.transpose(1, 2)).transpose(1, 2)"
+          }
+        },
+        {
+          "before": "A reconstruction head",
+          "text": "Return to src/model.py:50 \u2192 self.recon in the constructor. Keep this explanation brief.",
+          "ref": {
+            "file": "src/model.py",
+            "anchor": "self.recon =",
+            "start": 50,
+            "end": 50,
+            "sha256": "102f22b17091b21d0e719b382dc54beb51fbeb8bc3197968022fc2ecd9f938ed",
+            "excerpt": " 50          self.recon = nn.Linear(latent, L * C)"
+          }
+        }
+      ]
     },
     {
       "start": "2:45",
@@ -149,7 +282,57 @@
           "excerpt": " 19      def forward(self,packed):\n 20          if packed.shape[-1]!=self.C+6 or packed.shape[1]<self.context:\n 21              raise ValueError(\"Need real recent history and timestamp features\")\n 22          x=packed[:,-self.context:,:self.C]\n 23          clock=packed[:,-self.context:,self.C:]\n 24          last=x[:,-1:]\n 25          sd=x.std(1,keepdim=True,unbiased=False).clamp_min(.05).detach()\n 26          z=(x-last)/sd\n 27          difference=torch.cat((torch.zeros_like(z[:,:1]),z.diff(dim=1)),1)\n 28          h=self.encoder(self.projection(torch.cat((z,difference,clock),-1).transpose(1,2)))[:,:,-1]\n 29          future=[]\n 30          for j,period in enumerate(TIME_PERIODS):\n 31              angle=2*torch.pi/period\n 32              sin,cos=clock[:,-1,2*j],clock[:,-1,2*j+1]\n 33              future.extend((sin*torch.cos(x.new_tensor(angle))+cos*torch.sin(x.new_tensor(angle)),\n 34                             cos*torch.cos(x.new_tensor(angle))-sin*torch.sin(x.new_tensor(angle))))\n 35          inputs=torch.cat((h,difference[:,-1],last[:,0],sd[:,0].log(),torch.stack(future,-1)),-1)\n 36          return last+sd*self.head(inputs)[:,None]"
         }
       ],
-      "essential": "H=1 predicts increments from recent history; a rolling curve requires newly observed values."
+      "essential": "H=1 predicts increments from recent history; a rolling curve requires newly observed values.",
+      "cues": [
+        {
+          "before": "The new next-hour",
+          "text": "Switch to src/nowcast_tcn.py:8 \u2192 NextHourTCN.__init__(). Point at context=48, width=32, H=1 and dilations (1,2,4).",
+          "ref": {
+            "file": "src/nowcast_tcn.py",
+            "anchor": "class NextHourTCN",
+            "start": 8,
+            "end": 8,
+            "sha256": "8ebf86c82f0438042190eed951dd57979fd4ce153f19a38999fd81e736d0558e",
+            "excerpt": "  8  class NextHourTCN(nn.Module):"
+          }
+        },
+        {
+          "before": "It predicts an increment",
+          "text": "Jump to src/nowcast_tcn.py:36 \u2192 forward(). Point at last + sd * self.head(inputs).",
+          "ref": {
+            "file": "src/nowcast_tcn.py",
+            "anchor": "return last+sd*self.head",
+            "start": 36,
+            "end": 36,
+            "sha256": "8ebf86c82f0438042190eed951dd57979fd4ce153f19a38999fd81e736d0558e",
+            "excerpt": " 36          return last+sd*self.head(inputs)[:,None]"
+          }
+        },
+        {
+          "before": "The final layer starts",
+          "text": "Scroll back to src/nowcast_tcn.py:17 \u2192 the two nn.init.zeros_ calls.",
+          "ref": {
+            "file": "src/nowcast_tcn.py",
+            "anchor": "nn.init.zeros_",
+            "start": 17,
+            "end": 17,
+            "sha256": "8ebf86c82f0438042190eed951dd57979fd4ce153f19a38999fd81e736d0558e",
+            "excerpt": " 17          nn.init.zeros_(self.head[-1].weight);nn.init.zeros_(self.head[-1].bias)"
+          }
+        },
+        {
+          "before": "The clock features",
+          "text": "Jump to src/nowcast_tcn.py:30 \u2192 forward(). Point at the timestamp-based future-feature loop.",
+          "ref": {
+            "file": "src/nowcast_tcn.py",
+            "anchor": "for j,period in enumerate(TIME_PERIODS)",
+            "start": 30,
+            "end": 30,
+            "sha256": "8ebf86c82f0438042190eed951dd57979fd4ce153f19a38999fd81e736d0558e",
+            "excerpt": " 30          for j,period in enumerate(TIME_PERIODS):"
+          }
+        }
+      ]
     },
     {
       "start": "3:50",
@@ -173,7 +356,50 @@
           "excerpt": " 40  def source_fit(train,val,cfg,seed,control,args,log):\n 41      set_seed(seed)\n 42      gen=torch.Generator().manual_seed(seed)\n 43      model=NextHourTCN(cfg)\n 44      opt=torch.optim.AdamW(model.parameters(),lr=.001,weight_decay=.0001)\n 45      sched=torch.optim.lr_scheduler.CosineAnnealingLR(opt,args.rounds,eta_min=1e-5)\n 46      key=cfg[\"columns\"].index(cfg[\"key\"])\n 47      baseline=quality(model,*val,key)\n 48      best,selected,score=copy.deepcopy(model.state_dict()),0,baseline[\"score\"]\n 49      hist=[{\"round\":0,**baseline,\"eligible\":True}]\n 50      for r in range(1,args.rounds+1):\n 51          model.train();ix=torch.randperm(len(train[0]),generator=gen)[:args.max_windows]\n 52          total=0.\n 53          for i in ix.split(256):\n 54              x,y=train[0][i],train[1][i]\n 55              loss=forecast_loss(model(x),y,x,key,control==\"turning\")\n 56              opt.zero_grad(set_to_none=True);loss.backward()\n 57              torch.nn.utils.clip_grad_norm_(model.parameters(),1.);opt.step()\n 58              total+=float(loss.detach())*len(i)/len(ix)\n 59          sched.step();q=quality(model,*val,key)\n 60          eligible=q[\"MSE\"]<=1.05*baseline[\"MSE\"]\n 61          hist.append({\"round\":r,\"train_loss\":total,**q,\"eligible\":eligible})\n 62          if eligible and q[\"score\"]<score:best,selected,score=copy.deepcopy(model.state_dict()),r,q[\"score\"]\n 63          log(f\"{control} r={r} source_val={q['MSE']:.6f} key={q['key_MSE']:.6f} selected={selected}\")\n 64      model.load_state_dict(best)\n 65      return model.eval(),{\"selected_round\":selected,\"score\":score,\"history\":hist}"
         }
       ],
-      "essential": "AdamW and cosine decay; source validation selects checkpoints; training is not part of the recording."
+      "essential": "AdamW and cosine decay; source validation selects checkpoints; training is not part of the recording.",
+      "cues": [
+        {
+          "before": "Source training",
+          "text": "Switch to src/nowcast_train.py:40 \u2192 source_fit(). Point at AdamW and the cosine scheduler.",
+          "ref": {
+            "file": "src/nowcast_train.py",
+            "anchor": "def source_fit",
+            "start": 40,
+            "end": 40,
+            "sha256": "d3a1f8e4843a4baac862c91fa5091e75b3a2548b0b558d61a79d569a3110cb7a",
+            "excerpt": " 40  def source_fit(train,val,cfg,seed,control,args,log):"
+          }
+        },
+        {
+          "before": "We compare ordinary",
+          "text": "Scroll to src/nowcast_train.py:60 \u2192 source_fit() validation/eligibility checks and best checkpoint update.",
+          "ref": {
+            "file": "src/nowcast_train.py",
+            "anchor": "eligible=q[\"MSE\"]",
+            "start": 60,
+            "end": 60,
+            "sha256": "d3a1f8e4843a4baac862c91fa5091e75b3a2548b0b558d61a79d569a3110cb7a",
+            "excerpt": " 60          eligible=q[\"MSE\"]<=1.05*baseline[\"MSE\"]"
+          }
+        },
+        {
+          "before": "The recorded budget",
+          "text": "Stay in source_fit(); point at the sampled-window selection and training loop.",
+          "ref": {
+            "file": "src/nowcast_train.py",
+            "anchor": "model.train();ix=torch.randperm",
+            "start": 51,
+            "end": 51,
+            "sha256": "d3a1f8e4843a4baac862c91fa5091e75b3a2548b0b558d61a79d569a3110cb7a",
+            "excerpt": " 51          model.train();ix=torch.randperm(len(train[0]),generator=gen)[:args.max_windows]"
+          }
+        },
+        {
+          "before": "Ayush will now",
+          "text": "Handoff: Rishik finishes. Ayush takes over at 4:35; keep both face tiles visible.",
+          "ref": null
+        }
+      ]
     },
     {
       "start": "4:35",
@@ -206,7 +432,69 @@
           "excerpt": " 68  def adapt_fit(source,train,val,target_train_x,target_val_x,cfg,seed,args,log):\n 69      set_seed(seed+1000);gen=torch.Generator().manual_seed(seed+1000)\n 70      model=copy.deepcopy(source)\n 71      ref={n:p.detach().clone() for n,p in source.named_parameters()}\n 72      opt=torch.optim.AdamW(model.parameters(),lr=.0002,weight_decay=.0001)\n 73      sched=torch.optim.lr_scheduler.CosineAnnealingLR(opt,args.adapt_rounds,eta_min=1e-5)\n 74      key=cfg[\"columns\"].index(cfg[\"key\"])\n 75      xt,yt=within_input(target_train_x,model.C)\n 76      xv,yv=within_input(target_val_x,model.C)\n 77      bs,bt=quality(model,*val,key),quality(model,xv,yv,key)\n 78      best,selected,best_proxy=copy.deepcopy(model.state_dict()),0,1.\n 79      history=[{\"round\":0,\"source\":bs,\"target_input\":bt,\"proxy\":1.,\"eligible\":True}]\n 80      for r in range(1,args.adapt_rounds+1):\n 81          model.train();ix=torch.randperm(len(xt),generator=gen)[:args.max_windows]\n 82          si=torch.randint(len(train[0]),(len(ix),),generator=gen)\n 83          for i,j in zip(ix.split(256),si.split(256)):\n 84              anchor=torch.stack([(p-ref[n]).square().mean()/(ref[n].square().mean()+1e-4) for n,p in model.named_parameters()]).mean()\n 85              loss=forecast_loss(model(xt[i]),yt[i],xt[i],key,True)+.5*forecast_loss(model(train[0][j]),train[1][j],train[0][j],key,True)+.001*anchor\n 86              opt.zero_grad(set_to_none=True);loss.backward()\n 87              torch.nn.utils.clip_grad_norm_(model.parameters(),1.);opt.step()\n 88          sched.step();sv,tv=quality(model,*val,key),quality(model,xv,yv,key)\n 89          proxy=.5*sv[\"score\"]/bs[\"score\"]+.5*tv[\"score\"]/bt[\"score\"]\n 90          eligible=sv[\"MSE\"]<=1.1*bs[\"MSE\"] and sv[\"key_MSE\"]<=1.1*bs[\"key_MSE\"]\n 91          history.append({\"round\":r,\"source\":sv,\"target_input\":tv,\"proxy\":proxy,\"eligible\":eligible})\n 92          if eligible and proxy<best_proxy:best,selected,best_proxy=copy.deepcopy(model.state_dict()),r,proxy\n 93          log(f\"adapt r={r} source_val={sv['MSE']:.6f} input={tv['MSE']:.6f} proxy={proxy:.6f} selected={selected}\")\n 94      model.load_state_dict(best)\n 95      return model.eval(),{\"selected_round\":selected,\"proxy\":best_proxy,\"history\":history,\n 96                           \"target_future_labels_used_for_training_or_selection\":False}"
         }
       ],
-      "essential": "Practice labels are inside observed X; target original future Y stays excluded."
+      "essential": "Practice labels are inside observed X; target original future Y stays excluded.",
+      "cues": [
+        {
+          "before": "I am Ayush",
+          "text": "Ayush begins. Switch to src/nowcast_tcn.py:39 \u2192 within_input(). Keep this short function visible for the example.",
+          "ref": {
+            "file": "src/nowcast_tcn.py",
+            "anchor": "def within_input",
+            "start": 39,
+            "end": 39,
+            "sha256": "8ebf86c82f0438042190eed951dd57979fd4ce153f19a38999fd81e736d0558e",
+            "excerpt": " 39  def within_input(packed,channels):"
+          }
+        },
+        {
+          "before": "The final observed hour",
+          "text": "Point at src/nowcast_tcn.py:41: packed[:,:-1] is the predictor; packed[:,-1:] is the observed practice answer.",
+          "ref": {
+            "file": "src/nowcast_tcn.py",
+            "anchor": "return packed[:,:-1]",
+            "start": 41,
+            "end": 41,
+            "sha256": "8ebf86c82f0438042190eed951dd57979fd4ce153f19a38999fd81e736d0558e",
+            "excerpt": " 41      return packed[:,:-1],packed[:,-1:,:channels].detach()"
+          }
+        },
+        {
+          "before": "No original target forecast",
+          "text": "Switch to src/nowcast_train.py:68 \u2192 adapt_fit(). Point at target_train_x / target_val_x in its signature, then within_input().",
+          "ref": {
+            "file": "src/nowcast_train.py",
+            "anchor": "def adapt_fit",
+            "start": 68,
+            "end": 68,
+            "sha256": "d3a1f8e4843a4baac862c91fa5091e75b3a2548b0b558d61a79d569a3110cb7a",
+            "excerpt": " 68  def adapt_fit(source,train,val,target_train_x,target_val_x,cfg,seed,args,log):"
+          }
+        },
+        {
+          "before": "Its loss combines",
+          "text": "Scroll to src/nowcast_train.py:85 \u2192 the loss assignment. Point at target loss, +.5 source replay and +.001 anchor.",
+          "ref": {
+            "file": "src/nowcast_train.py",
+            "anchor": "loss=forecast_loss(model(xt[i])",
+            "start": 85,
+            "end": 85,
+            "sha256": "d3a1f8e4843a4baac862c91fa5091e75b3a2548b0b558d61a79d569a3110cb7a",
+            "excerpt": " 85              loss=forecast_loss(model(xt[i]),yt[i],xt[i],key,True)+.5*forecast_loss(model(train[0][j]),train[1][j],train[0][j],key,True)+.001*anchor"
+          }
+        },
+        {
+          "before": "Source validation guards",
+          "text": "Scroll to src/nowcast_train.py:90 \u2192 eligible and the best checkpoint update.",
+          "ref": {
+            "file": "src/nowcast_train.py",
+            "anchor": "eligible=sv[\"MSE\"]",
+            "start": 90,
+            "end": 90,
+            "sha256": "d3a1f8e4843a4baac862c91fa5091e75b3a2548b0b558d61a79d569a3110cb7a",
+            "excerpt": " 90          eligible=sv[\"MSE\"]<=1.1*bs[\"MSE\"] and sv[\"key_MSE\"]<=1.1*bs[\"key_MSE\"]"
+          }
+        }
+      ]
     },
     {
       "start": "5:40",
@@ -238,7 +526,57 @@
           "excerpt": " 10  def observed_regime(packed,channels):\n 11      x=packed[:,-48:,:channels]\n 12      current=x[:,-1]-x[:,-2]\n 13      previous=x[:,-2]-x[:,-3]\n 14      acceleration=current-previous\n 15      tau=torch.where(acceleration.abs()>1e-6,-current/acceleration,torch.full_like(current,float('inf')))\n 16      approaching=(tau>=0)&(tau<=3)\n 17      regime=torch.zeros_like(current,dtype=torch.long)\n 18      regime[(current>0)&(acceleration<0)&approaching]=1\n 19      regime[(current<0)&(acceleration>0)&approaching]=2\n 20      flat=(current.abs()<.05*x.std(1,unbiased=False).clamp_min(.05))|(current*previous<=0)\n 21      regime[flat]=3\n 22      return regime"
         }
       ],
-      "essential": "Five same-horizon experts; regimes use past values; weights form a convex mixture."
+      "essential": "Five same-horizon experts; regimes use past values; weights form a convex mixture.",
+      "cues": [
+        {
+          "before": "The final model",
+          "text": "Switch to src/peak_nowcast.py:46 \u2192 PeakNowcast.experts(). Point at the five entries in p.",
+          "ref": {
+            "file": "src/peak_nowcast.py",
+            "anchor": "def experts",
+            "start": 46,
+            "end": 46,
+            "sha256": "a6727ebfb980d8b01e3c2815ad90ab0c054bfdcd388e0e49065afb1cf9da35fb",
+            "excerpt": " 46      def experts(self,x):"
+          }
+        },
+        {
+          "before": "From the earlier",
+          "text": "Point at src/peak_nowcast.py:48 \u2192 [:,:1], which selects the first hour of the earlier head.",
+          "ref": {
+            "file": "src/peak_nowcast.py",
+            "anchor": "reference=self.reference.components",
+            "start": 48,
+            "end": 48,
+            "sha256": "a6727ebfb980d8b01e3c2815ad90ab0c054bfdcd388e0e49065afb1cf9da35fb",
+            "excerpt": " 48          reference=self.reference.components(x[...,:self.C])[:,:1]"
+          }
+        },
+        {
+          "before": "Nonnegative weights",
+          "text": "Scroll to src/peak_nowcast.py:55 \u2192 forward(). Point at regime-dependent weights and the weighted sum.",
+          "ref": {
+            "file": "src/peak_nowcast.py",
+            "anchor": "def forward(self,x)",
+            "start": 55,
+            "end": 55,
+            "sha256": "a6727ebfb980d8b01e3c2815ad90ab0c054bfdcd388e0e49065afb1cf9da35fb",
+            "excerpt": " 55      def forward(self,x):"
+          }
+        },
+        {
+          "before": "The regime uses",
+          "text": "Jump to src/peak_nowcast.py:10 \u2192 observed_regime(). Point at current, previous and acceleration.",
+          "ref": {
+            "file": "src/peak_nowcast.py",
+            "anchor": "def observed_regime",
+            "start": 10,
+            "end": 10,
+            "sha256": "a6727ebfb980d8b01e3c2815ad90ab0c054bfdcd388e0e49065afb1cf9da35fb",
+            "excerpt": " 10  def observed_regime(packed,channels):"
+          }
+        }
+      ]
     },
     {
       "start": "6:30",
@@ -279,7 +617,93 @@
           "excerpt": " 91          objective=lambda v:.5*ls(v)/bs+.5*lt(v)/bt+.001*np.sum((v-source)**2)\n 92          jac=lambda v:(gs@v-rs)/bs+(gt@v-rt)/bt+.002*(v-source)\n 93          adapted_bounds=[]\n 94          for r in range(4):\n 95              for j in range(5):adapted_bounds.append((source[r*5+j],source[r*5+j]) if min(ns[r],nt[r])<64 else (0,1))\n 96          fit=minimize(objective,source,jac=jac,bounds=adapted_bounds,method=\"SLSQP\",\n 97              constraints=constraints+[{\"type\":\"ineq\",\"fun\":lambda v:1.1*point_s-ms(v)},\n 98                                       {\"type\":\"ineq\",\"fun\":lambda v:1.05*point_t-mt(v)}],\n 99              options={\"ftol\":1e-11,\"maxiter\":700})\n100          adapted=normalize(fit.x)\n101          accepted=bool(fit.success and ms(adapted)<=1.1*point_s+1e-8 and mt(adapted)<=1.05*point_t+1e-8 and objective(adapted)<=objective(source)+1e-9)\n102          if not accepted:adapted=source\n103          source_mix.append(source.reshape(4,5));adapted_mix.append(adapted.reshape(4,5))\n104          records.append({\"channel\":channel,\"source_regime_counts\":ns.tolist(),\"target_input_regime_counts\":nt.tolist(),\n105              \"source_weights\":source.reshape(4,5).tolist(),\"adapted_weights\":adapted.reshape(4,5).tolist(),\n106              \"source_point_reference\":point_s,\"adapted_source_point\":ms(adapted),\n107              \"target_input_point_reference\":point_t,\"adapted_target_input_point\":mt(adapted),"
         }
       ],
-      "essential": "Observed episodes, event-sensitive loss and constrained frozen-expert calibration; no future-label regime features."
+      "essential": "Observed episodes, event-sensitive loss and constrained frozen-expert calibration; no future-label regime features.",
+      "cues": [
+        {
+          "before": "This collector",
+          "text": "Switch to src/peak_nowcast_train.py:31 \u2192 collect_episodes(). Point at input_windows, episode_prefix() and the observed tail.",
+          "ref": {
+            "file": "src/peak_nowcast_train.py",
+            "anchor": "def collect_episodes",
+            "start": 31,
+            "end": 31,
+            "sha256": "9e2b3e278500ff64a67c4938d1f650a6a7e017cfaeb773579eb8036db1ac40cf",
+            "excerpt": " 31  def collect_episodes(model,input_windows):"
+          }
+        },
+        {
+          "before": "The event objective",
+          "text": "Scroll up to src/peak_nowcast_train.py:26 \u2192 EVENT_WEIGHT=2 and RAMP_WEIGHT=.1.",
+          "ref": {
+            "file": "src/peak_nowcast_train.py",
+            "anchor": "EVENT_WEIGHT=2.",
+            "start": 26,
+            "end": 26,
+            "sha256": "9e2b3e278500ff64a67c4938d1f650a6a7e017cfaeb773579eb8036db1ac40cf",
+            "excerpt": " 26  EVENT_WEIGHT=2."
+          }
+        },
+        {
+          "before": "Historical extrema",
+          "text": "Jump to src/peak_nowcast_train.py:50 \u2192 design(). Point at y.argmax / y.argmin: these choose loss locations only.",
+          "ref": {
+            "file": "src/peak_nowcast_train.py",
+            "anchor": "w[i,y.argmax(1)]",
+            "start": 50,
+            "end": 50,
+            "sha256": "9e2b3e278500ff64a67c4938d1f650a6a7e017cfaeb773579eb8036db1ac40cf",
+            "excerpt": " 50      w[i,y.argmax(1)]+=EVENT_WEIGHT*h/2"
+          }
+        },
+        {
+          "before": "The final calibration",
+          "text": "Jump to src/peak_nowcast_train.py:96 \u2192 fit_weights(). Point at minimize(..., method=\"SLSQP\"); skip matrix algebra.",
+          "ref": {
+            "file": "src/peak_nowcast_train.py",
+            "anchor": "fit=minimize(objective",
+            "start": 96,
+            "end": 96,
+            "sha256": "9e2b3e278500ff64a67c4938d1f650a6a7e017cfaeb773579eb8036db1ac40cf",
+            "excerpt": " 96          fit=minimize(objective,source,jac=jac,bounds=adapted_bounds,method=\"SLSQP\","
+          }
+        },
+        {
+          "before": "It balances source",
+          "text": "Point at src/peak_nowcast_train.py:91 \u2192 objective: source/target event losses and source-weight anchor.",
+          "ref": {
+            "file": "src/peak_nowcast_train.py",
+            "anchor": "objective=lambda",
+            "start": 91,
+            "end": 91,
+            "sha256": "9e2b3e278500ff64a67c4938d1f650a6a7e017cfaeb773579eb8036db1ac40cf",
+            "excerpt": " 91          objective=lambda v:.5*ls(v)/bs+.5*lt(v)/bt+.001*np.sum((v-source)**2)"
+          }
+        },
+        {
+          "before": "Guards allow",
+          "text": "Point at src/peak_nowcast_train.py:97 \u2192 the two inequality constraints, 1.1 source and 1.05 target-input point error.",
+          "ref": {
+            "file": "src/peak_nowcast_train.py",
+            "anchor": "constraints=constraints+[{\"type\":\"ineq\",\"fun\":lambda v:1.1",
+            "start": 97,
+            "end": 97,
+            "sha256": "9e2b3e278500ff64a67c4938d1f650a6a7e017cfaeb773579eb8036db1ac40cf",
+            "excerpt": " 97              constraints=constraints+[{\"type\":\"ineq\",\"fun\":lambda v:1.1*point_s-ms(v)},"
+          }
+        },
+        {
+          "before": "Sparse regimes",
+          "text": "Point at src/peak_nowcast_train.py:95 \u2192 min(ns[r],nt[r])<64, then the if not accepted fallback below.",
+          "ref": {
+            "file": "src/peak_nowcast_train.py",
+            "anchor": "if min(ns[r],nt[r])<64",
+            "start": 95,
+            "end": 95,
+            "sha256": "9e2b3e278500ff64a67c4938d1f650a6a7e017cfaeb773579eb8036db1ac40cf",
+            "excerpt": " 95              for j in range(5):adapted_bounds.append((source[r*5+j],source[r*5+j]) if min(ns[r],nt[r])<64 else (0,1))"
+          }
+        }
+      ]
     },
     {
       "start": "7:45",
@@ -319,7 +743,57 @@
           "excerpt": "185      horizon = st.radio(\"Prediction type\",horizons,horizontal=True,key=f\"horizon_{ds}\",\n186                         format_func=lambda x:\"Next 5 trading days\" if ds==\"finance\" else \"Next hour\" if x==1 else \"Next 24 hours\",\n187                         help=\"This choice changes the trained model, number of forecast timestamps, historical evaluation and saved benchmark results.\")\n188      with st.sidebar:\n189          family = st.selectbox(\"Model\",options(ds,horizon),key=f\"model_{ds}_{horizon}\")\n190          domain = st.radio(\"Input domain\",[\"Domain 1 \u00b7 source\",\"Domain 2 \u00b7 target\"],index=1,key=\"input_domain\")\n191          role = \"source\" if domain.startswith(\"Domain 1\") else \"target\""
         }
       ],
-      "essential": "Mode selects a matching checkpoint; only preceding rows enter inference; actuals are for scoring."
+      "essential": "Mode selects a matching checkpoint; only preceding rows enter inference; actuals are for scoring.",
+      "cues": [
+        {
+          "before": "The app loads",
+          "text": "Switch to src/submission.py:26 \u2192 load_selected(). Point at the horizon/model dispatch.",
+          "ref": {
+            "file": "src/submission.py",
+            "anchor": "def load_selected",
+            "start": 26,
+            "end": 26,
+            "sha256": "d555a731f95bb3e10e3a9da025a8a3789b20eb1f0a085341f13e6b9c18e41f89",
+            "excerpt": " 26  def load_selected(ds, horizon, name):"
+          }
+        },
+        {
+          "before": "CSV validation",
+          "text": "Jump to src/submission.py:44 \u2192 read_input(). Point at the required columns and consecutive-hour validation.",
+          "ref": {
+            "file": "src/submission.py",
+            "anchor": "def read_input",
+            "start": 44,
+            "end": 44,
+            "sha256": "d555a731f95bb3e10e3a9da025a8a3789b20eb1f0a085341f13e6b9c18e41f89",
+            "excerpt": " 44  def read_input(file, ds):"
+          }
+        },
+        {
+          "before": "In predict_window,",
+          "text": "Jump to src/submission.py:72 \u2192 predict_window(). Point at values[origin-l:origin] and the prediction call before truth.",
+          "ref": {
+            "file": "src/submission.py",
+            "anchor": "def predict_window",
+            "start": 72,
+            "end": 72,
+            "sha256": "d555a731f95bb3e10e3a9da025a8a3789b20eb1f0a085341f13e6b9c18e41f89",
+            "excerpt": " 72  def predict_window(frame, meta, models, role, origin):"
+          }
+        },
+        {
+          "before": "Changing the prediction",
+          "text": "Switch to app/submission_app.py:185 \u2192 main(). Point at the Prediction type radio and its horizon options.",
+          "ref": {
+            "file": "app/submission_app.py",
+            "anchor": "horizon = st.radio",
+            "start": 185,
+            "end": 185,
+            "sha256": "42fd4948f04c117efdebefc9c0481450b9159eebe06137eb20fd3243952a686b",
+            "excerpt": "185      horizon = st.radio(\"Prediction type\",horizons,horizontal=True,key=f\"horizon_{ds}\","
+          }
+        }
+      ]
     },
     {
       "start": "8:35",
@@ -351,7 +825,55 @@
           "excerpt": " 18  def peak_metrics(truth, prediction):\n 19      y, p = np.asarray(truth), np.asarray(prediction)\n 20      index = np.arange(len(y))\n 21      high, low = y.argmax(1), y.argmin(1)\n 22      error = np.abs(p - y)\n 23      interior = np.ones_like(error, dtype=bool)\n 24      interior[index, high] = False\n 25      interior[index, low] = False\n 26      return {\"RMSE\": float(np.sqrt(np.mean((p-y)**2))), \"MAE\": float(error.mean()),\n 27              \"MAE_at_actual_peak\": float(error[index, high].mean()),\n 28              \"MAE_at_actual_trough\": float(error[index, low].mean()),\n 29              \"MAE_other_steps\": float(error[interior].mean()),\n 30              \"max_value_bias\": float((p.max(1)-y.max(1)).mean()),\n 31              \"min_value_bias\": float((p.min(1)-y.min(1)).mean()),\n 32              \"mean_level_bias\": float((p.mean(1)-y.mean(1)).mean()),\n 33              \"mean_actual_range\": float(np.ptp(y, axis=1).mean()),\n 34              \"mean_predicted_range\": float(np.ptp(p, axis=1).mean()),\n 35              \"mean_absolute_peak_timing_steps\": float(np.abs(p.argmax(1)-high).mean()),"
         }
       ],
-      "essential": "Physical-unit RMSE, matched horizons, event metrics, three-seed benchmarks and honest limitations."
+      "essential": "Physical-unit RMSE, matched horizons, event metrics, three-seed benchmarks and honest limitations.",
+      "cues": [
+        {
+          "before": "Global MSE",
+          "text": "Switch to src/metrics.py:24 \u2192 all_metrics(). Point at MSE/MAE over all variables.",
+          "ref": {
+            "file": "src/metrics.py",
+            "anchor": "def all_metrics",
+            "start": 24,
+            "end": 24,
+            "sha256": "39798db586616f26ab1bea257654b0be5b8adf4b381a79dd67ebaf52c2f37800",
+            "excerpt": " 24  def all_metrics(x, y, p, season, scaler=None, key_idx=None):"
+          }
+        },
+        {
+          "before": "Key-variable RMSE",
+          "text": "Stay in all_metrics(); point at the inverse scaling and key_RMSE calculation below.",
+          "ref": null
+        },
+        {
+          "before": "We separately measure",
+          "text": "Switch to src/diagnose_peaks.py:18 \u2192 peak_metrics(). Point at actual peak/trough indices and their errors.",
+          "ref": {
+            "file": "src/diagnose_peaks.py",
+            "anchor": "def peak_metrics",
+            "start": 18,
+            "end": 18,
+            "sha256": "add00ab9522e31cb6ddba1e8b447431ebc7756980f66cb36a021fd380776b8c2",
+            "excerpt": " 18  def peak_metrics(truth, prediction):"
+          }
+        },
+        {
+          "before": "The complete suite",
+          "text": "Switch to results/submission/validation.log:225 \u2192 the final test summary. Show 47 tests / OK; do not run the suite.",
+          "ref": {
+            "file": "results/submission/validation.log",
+            "anchor": "Ran 47 tests",
+            "start": 225,
+            "end": 225,
+            "sha256": "9379b3716c2dc00692c7b0583cea081cea863bdc3efbfc5938754b3ea7feae66",
+            "excerpt": "225  Ran 47 tests in 90.930s"
+          }
+        },
+        {
+          "before": "The app deploys",
+          "text": "Keep the saved test summary visible and finish the interpretation. No more file switches.",
+          "ref": null
+        }
+      ]
     }
   ],
   "demo_steps": [

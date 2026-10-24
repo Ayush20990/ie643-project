@@ -147,10 +147,125 @@ DEMO = [
 ]
 
 
+def cue(before, text, file=None, anchor=None):
+    """Attach an unspoken direction to an exact point in the existing narration."""
+    ref = focus(file, anchor, 1) if file else None
+    if ref:
+        text = text.replace('{location}', f'{file}:{ref["start"]}')
+    return dict(before=before, text=text, ref=ref)
+
+
+# Cues are separate from speech so they never inflate the spoken word count.
+# Resolve every source location on rebuild rather than maintaining line numbers.
+CODE_CUES = [
+    [cue('Hello,', 'Keep the IDE and both face tiles visible. Rishik begins.')],
+    [cue('The three domain pairs', 'Switch to {location} → DATASETS. Point at source/target, columns, L and H.',
+         'src/config.py', 'DATASETS ='),
+     cue('Finance predicts', 'Switch to {location} → ohlcv_to_features(). Point at the four feature formulas.',
+         'src/data_download.py', 'def ohlcv_to_features'),
+     cue('The original horizons', 'Return to {location} → DATASETS. Point at the L and H fields.',
+         'src/config.py', 'DATASETS =')],
+    [cue('We split', 'Switch to {location} → chrono_split(). Point at the chronological array slices.',
+         'src/data.py', 'def chrono_split'),
+     cue('Finance company', 'Stay in data.py; jump to {location} → series_list(). Point at grouping by series.',
+         'src/data.py', 'def series_list'),
+     cue('Each domain', 'Jump to {location} → prepare(). Point at Scaler.fit(parts["train"]).',
+         'src/data.py', 'scaler = Scaler.fit(parts["train"])'),
+     cue('In make_windows,', 'Jump to {location} → make_windows(). Point at xs.append(w[:, :L]) and ys.append(w[:, L:]).',
+         'src/data.py', 'def make_windows')],
+    [cue('This is the LiteTCN', 'Switch to {location} → LiteTCNForecaster.__init__(). Point at self.revin and self.enc.',
+         'src/model.py', 'class LiteTCNForecaster'),
+     cue('and the forecast combines', 'Jump to {location} → forward(). Point at the neural-head + linear-path addition.',
+         'src/model.py', 'yn = self.head(z)'),
+     cue('A reconstruction head', 'Return to {location} → self.recon in the constructor. Keep this explanation brief.',
+         'src/model.py', 'self.recon =')],
+    [cue('The new next-hour', 'Switch to {location} → NextHourTCN.__init__(). Point at context=48, width=32, H=1 and dilations (1,2,4).',
+         'src/nowcast_tcn.py', 'class NextHourTCN'),
+     cue('It predicts an increment', 'Jump to {location} → forward(). Point at last + sd * self.head(inputs).',
+         'src/nowcast_tcn.py', 'return last+sd*self.head'),
+     cue('The final layer starts', 'Scroll back to {location} → the two nn.init.zeros_ calls.',
+         'src/nowcast_tcn.py', 'nn.init.zeros_'),
+     cue('The clock features', 'Jump to {location} → forward(). Point at the timestamp-based future-feature loop.',
+         'src/nowcast_tcn.py', 'for j,period in enumerate(TIME_PERIODS)')],
+    [cue('Source training', 'Switch to {location} → source_fit(). Point at AdamW and the cosine scheduler.',
+         'src/nowcast_train.py', 'def source_fit'),
+     cue('We compare ordinary', 'Scroll to {location} → source_fit() validation/eligibility checks and best checkpoint update.',
+         'src/nowcast_train.py', 'eligible=q["MSE"]'),
+     cue('The recorded budget', 'Stay in source_fit(); point at the sampled-window selection and training loop.',
+         'src/nowcast_train.py', 'model.train();ix=torch.randperm'),
+     cue('Ayush will now', 'Handoff: Rishik finishes. Ayush takes over at 4:35; keep both face tiles visible.')],
+    [cue('I am Ayush', 'Ayush begins. Switch to {location} → within_input(). Keep this short function visible for the example.',
+         'src/nowcast_tcn.py', 'def within_input'),
+     cue('The final observed hour', 'Point at {location}: packed[:,:-1] is the predictor; packed[:,-1:] is the observed practice answer.',
+         'src/nowcast_tcn.py', 'return packed[:,:-1]'),
+     cue('No original target forecast', 'Switch to {location} → adapt_fit(). Point at target_train_x / target_val_x in its signature, then within_input().',
+         'src/nowcast_train.py', 'def adapt_fit'),
+     cue('Its loss combines', 'Scroll to {location} → the loss assignment. Point at target loss, +.5 source replay and +.001 anchor.',
+         'src/nowcast_train.py', 'loss=forecast_loss(model(xt[i])'),
+     cue('Source validation guards', 'Scroll to {location} → eligible and the best checkpoint update.',
+         'src/nowcast_train.py', 'eligible=sv["MSE"]')],
+    [cue('The final model', 'Switch to {location} → PeakNowcast.experts(). Point at the five entries in p.',
+         'src/peak_nowcast.py', 'def experts'),
+     cue('From the earlier', 'Point at {location} → [:,:1], which selects the first hour of the earlier head.',
+         'src/peak_nowcast.py', 'reference=self.reference.components'),
+     cue('Nonnegative weights', 'Scroll to {location} → forward(). Point at regime-dependent weights and the weighted sum.',
+         'src/peak_nowcast.py', 'def forward(self,x)'),
+     cue('The regime uses', 'Jump to {location} → observed_regime(). Point at current, previous and acceleration.',
+         'src/peak_nowcast.py', 'def observed_regime')],
+    [cue('This collector', 'Switch to {location} → collect_episodes(). Point at input_windows, episode_prefix() and the observed tail.',
+         'src/peak_nowcast_train.py', 'def collect_episodes'),
+     cue('The event objective', 'Scroll up to {location} → EVENT_WEIGHT=2 and RAMP_WEIGHT=.1.',
+         'src/peak_nowcast_train.py', 'EVENT_WEIGHT=2.'),
+     cue('Historical extrema', 'Jump to {location} → design(). Point at y.argmax / y.argmin: these choose loss locations only.',
+         'src/peak_nowcast_train.py', 'w[i,y.argmax(1)]'),
+     cue('The final calibration', 'Jump to {location} → fit_weights(). Point at minimize(..., method="SLSQP"); skip matrix algebra.',
+         'src/peak_nowcast_train.py', 'fit=minimize(objective'),
+     cue('It balances source', 'Point at {location} → objective: source/target event losses and source-weight anchor.',
+         'src/peak_nowcast_train.py', 'objective=lambda'),
+     cue('Guards allow', 'Point at {location} → the two inequality constraints, 1.1 source and 1.05 target-input point error.',
+         'src/peak_nowcast_train.py', 'constraints=constraints+[{"type":"ineq","fun":lambda v:1.1'),
+     cue('Sparse regimes', 'Point at {location} → min(ns[r],nt[r])<64, then the if not accepted fallback below.',
+         'src/peak_nowcast_train.py', 'if min(ns[r],nt[r])<64')],
+    [cue('The app loads', 'Switch to {location} → load_selected(). Point at the horizon/model dispatch.',
+         'src/submission.py', 'def load_selected'),
+     cue('CSV validation', 'Jump to {location} → read_input(). Point at the required columns and consecutive-hour validation.',
+         'src/submission.py', 'def read_input'),
+     cue('In predict_window,', 'Jump to {location} → predict_window(). Point at values[origin-l:origin] and the prediction call before truth.',
+         'src/submission.py', 'def predict_window'),
+     cue('Changing the prediction', 'Switch to {location} → main(). Point at the Prediction type radio and its horizon options.',
+         'app/submission_app.py', 'horizon = st.radio')],
+    [cue('Global MSE', 'Switch to {location} → all_metrics(). Point at MSE/MAE over all variables.',
+         'src/metrics.py', 'def all_metrics'),
+     cue('Key-variable RMSE', 'Stay in all_metrics(); point at the inverse scaling and key_RMSE calculation below.'),
+     cue('We separately measure', 'Switch to {location} → peak_metrics(). Point at actual peak/trough indices and their errors.',
+         'src/diagnose_peaks.py', 'def peak_metrics'),
+     cue('The complete suite', 'Switch to {location} → the final test summary. Show 47 tests / OK; do not run the suite.',
+         'results/submission/validation.log', 'Ran 47 tests'),
+     cue('The app deploys', 'Keep the saved test summary visible and finish the interpretation. No more file switches.')],
+]
+for code_step, cues in zip(CODE, CODE_CUES, strict=True):
+    code_step['cues'] = cues
+
+
+def script_html(s):
+    """Interleave visual directions without modifying the spoken narration."""
+    parts, cursor = [], 0
+    for c in s.get('cues', []):
+        position = s['speech'].find(c['before'], cursor)
+        if position < cursor:
+            raise ValueError(f'Missing or out-of-order inline cue: {c["before"]}')
+        parts.append('<span class="narration">'+html.escape(s['speech'][cursor:position])+'</span>')
+        parts.append('<span class="cue" aria-label="Unspoken screen direction">['+html.escape(c['text'])+']</span>')
+        cursor = position
+    parts.append('<span class="narration">'+html.escape(s['speech'][cursor:])+'</span>')
+    return ''.join(parts)
+
+
 PREP = {
     'code': [
         'Target 9:15 of planned content, leaving 45 seconds inside the maximum 10 minutes. Rishik speaks 0:00-4:35; Ayush speaks 4:35-9:15.',
         'Pin the files listed in the timeline before recording. Enable editor line numbers and use readable text, around 17-20 px. Ctrl+P opens a file; Ctrl+G jumps to the listed line.',
+        'Bracketed cues appear between the spoken lines. Follow them silently: switch files, jump to the indicated line, or point at the named function. They remain visible in Spoken lines only mode and in print; do not read them aloud.',
         'Record the IDE only, with both face tiles visible. Keep this guide on a second device, printout or non-shared screen. Read the spoken script; the click instructions are not narration.',
         'Rehearse once with the real mouse movements. The clock is a rehearsal aid, not a substitute for timing the exported recording.',
         'Do not run download, training or full tests during the video. Open the existing validation log and saved results. Focus on the displayed functions, not every loop or experiment file.',
@@ -186,6 +301,9 @@ STYLE = '''
 '''
 
 
+STYLE += '.cue{display:block;font:650 16px/1.55 system-ui,Segoe UI,sans-serif;color:#275f75;background:#eaf3f8;border-left:3px solid #4b8299;padding:9px 13px;margin:15px 0;white-space:normal}.large .cue{font-size:19px}@media print{.cue{font-size:10pt;background:#f1f5f7;break-after:avoid}}'
+
+
 def document(kind, steps):
     esc = html.escape
     title = 'Code walkthrough script' if kind == 'code' else 'Dashboard demo script'
@@ -199,10 +317,10 @@ def document(kind, steps):
         details = '<details><summary>Exact code to point at (verified against current files)</summary>'+''.join(refs)+'</details>' if refs else ''
         actions = ''.join(f'<li>{esc(a)}</li>' for a in s['actions'])
         words = len(s['speech'].split())
-        sections.append(f'''<section class="segment" id="s{i}" data-start="{s['start_seconds']}" data-end="{s['end_seconds']}" data-speaker="{s['speaker']}"><div class="meta">{s['start']}-{s['end']} · {s['speaker']}</div><h3>{esc(s['title'])}</h3><div class="actions"><strong>Do on screen</strong><ol>{actions}</ol></div><div class="say">{esc(s['speech'])}</div><div class="wordcount">Spoken text: {words} words. Read the paragraph, not the action list.</div>{'<p class="essential"><b>Keep this point:</b> '+esc(s['essential'])+'</p>' if s['essential'] else ''}{details}</section>''')
+        sections.append(f'''<section class="segment" id="s{i}" data-start="{s['start_seconds']}" data-end="{s['end_seconds']}" data-speaker="{s['speaker']}"><div class="meta">{s['start']}-{s['end']} · {s['speaker']}</div><h3>{esc(s['title'])}</h3><div class="actions"><strong>Do on screen</strong><ol>{actions}</ol></div><div class="say">{script_html(s)}</div><div class="wordcount">Spoken text: {words} words. Read the narration; bracketed cues and action lists are silent directions.</div>{'<p class="essential"><b>Keep this point:</b> '+esc(s['essential'])+'</p>' if s['essential'] else ''}{details}</section>''')
     prep = ''.join('<li>'+esc(a)+'</li>' for a in PREP[kind])
     cautions = ''.join('<li>'+esc(a)+'</li>' for a in CAUTIONS)
-    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DeepGen - {title}</title><style>{STYLE}</style></head><body><header><small>DEEPGEN · IE643 · RECORDING PREPARATION</small><h1>{title}</h1><p>Ayush Patel (23B0037) and Rishik Yadav (23B2103). A timed speaking plan with exact screen actions. Rehearse the explanation in your own voice.</p><nav><a href="{other}">Open the other video script</a><a href="#timeline">Speaker timeline</a><a href="#cautions">Important wording</a></nav></header><div class="toolbar"><span id="clock">00:00</span><button id="start">Start rehearsal</button><button id="reset">Reset</button><button onclick="document.body.classList.toggle('speech-only')">Spoken lines only</button><button onclick="document.body.classList.toggle('large')">Larger script</button><button onclick="window.print()">Print / save as PDF</button><span id="current">Ready</span></div><main><section class="intro prep"><h2>Before recording</h2><ol>{prep}</ol><p class="note">The timer highlights the current segment. Keep the guide off the recorded screen. These are scripts, not completed recordings or measured guarantees of speaking duration.</p></section><section class="intro" id="timeline"><h2>Who speaks when</h2><table><thead><tr><th>Time</th><th>Speaker</th><th>Show / explain</th></tr></thead><tbody>{rows}</tbody></table></section>{''.join(sections)}<section class="notes prep" id="cautions"><h2>Wording that keeps the explanation accurate</h2><ul>{cautions}</ul><p><b>If asked about earlier alternatives:</b> depth controls, Patch MLP / DLinear references and retained-TCN revisions are documented in the assessment guide. Explain the purpose of those experiments; do not open every training file in the ten-minute recording.</p><p><b>If asked about SLSQP:</b> it fits nonnegative mixture weights under sum-to-one and validation-error constraints. Neural AdamW adaptation and final mixture calibration are separate optimization stages.</p></section><footer>Generated from current source anchors and saved evidence on 23 October 2026. Rebuild with <code>python -m src.build_recording_guides</code>. Both recordings are per team. The code video maximum is 10 minutes; the demo is five minutes. Both members participate, and faces must be visible in the code walkthrough under the supplied assessment instructions.</footer></main><script>let elapsed=0,started=0,tick=null;const clock=document.getElementById('clock'),start=document.getElementById('start'),current=document.getElementById('current');const steps=[...document.querySelectorAll('.segment')];function draw(){{const s=elapsed+(tick?(Date.now()-started)/1000:0);clock.textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(Math.floor(s%60)).padStart(2,'0');let active=null;for(const e of steps){{const on=s>=Number(e.dataset.start)&&s<Number(e.dataset.end);e.classList.toggle('active',on);if(on)active=e;}}current.textContent=active?active.dataset.speaker+' · '+active.querySelector('h3').textContent:'Planned content finished / transition buffer';}}start.onclick=()=>{{if(tick){{elapsed+=(Date.now()-started)/1000;clearInterval(tick);tick=null;start.textContent='Resume rehearsal';}}else{{started=Date.now();tick=setInterval(draw,250);start.textContent='Pause';}}draw();}};document.getElementById('reset').onclick=()=>{{if(tick)clearInterval(tick);tick=null;elapsed=0;start.textContent='Start rehearsal';draw();current.textContent='Ready';}};</script></body></html>'''
+    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>DeepGen - {title}</title><style>{STYLE}</style></head><body><header><small>DEEPGEN · IE643 · RECORDING PREPARATION</small><h1>{title}</h1><p>Ayush Patel (23B0037) and Rishik Yadav (23B2103). A timed speaking plan with exact screen actions. Rehearse the explanation in your own voice.</p><nav><a href="{other}">Open the other video script</a><a href="#timeline">Speaker timeline</a><a href="#cautions">Important wording</a></nav></header><div class="toolbar"><span id="clock">00:00</span><button id="start">Start rehearsal</button><button id="reset">Reset</button><button onclick="document.body.classList.toggle('speech-only')">Spoken lines only</button><button onclick="document.body.classList.toggle('large')">Larger script</button><button onclick="window.print()">Print / save as PDF</button><span id="current">Ready</span></div><main><section class="intro prep"><h2>Before recording</h2><ol>{prep}</ol><p class="note">The timer highlights the current segment. Keep the guide off the recorded screen. These are scripts, not completed recordings or measured guarantees of speaking duration.</p></section><section class="intro" id="timeline"><h2>Who speaks when</h2><table><thead><tr><th>Time</th><th>Speaker</th><th>Show / explain</th></tr></thead><tbody>{rows}</tbody></table></section>{''.join(sections)}<section class="notes prep" id="cautions"><h2>Wording that keeps the explanation accurate</h2><ul>{cautions}</ul><p><b>If asked about earlier alternatives:</b> depth controls, Patch MLP / DLinear references and retained-TCN revisions are documented in the assessment guide. Explain the purpose of those experiments; do not open every training file in the ten-minute recording.</p><p><b>If asked about SLSQP:</b> it fits nonnegative mixture weights under sum-to-one and validation-error constraints. Neural AdamW adaptation and final mixture calibration are separate optimization stages.</p></section><footer>Generated from current source anchors and saved evidence on 24 October 2026. Rebuild with <code>python -m src.build_recording_guides</code>. Both recordings are per team. The code video maximum is 10 minutes; the demo is five minutes. Both members participate, and faces must be visible in the code walkthrough under the supplied assessment instructions.</footer></main><script>let elapsed=0,started=0,tick=null;const clock=document.getElementById('clock'),start=document.getElementById('start'),current=document.getElementById('current');const steps=[...document.querySelectorAll('.segment')];function draw(){{const s=elapsed+(tick?(Date.now()-started)/1000:0);clock.textContent=String(Math.floor(s/60)).padStart(2,'0')+':'+String(Math.floor(s%60)).padStart(2,'0');let active=null;for(const e of steps){{const on=s>=Number(e.dataset.start)&&s<Number(e.dataset.end);e.classList.toggle('active',on);if(on)active=e;}}current.textContent=active?active.dataset.speaker+' · '+active.querySelector('h3').textContent:'Planned content finished / transition buffer';}}start.onclick=()=>{{if(tick){{elapsed+=(Date.now()-started)/1000;clearInterval(tick);tick=null;start.textContent='Resume rehearsal';}}else{{started=Date.now();tick=setInterval(draw,250);start.textContent='Pause';}}draw();}};document.getElementById('reset').onclick=()=>{{if(tick)clearInterval(tick);tick=null;elapsed=0;start.textContent='Start rehearsal';draw();current.textContent='Ready';}};</script></body></html>'''
 
 
 def main():
@@ -217,7 +335,7 @@ def main():
     (out/'source_map.json').write_text(json.dumps({'code_steps':CODE,'demo_steps':DEMO},indent=2),encoding='utf-8')
     (out/'README.md').write_text('''# DeepGen recording scripts
 
-Open `CODE_WALKTHROUGH.html` and `DASHBOARD_DEMO.html` in a browser. Both work offline and include a rehearsal clock, speaker timeline, screen actions, spoken text and printable views. The code script also includes verified line references and excerpts.
+Open `CODE_WALKTHROUGH.html` and `DASHBOARD_DEMO.html` in a browser. Both work offline and include a rehearsal clock, speaker timeline, screen actions, spoken text and printable views. The code script also includes verified line references and excerpts, with bracketed file/function cues directly between the spoken lines. Follow the cues silently; do not read them aloud.
 
 - Code: Rishik 0:00-4:35; Ayush 4:35-9:15. Leave 45 seconds within the maximum ten minutes.
 - Demo: Ayush 0:00-2:30; Rishik 2:30-4:45. Reserve 15 seconds for transitions in the five-minute video.

@@ -10,7 +10,10 @@
     "source_references": 22,
     "html_links": "pass",
     "embedded_javascript": "syntax pass",
-    "source_hashes_and_excerpts": "pass"
+    "source_hashes_and_excerpts": "pass",
+    "inline_cues": 44,
+    "spoken_narration": "exactly preserved; cues excluded from word counts",
+    "inline_cue_source_locations": "verified against current file lines and SHA-256"
   },
   "DASHBOARD_DEMO.html": {
     "segments": 9,
@@ -23,6 +26,9 @@
     "source_references": 0,
     "html_links": "pass",
     "embedded_javascript": "syntax pass",
-    "source_hashes_and_excerpts": "pass"
+    "source_hashes_and_excerpts": "pass",
+    "inline_cues": 0,
+    "spoken_narration": "exactly preserved; cues excluded from word counts",
+    "inline_cue_source_locations": "verified against current file lines and SHA-256"
   }
 }
