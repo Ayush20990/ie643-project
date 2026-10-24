@@ -1,6 +1,6 @@
 # DeepGen recording scripts
 
-Open `CODE_WALKTHROUGH.html` and `DASHBOARD_DEMO.html` in a browser. Both work offline and include a rehearsal clock, speaker timeline, screen actions, spoken text and printable views. The code script also includes verified line references and excerpts, with bracketed file/function cues directly between the spoken lines. Follow the cues silently; do not read them aloud.
+Open `CODE_WALKTHROUGH.html` and `DASHBOARD_DEMO.html` in a browser. Both work offline and include a rehearsal clock, speaker timeline, screen actions, spoken text and printable views. The spoken paragraphs use plain language. Technical function names stay in the silent screen cues. The code script also includes verified line references and excerpts, with bracketed file/function cues directly between the spoken lines. Follow the cues silently; do not read them aloud.
 
 - Code: Rishik 0:00-4:35; Ayush 4:35-9:15. Leave 45 seconds within the maximum ten minutes.
 - Demo: Ayush 0:00-2:30; Rishik 2:30-4:45. Reserve 15 seconds for transitions in the five-minute video.
