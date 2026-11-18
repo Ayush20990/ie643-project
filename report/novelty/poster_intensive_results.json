@@ -1,0 +1,42 @@
+[
+  {
+    "dataset": "climate",
+    "horizon": 24,
+    "baseline": "seasonal_naive",
+    "baseline_RMSE": 1.5532299280166626,
+    "source_RMSE": 1.3917818864186604,
+    "adapted_RMSE": 1.2836026350657146
+  },
+  {
+    "dataset": "climate",
+    "horizon": 1,
+    "baseline": "persistence",
+    "baseline_RMSE": 1.2691768407821655,
+    "source_RMSE": 0.679114023844401,
+    "adapted_RMSE": 0.653009275595347
+  },
+  {
+    "dataset": "energy",
+    "horizon": 24,
+    "baseline": "seasonal_naive",
+    "baseline_RMSE": 4.769885540008545,
+    "source_RMSE": 4.179344018300374,
+    "adapted_RMSE": 3.9762393633524575
+  },
+  {
+    "dataset": "energy",
+    "horizon": 1,
+    "baseline": "persistence",
+    "baseline_RMSE": 1.3333747386932373,
+    "source_RMSE": 1.2652804056803386,
+    "adapted_RMSE": 0.915108323097229
+  },
+  {
+    "dataset": "finance",
+    "horizon": 5,
+    "baseline": "input_mean",
+    "baseline_RMSE": 1.0731295347213743,
+    "source_RMSE": 1.0668161710103352,
+    "adapted_RMSE": 1.0657524665196736
+  }
+]

@@ -108,7 +108,6 @@ def main():
  margin=55;gap=40;cw=(W-2*margin-gap)/2;xl=margin;xr=margin+cw+gap;yl=yr=HH-355
  yl=heading(c,'Abstract and motivation',xl,yl,cw)
  yl=drawp(c,'We transfer lightweight time-series predictors across weather, transformer and financial domains. Finance motivates a focused extension: forecast next-session range and five-session average range, then test whether feature alignment improves transfer from IT to pharma without target forecast labels.',xl,yl,cw)
- yl=drawp(c,'Daily price movements are noisy. Expected trading range is a useful measure of variability; averaging over five sessions offers an easier but explicitly different forecasting target.',xl,yl,cw)
  yl=heading(c,'Workflow',xl,yl-8,cw)
  for text in ['Intensive: three domains + LiteTCN / hybrid benchmarks','Diagnose weak finance performance and daily spikes','H1 range specialist -> matched baselines + old first step','H5 average-range task -> alignment ablations -> demo']:
   c.setFillColor(PALE);c.roundRect(xl,yl-50,cw,46,6,fill=1,stroke=0);drawp(c,text,xl+12,yl-10,cw-24,18);yl-=59
@@ -126,10 +125,28 @@ def main():
  yl-=101
  c.line(xl+bw/2,yl+3,xl+bw+24+bw/2,yl+3);c.line(xl+cw/2,yl+3,xl+cw/2,yl-6)
  c.setFillColor(PALE);c.roundRect(xl,yl-49,cw,44,6,fill=1,stroke=0);drawp(c,'Source-selected convex blend -> one range target',xl+12,yl-11,cw-24,18);yl-=57
- yl=drawp(c,'<b>2,449 neural parameters</b> versus 26,888 in the earlier full hybrid; the specialist has a narrower output task. Same scaling and blend for source and adapted comparisons. H1 predicts one daily range; H5 predicts the average of five future daily ranges.',xl,yl,cw,19)
+ yl=drawp(c,'<b>2,449 neural parameters</b> (earlier full hybrid: 26,888). Narrower outputs: H1 daily range; H5 five-session average.',xl,yl,cw,19)
  yl=heading(c,'Novelty assessment: controlled transfer',xl,yl-8,cw)
  yl=drawp(c,'<b>Adaptation loss</b><br/>Source forecast MSE + 0.1 MMD + 0.1 CORAL<br/>+ 0.01 source-weight anchor',xl,yl,cw,22)
- yl=drawp(c,'Only target training <b>inputs</b> enter alignment. Target forecast answers are excluded from fitting and selection. Source validation selects checkpoints and the blend. Compare source-only, replay-only, MMD, CORAL, both, ridge and naive baselines across three seeds.',xl,yl,cw,19)
+ yl=drawp(c,'Target training <b>inputs only</b>; source validation selects checkpoints and blend. Three seeds; source-only, replay, MMD, CORAL and baseline controls.',xl,yl,cw,19)
+ yl=heading(c,'Results: all three datasets (intensive)',xl,yl-8,cw)
+ intensive=[['Dataset / horizon','Baseline','Source','Adapted']]
+ evidence=[]
+ hourly=pd.read_csv(ROOT/'results/forecast_horizons/next_hour_headline.csv').set_index('dataset')
+ for ds,label,family in [('climate','Weather','strict_context'),('energy','Energy','strict_refined'),('finance','Finance','strict_refined')]:
+  saved=pd.read_csv(ROOT/f'results/{family}/{ds}/metrics_all.csv')
+  saved=saved[saved.domain=='target'].groupby('method')[['key_RMSE']].mean()
+  baseline='input_mean' if ds=='finance' else 'seasonal_naive'
+  values=[saved.loc[m,'key_RMSE'] for m in [baseline,'strict_source','strict_adapted']]
+  intensive.append([label+(' | 5 sessions' if ds=='finance' else ' | 24 h'),*[f'{v:.3f}' for v in values]])
+  evidence.append(dict(dataset=ds,horizon=5 if ds=='finance' else 24,baseline=baseline,baseline_RMSE=float(values[0]),source_RMSE=float(values[1]),adapted_RMSE=float(values[2])))
+  if ds!='finance':
+   row=hourly.loc[ds];values=[row[k] for k in ['persistence_key_RMSE','source_key_RMSE','adapted_key_RMSE']]
+   intensive.append([label+' | 1 h',*[f'{v:.3f}' for v in values]])
+   evidence.append(dict(dataset=ds,horizon=1,baseline='persistence',baseline_RMSE=float(values[0]),source_RMSE=float(values[1]),adapted_RMSE=float(values[2])))
+ (D/'poster_intensive_results.json').write_text(json.dumps(evidence,indent=2))
+ t=table(intensive,[cw*.37,cw*.21,cw*.21,cw*.21],15);_,ht=t.wrap(cw,1500);t.drawOn(c,xl,yl-ht);yl-=ht+12
+ yl=drawp(c,'Target-domain key RMSE; three-seed means. Weather: air temperature (C); energy: oil temperature (C); finance: 100 ln(High/Low). Baselines: seasonal naive (24 h), persistence (1 h), input mean (finance). Finance H5 here predicts five daily values, not their average.',xl,yl,cw,16)
  yr=heading(c,'Results: finance novelty phase',xr,yr,cw)
  rr=[['Target / model','RMSE','MAE']]
  for h in [1,5]:
@@ -141,8 +158,8 @@ def main():
   c.drawImage(str(file),xr,yr-height,width=cw,height=height);yr-=height+16
  yr=heading(c,'What improved, and what did not',xr,yr-5,cw)
  yr=drawp(c,f'H5 mean hybrid: <b>{gain(q,"Hybrid both","Persistence"):.1f}%</b> lower RMSE than persistence; <b>{gain(q,"Hybrid both","Mean 60"):.1f}%</b> lower than the 60-session mean. '+conclusion,xr,yr,cw,19)
- yr=heading(c,'Intensive-phase context',xr,yr-5,cw)
- yr=drawp(c,'Earlier H24 hybrid key RMSE: weather <b>1.2836 C</b>, energy <b>3.9762 C</b>. Earlier finance H5 range RMSE: <b>1.0658</b>. Matched H1 first-step RMSE of earlier adapted finance hybrid: <b>'+f'{legacy.loc["Earlier hybrid adapted_model","RMSE"]:.4f}</b>. On the matched H5 mean task, the earlier adapted model has RMSE <b>{legacy5.loc['Earlier hybrid adapted_model','RMSE']:.4f}</b> and MAE <b>{legacy5.loc['Earlier hybrid adapted_model','MAE']:.4f}</b>. The new model improves MAE, but not RMSE.',xr,yr,cw,18)
+ yr=heading(c,'Matched finance comparison',xr,yr-5,cw)
+ yr=drawp(c,f'On the same H5 mean task, the earlier adapted model has RMSE <b>{legacy5.loc["Earlier hybrid adapted_model","RMSE"]:.4f}</b> and MAE <b>{legacy5.loc["Earlier hybrid adapted_model","MAE"]:.4f}</b>. The new specialist improves MAE, but not RMSE. See the left table for the original three-dataset benchmarks.',xr,yr,cw,18)
  yr=heading(c,'Conclusions and future work',xr,yr-5,cw)
  yr=drawp(c,'The range specialist retains a compact TCN and improves on simple baselines. Development results do not establish universal alignment gains or trading profitability. Freeze the protocol, acquire a fresh later period, and evaluate stability using temporal blocks. Compare aggregation horizons before deployment.',xr,yr,cw,18)
  # Full-width footer kept separate from content.
