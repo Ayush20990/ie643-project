@@ -1,0 +1,17 @@
+{
+  "report_pages": 2,
+  "poster_pages": 1,
+  "poster_size_points": [
+    0.0,
+    0.0,
+    1683.780029296875,
+    2383.93701171875
+  ],
+  "poster_print_ready": false,
+  "missing_fields": [
+    "ayush_email",
+    "rishik_email",
+    "demo_url"
+  ],
+  "poster": "D:\\IE643_project\\report\\novelty\\DeepGen_IE643_CourseProject_Poster_DRAFT.pdf"
+}

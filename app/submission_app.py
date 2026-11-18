@@ -178,6 +178,10 @@ def main():
     st.caption("TEAM DEEPGEN · IE643 COURSE PROJECT")
     st.title("Forecasting across domains")
     st.write("Upload a multivariate time series, compare source and adapted forecasts, and inspect the evidence behind the results.")
+    if st.sidebar.checkbox("Novelty: next-session finance", key="novelty_mode"):
+        from app.novelty_finance_app import render
+        render()
+        return
     with st.sidebar:
         st.header("Forecast setup")
         ds = st.selectbox("Dataset",list(DATASETS),key="dataset",format_func=lambda x:{"climate":"Climate · Shimla → Delhi","energy":"Energy · ETTh1 → ETTh2","finance":"Finance · IT → Pharma"}[x])

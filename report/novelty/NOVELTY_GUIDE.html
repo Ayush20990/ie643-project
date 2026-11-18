@@ -1,0 +1,219 @@
+<!doctype html><html><head><meta charset="utf-8"><title>DeepGen recovery and novelty guide</title><style>body{font:18px/1.65 system-ui;color:#173344;background:#f2f6f8;margin:0}main{max-width:1050px;margin:35px auto;background:white;padding:48px;border-radius:18px}h1,h2{color:#167e76}table{border-collapse:collapse;width:100%;font-size:15px}td,th{padding:8px;border-bottom:1px solid #cdd; text-align:left}pre{background:#eaf3f4;padding:18px;overflow:auto}img{max-width:100%}.note{background:#fff1d7;padding:16px}a{color:#12697a}</style></head><body><main><h1>DeepGen: recovered project and novelty experiments</h1><p>Restored to <b>D:\IE643_project</b> from GitHub commit 3b929229be7739819d76702616f4d8410753af68. The recovery includes only files pushed to GitHub. Some later local study-guide edits were absent; this document explains the recovered and new work.</p><h2>1. What changed?</h2><p>The intensive project remains available: weather and energy at 24 hours and rolling next hour; finance at five sessions with four forecast variables. The novelty page adds two specialized finance tasks. H1 predicts tomorrow's range. H5 mean predicts the average of the next five daily ranges. Both keep multivariate inputs and transfer from IT to pharma.</p><p>Range = 100 ln(High / Low). For example, High = 102 and Low = 100 gives approximately 1.98. This describes trading variability, not whether the stock will rise. A five-day average reduces individual-day noise, but its lower absolute error cannot by itself prove a better model.</p><h2>2. Training from scratch</h2><p>Each company's first 70% is training, next 10% validation and final 20% test. Training and validation select source models using IT answers. At every origin, only the previous 60 sessions form the input. Targets never cross split boundaries. A 60-session range mean scales returns, gaps and range; volume is normalized within the observed window.</p><p>The causal TCN has 2,449 weights (the earlier full finance hybrid has 26,888 neural weights; the specialist forecasts a narrower target), a 4-to-16 input projection, three residual convolution layers with dilations 1, 2 and 4, and a linear prediction head. The convolutions see 15 recent positions; the normalization statistics summarize all 60. The head predicts a correction to the last five-session average, and outputs are constrained positive. Source training minimizes MSE in original range units.</p><p>The linear branch uses averages over 1, 5, 20 and 60 sessions, standard deviations, absolute returns and gaps. It has 14 coefficients fitted by ridge regression. Its multi-scale motivation resembles HAR, but the input is daily range rather than the original realized-volatility target. A weight chosen from 0, .25, .5, .75 and 1 combines its prediction with the TCN using source validation only.</p><h2>3. What does adaptation use?</h2><p>Source replay MSE + 0.1 MMD + 0.1 CORAL + 0.01 source-weight penalty. Source replay keeps the model useful on IT. MMD matches feature distributions; CORAL matches feature covariances. The penalty discourages moving too far from the saved source weights. No pharma forecast answers or historical tail regression pairs enter this new procedure.</p><p>Only pharma training input windows are used for alignment. Source validation selects the checkpoint, with the original checkpoint included as a fallback. We also train replay-only, MMD-only and CORAL-only variants. The same source-selected mixture weight is used across all these comparisons.</p><h2>4. Measured results</h2><h3>Next-session range</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RMSE</th>
+      <th>MAE</th>
+      <th>MSE</th>
+    </tr>
+    <tr>
+      <th>method</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>HAR</th>
+      <td>1.03887</td>
+      <td>0.70747</td>
+      <td>1.07926</td>
+    </tr>
+    <tr>
+      <th>Hybrid both</th>
+      <td>1.03447</td>
+      <td>0.70504</td>
+      <td>1.07014</td>
+    </tr>
+    <tr>
+      <th>Hybrid coral</th>
+      <td>1.03447</td>
+      <td>0.70504</td>
+      <td>1.07014</td>
+    </tr>
+    <tr>
+      <th>Hybrid mmd</th>
+      <td>1.03447</td>
+      <td>0.70504</td>
+      <td>1.07014</td>
+    </tr>
+    <tr>
+      <th>Hybrid replay</th>
+      <td>1.03447</td>
+      <td>0.70504</td>
+      <td>1.07014</td>
+    </tr>
+    <tr>
+      <th>Hybrid source</th>
+      <td>1.03447</td>
+      <td>0.70504</td>
+      <td>1.07014</td>
+    </tr>
+    <tr>
+      <th>Mean 20</th>
+      <td>1.08148</td>
+      <td>0.74803</td>
+      <td>1.16960</td>
+    </tr>
+    <tr>
+      <th>Mean 5</th>
+      <td>1.10159</td>
+      <td>0.76014</td>
+      <td>1.21351</td>
+    </tr>
+    <tr>
+      <th>Mean 60</th>
+      <td>1.06748</td>
+      <td>0.74089</td>
+      <td>1.13950</td>
+    </tr>
+    <tr>
+      <th>Persistence</th>
+      <td>1.30309</td>
+      <td>0.90205</td>
+      <td>1.69805</td>
+    </tr>
+    <tr>
+      <th>TCN both</th>
+      <td>1.03652</td>
+      <td>0.70825</td>
+      <td>1.07438</td>
+    </tr>
+    <tr>
+      <th>TCN coral</th>
+      <td>1.03652</td>
+      <td>0.70825</td>
+      <td>1.07438</td>
+    </tr>
+    <tr>
+      <th>TCN mmd</th>
+      <td>1.03652</td>
+      <td>0.70825</td>
+      <td>1.07438</td>
+    </tr>
+    <tr>
+      <th>TCN replay</th>
+      <td>1.03652</td>
+      <td>0.70825</td>
+      <td>1.07438</td>
+    </tr>
+    <tr>
+      <th>TCN source</th>
+      <td>1.03652</td>
+      <td>0.70825</td>
+      <td>1.07438</td>
+    </tr>
+  </tbody>
+</table><img src="../../results/novelty_finance/comparison.png"><h3>Average range over the next five sessions</h3><table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>RMSE</th>
+      <th>MAE</th>
+      <th>MSE</th>
+    </tr>
+    <tr>
+      <th>method</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>HAR</th>
+      <td>0.63760</td>
+      <td>0.46887</td>
+      <td>0.40653</td>
+    </tr>
+    <tr>
+      <th>Hybrid both</th>
+      <td>0.62899</td>
+      <td>0.46141</td>
+      <td>0.39563</td>
+    </tr>
+    <tr>
+      <th>Hybrid coral</th>
+      <td>0.62898</td>
+      <td>0.46141</td>
+      <td>0.39562</td>
+    </tr>
+    <tr>
+      <th>Hybrid mmd</th>
+      <td>0.62898</td>
+      <td>0.46140</td>
+      <td>0.39562</td>
+    </tr>
+    <tr>
+      <th>Hybrid replay</th>
+      <td>0.62897</td>
+      <td>0.46140</td>
+      <td>0.39561</td>
+    </tr>
+    <tr>
+      <th>Hybrid source</th>
+      <td>0.62951</td>
+      <td>0.46164</td>
+      <td>0.39629</td>
+    </tr>
+    <tr>
+      <th>Mean 20</th>
+      <td>0.67785</td>
+      <td>0.50387</td>
+      <td>0.45947</td>
+    </tr>
+    <tr>
+      <th>Mean 5</th>
+      <td>0.76224</td>
+      <td>0.55699</td>
+      <td>0.58101</td>
+    </tr>
+    <tr>
+      <th>Mean 60</th>
+      <td>0.63393</td>
+      <td>0.46686</td>
+      <td>0.40187</td>
+    </tr>
+    <tr>
+      <th>Persistence</th>
+      <td>1.10350</td>
+      <td>0.77652</td>
+      <td>1.21770</td>
+    </tr>
+    <tr>
+      <th>TCN both</th>
+      <td>0.63000</td>
+      <td>0.46178</td>
+      <td>0.39690</td>
+    </tr>
+    <tr>
+      <th>TCN coral</th>
+      <td>0.62999</td>
+      <td>0.46177</td>
+      <td>0.39689</td>
+    </tr>
+    <tr>
+      <th>TCN mmd</th>
+      <td>0.62998</td>
+      <td>0.46177</td>
+      <td>0.39689</td>
+    </tr>
+    <tr>
+      <th>TCN replay</th>
+      <td>0.62998</td>
+      <td>0.46176</td>
+      <td>0.39688</td>
+    </tr>
+    <tr>
+      <th>TCN source</th>
+      <td>0.63091</td>
+      <td>0.46212</td>
+      <td>0.39806</td>
+    </tr>
+  </tbody>
+</table><img src="../../results/novelty_finance_mean5/comparison.png"><img src="../../results/novelty_finance_mean5/forecast.png"><p class="note">Combined alignment changed H5 hybrid RMSE by 0.08% relative to source-only. Replay-only is slightly better than combined alignment (H5 RMSE 0.628974 vs 0.628986); there is no demonstrated alignment-specific gain. Never describe baseline improvement or a shorter/easier task as an adaptation improvement. H1 was evaluated before the H5-mean extension was designed. The old test period was already inspected during project development.</p><p>Matched old-hybrid H5 mean: RMSE 0.6212, MAE 0.4844. It retains better RMSE; the specialist improves MAE. Temporal-block analysis does not establish a reliable H5 gain over the 60-session mean. See results/novelty_finance_mean5/block_uncertainty.csv.</p><h2>5. What did the intensive models contain?</h2><p>The earlier H24/finance hybrid combines ridge, Patch MLP and DLinear branches, source/adapted variants and simple mean forecasts. The weather/energy hourly system combines a small causal LiteTCN, local dynamics and earlier-model first-step forecasts with persistence. Historical target values supplied auxiliary forecasting/calibration answers there. That differs from the new finance alignment experiment, which uses target feature distributions without target prediction labels.</p><p>Retained LiteTCN and boosted LiteTCN were additional experiments; the earlier H24 hybrid remained stronger on key RMSE. See the recovered <a href="../IE643_ASSESSMENT_GUIDE.html">complete intensive guide</a> for the original evidence. The new range specialist does not replace all those models.</p><h2>6. Launch and reproduce</h2><pre>cd /d D:\IE643_project
+python -m streamlit run app/app.py --server.address 127.0.0.1 --server.port 8502</pre><p>Or double-click START_DASHBOARD.bat. Open http://127.0.0.1:8502 and enable <b>Novelty: next-session finance</b> in the sidebar. Select next-session or five-session-average range. Upload one company CSV, or use a built-in example. The app never retrains from the upload. A live forecast has no actual value; historical evaluation displays actuals and metrics.</p><pre>python -m src.novelty_finance --horizon 1
+python -m src.novelty_finance --horizon 5
+python -m src.novelty_finance_legacy
+python -m src.build_novelty_documents</pre><h2>7. Submission requirements</h2><p>Poster: A1 print plus PDF. Report: at most two pages. Deadline: 22 November 2026, 11:59 PM IST. Attend the allocated in-person slot on 23 or 25 November. The poster needs member emails, IITB/course logos, project sections, novelty experiments, results, acknowledgements and GitHub/demo links.</p><p>Edit <b>report/novelty/poster_details.json</b> with the actual emails and demo URL, then rebuild. Until these are supplied the poster is explicitly marked DRAFT. Check links and your assigned presentation slot before submission.</p><h2>8. Speech-ready explanation</h2><blockquote>Our earlier finance model found daily movements difficult. We therefore studied a narrower target: the daily trading range, and then its average over five sessions. We combined a small causal TCN with a multi-scale linear predictor. We also tested MMD and CORAL using target inputs only, with replay-only controls. We report the simpler-task gains separately from adaptation gains, including cases where source validation keeps the original model.</blockquote><h2>9. Likely questions</h2><p><b>Is changing the task itself a novel algorithm?</b> No. It is an experimentally evaluated task reformulation. The model combination, scale handling and controlled adaptation study are project design choices built from established methods.</p><p><b>Is a five-session average a five-step trajectory?</b> No. It is one value summarizing five future daily ranges. The original five-step multivariate model is still available separately.</p><p><b>Does alignment necessarily help?</b> No. It can remove meaningful domain differences, and source-validation selection can reject useful or harmful target changes. This study does not prove unseen target improvement.</p><p><b>Why so much residual error?</b> News-driven spikes are not contained in the past price/volume inputs. Averaging reduces some noise but does not make the future deterministic.</p><p><b>What is missing before print?</b> Confirm actual email addresses and the demo-video link in the poster settings. The current PDF is a review draft if those fields are blank.</p></main></body></html>

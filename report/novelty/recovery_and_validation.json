@@ -1,0 +1,93 @@
+{
+  "recovered_from": "https://github.com/Ayush20990/ie643-project",
+  "recovery_commit": "3b929229be7739819d76702616f4d8410753af68",
+  "workspace": "D:\\IE643_project",
+  "branch": "novelty-finance-20261118",
+  "date": "2026-11-18",
+  "python": "3.13.2",
+  "packages": {
+    "torch": "2.6.0",
+    "numpy": "2.2.4",
+    "pandas": "2.2.3",
+    "scipy": "1.15.2",
+    "matplotlib": "3.10.1",
+    "streamlit": "1.64.0",
+    "reportlab": "5.1.0",
+    "pypdf": "6.19.0",
+    "PyMuPDF": "1.28.2"
+  },
+  "sha256": {
+    "src\\novelty_figures.py": "5f913c658b956e6a733365b96ab4c612dde4a3e31b93710c12da9c0015a28c87",
+    "src\\novelty_finance.py": "a0d919fcfbd97d8f75df0c943dbfb4012701fdbe67694d009209bca647edd64c",
+    "src\\novelty_finance_legacy.py": "0b97c0bc46ed9b1fa4c0b75ccfa96065d2a70003cf000caed28a1a98df32d369",
+    "src\\novelty_uncertainty.py": "581c11ca9c543129835057416f961076bbf18561191148aaa91c6c8574434966",
+    "src\\build_novelty_documents.py": "298371528a76cee3ad6436e2939ccf4479d32b4af19252e4ae23a5466fbc3b30",
+    "app\\novelty_finance_app.py": "aed058959b3023f1d37a11532745f29ad5c9fc8a7b4bfa0c31292ca6973812cf",
+    "models\\novelty_finance\\seed_0.json": "7f351215538680749a55133e750e458259252e05652cbeb06caba5972eaf17a9",
+    "models\\novelty_finance\\seed_0_both.pt": "8ebf3c531a0a6505f8a7c4e9bdbcfcac3f24334f4c6e492ad2f4f355a0bacbd6",
+    "models\\novelty_finance\\seed_0_coral.pt": "c876b2008acd3eaba18ab9a2aad23634a93d57ed3e48c46fb6fd1ebeca576785",
+    "models\\novelty_finance\\seed_0_mmd.pt": "8c9b950c1f23b6cbbe7cf35fd9b245a4c0ebeb35b07f4f982fa6156677205e24",
+    "models\\novelty_finance\\seed_0_replay.pt": "3fd12265646906af09496fe6d154f1375a3f7149baea466872436b58ff5b67be",
+    "models\\novelty_finance\\seed_0_source.pt": "288247ff9c8e7d4e5b14b7ddaaf3e95ee618cb1d58c82a0b3ee234ff02d9348b",
+    "models\\novelty_finance\\seed_1.json": "c8b2c704b2968b7d5dd366b8afe259faa6fba4866f64644c6bffeea79a96b61b",
+    "models\\novelty_finance\\seed_1_both.pt": "444051ea64fd28043b6bed85730f3ea2c9b8c4cf65c9b09b5e1e5f4c79da7733",
+    "models\\novelty_finance\\seed_1_coral.pt": "031970d56aa980fe35c3b4829ac5b3c51fe2cdb05b26aa0aabf964028477cfe1",
+    "models\\novelty_finance\\seed_1_mmd.pt": "db31c374f5b5ebb5bffdad425517e40a6396f86e032ce006302556bd10b444ac",
+    "models\\novelty_finance\\seed_1_replay.pt": "b71c282647af96e1e3d54f7fb41205016228bf73960c75cf3cdafd5373099c42",
+    "models\\novelty_finance\\seed_1_source.pt": "dd7507fe5c6f14ae70fde4c3d0841c1086230e0b56e17f5f4d7c81d54ff77132",
+    "models\\novelty_finance\\seed_2.json": "caf62b6d19b38ee33ed1ab74de8e284852c1d51a19b96d42eefe9704bd0ebdd2",
+    "models\\novelty_finance\\seed_2_both.pt": "442592d30ce21d8e09a92f2d208720203d7d0121b1e3786a2b7d19236f35c6c7",
+    "models\\novelty_finance\\seed_2_coral.pt": "1e1dd4a77340aacee9784ed0c3aec8ec58f5abc7c4979c6b3c5dd11904765dd6",
+    "models\\novelty_finance\\seed_2_mmd.pt": "06c27e6da7dc315e4a6328e17e92718b4748022af34d65db89764838fb527c0b",
+    "models\\novelty_finance\\seed_2_replay.pt": "0ab4b4453a84edde27c1e3b61819f3d8db332aa0d6656aaa005f27ccdddd21c3",
+    "models\\novelty_finance\\seed_2_source.pt": "4468ce6e836c793390952de068e82ede3da5723f1e080fe9f765ada27cc4af44",
+    "models\\novelty_finance_mean5\\seed_0.json": "851dbbc7f3498e4ea6707eed7dd78772bcd72634bfb82eab5a56cac5817d68e9",
+    "models\\novelty_finance_mean5\\seed_0_both.pt": "f40196130499ac0a8169e8f59f7d9aba0c5783d8a2fe788889023bfed5cf7311",
+    "models\\novelty_finance_mean5\\seed_0_coral.pt": "05d41b05745d99a812160e769ef2d3527c6cf22af5e0c0d279f4f4588550096a",
+    "models\\novelty_finance_mean5\\seed_0_mmd.pt": "52debe7a8b3a1fcf6644eda0cd56462d76ac678f6b8876579275701f987b264a",
+    "models\\novelty_finance_mean5\\seed_0_replay.pt": "2d1bc1db63473ca7ec81147c685e7101be18e3c2b49dbdf5083a158a1e85c6a3",
+    "models\\novelty_finance_mean5\\seed_0_source.pt": "e0a1c9c0790558d2e5c9d95b1fbcd1f6d5b7a139810658111dfdb8689233e6b2",
+    "models\\novelty_finance_mean5\\seed_1.json": "cc64c286da532b641d6811bdd32702936c0e8d4ae8e9fd81314c305d6eea5b84",
+    "models\\novelty_finance_mean5\\seed_1_both.pt": "b03d9eb2b1663d2a97e4c69af777a4bbdf7264ae8db149bfded67d09ead16da1",
+    "models\\novelty_finance_mean5\\seed_1_coral.pt": "b3a124ca3a5cb1bc7f24a429ed1ecf74ba519050ecddb1a4f31b4c13c11ea114",
+    "models\\novelty_finance_mean5\\seed_1_mmd.pt": "c6e5d87bf5c8cd2c6fd187acde71aa32f22c003bf3681bb62e511c520bfa544d",
+    "models\\novelty_finance_mean5\\seed_1_replay.pt": "bb26adfa274b630fdc2b07c05d41323e34483885236f616c4fe08b0a604aeef1",
+    "models\\novelty_finance_mean5\\seed_1_source.pt": "940e0809ec3802e83ccb263714ee24725571f7311fe2378fdb76e08f5e440fdd",
+    "models\\novelty_finance_mean5\\seed_2.json": "29f2564c7469f88e67962bc0795a8a2543c2b69bcd4dace5b5d8697599629855",
+    "models\\novelty_finance_mean5\\seed_2_both.pt": "a12d6c5d9887f4db0b46ebd6c0c5eeca800f6839c53fd00c16f7b5c3ca5d2e27",
+    "models\\novelty_finance_mean5\\seed_2_coral.pt": "8ea98f34174bd05e1036c30583bf4eec2acd65a17150fcceae7c4721e2e20808",
+    "models\\novelty_finance_mean5\\seed_2_mmd.pt": "5f37f6a2901f8e12ec1c5544299d821b5f4b6434fa85c293132735459062a406",
+    "models\\novelty_finance_mean5\\seed_2_replay.pt": "c042054c9ee9c578643bac66b7001315e0b166b406a0825e69e2a98e2710ddd6",
+    "models\\novelty_finance_mean5\\seed_2_source.pt": "4e56603e915af128c604f21e7512626320840d261777892aefe97ec805a730d8"
+  },
+  "checks": {
+    "restored_app_tests": 7,
+    "existing_UI_combinations": 36,
+    "novelty_tests": 6,
+    "novelty_UI_horizons": [
+      1,
+      5
+    ],
+    "browser_horizons_rendered": [
+      1,
+      5
+    ],
+    "dashboard_health": "200 ok"
+  },
+  "poster_pending": [
+    "Ayush email",
+    "Rishik email",
+    "demo video URL"
+  ],
+  "limitations": [
+    "Files never pushed were not recoverable from GitHub",
+    "Historical test periods previously inspected",
+    "No alignment-specific improvement over extra source replay",
+    "H5 mean specialist improves MAE but not RMSE versus earlier averaged hybrid"
+  ],
+  "model_size": {
+    "new_specialist_neural_parameters": 2449,
+    "earlier_full_finance_hybrid_neural_parameters": 26888,
+    "caveat": "Different output dimensionality and task; not a distillation experiment."
+  }
+}

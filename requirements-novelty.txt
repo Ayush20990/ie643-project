@@ -1,0 +1,5 @@
+# Existing project runtime plus optional novelty PDF tools
+-r requirements.txt
+reportlab>=4
+pypdf>=5
+PyMuPDF>=1.24

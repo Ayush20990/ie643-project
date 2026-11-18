@@ -1,3 +1,36 @@
+## Recovered workspace and novelty assessment (18 November 2026)
+
+The GitHub snapshot was restored to `D:\IE643_project`. Recovery baseline:
+`3b929229be7739819d76702616f4d8410753af68`. Files never pushed to GitHub cannot be restored from that snapshot.
+The original intensive models, datasets, reports and dashboard are retained.
+
+- Double-click **START_DASHBOARD.bat**, then open http://127.0.0.1:8502.
+- Enable **Novelty: next-session finance** in the sidebar. Choose next-session range or the average range over five sessions.
+- Read [the novelty/recovery guide](report/novelty/NOVELTY_GUIDE.html).
+- Submission: [two-page report](report/novelty/DeepGen_IE643_NoveltyAssessment_report.pdf) and [A1 poster draft](report/novelty/DeepGen_IE643_CourseProject_Poster_DRAFT.pdf).
+- Complete member emails and the demo link in `report/novelty/poster_details.json` before rebuilding/printing the poster.
+
+### New finance experiments
+
+The output is `100 * ln(High / Low)`, or its mean over five future trading sessions. This is a volatility/range task, not a stock-price or profit forecast. The new compact TCN/ridge hybrid uses multivariate 60-session histories. MMD/CORAL adaptation uses only target training inputs; model selection uses source validation. Separate source replay, MMD and CORAL controls are saved.
+
+H1 range RMSE: hybrid **1.0345**, persistence **1.3031**, 60-session mean **1.0675**. The original hybrid's first step is nearly tied in RMSE. H5-mean hybrid RMSE: **0.6290**, persistence **1.1035**, 60-session mean **0.6339**. The original adapted hybrid averaged over five sessions is better in RMSE (**0.6212**) but worse in MAE (**0.4844** versus **0.4614**). Extra source replay explains the tiny H5 improvement over the new source-only model; alignment does not beat that control. The block-bootstrap interval for H5 gain over Mean 60 includes zero. These are development results on previously inspected dates.
+
+```powershell
+python -m src.novelty_finance --horizon 1
+python -m src.novelty_finance --horizon 5
+python -m src.novelty_finance_legacy --horizon 1
+python -m src.novelty_finance_legacy --horizon 5
+python -m src.novelty_uncertainty
+python -m src.novelty_figures
+python -m src.build_novelty_documents
+python -m unittest discover -s tests -p test_novelty_finance.py
+```
+
+Model checkpoints: `models/novelty_finance*`; protocols, logs, predictions and metrics: `results/novelty_finance*`. Optional document build dependencies: `requirements-novelty.txt`.
+
+---
+
 # Unsupervised Domain Adaptation for Multivariate Time-Series Forecasting
 *IE 643 Course Project*
 

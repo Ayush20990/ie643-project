@@ -1,0 +1,29 @@
+{
+  "task": "Mean high-low log range across next 5 session(s): mean(100*ln(High/Low))",
+  "horizon": 5,
+  "lookback": 60,
+  "split": [
+    0.7,
+    0.1,
+    0.2
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "source_epochs": 16,
+  "adaptation_epochs": 6,
+  "adaptation": "Source replay MSE + 0.1 MMD + 0.1 CORAL + 0.01 source-weight anchor",
+  "target_labels_used_for_training": false,
+  "target_labels_used_for_selection": false,
+  "selection": "Source validation only; same source-selected blend for all adaptation ablations",
+  "target_inputs": "Target training window inputs only. No target validation or test inputs used for fitting.",
+  "normalization": "Per-origin scale from 60 preceding range observations; identical source/target preprocessing",
+  "test_status": "Previously inspected 2022-2025 development period, not independent confirmation",
+  "comparison": "H1 range-only metrics cannot establish improvement over H5 multivariate MSE",
+  "input_sha256": {
+    "it.csv": "94bca94008e67d92640931d5154ccfcdff3a47cd6e6c9330011deccc7443a3d9",
+    "pharma.csv": "b78199c0ffcecd7ec25ae8b222471434362fe74532b0ecc32fc532cece686af1"
+  }
+}
