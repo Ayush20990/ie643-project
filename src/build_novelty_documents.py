@@ -104,7 +104,7 @@ def main():
   c.setFont('Helvetica',20);c.drawCentredString(W/2,HH-238-j*29,f'{name} | {roll} | '+(DETAILS[key] or 'EMAIL TO BE ADDED'))
  if not complete:
   c.setFillColor(colors.HexColor('#fff1d7'));c.rect(50,HH-321,W-100,35,fill=1,stroke=0)
-  c.setFillColor(INK);c.setFont('Helvetica-Bold',16);c.drawCentredString(W/2,HH-309,'REVIEW DRAFT: add member emails and demo-video link before printing')
+  c.setFillColor(INK);c.setFont('Helvetica-Bold',16);c.drawCentredString(W/2,HH-309,'REVIEW DRAFT: complete ' + ', '.join(label for key,label in [('ayush_email','Ayush email'),('rishik_email','Rishik email'),('demo_url','demo-video link')] if not DETAILS[key]) + ' before printing')
  margin=55;gap=40;cw=(W-2*margin-gap)/2;xl=margin;xr=margin+cw+gap;yl=yr=HH-355
  yl=heading(c,'Abstract and motivation',xl,yl,cw)
  yl=drawp(c,'We transfer lightweight time-series predictors across weather, transformer and financial domains. Finance motivates a focused extension: forecast next-session range and five-session average range, then test whether feature alignment improves transfer from IT to pharma without target forecast labels.',xl,yl,cw)

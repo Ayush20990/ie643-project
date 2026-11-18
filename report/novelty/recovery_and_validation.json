@@ -21,7 +21,7 @@
     "src\\novelty_finance.py": "a0d919fcfbd97d8f75df0c943dbfb4012701fdbe67694d009209bca647edd64c",
     "src\\novelty_finance_legacy.py": "0b97c0bc46ed9b1fa4c0b75ccfa96065d2a70003cf000caed28a1a98df32d369",
     "src\\novelty_uncertainty.py": "581c11ca9c543129835057416f961076bbf18561191148aaa91c6c8574434966",
-    "src\\build_novelty_documents.py": "298371528a76cee3ad6436e2939ccf4479d32b4af19252e4ae23a5466fbc3b30",
+    "src\\build_novelty_documents.py": "c665e1b70a1929212729d64c1b45b000b02ac393db87ac7e1c7a447af09cd8cb",
     "app\\novelty_finance_app.py": "aed058959b3023f1d37a11532745f29ad5c9fc8a7b4bfa0c31292ca6973812cf",
     "models\\novelty_finance\\seed_0.json": "7f351215538680749a55133e750e458259252e05652cbeb06caba5972eaf17a9",
     "models\\novelty_finance\\seed_0_both.pt": "8ebf3c531a0a6505f8a7c4e9bdbcfcac3f24334f4c6e492ad2f4f355a0bacbd6",
@@ -75,8 +75,6 @@
     "dashboard_health": "200 ok"
   },
   "poster_pending": [
-    "Ayush email",
-    "Rishik email",
     "demo video URL"
   ],
   "limitations": [
