@@ -154,8 +154,12 @@ def main():
    rr.append([f'H{h}'+(' mean' if h==5 else '')+' / '+n,f'{qs[h].loc[n,"RMSE"]:.3f}',f'{qs[h].loc[n,"MAE"]:.3f}'])
  t=table(rr,[cw*.58,cw*.21,cw*.21],18);_,ht=t.wrap(cw,2000);t.drawOn(c,xr,yr-ht);yr-=ht+18
  yr=drawp(c,'Range units: 100 ln(High / Low). Three-seed mean. Compare within each target; an easier target is not evidence of better adaptation.',xr,yr,cw,18)
- for file,height in [(paths[5]/'comparison.png',cw*.46),(paths[5]/'forecast.png',cw*.364)]:
-  c.drawImage(str(file),xr,yr-height,width=cw,height=height);yr-=height+16
+ from .novelty_poster_plots import build as build_poster_plots
+ examples=build_poster_plots()
+ yr=heading(c,'Forecast examples: all three datasets',xr,yr-5,cw)
+ from PIL import Image as PILImage
+ with PILImage.open(examples) as picture: height=cw*picture.height/picture.width
+ c.drawImage(str(examples),xr,yr-height,width=cw,height=height);yr-=height+16
  yr=heading(c,'What improved, and what did not',xr,yr-5,cw)
  yr=drawp(c,f'H5 mean hybrid: <b>{gain(q,"Hybrid both","Persistence"):.1f}%</b> lower RMSE than persistence; <b>{gain(q,"Hybrid both","Mean 60"):.1f}%</b> lower than the 60-session mean. '+conclusion,xr,yr,cw,19)
  yr=heading(c,'Matched finance comparison',xr,yr-5,cw)

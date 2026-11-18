@@ -21,7 +21,7 @@
     "src\\novelty_finance.py": "a0d919fcfbd97d8f75df0c943dbfb4012701fdbe67694d009209bca647edd64c",
     "src\\novelty_finance_legacy.py": "0b97c0bc46ed9b1fa4c0b75ccfa96065d2a70003cf000caed28a1a98df32d369",
     "src\\novelty_uncertainty.py": "581c11ca9c543129835057416f961076bbf18561191148aaa91c6c8574434966",
-    "src\\build_novelty_documents.py": "03675d7526a019ffef704428971b6f5b754805ffe70e194ce96e313f5ffdc4d3",
+    "src\\build_novelty_documents.py": "dc15417bc3d7a5fd562e7d2b3accb1aec71b7582d40d088403bab36ab301f9d9",
     "app\\novelty_finance_app.py": "aed058959b3023f1d37a11532745f29ad5c9fc8a7b4bfa0c31292ca6973812cf",
     "models\\novelty_finance\\seed_0.json": "7f351215538680749a55133e750e458259252e05652cbeb06caba5972eaf17a9",
     "models\\novelty_finance\\seed_0_both.pt": "8ebf3c531a0a6505f8a7c4e9bdbcfcac3f24334f4c6e492ad2f4f355a0bacbd6",
@@ -58,7 +58,8 @@
     "models\\novelty_finance_mean5\\seed_2_coral.pt": "8ea98f34174bd05e1036c30583bf4eec2acd65a17150fcceae7c4721e2e20808",
     "models\\novelty_finance_mean5\\seed_2_mmd.pt": "5f37f6a2901f8e12ec1c5544299d821b5f4b6434fa85c293132735459062a406",
     "models\\novelty_finance_mean5\\seed_2_replay.pt": "c042054c9ee9c578643bac66b7001315e0b166b406a0825e69e2a98e2710ddd6",
-    "models\\novelty_finance_mean5\\seed_2_source.pt": "4e56603e915af128c604f21e7512626320840d261777892aefe97ec805a730d8"
+    "models\\novelty_finance_mean5\\seed_2_source.pt": "4e56603e915af128c604f21e7512626320840d261777892aefe97ec805a730d8",
+    "src\\novelty_poster_plots.py": "096103affe8579149ebe73d829ab085449dacbd66f1ab7df5c75d9b6fc600fdd"
   },
   "checks": {
     "restored_app_tests": 7,
@@ -77,6 +78,11 @@
       "climate",
       "energy",
       "finance"
+    ],
+    "poster_forecast_plots": [
+      "climate rolling H1",
+      "energy rolling H1",
+      "finance mean H5"
     ]
   },
   "poster_pending": [

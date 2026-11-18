@@ -1,0 +1,31 @@
+[
+  {
+    "dataset": "climate",
+    "file": "results\\peak_next_hour\\climate\\rolling_forecasts.npz",
+    "seed": 0,
+    "start_origin": 0,
+    "count": 96,
+    "horizon": 1,
+    "inverse_scaler": "target_scaler"
+  },
+  {
+    "dataset": "energy",
+    "file": "results\\peak_next_hour\\energy\\rolling_forecasts.npz",
+    "seed": 0,
+    "start_origin": 0,
+    "count": 96,
+    "horizon": 1,
+    "inverse_scaler": "target_scaler"
+  },
+  {
+    "dataset": "finance",
+    "file": "results\\novelty_finance_mean5\\predictions.csv",
+    "seed": 0,
+    "series": "CIPLA.NS",
+    "count": 100,
+    "horizon": 5,
+    "target": "mean future high-low log range",
+    "first_date": "2022-10-17",
+    "last_date": "2023-03-09"
+  }
+]
